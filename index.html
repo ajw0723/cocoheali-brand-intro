@@ -1,0 +1,2689 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cocoheali | Brand Introduction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Gowun+Batang:wght@400;700&family=Fraunces:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lavender:#D9AFCA;
+    --lavender-soft:#EFE0EA;
+    --lavender-deep:#9C6A8C;
+    --ink:#2B2430;
+    --ink-soft:#6B6070;
+    --paper:#FBF7F8;
+    --white:#FFFFFF;
+    --line: rgba(43,36,48,0.14);
+    --mint:#D1E5DF;
+    --mint-shadow: rgba(140,181,166,0.5);
+    --oak:#F3ECDF;
+    --logo-purple:#B580D1;
+    --purple-strong:#6B4368;
+    --purple-ui:#8B5A83;
+    --purple-field:#9B6B9E;
+    --serif: 'Noto Serif KR','Nanum Myeongjo', Georgia, 'Times New Roman', serif;
+    --font-kr-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', sans-serif;
+    --font-en-base: 'Inter', var(--font-kr-base);
+    --font-kr-accent: 'Gowun Batang', serif;
+    --font-en-accent: 'Fraunces', serif;
+    --sans: var(--font-kr-base);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-kr-base);
+    word-break:keep-all;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--lavender-deep);
+    font-weight:600;
+    margin:0 0 18px;
+  }
+  h1,h2,h3{font-family:var(--serif); font-weight:600; margin:0; line-height:1.25;}
+  p{margin:0 0 1.1em; line-height:1.85; color:var(--ink-soft); font-size:15.5px;}
+  .draft-tag{
+    position:fixed; top:18px; right:18px; z-index:50;
+    background:var(--ink); color:var(--white);
+    font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+    padding:7px 12px; border-radius:100px; opacity:0.82;
+    font-family:var(--sans);
+  }
+
+  /* header */
+  header.top{
+    position:fixed; top:0; left:0; right:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px;
+    transition:background .3s ease, padding .3s ease, box-shadow .3s ease;
+  }
+  header.top.scrolled{
+    background:rgba(251,247,248,0.92);
+    backdrop-filter:blur(6px);
+    padding:12px 40px;
+    box-shadow:0 1px 0 var(--line);
+  }
+  header.top img{height:26px;}
+  header.top nav{font-size:11px; letter-spacing:0.18em; color:var(--ink-soft); text-transform:uppercase;}
+
+  /* section shells */
+  section{position:relative;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
+  .narrow{max-width:640px;}
+  .pad-xl{padding:170px 0;}
+  .pad-l{padding:120px 0;}
+  .pad-m{padding:90px 0;}
+  .center{text-align:center; margin-left:auto; margin-right:auto;}
+
+  /* HERO — full-bleed editorial cover (2026-08-02, renewal_branding 완성형 히어로 비주얼로 교체) */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-bg{position:absolute; left:0; right:0; top:-6%; height:112%; z-index:0; will-change:transform;}
+  .hero-bg img{
+    width:100%; height:100%; object-fit:cover; object-position:38% 32%;
+    transform-origin:center center;
+    animation:hero-kenburns 8s ease-out forwards;
+  }
+  @keyframes hero-kenburns{
+    from{ transform:scale(1); }
+    to{ transform:scale(1.04); }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-bg img{animation:none;}
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(0deg, rgba(20,15,18,0.22) 0%, rgba(20,15,18,0) 22%);
+  }
+  .hero-scrollcue{
+    position:relative; z-index:2; margin:0 auto 34px; width:100%;
+    display:flex; justify-content:center;
+  }
+  .hero-scrollcue span{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--white); background:rgba(20,15,18,0.35);
+    padding:9px 16px; border-radius:100px;
+    backdrop-filter:blur(4px);
+    animation:hero-cue-bob 2.4s ease-in-out infinite;
+  }
+  @keyframes hero-cue-bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(5px);}
+  }
+
+  @media (max-width:760px){
+    .hero-bg img{object-position:22% 20%;}
+  }
+
+  /* brand story — 텍스트 옆 브랜드 필름 (2026-08-02) */
+  .story-split{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
+  @media (max-width:860px){
+    .story-split{grid-template-columns:1fr; gap:40px;}
+    .story-split .story-video{order:-1;}
+  }
+
+  /* brand story — 완성된 단일 브랜드필름 (2026-08-03, ffmpeg로 v1~v7 씬 이어붙이고 엔딩 워딩·
+     로고 페이드까지 미리 합성해 하나의 mp4로 제작 — DOM에서 여러 파일을 JS로 이어재생하던
+     이전 방식은 파일 접근/용량 문제로 미리보기에서 재생되지 않아 폐기). 테두리·그림자 없이
+     플레인 영상, 자동재생·무음·반복. */
+  .story-film{width:100%; aspect-ratio:16/9; display:block; background:#000; box-shadow:0 30px 60px rgba(43,36,48,0.15);}
+
+  /* brand film — focus rail, 21st.dev "focus-rail" 인터랙션 참고
+     (가로 스크롤 + 중앙 포커스 카드만 확대/선명, 나머지는 축소·흐림) (2026-08-02)
+     scroll-snap은 계속 흐르는 자동 슬라이드와 충돌(매 프레임 미세 스크롤을 스냅이 되돌려버림)해서 뺌 —
+     대신 nav 화살표의 smooth scrollBy와 focus 효과로 카드 정렬감을 대신 표현 */
+  .film-rail-wrap{position:relative; margin-top:56px;}
+  .film-rail{
+    display:flex; gap:28px; overflow-x:auto;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    padding:10px 40px 20px; margin:0 -40px;
+    cursor:grab; user-select:none;
+  }
+  .film-rail::-webkit-scrollbar{display:none;}
+  .film-rail.dragging{cursor:grabbing;}
+  .film-rail.dragging .film-item{pointer-events:none;}
+  .film-item{
+    flex:0 0 auto; width:min(420px,78vw);
+    opacity:.5; filter:saturate(.7); transform:scale(.9);
+    transition:opacity .45s cubic-bezier(.16,1,.3,1), transform .45s cubic-bezier(.16,1,.3,1), filter .45s ease;
+  }
+  .film-item.focused{opacity:1; filter:saturate(1); transform:scale(1);}
+  @media (max-width:760px){ .film-rail{padding:10px 26px 20px; margin:0 -26px;} }
+
+  .rail-nav{
+    position:absolute; top:42%; transform:translateY(-50%); z-index:3;
+    width:38px; height:38px; border-radius:50%; border:none;
+    background:rgba(255,255,255,0.92); box-shadow:0 4px 14px rgba(43,36,48,0.18);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    color:var(--ink); font-size:17px; line-height:1;
+    transition:background .2s ease, color .2s ease;
+  }
+  .rail-nav:hover{background:var(--lavender-deep); color:var(--white);}
+  .rail-nav.prev{left:6px;}
+  .rail-nav.next{right:6px;}
+  @media (max-width:900px){ .rail-nav{display:none;} }
+
+  .film-item .film-cap{
+    margin-top:14px; font-size:13px; color:var(--ink-soft); text-align:center;
+  }
+  .film-item .film-cap b{color:var(--ink); font-weight:600;}
+  .film-play{
+    position:relative; display:block; width:100%; margin:0; padding:0; border:none;
+    cursor:pointer; border-radius:2px; overflow:hidden; background:#000;
+    box-shadow:0 24px 60px rgba(43,36,48,0.16);
+  }
+  .film-play img, .film-play video{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:#000;}
+  .film-play::after{
+    content:""; position:absolute; inset:0; background:rgba(20,15,18,0.2); transition:background .3s ease;
+  }
+  .film-play:hover::after{background:rgba(20,15,18,0.34);}
+  .film-play.playing::after{content:none;}
+  .film-play .play-icon{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:2;
+    width:54px; height:54px; border-radius:50%; background:rgba(255,255,255,0.88);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .3s ease, transform .3s cubic-bezier(.16,1,.3,1);
+  }
+  .film-play:hover .play-icon{background:var(--lavender-deep); transform:translate(-50%,-50%) scale(1.08);}
+  .film-play .play-icon svg{width:16px; height:16px; fill:var(--ink); margin-left:2px; transition:fill .3s ease;}
+  .film-play:hover .play-icon svg{fill:var(--white);}
+  .film-play:focus-visible{outline:2px solid var(--lavender-deep); outline-offset:4px;}
+
+  /* fullbleed quote/photo */
+  .bleed{
+    position:relative; height:78vh; min-height:460px;
+    overflow:hidden;
+  }
+  .bleed img{width:100%; height:100%; object-fit:cover;}
+  .bleed::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(43,36,48,0.55) 0%, rgba(43,36,48,0.0) 42%);
+  }
+  .bleed-caption{
+    position:absolute; left:0; right:0; bottom:0; z-index:2;
+    padding:56px 64px;
+    color:var(--white);
+  }
+  .bleed-caption .en{
+    font-family:var(--serif); font-style:italic; font-size:15px; letter-spacing:0.04em;
+    opacity:0.85; margin-bottom:10px; display:block;
+  }
+  .bleed-caption p{
+    color:var(--white); font-size:clamp(17px,2.4vw,23px); max-width:620px; margin:0;
+    line-height:1.6;
+  }
+  .bleed .bleed-note{
+    font-family:var(--sans); font-size:11px; line-height:1.65; color:var(--oak);
+    letter-spacing:0.01em; margin:0; text-align:right;
+  }
+
+  /* 네일스티커 실제품 목업 (2026-08-01, Nailsticker_목업.png 사용 → 2026-08-04 레이어 재구성) —
+     bleed-note 문구 위에 박스+시트 목업을 살짝 기울여 띄우고, 낱개 스티커 2장을 뒤/옆에 겹쳐
+     "제품+흩어진 스티커" 구성으로 연출. 라벤더 배경 카드 대신 이중 drop-shadow로 입체감을 만듦. */
+  .sticker-note-wrap{
+    position:absolute; right:40px; bottom:40px; z-index:2;
+    display:flex; flex-direction:column; align-items:flex-end; gap:14px; max-width:230px;
+  }
+  .sticker-mockup{ position:relative; width:112px; margin-right:-16px; cursor:pointer; }
+  .sticker-mockup .mockup-product{
+    position:relative; z-index:2; width:100%; height:auto; display:block;
+    transform:rotate(-6deg);
+    filter:
+      drop-shadow(0 22px 32px rgba(43,36,48,0.16))
+      drop-shadow(0 6px 10px rgba(43,36,48,0.32));
+  }
+  .sticker-mockup:hover .mockup-product{ animation:sticker-pop .6s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes sticker-pop{
+    0%{ transform:rotate(-6deg) translateY(0) scale(1); }
+    30%{ transform:rotate(-6deg) translateY(-16px) scale(1.05); }
+    55%{ transform:rotate(-6deg) translateY(-4px) scale(0.97); }
+    75%{ transform:rotate(-6deg) translateY(-9px) scale(1.02); }
+    100%{ transform:rotate(-6deg) translateY(0) scale(1); }
+  }
+  .sticker-mockup .mockup-accent{
+    position:absolute; display:block; height:auto;
+    filter:drop-shadow(0 6px 10px rgba(43,36,48,0.22));
+  }
+  .mockup-accent.a1{ width:34px; top:-10px; left:-14px; transform:rotate(-16deg); z-index:1; }
+  .mockup-accent.a2{ width:30px; bottom:8px; right:-12px; transform:rotate(13deg); z-index:3; }
+
+  @media (max-width:640px){
+    .bleed-caption{padding:32px 24px;}
+    .sticker-note-wrap{right:20px; bottom:24px; max-width:150px;}
+    .sticker-mockup{width:80px; margin-right:-10px;}
+    .mockup-accent.a1{width:25px; top:-6px; left:-9px;}
+    .mockup-accent.a2{width:22px; right:-7px; bottom:5px;}
+  }
+
+  /* Why skincare, not makeup — 2:1 이미지 스플릿 (모델컷 2 : 크림팡 텍스처 1) (2026-08-03) */
+  .bleed-split .bleed-split-imgs{position:absolute; inset:0; display:flex;}
+  .bleed-split .bs-model{flex:3 1 0; position:relative; overflow:hidden;}
+  .bleed-split .bs-texture{flex:2 1 0; position:relative; overflow:hidden;}
+  .bleed-split .bs-model img, .bleed-split .bs-texture img{width:100%; height:100%; object-fit:cover; display:block;}
+  .bleed-split .bs-texture img{object-position:56% 48%;}
+  @media (max-width:640px){
+    .bleed-split .bleed-split-imgs{flex-direction:column;}
+    .bleed-split .bs-model{flex:3 1 0;}
+    .bleed-split .bs-texture{flex:2 1 0;}
+  }
+
+  /* 풀블리드 에디토리얼 재해석 — "Little Hands" (2026-08-03, 2026-08-03 립밤 사진으로 레이아웃 재구성)
+     VOGUE / Kinfolk / Holiday Magazine / Aesop / Tamburins 무드 레퍼런스, 그중에서도 Glossier
+     "About/Explore" 스프레드(위: 컬러 포인트 있는 큰 풀quote 문단, 아래: 큰 사진 + 필圈/타이포
+     그래픽 텍스트 블록) 구조를 그대로 참고. 사진(brand_backgraound_lipbalm) 자체에 넓은 여백이
+     이미 있어 별도 카드 없이 텍스트를 사진의 여백 위에 직접 얹음 — 종이 위가 아니라 사진 위에서
+     타이포가 그래픽이 되는 방식. 브랜드 컬러 포인트는 로고 퍼플 필(pill)로 집중. */
+  .editorial-bleed{position:relative; background:var(--paper); padding:110px 24px 120px;}
+  .editorial-bleed .eb-inner{max-width:1360px; margin:0 auto;}
+  .editorial-bleed .eb-pullquote{
+    position:relative; max-width:920px; margin:0 0 60px; font-family:var(--sans); font-weight:600; color:var(--ink);
+    font-size:clamp(1.5rem,2.7vw,2.15rem); line-height:1.55; letter-spacing:-0.01em;
+  }
+  .editorial-bleed .eb-pullquote::before{
+    content:"\201C"; display:block; font-family:var(--serif); font-size:64px; color:var(--lavender);
+    line-height:1; margin-bottom:8px;
+  }
+  .editorial-bleed .eb-accent{font-family:var(--serif); font-style:italic; font-weight:600; color:var(--logo-purple);}
+  .editorial-bleed .eb-photo{position:relative; width:100%; aspect-ratio:16/9; overflow:hidden;}
+  .editorial-bleed .eb-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .editorial-bleed .eb-panel{
+    position:absolute; right:6%; top:14%; z-index:2; max-width:320px;
+    background:rgba(255,255,255,0.85); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    padding:32px 28px; border-radius:4px;
+    box-shadow:0 20px 50px rgba(43,36,48,0.12), 0 2px 8px rgba(43,36,48,0.08);
+  }
+  .editorial-bleed .eb-panel::before{
+    content:""; position:absolute; left:-9px; top:9px; right:9px; bottom:-9px; z-index:-1;
+    background:var(--lavender-soft); border-radius:4px;
+  }
+  .editorial-bleed .eb-pill{
+    display:inline-block; background:var(--logo-purple); color:var(--white); font-family:var(--sans);
+    font-size:12px; font-weight:700; letter-spacing:0.05em; padding:7px 18px; border-radius:999px;
+    margin-bottom:12px;
+  }
+  .editorial-bleed .eb-kicker{
+    margin:0; color:var(--ink); font-family:var(--sans); font-weight:800;
+    font-size:clamp(1.9rem,3.4vw,2.8rem); line-height:1.12;
+  }
+  .editorial-bleed .eb-kicker i{font-family:var(--serif); font-style:italic; font-weight:600; color:var(--logo-purple);}
+  .editorial-bleed .eb-scribble{display:block; width:110px; height:10px; margin:16px 0 22px; color:var(--logo-purple); opacity:0.7;}
+  .editorial-bleed .eb-body{
+    font-family:var(--sans); font-weight:300; color:var(--ink-soft);
+    font-size:14.5px; line-height:1.9; margin:0;
+  }
+  @media (max-width:760px){
+    .editorial-bleed{padding:80px 20px 60px;}
+    .editorial-bleed .eb-photo{aspect-ratio:4/5;}
+    .editorial-bleed .eb-photo img{object-position:35% center;}
+    .editorial-bleed .eb-panel{position:static; transform:none; max-width:100%; margin-top:26px;}
+    .editorial-bleed .eb-panel::before{content:none;}
+  }
+
+  /* 립밤 풀블리드 — 섹션 A (2026-08-03). Little Hands 2차 버전과 동일한 방식으로
+     카드 없이 사진의 왼쪽 여백 위에 텍스트를 직접 배치 */
+  .lipbalm-bleed{position:relative; height:82vh; min-height:520px;}
+  .lipbalm-bleed > img{width:100%; height:100%; object-fit:cover; display:block;}
+  .lb-overlay{position:absolute; left:0; top:64px; z-index:2; padding:0 8vw; max-width:560px;}
+  .lb-badge{
+    display:inline-flex; border:1px solid var(--purple-ui); color:var(--purple-ui);
+    font-family:var(--font-kr-base); font-size:11.5px; font-weight:600;
+    padding:6px 16px; border-radius:100px; margin-bottom:22px;
+  }
+  .lb-headline{margin:0 0 28px;}
+  .lb-headline .lb-base{
+    display:block; font-family:var(--font-kr-base); font-weight:700; font-style:normal;
+    font-size:clamp(1.5rem,2.6vw,2rem); line-height:1.35; color:var(--ink);
+  }
+  .lb-headline .lb-accent{
+    display:block; font-family:var(--font-kr-accent); font-style:normal; font-weight:400;
+    font-size:clamp(1.725rem,3vw,2.3rem); line-height:1.3; color:var(--purple-strong); margin-top:4px;
+  }
+  .lb-sub{
+    font-family:var(--font-kr-base); font-weight:400; font-size:14px;
+    line-height:2; color:var(--ink-soft); margin:0;
+  }
+  .lb-object{position:absolute; right:4%; bottom:5%; z-index:2; width:150px; text-align:center;}
+  .lb-object-img{
+    transform:rotate(-7deg);
+    filter:drop-shadow(0 10px 16px rgba(43,36,48,0.25)) drop-shadow(0 2px 6px rgba(43,36,48,0.18));
+  }
+  .lb-object-img img{width:100%; height:auto; display:block;}
+  .lb-object-caption{margin:14px 0 0; font-family:var(--font-kr-base); font-size:10.5px; line-height:1.55; color:var(--ink-soft);}
+  @media (max-width:760px){
+    .lipbalm-bleed{height:auto; aspect-ratio:4/5;}
+    .lb-overlay{top:36px; padding:0 26px; max-width:88%;}
+    .lb-object{width:104px; right:5%; bottom:4%;}
+  }
+
+  /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (섹션 A보다 절제된 톤, 3분할 비대칭) */
+  .lipbalm-gallery{padding:96px 0 110px;}
+  .lg-label{
+    display:block; font-family:var(--font-kr-base); font-size:11.5px; font-weight:600;
+    color:var(--purple-ui); margin-bottom:40px;
+  }
+  .lg-grid{display:flex; gap:44px; align-items:flex-start;}
+  .lg-item-1{flex:0 0 45%;}
+  .lg-item-2{flex:0 0 35%; margin-top:64px; position:relative;}
+  .lg-item-1 img, .lg-item-2 > img{
+    width:100%; height:auto; display:block; border-radius:6px;
+    box-shadow:0 16px 32px rgba(43,36,48,0.12);
+  }
+  .lg-caption{margin:14px 0 0; font-family:var(--font-kr-base); font-size:12px; color:var(--ink-soft); line-height:1.6;}
+  .lg-item-3{position:absolute; right:-8%; bottom:-8%; width:25%; z-index:2; transform:rotate(-8deg);}
+  .lg-item-3 img{width:100%; height:auto; display:block; filter:drop-shadow(4px 8px 10px rgba(43,36,48,0.2));}
+  @media (max-width:760px){
+    .lg-grid{flex-direction:column; gap:60px;}
+    .lg-item-1, .lg-item-2{flex:none; width:100%; margin-top:0;}
+    .lg-item-3{width:32%;}
+  }
+
+  /* full-bleed PHOTO + 큰 오버레이 스테이트먼트 — 기존 .bleed-caption(하단 캡션바)보다 크고
+     화면 중앙에 가깝게 얹히는 굵은 카피용 변형 */
+  .bleed-statement{position:relative; height:82vh; min-height:480px; overflow:hidden;}
+  .bleed-statement img{width:100%; height:100%; object-fit:cover;}
+  .phil-statement .stmt-text{
+    font-family:var(--sans); font-weight:700; font-style:normal;
+    font-size:clamp(1.6rem,4.2vw,3.1rem); line-height:1.3; max-width:760px; margin:0;
+    color:var(--white); text-shadow:0 2px 24px rgba(20,15,18,0.35);
+  }
+
+  /* bleed-statement — 영문 전환 (2026-08-03): 국문 중앙 오버레이 대신 좌측 상단 배치,
+     하이브리드 타이포(본문 Inter black / 강조 구절 Fraunces italic) 적용 */
+  .bleed-statement .stmt-scrim{
+    position:absolute; left:0; top:0; z-index:1; pointer-events:none;
+    width:55%; height:45%;
+    background:radial-gradient(ellipse at top left, rgba(43,36,48,0.25) 0%, rgba(43,36,48,0) 70%);
+  }
+  .bleed-statement .stmt-overlay{
+    position:absolute; left:0; right:0; top:64px; z-index:2;
+    padding:0 8vw;
+  }
+  .bleed-statement .stmt-text-en{margin:0;}
+  .bleed-statement .stmt-en-base{
+    display:block; font-family:var(--font-en-base); font-weight:900; font-style:normal;
+    font-size:clamp(1.6rem,4.2vw,3.1rem); line-height:1.22; max-width:640px;
+    color:var(--paper);
+    text-shadow:0 2px 4px rgba(43,36,48,0.4), 0 4px 16px rgba(43,36,48,0.35), 0 1px 2px rgba(43,36,48,0.5);
+  }
+  .bleed-statement .stmt-en-accent{
+    display:block; font-family:var(--font-en-accent); font-style:italic; font-weight:600;
+    font-size:clamp(2rem,5.4vw,4rem); line-height:1.1; margin:2px 0;
+    color:var(--paper);
+    text-shadow:0 2px 4px rgba(43,36,48,0.4), 0 4px 16px rgba(43,36,48,0.35), 0 1px 2px rgba(43,36,48,0.5);
+  }
+  @media (max-width:640px){
+    .bleed-statement .stmt-overlay{padding:0 26px; top:40px;}
+    .bleed-statement .stmt-en-base{font-size:1.5rem;}
+    .bleed-statement .stmt-en-accent{font-size:1.9rem;}
+  }
+
+  /* philosophy / text sections */
+  .text-block h2{
+    font-size:clamp(1.7rem, 3.4vw, 2.5rem);
+    font-style:italic;
+    margin-bottom:30px;
+  }
+  .text-block p{font-size:16.5px;}
+
+  /* philosophy declaration */
+  .decl{
+    font-family:var(--serif); font-style:italic; color:var(--lavender-deep);
+    font-size:clamp(1.25rem, 2.6vw, 1.7rem); line-height:1.65; margin:0 0 36px;
+  }
+  .decl .sc-phrase{font-weight:700;}
+  .decl .sc-word{
+    font-family:'Playfair Display', var(--serif); font-style:normal; font-weight:700;
+    letter-spacing:0.015em;
+  }
+
+  /* Brand Philosophy — 풀블리드 컬러 스테이트먼트로 전면 교체 (2026-08-03, Glossier 레퍼런스:
+     큰 컬러 필드 위 굵은 헤드라인에서 한 구절만 세리프 이탤릭+컬러 포인트로 강조, 보조 문단은
+     하단 우측에 작게). 기존 crayon 4단계 성장 애니메이션은 폐기 — 4단계는 색 블록 아래 밝은
+     배경에 작은 캡션 라인으로 축소. 배경은 "큰 면적" 톤인 --purple-field(#9B6B9E) 사용. */
+  .phil-statement{position:relative; background:var(--purple-field); padding:150px 0 110px; overflow:hidden;}
+  .phil-statement .stmt-accent{font-family:var(--serif); font-style:italic; font-weight:600; color:var(--mint);}
+  .phil-statement .phil-stmt-sub{
+    font-family:var(--sans); font-weight:400; color:rgba(255,255,255,0.8);
+    font-size:13.5px; line-height:1.85; max-width:320px;
+    margin:56px 0 0 auto; text-align:right;
+  }
+  @media (max-width:640px){
+    .phil-statement{padding:100px 0 70px;}
+    .phil-statement .phil-stmt-sub{margin-top:40px; max-width:100%; text-align:left;}
+  }
+
+  .phil-caption-section{background:var(--paper); padding:52px 0 84px;}
+  .phil-caption-row{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  .pcap-item{padding-top:16px; border-top:1px solid var(--line);}
+  .pcap-num{display:block; font-size:10px; color:var(--purple-ui); font-weight:700; letter-spacing:0.1em; margin-bottom:8px;}
+  .pcap-label{display:block; font-family:var(--sans); font-weight:700; font-size:13.5px; color:var(--ink); margin-bottom:5px;}
+  .pcap-text{display:block; font-size:12px; color:var(--ink-soft); line-height:1.6;}
+  @media (max-width:760px){ .phil-caption-row{grid-template-columns:repeat(2,1fr); row-gap:24px;} }
+  @media (max-width:420px){ .phil-caption-row{grid-template-columns:1fr;} }
+
+  /* product world intro — Glossier-ref header: outline pill + mixed-weight headline + right-aligned lede
+     (2026-08-01, 컬러는 브랜드 라벤더로 대체 — 레퍼런스의 배치·포인트 기법만 참고) */
+  .pill-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    border:1.3px solid var(--lavender-deep); border-radius:100px;
+    padding:7px 16px; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    font-weight:700; color:var(--lavender-deep); background:none;
+    text-decoration:none; transition:background .2s ease, color .2s ease;
+  }
+  a.pill-badge:hover{background:var(--lavender-deep); color:var(--white);}
+  .product-head{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:40px;
+    flex-wrap:wrap; margin-top:18px;
+  }
+  .product-head h2{font-family:var(--sans); font-weight:700; font-style:normal; font-size:clamp(1.7rem,3.4vw,2.5rem); color:var(--ink);}
+  .product-head h2 .accent-italic{font-family:var(--serif); font-style:italic; font-weight:600; color:var(--lavender-deep);}
+  .product-head .lede{
+    max-width:320px; font-size:13.5px; color:var(--lavender-deep); line-height:1.75;
+    text-align:right; margin:0;
+  }
+  @media (max-width:760px){
+    .product-head{flex-direction:column; align-items:flex-start;}
+    .product-head .lede{text-align:left; max-width:none;}
+  }
+
+  .shopall-wrap{text-align:center; margin-top:76px;}
+
+  /* product gallery — editorial rhythm varies per line, no card borders/price-forward buttons */
+  .pline{margin-top:120px;}
+  .pline:first-of-type{margin-top:64px;}
+  .pline-head{margin-bottom:44px; max-width:520px;}
+  .pline-head .pline-num{font-family:var(--serif); font-style:italic; font-size:13px; color:var(--lavender-deep); display:block; margin-bottom:10px;}
+  .pline-head .pline-tag{font-family:var(--sans); font-weight:700; font-size:clamp(1.35rem,2.4vw,1.7rem); color:var(--lavender-deep); display:block;}
+  .pline-head .pline-desc{font-size:13.5px; color:var(--ink-soft); margin-top:10px; line-height:1.7;}
+
+  .pline--pair .pgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:48px;}
+  @media (max-width:700px){ .pline--pair .pgrid{grid-template-columns:1fr; gap:60px;} }
+
+  .pline--rail .pgrid{
+    display:flex; gap:26px; overflow-x:auto; scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    padding:4px 40px 14px; margin:0 -40px;
+    cursor:grab; user-select:none;
+  }
+  .pline--rail .pgrid::-webkit-scrollbar{display:none;}
+  .pline--rail .pgrid.dragging{cursor:grabbing; scroll-snap-type:none;}
+  .pline--rail .pgrid.dragging .gcard{pointer-events:none;}
+  .pline--rail .gcard{flex:0 0 272px; scroll-snap-align:start;}
+  @media (max-width:760px){ .pline--rail .pgrid{padding:4px 26px 14px; margin:0 -26px;} }
+
+  .pline--feature .pgrid{display:grid; grid-template-columns:1.4fr 1fr; grid-auto-rows:1fr; gap:36px;}
+  .pline--feature .gcard:first-child{grid-row:1 / 3;}
+  .pline--feature .gcard:first-child .pimg{aspect-ratio:4/5;}
+  .pline--feature .gcard:not(:first-child) .pimg{aspect-ratio:16/11;}
+  @media (max-width:780px){
+    .pline--feature .pgrid{grid-template-columns:1fr;}
+    .pline--feature .gcard:first-child{grid-row:auto;}
+  }
+
+  /* 써니팡 라이프스타일 피처 — Pang Line 아래 삽입 (2026-08-03, "Clinical Studies" 스탯 카드
+     레퍼런스 참고: 좌측 연한 카드(배지+헤드라인+스펙 리스트) : 우측 풀블리드 인물사진 2단 그리드) */
+  .sunny-feature{margin-top:120px;}
+  .sunny-feature-grid{display:grid; grid-template-columns:0.82fr 1fr; gap:28px; align-items:stretch;}
+  @media (max-width:760px){ .sunny-feature-grid{grid-template-columns:1fr; gap:20px;} }
+
+  .sunny-feature-card{
+    background:#F8F1F5; border-radius:12px; padding:56px 48px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  @media (max-width:760px){ .sunny-feature-card{padding:40px 30px;} }
+  .sf-badge{
+    display:inline-flex; align-self:flex-start;
+    border:1px solid var(--purple-ui); color:var(--purple-ui);
+    font-family:var(--font-kr-base); font-size:11.5px; font-weight:600;
+    padding:6px 16px; border-radius:100px; margin-bottom:24px;
+  }
+  .sf-headline{
+    font-family:var(--font-kr-base); font-weight:700; font-style:normal;
+    font-size:clamp(1.35rem,2.2vw,1.7rem); line-height:1.48; color:var(--ink);
+    margin:0 0 14px;
+  }
+  /* 한글은 synthetic italic이 부자연스러워 기울이지 않고, 폰트(Gowun Batang 정자체)+컬러
+     대비만으로 강조 (2026-08-03) */
+  .sf-headline .sf-accent{font-family:var(--font-kr-accent); font-style:normal; font-weight:400; color:var(--purple-strong);}
+  .sf-subline{
+    font-family:var(--font-en-accent); font-style:italic; font-weight:500;
+    font-size:13.5px; color:var(--ink-soft); margin:0 0 44px;
+  }
+  .sf-body{
+    font-family:var(--font-kr-base); font-weight:400; font-size:14.5px;
+    line-height:2; color:var(--ink-soft); margin:0;
+  }
+  /* 풀쿼트 — 본문에서 분리한 핵심 문장 (2026-08-03). 이 섹션의 시선은 스펙 숫자가 아니라
+     이 한 문장이 끌도록: 왼쪽 세로선 + 여백으로 인용구처럼 띄우고, 마지막 구절만
+     Gowun Batang 정자체(이탤릭 아님)+퍼플로 키워 대비를 줌 */
+  .sf-pullquote{
+    margin:2.5rem 0; border-left:2px solid var(--purple-ui); padding-left:20px;
+  }
+  .sf-pullquote .pq-base{
+    display:block; font-family:var(--font-kr-base); font-weight:400;
+    font-size:14.5px; line-height:1.8; color:var(--ink-soft);
+  }
+  .sf-pullquote .pq-accent{
+    display:block; font-family:var(--font-kr-accent); font-style:normal; font-weight:400;
+    font-size:calc(14.5px * 1.3); line-height:1.5; color:var(--purple-strong); margin-top:4px;
+  }
+  .sf-specs{border-top:1px solid rgba(43,36,48,0.14);}
+  .sf-spec-row{
+    display:grid; grid-template-columns:220px 1fr; align-items:center; gap:16px;
+    padding:20px 0; border-bottom:1px solid rgba(43,36,48,0.14);
+  }
+  @media (max-width:640px){ .sf-spec-row{grid-template-columns:140px 1fr;} }
+  .sf-spec-key{
+    font-family:var(--font-en-base); font-weight:700; font-size:clamp(1.3rem,2vw,1.5rem);
+    letter-spacing:0.01em; color:var(--purple-strong); line-height:1.25;
+  }
+  .sf-spec-desc{font-family:var(--font-kr-base); font-size:12.5px; color:var(--ink-soft); text-align:right; line-height:1.6;}
+
+  .sunny-feature-photo{border-radius:12px; overflow:hidden; min-height:420px;}
+  .sunny-feature-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+
+  /* backgrounds stay warm ivory/cream (Brand Mood = Warm Morning, 2026-07-30) —
+     color lives only in small accents (numbers, hairlines, links, dots), set per line via --pline-accent.
+     card backdrop unified to one flat neutral (2026-08-01, Glossier ref — 배경은 톤 차이 없이 한 톤으로) */
+  .pline.tint-lavender{--pline-accent:156,106,140;}
+  .pline.tint-mint{--pline-accent:79,140,124;}
+  .pline.tint-paper{--pline-accent:108,138,168;}
+  .pline.tint-peach{--pline-accent:196,120,86;}
+  .gcard .pimg{background:#F2F2F0;}
+  .pline-head .pline-num{color:rgb(var(--pline-accent,156,106,140));}
+
+  /* horizontal scroll progress bar (Glossier ref) */
+  .rail-progress{height:2px; background:var(--line); margin:0 40px 0; position:relative; border-radius:2px; overflow:hidden;}
+  .rail-progress .thumb{
+    position:absolute; top:0; left:0; height:100%; width:30%;
+    background:var(--lavender-deep); border-radius:2px;
+    transition:transform .1s linear, width .1s linear;
+  }
+  @media (max-width:760px){ .rail-progress{margin:0 26px 0;} }
+
+  /* gallery card */
+  .gcard{display:flex; flex-direction:column;}
+  .gcard .pimg{
+    position:relative; aspect-ratio:4/5; overflow:hidden; border-radius:2px;
+  }
+  .gcard .pimg .slide{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:opacity .4s cubic-bezier(.4,0,.2,1); pointer-events:none;
+  }
+  .gcard .pimg .slide.active{opacity:1; pointer-events:auto;}
+  .gcard .pimg .slide img{max-height:80%; max-width:80%;}
+  .gcard .pimg .s-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:26px; height:26px; border-radius:50%; border:none;
+    background:rgba(255,255,255,0.88); color:var(--ink);
+    font-size:14px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:opacity .2s cubic-bezier(.4,0,.2,1); z-index:3;
+  }
+  .gcard .pimg:hover .s-nav{opacity:1;}
+  .gcard .pimg .s-prev{left:10px;}
+  .gcard .pimg .s-next{right:10px;}
+  .gcard .pimg .s-dots{
+    position:absolute; bottom:11px; left:0; right:0; z-index:3;
+    display:flex; justify-content:center; gap:6px;
+  }
+  .gcard .pimg .s-dots .dot{width:6px; height:6px; border-radius:50%; background:rgba(43,36,48,0.22); cursor:pointer;}
+  .gcard .pimg .s-dots .dot.active{background:rgb(var(--pline-accent,156,106,140));}
+  @media (hover:none){ .gcard .pimg .s-nav{opacity:0.55;} }
+
+  /* texture-on-hover — hover reveals a muted formulation video over the product shot */
+  .pimg-texture{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity .5s cubic-bezier(.4,0,.2,1); pointer-events:none; z-index:2;
+  }
+  .pimg.has-texture:hover .pimg-texture{opacity:1;}
+  .texture-badge{
+    position:absolute; top:12px; left:12px; z-index:4;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--white); background:rgba(43,36,48,0.55);
+    padding:6px 11px; border-radius:100px;
+    opacity:0; transition:opacity .3s ease;
+  }
+  .pimg.has-texture:hover .texture-badge{opacity:0;}
+  .pimg.has-texture:not(:hover) .texture-badge{opacity:1;}
+  @media (hover:none){ .texture-badge{display:none;} }
+
+  .gcard .ptag{font-family:var(--sans); font-weight:600; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--lavender-deep); margin:20px 0 8px;}
+  .gcard h4{font-family:var(--sans); font-weight:700; font-size:19px; color:var(--lavender-deep); margin:0 0 8px;}
+
+  /* signature badge — permanent brand marker, distinct from the hover texture-badge */
+  .badge-signature{
+    position:absolute; top:12px; right:12px; z-index:5;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;
+    color:var(--white); background:var(--lavender-deep);
+    padding:6px 12px; border-radius:100px;
+  }
+  .gcard .pdesc{font-size:13px; line-height:1.75; color:var(--ink-soft); max-width:36ch; margin:0 0 16px;}
+  .gcard .pfooter{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    margin-top:auto; padding-top:14px; border-top:1px solid rgba(var(--pline-accent,156,106,140),0.4);
+  }
+  .gcard .pmeta{font-size:11px; color:var(--ink-soft); letter-spacing:0.02em;}
+  .gcard .plinks{display:flex; align-items:center; gap:16px;}
+  .gcard .plink{
+    font-size:12px; color:var(--lavender-deep); font-weight:600; text-decoration:none;
+    display:inline-flex; align-items:center; gap:5px;
+    background:none; border:none; padding:0; cursor:pointer; font-family:inherit;
+    transition:color .15s cubic-bezier(.4,0,.2,1);
+  }
+  .gcard .plink .arrow{display:inline-block; transition:transform .15s cubic-bezier(.4,0,.2,1);}
+  .gcard .plink:hover{color:rgb(var(--pline-accent,156,106,140));}
+  .gcard .plink:hover .arrow{transform:translateX(4px);}
+  .gcard .plink.secondary{color:var(--ink-soft); font-weight:400; font-size:11px;}
+  .gcard .plink.secondary:hover{color:var(--ink);}
+  .gcard .plink.secondary .pkg-icon{width:12px; height:12px; flex:0 0 auto;}
+
+  /* ============================================================
+     TEST — "moment" card variant (2026-08-01)
+     크림팡 카드 1개에만 적용해보는 실험용 스타일.
+     기존 .gcard/.pfooter/.plink 규칙은 전혀 수정하지 않고,
+     .gcard--moment 스코프 안에서만 추가로 덮어씀 → 이 블록과
+     아래 마크업의 class="gcard--moment"만 지우면 100% 원상복구.
+     ============================================================ */
+  .gcard .moment-eyebrow{
+    font-family:var(--serif); font-style:italic; font-size:13.5px;
+    color:var(--lavender-deep); display:block; margin:20px 0 12px;
+  }
+  .gcard--moment .pdesc{max-width:40ch; font-size:14px; line-height:1.85;}
+  /* 가격/버튼 영역을 기본으로는 조용히 숨겨두고, hover(또는 키보드 포커스) 시에만 드러냄 */
+  .gcard--moment .pfooter{
+    opacity:0; transform:translateY(6px);
+    transition:opacity .28s ease, transform .28s ease;
+  }
+  .gcard--moment:hover .pfooter,
+  .gcard--moment:focus-within .pfooter{
+    opacity:1; transform:translateY(0);
+  }
+  /* 터치 기기는 hover가 없으니 늘 보이되, 톤만 은은하게 */
+  @media (hover:none){
+    .gcard--moment .pfooter{opacity:0.82; transform:none;}
+  }
+
+  /* package diagram popup — image-only, no download link */
+  .pkg-modal{
+    position:fixed; inset:0; z-index:400; display:none;
+    align-items:center; justify-content:center; padding:32px;
+    background:rgba(20,16,18,0.82);
+  }
+  .pkg-modal.show{display:flex;}
+  .pkg-modal-inner{
+    position:relative; max-width:min(1100px,92vw); max-height:88vh;
+    background:var(--white); border-radius:6px; overflow:auto;
+    box-shadow:0 30px 70px rgba(0,0,0,0.35);
+  }
+  .pkg-modal-inner img{width:100%; height:auto; display:block;}
+  .pkg-modal-close{
+    position:absolute; top:16px; right:16px; z-index:2;
+    width:34px; height:34px; border-radius:50%; border:none;
+    background:rgba(43,36,48,0.78); color:var(--white);
+    font-size:16px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pkg-modal-close:hover{background:var(--ink);}
+  .pkg-modal-name{
+    position:sticky; top:0; padding:14px 56px 14px 20px; background:var(--white);
+    font-size:13px; font-weight:700; color:var(--lavender-deep); border-bottom:1px solid var(--line);
+  }
+  @media (max-width:520px){ .pgrid{grid-template-columns:1fr;} }
+
+  /* DDP 팝업 상세 모달 — 리플렛을 그대로 옮기지 않고 에디토리얼 구조(히어로 → 컨셉 스테이트먼트 →
+     Zone 여정 → 현장 갤러리)로 재구성 (2026-08-01). pkg-modal과 동일한 open/close 인터랙션 패턴 재사용. */
+  .ddp-modal-overlay{
+    position:fixed; inset:0; z-index:300; display:none;
+    align-items:flex-start; justify-content:center; padding:5vh 20px;
+    background:rgba(20,16,18,0.82); opacity:0; transition:opacity .3s ease;
+  }
+  .ddp-modal-overlay.show{display:flex; opacity:1;}
+  .ddp-modal{
+    position:relative; max-width:820px; width:100%; max-height:90vh; overflow:hidden;
+    background:var(--white); border-radius:8px; box-shadow:0 40px 100px rgba(43,36,48,0.35);
+    transform:translateY(18px); opacity:0; transition:transform .4s var(--ease-premium,cubic-bezier(.16,1,.3,1)), opacity .4s ease;
+  }
+  .ddp-modal-overlay.show .ddp-modal{transform:translateY(0); opacity:1;}
+  .ddp-modal-scroll{max-height:90vh; overflow-y:auto;}
+  .ddp-modal-close{
+    position:absolute; top:16px; right:16px; z-index:2;
+    width:34px; height:34px; border-radius:50%; border:none;
+    background:rgba(43,36,48,0.78); color:var(--white);
+    font-size:16px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .ddp-modal-close:hover{background:var(--ink);}
+  /* 히어로 캐러셀 (2026-08-04) — 21st.dev "framer-normal-carousel" 참고: React/Motion 컴포넌트를
+     그대로 쓰지 않고, 슬라이드 트랙 translateX + prev/next + dot indicator를 바닐라 JS/CSS로 재구현.
+     전시 동선 순서: 입장존 → 포토존 → 영상존 → 체험존. */
+  .ddp-hero-carousel{position:relative; width:100%; aspect-ratio:16/10; overflow:hidden; border-radius:8px 8px 0 0; background:var(--ink);}
+  .ddp-hero-track{display:flex; width:100%; height:100%; transition:transform .6s var(--ease-premium,cubic-bezier(.16,1,.3,1));}
+  .ddp-hero-slide{position:relative; flex:0 0 100%; width:100%; height:100%;}
+  .ddp-hero-slide img{width:100%; height:100%; object-fit:cover; display:block;}
+  .ddp-hero-cap{
+    position:absolute; left:20px; bottom:18px; z-index:2;
+    padding:7px 14px; border-radius:100px; background:rgba(20,16,18,0.55);
+    font-family:var(--serif); font-style:italic; font-size:13px; color:var(--white);
+  }
+  .ddp-hero-nav{
+    position:absolute; top:50%; transform:translateY(-50%); z-index:3;
+    width:36px; height:36px; border-radius:50%; border:none; cursor:pointer;
+    background:rgba(255,255,255,0.85); color:var(--ink);
+    display:flex; align-items:center; justify-content:center; font-size:17px; line-height:1;
+    opacity:0; transition:opacity .3s ease, background .2s ease;
+  }
+  .ddp-hero-carousel:hover .ddp-hero-nav{opacity:1;}
+  .ddp-hero-nav:hover{background:var(--white);}
+  .ddp-hero-prev{left:14px;}
+  .ddp-hero-next{right:14px;}
+  @media (hover:none){ .ddp-hero-nav{opacity:0.85;} }
+  .ddp-hero-dots{position:absolute; right:20px; bottom:22px; z-index:2; display:flex; gap:6px;}
+  .ddp-hero-dots .dot{width:6px; height:6px; border-radius:100px; background:rgba(255,255,255,0.5); cursor:pointer; transition:width .3s ease, background .3s ease;}
+  .ddp-hero-dots .dot.active{width:18px; background:var(--white);}
+
+  /* 청와대/호텔콜라보/브랜드콜라보 모달 — 히어로가 캐러셀이 아니라 단일 이미지인 버전.
+     .ddp-modal-overlay 등 나머지 클래스는 DDP 모달과 그대로 공유해서 톤을 통일함. */
+  .exp-modal-hero{width:100%; aspect-ratio:16/10; overflow:hidden; border-radius:8px 8px 0 0;}
+  .exp-modal-hero img{width:100%; height:100%; object-fit:cover; display:block;}
+  @media (max-width:600px){ .exp-modal-hero{border-radius:0; aspect-ratio:4/3;} }
+
+  .ddp-modal-body{padding:36px 40px 44px;}
+  .ddp-title{font-size:clamp(1.3rem,2.6vw,1.7rem); margin-bottom:8px;}
+  .ddp-sub{font-family:var(--serif); font-style:italic; color:var(--ink-soft); font-size:14.5px; margin-bottom:10px;}
+  .ddp-meta{font-size:12.5px; color:var(--ink-soft); letter-spacing:0.01em; margin-bottom:0;}
+  .exp-stats{display:flex; gap:28px; margin-top:20px;}
+  .exp-stat b{display:block; font-family:var(--serif); font-size:1.5rem; color:var(--lavender-deep); line-height:1.1; margin-bottom:4px;}
+  .exp-stat span{font-size:11.5px; color:var(--ink-soft); letter-spacing:0.03em;}
+
+  .ddp-concept{margin:32px 0; padding:28px 30px; background:var(--paper,var(--oak)); border-radius:6px;}
+  .ddp-formula{
+    font-family:var(--sans); font-weight:700; font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--lavender-deep); margin-bottom:14px;
+  }
+  .ddp-formula i{font-family:var(--serif); font-style:italic; font-size:15px; text-transform:none; letter-spacing:0;}
+  .ddp-statement{
+    font-family:var(--serif); font-style:italic; font-size:17px; line-height:1.65; color:var(--ink);
+    margin-bottom:10px;
+  }
+  .ddp-statement-en{font-size:12.5px; line-height:1.7; color:var(--ink-soft); margin:0;}
+
+  /* 포스터/리플렛 — 호버 시 확대 미리보기(순수 CSS) + 클릭 시 기존 pkg-modal 라이트박스 재사용 */
+  .ddp-doc-btns{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;}
+  .ddp-doc-btn{
+    position:relative; padding:10px 18px; border-radius:100px; border:1px solid var(--line);
+    background:var(--white); color:var(--ink); font-size:12.5px; font-weight:600; letter-spacing:0.02em;
+    cursor:pointer; transition:border-color .2s ease, color .2s ease;
+  }
+  .ddp-doc-btn:hover{border-color:var(--lavender-deep); color:var(--lavender-deep);}
+  .ddp-doc-preview{
+    position:absolute; left:50%; bottom:calc(100% + 10px); z-index:5; width:150px;
+    transform:translate(-50%,8px) scale(0.96); transform-origin:bottom center;
+    opacity:0; pointer-events:none; border-radius:6px; overflow:hidden;
+    box-shadow:0 20px 45px rgba(43,36,48,0.28);
+    transition:opacity .25s var(--ease-premium,cubic-bezier(.16,1,.3,1)), transform .25s var(--ease-premium,cubic-bezier(.16,1,.3,1));
+  }
+  .ddp-doc-btn:hover .ddp-doc-preview{opacity:1; transform:translate(-50%,0) scale(1);}
+  .ddp-doc-preview img{width:100%; height:auto; display:block;}
+  @media (hover:none){ .ddp-doc-preview{display:none;} }
+
+  .ddp-zones{margin:36px 0;}
+  .ddp-zone-step{
+    display:flex; gap:20px; padding:18px 0;
+    border-left:2px solid var(--lavender); padding-left:24px; margin-left:8px;
+  }
+  .ddp-zone-step:first-child{padding-top:0;}
+  .ddp-zone-step:last-child{border-color:transparent; padding-bottom:0;}
+  .ddp-zone-step .zone-num{
+    font-family:var(--serif); font-style:italic; font-size:22px; color:var(--lavender-deep);
+    flex:0 0 auto; line-height:1.1;
+  }
+  .ddp-zone-step b{display:block; font-family:var(--sans); font-size:15px; font-weight:700; color:var(--ink); margin-bottom:6px;}
+  .ddp-zone-step p{font-size:13px; line-height:1.75; color:var(--ink-soft); margin:0;}
+  .ddp-zone-step p i{font-style:italic;}
+
+  /* 현장 갤러리 — s1~s15 (2026-08-04, s5는 영상존 히어로 슬라이드와 중복이라 하단 갤러리에서 제외) —
+     2026-08-04 재작업: 세로 사진(팩트를 든 손 클로즈업 등)이 고정 그리드 칸에서 위아래로 잘리는
+     문제가 있어, object-fit:cover 그리드 대신 CSS 컬럼(매스너리) 방식으로 전환 — 각 사진을 원본
+     비율 그대로(height:auto) 보여줘서 세로/가로 상관없이 내용이 잘리지 않음. s7만 column-span:all로
+     전체 폭을 차지하는 피처 컷으로 살짝 리듬을 줌. */
+  .ddp-gallery{
+    columns:3 200px; column-gap:8px; margin:36px 0 32px;
+  }
+  .ddp-gallery img{
+    width:100%; height:auto; display:block; border-radius:4px; margin:0 0 8px;
+    break-inside:avoid; -webkit-column-break-inside:avoid;
+    transition:transform .5s var(--ease-premium,cubic-bezier(.16,1,.3,1));
+  }
+  .ddp-gallery img:hover{transform:scale(1.03);}
+  .ddp-gallery .g-feature{column-span:all; margin-bottom:8px;}
+  .ddp-location{font-size:12px; color:var(--ink-soft); border-top:1px solid var(--line); padding-top:20px; margin:0;}
+  .ddp-location b{color:var(--ink); font-weight:700;}
+
+  @media (max-width:600px){
+    .ddp-modal-overlay{padding:0;}
+    .ddp-modal{max-width:100%; max-height:100%; border-radius:0;}
+    .ddp-modal-scroll{max-height:100%;}
+    .ddp-hero-carousel{border-radius:0; aspect-ratio:4/3;}
+    .ddp-modal-body{padding:28px 22px 36px;}
+    .ddp-gallery{columns:2 140px; column-gap:6px;}
+    .ddp-gallery img{margin-bottom:6px;}
+  }
+
+  /* pending-image placeholder */
+  .img-placeholder{
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    background:repeating-linear-gradient(135deg, rgba(43,36,48,0.06) 0 12px, rgba(43,36,48,0.02) 12px 24px);
+    border:1px dashed var(--line); color:var(--ink-soft);
+    font-size:12.5px; letter-spacing:0.02em; line-height:1.7; padding:24px;
+  }
+  .bleed .img-placeholder{position:absolute; inset:0;}
+
+  /* brand vision grid */
+  .vision-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+    margin-top:56px;
+  }
+  .vision-grid .vimg{aspect-ratio:4/5; margin-bottom:16px;}
+  .vision-grid .vcap{font-size:13.5px; color:var(--ink-soft); text-align:center; line-height:1.6;}
+  .vision-grid .vcap b{color:var(--ink); font-weight:600;}
+  @media (max-width:780px){ .vision-grid{grid-template-columns:1fr; gap:36px;} }
+  .vision-note{
+    margin-top:56px; padding-top:26px; border-top:1px solid var(--line);
+    font-size:13px; color:var(--ink-soft); line-height:1.9;
+  }
+  .vision-note b{color:var(--ink);}
+
+  /* ============================================================
+     BRAND HISTORY / SELECTED PROJECTS / RETAIL NETWORK
+     Warm Morning 원칙 적용 (2026-07-31 재설계) — 진한 보라 배경 폐기.
+     Warm Ivory 70% / Light Oak 20% / Lavender 10%(포인트 전용).
+     ============================================================ */
+  .zone-ivory{background:var(--paper);}
+  .zone-oak{background:var(--oak);}
+  .zone-white{background:var(--white);}
+  .zone-h2{font-size:clamp(1.7rem,3.4vw,2.5rem); font-style:italic; max-width:640px;}
+  .zone-accent{color:var(--lavender-deep); font-weight:700;}
+  .zone-lede{max-width:600px; margin-top:18px; font-size:15.5px;}
+
+  .cat-head{display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:30px;}
+  .cat-label{
+    font-size:11.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lavender-deep);
+    font-weight:600; display:flex; align-items:center; gap:10px;
+  }
+  .cat-label::before{content:""; width:22px; height:1px; background:var(--lavender-deep); opacity:.55; display:inline-block;}
+  .cat-sub{font-size:12.5px; color:var(--ink-soft);}
+
+  /* ---------- 01 Milestone Timeline ---------- */
+  .milestone{margin-top:64px;}
+  .milestone-track{
+    position:relative; display:flex; gap:0; overflow-x:auto; padding:10px 4px 26px;
+    scrollbar-width:thin;
+  }
+  .milestone-track::before{
+    content:""; position:absolute; left:4px; right:4px; top:38px; height:1px;
+    background:linear-gradient(90deg, rgba(156,106,140,0.45), rgba(156,106,140,0.45) 100%);
+  }
+  .milestone-pt{
+    position:relative; flex:0 0 auto; width:168px; padding-top:0;
+    background:none; border:none; text-align:left; cursor:pointer; font-family:inherit;
+    display:flex; flex-direction:column; align-items:flex-start; gap:14px;
+  }
+  .milestone-pt .dot{
+    width:13px; height:13px; border-radius:50%; background:var(--paper);
+    border:2px solid var(--lavender-deep); position:relative; z-index:2;
+    transition:transform .35s var(--ease-premium,cubic-bezier(.16,1,.3,1)), background .3s ease, border-color .3s ease;
+  }
+  .milestone-pt .yr{font-size:15px; font-weight:700; color:var(--ink); letter-spacing:0.01em;}
+  .milestone-pt .headline{font-size:12.5px; color:var(--ink-soft); line-height:1.55; max-width:150px; font-weight:500;}
+  .milestone-pt:hover .dot, .milestone-pt.active .dot{
+    background:var(--lavender-deep); border-color:var(--lavender-deep); transform:scale(1.35);
+  }
+  .milestone-pt.active .yr{color:var(--lavender-deep);}
+  .milestone-pt:focus-visible{outline:2px solid var(--lavender-deep); outline-offset:6px; border-radius:6px;}
+
+  .milestone-panel{
+    margin-top:8px; padding:30px 34px; background:var(--white); border-radius:6px;
+    border:1px solid var(--line);
+    max-height:0; opacity:0; overflow:hidden; padding-top:0; padding-bottom:0;
+    transition:max-height .5s cubic-bezier(.16,1,.3,1), opacity .4s ease, padding .5s cubic-bezier(.16,1,.3,1);
+  }
+  .milestone-panel.open{max-height:280px; opacity:1; padding-top:30px; padding-bottom:30px;}
+  .milestone-panel .mp-yr{font-size:12px; letter-spacing:0.16em; color:var(--lavender-deep); font-weight:700; margin-bottom:8px; display:block;}
+  .milestone-panel h4{font-family:var(--sans); font-size:19px; font-weight:700; margin:0 0 12px; color:var(--ink);}
+  .milestone-panel ul{margin:0; padding-left:18px;}
+  .milestone-panel li{font-size:13.5px; line-height:1.8; color:var(--ink-soft); margin-bottom:4px;}
+  @media (max-width:700px){
+    .milestone-pt{width:150px;}
+  }
+
+  /* ---------- Key Achievements — badges & big numbers ---------- */
+  .achieve{margin-top:110px;}
+  .achieve-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); margin-top:36px;
+  }
+  .achieve-cell{
+    background:var(--paper); padding:34px 22px; display:flex; flex-direction:column; gap:14px; min-height:200px;
+    position:relative; transition:background .3s ease;
+  }
+  .achieve-cell:hover{background:var(--white); box-shadow:inset 0 0 0 1px var(--lavender-deep), 0 14px 30px rgba(43,36,48,0.1); z-index:2;}
+  .achieve-cell .ai-icon{width:30px; height:30px; color:var(--lavender-deep); flex:0 0 auto;}
+  .achieve-cell .ai-tag{font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--lavender-deep); font-weight:700;}
+  .achieve-cell .ai-big{font-size:clamp(1.7rem,2.6vw,2.3rem); font-weight:700; color:var(--ink); line-height:1.05; margin-top:auto;}
+  .achieve-cell .ai-big small{font-size:0.42em; font-weight:600; letter-spacing:0.06em; margin-left:6px; color:var(--ink-soft); text-transform:uppercase;}
+  .achieve-cell .ai-sub{font-size:12px; color:var(--ink-soft); line-height:1.6;}
+  @media (max-width:900px){ .achieve-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:480px){ .achieve-grid{grid-template-columns:1fr;} }
+
+  /* ---------- 02 Selected Projects ---------- */
+  .proj-cat{margin-top:96px;}
+  .proj-cat:first-of-type{margin-top:60px;}
+
+  /* Brand Experience — 순환 카드 캐러셀 (2026-08-04, 21st.dev circular-testimonials 동작 참고) */
+  .exp-carousel{display:grid; grid-template-columns:0.9fr 1fr; gap:70px; align-items:center; margin-top:8px;}
+  .exp-stack{position:relative; width:100%; max-width:380px; aspect-ratio:4/5; margin:0 auto;}
+  .exp-card{
+    position:absolute; inset:0; border-radius:10px; overflow:hidden;
+    box-shadow:0 24px 55px rgba(43,36,48,0.22); cursor:pointer;
+    transition:transform .6s var(--ease-premium,cubic-bezier(.16,1,.3,1)), opacity .6s var(--ease-premium,cubic-bezier(.16,1,.3,1));
+  }
+  .exp-card img{width:100%; height:100%; object-fit:cover; display:block;}
+  .exp-card.pos-0{transform:translate(0,0) rotate(0deg) scale(1); z-index:4; opacity:1;}
+  .exp-card.pos-1{transform:translate(18px,16px) rotate(4deg) scale(0.93); z-index:3; opacity:0.92;}
+  .exp-card.pos-2{transform:translate(32px,28px) rotate(8deg) scale(0.87); z-index:2; opacity:0.55;}
+  .exp-card.pos-3{transform:translate(40px,36px) rotate(11deg) scale(0.82); z-index:1; opacity:0; pointer-events:none;}
+  .exp-info{display:flex; flex-direction:column;}
+  .exp-badge{font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--lavender-deep); font-weight:700; margin-bottom:14px;}
+  .exp-title{font-family:var(--serif); font-size:clamp(1.3rem,2.4vw,1.7rem); color:var(--ink); margin-bottom:14px; line-height:1.3; min-height:2.6em;}
+  .exp-desc{font-size:14px; line-height:1.8; color:var(--ink-soft); margin-bottom:0; min-height:4.8em;}
+  .exp-actions{display:flex; align-items:center; justify-content:space-between; margin-top:30px;}
+  .exp-more{
+    padding:12px 26px; border-radius:100px; border:none; background:var(--ink); color:var(--white);
+    font-size:12.5px; font-weight:600; letter-spacing:0.03em; cursor:pointer; transition:background .25s ease;
+  }
+  .exp-more:hover{background:var(--lavender-deep);}
+  .exp-nav{display:flex; gap:8px;}
+  .exp-nav-btn{
+    width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--white);
+    color:var(--ink); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .exp-nav-btn:hover{background:var(--lavender-deep); color:var(--white); border-color:var(--lavender-deep);}
+  @media (max-width:760px){
+    .exp-carousel{grid-template-columns:1fr; gap:36px;}
+    .exp-stack{max-width:280px;}
+    .exp-title{min-height:0;}
+    .exp-desc{min-height:0;}
+  }
+
+  /* Global Exhibitions & Retail / Space & Retail Design — 21st.dev "framer-thumbnails" 참고,
+     Brand Film 레일과 동일한 자동 슬라이드 구조(.film-rail-wrap/.film-rail/.film-item)를 재사용
+     (2026-08-03). 사진 전용 아이템이라 .film-play 대신 .rail-photo(썸네일)만 들어감. */
+  .rail-photo{
+    display:block; width:100%; aspect-ratio:4/3; object-fit:cover;
+    border-radius:6px; box-shadow:0 16px 40px rgba(43,36,48,0.14);
+    transition:transform .4s cubic-bezier(.16,1,.3,1);
+  }
+  .film-item:hover .rail-photo{transform:translateY(-4px);}
+  .film-item .img-placeholder{aspect-ratio:4/3; border-radius:6px;}
+
+  /* 섹션 전환부 여백을 "의도된 숨"으로 읽히게 하는 얇은 구분선 + 캡션 (2026-08-03) */
+  .section-divider{display:flex; align-items:center; justify-content:center; gap:18px; margin:0 0 60px;}
+  .section-divider::before, .section-divider::after{content:""; flex:1 1 0; max-width:100px; height:1px; background:var(--line);}
+  .section-divider span{font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); white-space:nowrap;}
+
+  /* ---------- 03 Retail Network ---------- */
+  .retail-grid{margin-top:44px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:900px){ .retail-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .retail-grid{grid-template-columns:1fr;} }
+  .retail-card{
+    border:1px solid var(--line); border-radius:4px; overflow:hidden; background:var(--white); display:flex; flex-direction:column;
+    box-shadow:0 10px 26px rgba(43,36,48,0.06); transition:box-shadow .3s ease, transform .3s ease;
+  }
+  .retail-card:hover{box-shadow:0 16px 36px rgba(43,36,48,0.12); transform:translateY(-3px);}
+  .retail-card.text-only{background:var(--lavender-soft); border-color:transparent; justify-content:center;}
+  .retail-card .rc-icon{width:26px; height:26px; color:var(--lavender-deep); margin-bottom:14px;}
+  .retail-card .rc-photo{aspect-ratio:4/3; overflow:hidden;}
+  .retail-card .rc-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .retail-card .rc-body{padding:18px 18px 20px;}
+  .retail-card .rc-label{font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--lavender-deep); font-weight:700; margin-bottom:8px;}
+  .retail-card .rc-value{font-size:13px; color:var(--ink-soft); line-height:1.75;}
+  .retail-card .rc-value b{color:var(--ink); font-weight:600;}
+  .retail-more{
+    margin-top:10px; background:none; border:none; padding:0; cursor:pointer;
+    font-size:11.5px; color:var(--lavender-deep); font-weight:600; letter-spacing:0.02em;
+    display:inline-flex; align-items:center; gap:4px;
+  }
+  .retail-more:hover{color:var(--ink);}
+  .retail-extra{max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(.16,1,.3,1);}
+  .retail-extra.open{max-height:200px;}
+
+  /* ---------- Founder's Story — media card ---------- */
+  .founder-card{
+    margin-top:56px; position:relative; display:flex; text-decoration:none; color:inherit;
+    border-radius:6px; overflow:hidden; background:var(--ink);
+    aspect-ratio:21/9; min-height:260px;
+  }
+  .founder-card img{width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0; transition:transform .7s var(--ease-premium,cubic-bezier(.16,1,.3,1));}
+  .founder-card:hover img{transform:scale(1.035);}
+  .founder-card::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg, rgba(20,15,18,0.82) 0%, rgba(20,15,18,0.5) 42%, rgba(20,15,18,0.12) 68%, rgba(20,15,18,0) 84%);}
+  .founder-body{position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center; gap:12px; padding:0 5vw; max-width:560px;}
+  .founder-body .fc-eyebrow{font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--lavender); font-weight:700;}
+  .founder-body h3{font-family:var(--sans); font-size:clamp(1.35rem,2.6vw,1.8rem); font-weight:700; color:var(--white); margin:0; line-height:1.35;}
+  .founder-body p{color:rgba(255,255,255,0.72); font-size:13.5px; margin:0; line-height:1.7;}
+  .founder-play{
+    position:absolute; right:6.5vw; top:50%; transform:translateY(-50%); z-index:2;
+    width:74px; height:74px; border-radius:50%; background:rgba(255,255,255,0.14);
+    border:1.5px solid rgba(255,255,255,0.55); display:flex; align-items:center; justify-content:center;
+    transition:background .3s ease, transform .3s var(--ease-premium,cubic-bezier(.16,1,.3,1));
+  }
+  .founder-play svg{width:20px; height:20px; fill:var(--white); margin-left:3px;}
+  .founder-card:hover .founder-play{background:var(--lavender-deep); border-color:var(--lavender-deep); transform:translateY(-50%) scale(1.08);}
+  @media (max-width:760px){
+    .founder-card{aspect-ratio:4/5; align-items:flex-end;}
+    .founder-body{max-width:none; padding:0 26px 96px; justify-content:flex-end;}
+    .founder-play{right:26px; top:auto; bottom:26px; transform:none; width:58px; height:58px;}
+    .founder-card:hover .founder-play{transform:scale(1.08);}
+  }
+
+  /* ---------- Company colophon (light) ---------- */
+  .company{
+    margin-top:80px; padding-top:20px; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:repeat(4,auto); gap:10px 34px;
+  }
+  .company .row{font-size:11.5px; color:var(--ink-soft); display:flex; gap:8px; white-space:nowrap;}
+  .company .row span:first-child{color:rgba(43,36,48,0.38);}
+  .company .row span:last-child{color:var(--ink-soft);}
+  @media (max-width:900px){ .company{grid-template-columns:repeat(2,auto);} }
+  @media (max-width:520px){ .company{grid-template-columns:auto; white-space:normal;} }
+  @media (max-width:700px){ .company{grid-template-columns:1fr;} }
+
+  /* voice guide */
+  .voice{
+    margin-top:60px;
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border:1px solid var(--line);
+  }
+  .voice .col{padding:36px 38px;}
+  .voice .col.use{border-right:1px solid var(--line); background:var(--lavender-soft);}
+  .voice .col h4{font-family:var(--serif); font-style:italic; font-size:16px; margin-bottom:18px;}
+  .voice .col.use h4{color:var(--lavender-deep);}
+  .voice .col.avoid h4{color:var(--ink-soft);}
+  .voice .tagset{display:flex; flex-wrap:wrap; gap:9px;}
+  .voice .tagset span{
+    font-size:12.5px; padding:7px 14px; border-radius:100px; background:var(--white);
+    border:1px solid var(--line);
+  }
+  .voice .col.avoid .tagset span{background:transparent; text-decoration:line-through; color:var(--ink-soft);}
+  .voice .note{margin-top:18px; font-size:12px; color:var(--ink-soft);}
+  @media (max-width:700px){ .voice{grid-template-columns:1fr;} .voice .col.use{border-right:none; border-bottom:1px solid var(--line);} }
+
+  /* closing — vast white space, one quiet line */
+  .closing{
+    background:var(--white);
+    text-align:center;
+    padding:240px 0 220px;
+  }
+  .closing .closing-visual{
+    width:min(420px, 80vw); margin:0 auto 72px;
+  }
+  .closing .closing-visual video{
+    width:100%; height:auto;
+    border-radius:4px; display:block;
+    box-shadow:0 20px 45px rgba(43,36,48,0.18);
+  }
+  .closing .line{
+    font-family:var(--serif); font-style:italic; color:var(--ink);
+    font-size:clamp(1.05rem,1.8vw,1.35rem); letter-spacing:0.01em; margin:0;
+  }
+  /* 편지처럼 마무리하는 서명 (2026-08-03) — 원래 있던 문구를 영상 바로 아래에 두고,
+     문단 간격을 둔 뒤 "Love, Cocoheali" 서명이 이어지도록. "Love," 작고 옅게,
+     "Cocoheali" 크고 진하게, 둘 다 Fraunces 이탤릭으로 손글씨 서명 톤. 아래 별도
+     COCOHEALI 워드마크는 서명과 중복이라 제거함(2026-08-03). */
+  .closing .signoff{margin:36px 0 0;}
+  .closing .signoff .signoff-love{
+    display:block; font-family:var(--font-en-accent); font-style:italic; font-weight:500;
+    font-size:clamp(1.05rem,1.8vw,1.3rem); color:var(--ink-soft); margin-bottom:8px;
+  }
+  .closing .signoff .signoff-name{
+    display:block; font-family:var(--font-en-accent); font-style:italic; font-weight:600;
+    font-size:clamp(1.9rem,3.8vw,2.7rem); color:var(--ink); letter-spacing:0.01em;
+  }
+  footer{
+    padding:34px 0 60px; text-align:center;
+  }
+  footer p{font-size:11.5px; color:var(--ink-soft); margin:4px 0;}
+  footer .links{font-size:12.5px; letter-spacing:0.06em; margin-bottom:10px;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* scroll-stagger reveal engine — GSAP ScrollTrigger 방식의 "스크롤 시 텍스트·이미지·영상이
+     순차 등장" 연출을 vanilla JS로 구현 (2026-08-02). 이 파일은 EXPORT_RULE.md에 따라 CDN 없는
+     단일 self-contained HTML로 빌드되므로 GSAP/AOS를 그대로 불러오는 대신 동일한 시각 효과를
+     IntersectionObserver + CSS transition-delay로 재현함. .reveal-group(섹션 단위) 안의
+     .reveal-item들이 진입 시 순서대로 살짝 늦게 나타남. */
+  .reveal-group .reveal-item{
+    opacity:0; transform:translateY(26px);
+    transition:opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
+    transition-delay:calc(var(--ri,0) * .13s);
+  }
+  .reveal-group.in .reveal-item{opacity:1; transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal-group .reveal-item{transition:none !important; opacity:1 !important; transform:none !important;}
+  }
+
+  /* intro gate — small brand mark that expands into the hero */
+  body.gate-active{overflow:hidden;}
+  .intro-gate{
+    position:fixed; inset:0; z-index:200;
+    background:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    opacity:1; transition:opacity 1s cubic-bezier(.65,0,.35,1);
+    transition-delay:.6s;
+  }
+  .intro-gate.opening{opacity:0; pointer-events:none;}
+  .intro-gate.gone{display:none;}
+  .intro-mark{
+    position:relative;
+    background:none; border:none; padding:0; cursor:pointer;
+    width:76px; height:76px; display:flex; align-items:center; justify-content:center;
+    transform:scale(1); opacity:1;
+    transition:transform 1.15s cubic-bezier(.65,0,.35,1), opacity .8s ease .35s;
+  }
+  .intro-mark img{
+    width:auto; height:46%; max-width:60%; display:block;
+    animation:hBlink 2.2s ease-in-out infinite;
+  }
+  .intro-gate.opening .intro-mark{transform:scale(15); opacity:0; transition-delay:0s, 0s;}
+  .intro-gate.opening .intro-mark img{animation:none;}
+  @keyframes hBlink{
+    0%,55%,100%{ opacity:1; }
+    75%{ opacity:.28; }
+  }
+  .intro-mark:focus-visible{outline:2px solid var(--lavender-deep); outline-offset:10px; border-radius:50%;}
+  @media (prefers-reduced-motion:reduce){
+    .intro-gate{transition:none;}
+    .intro-gate.opening .intro-mark{transition:none;}
+    .intro-mark img{animation:none;}
+  }
+</style>
+</head>
+<body class="gate-active">
+
+<div class="draft-tag">DRAFT · 내부 검토용</div>
+
+<div class="intro-gate" id="introGate">
+  <button type="button" class="intro-mark" id="introMark" aria-label="코코힐리 브랜드소개서 열기">
+    <img src="assets/h-mark.png" alt="">
+  </button>
+</div>
+
+<header class="top" id="siteHeader">
+  <img src="assets/logo.png" alt="cocoheali">
+  <nav>Brand Introduction</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="assets/last_ending.png" alt="코코힐리 — 부모의 손과 아이의 손이 클렌징팩을 주고받는 순간">
+  </div>
+  <div class="hero-scrollcue reveal">
+    <span>Scroll ↓</span>
+  </div>
+</section>
+
+<!-- BRAND STORY -->
+<section class="wrap pad-xl reveal-group">
+  <div class="story-split">
+    <div class="text-block story-text">
+      <p class="eyebrow reveal-item">Brand Story</p>
+      <h2 class="reveal-item">엄마처럼,<br><span class="zone-accent">스스로</span> 해보고 싶은 마음.</h2>
+      <div class="reveal-item">
+        <p>아이들은 예뻐지고 싶어서<br>엄마를 따라 하는 것이 아닙니다.</p>
+        <p>엄마처럼 스스로 해보고 싶은 마음.</p>
+        <p>코코힐리는<br>엄마의 화장품처럼 익숙한 모습 안에,<br>아이를 위한 안전한 스킨케어를 담았습니다.</p>
+        <p class="decl" style="margin-top:30px;">엄마를 따라 하던 순간을,<br>아이의 <span class="sc-phrase">첫 <span class="sc-word">Self Care</span> 경험</span>으로 바꿉니다.</p>
+      </div>
+    </div>
+    <div class="story-video reveal-item">
+      <video class="story-film" src="assets/coco_brandfilm_story.mp4" poster="assets/poster-storyfilm.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+    </div>
+  </div>
+</section>
+
+<!-- FULLBLEED STATEMENT — 풀블리드 사진 + 큰 오버레이 카피 (Behance/Glossier 레퍼런스 리듬 참고) -->
+<div class="bleed-statement reveal-group">
+  <img src="assets/mood-happyface.jpg" alt="편안하게 눈을 감고 웃는 아이">
+  <div class="stmt-scrim" aria-hidden="true"></div>
+  <div class="stmt-overlay reveal-item">
+    <p class="stmt-text-en">
+      <span class="stmt-en-base">Self-care, to us, is</span>
+      <span class="stmt-en-accent">the joy</span>
+      <span class="stmt-en-base">of doing it yourself.</span>
+    </p>
+  </div>
+</div>
+
+<!-- BRAND PHILOSOPHY — 풀블리드 컬러 스테이트먼트 (2026-08-03, Glossier 레퍼런스) -->
+<section class="phil-statement reveal-group">
+  <div class="wrap">
+    <p class="stmt-text reveal-item">코코힐리에게 셀프케어란,<br>아이가 스스로 <span class="stmt-accent">해내는 즐거움</span>을<br>발견하는 과정입니다.</p>
+    <p class="phil-stmt-sub reveal-item">우리는 화장품을 파는 브랜드가 아니라,<br>아이가 스스로 돌보는 첫 Self Care 경험을<br>만드는 브랜드입니다.</p>
+  </div>
+</section>
+
+<section class="phil-caption-section reveal-group">
+  <div class="wrap">
+    <div class="phil-caption-row reveal-item">
+      <div class="pcap-item"><span class="pcap-num">01</span><span class="pcap-label">Curiosity</span><span class="pcap-text">엄마를 따라 하며 시작된 작은 호기심</span></div>
+      <div class="pcap-item"><span class="pcap-num">02</span><span class="pcap-label">I Can Do It</span><span class="pcap-text">스스로 해보며 얻는 첫 자신감</span></div>
+      <div class="pcap-item"><span class="pcap-num">03</span><span class="pcap-label">Daily Ritual</span><span class="pcap-text">매일 반복되는 즐거운 셀프케어 습관</span></div>
+      <div class="pcap-item"><span class="pcap-num">04</span><span class="pcap-label">Skin &amp; Self</span><span class="pcap-text">건강한 피부와 자기효능감이 함께 자라는 순간</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND FILM -->
+<section class="wrap pad-l reveal">
+  <p class="eyebrow center" style="text-align:center;">Brand Film</p>
+  <div class="film-rail-wrap">
+    <button type="button" class="rail-nav prev" aria-label="이전 영상">‹</button>
+    <button type="button" class="rail-nav next" aria-label="다음 영상">›</button>
+    <div class="film-rail">
+      <div class="film-item">
+        <button type="button" class="film-play" data-src="../../_inputs/originals/video/코코힐리 V final FINAL 2.mp4" aria-label="브랜드 애니메이션 재생">
+          <img src="assets/poster-brandstory.jpg" alt="브랜드 애니메이션">
+          <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l14-7.5z"></path></svg></span>
+        </button>
+        <p class="film-cap"><b>브랜드 애니메이션</b></p>
+      </div>
+      <div class="film-item">
+        <button type="button" class="film-play" data-src="../../_inputs/originals/video/광고1_이윤지라니 2.mp4" aria-label="매체 광고영상(윤지x라니) 재생">
+          <img src="assets/poster-ad1.jpg" alt="매체 광고영상 (윤지x라니)">
+          <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l14-7.5z"></path></svg></span>
+        </button>
+        <p class="film-cap"><b>매체 광고영상</b> (윤지x라니)</p>
+      </div>
+      <div class="film-item">
+        <button type="button" class="film-play" data-src="../../_inputs/originals/video/광고2_송경아 2.mp4" aria-label="매체 광고영상(송경아) 재생">
+          <img src="assets/poster-ad2.jpg" alt="매체 광고영상 (송경아)">
+          <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l14-7.5z"></path></svg></span>
+        </button>
+        <p class="film-cap"><b>매체 광고영상</b> (송경아)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR STATEMENT — 에디토리얼 재해석: Little Hands (2026-08-03, Glossier About/Explore 스프레드 참고) -->
+<section class="editorial-bleed reveal-group">
+  <div class="eb-inner">
+    <p class="eb-pullquote reveal-item">아이는 스스로 발라야 합니다. 그래서 우리는 <span class="eb-accent">아이의 손으로부터</span> 모든 것을 설계했습니다.</p>
+    <div class="eb-photo">
+      <img src="assets/brand_background_creampang01.jpg" alt="아이의 두 손이 코코힐리 크림팡 팩트를 여는 클로즈업">
+      <div class="eb-panel reveal-item">
+        <span class="eb-pill">Self Care</span>
+        <p class="eb-kicker"><b>Little</b> <i>Hands.</i></p>
+        <svg class="eb-scribble" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8c18-8 34-8 50-2s34 8 54 0 34-8 50 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <p class="eb-body">작은 손으로도 쉽게 쥐고,<br>혼자서도 편하게 바르고,<br>매일 스스로 사용할 수 있도록.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIP BALM — 섹션 A: 메인 풀블리드 (2026-08-03) -->
+<section class="lipbalm-bleed reveal-group">
+  <img src="assets/brand_backgraound_lipbalm_.jpg" alt="아이가 코코힐리 립밤을 볼에 대는 모습">
+  <div class="lb-overlay reveal-item">
+    <span class="lb-badge">Lip &amp; Cheek</span>
+    <h3 class="lb-headline"><span class="lb-base">화장 아니고,</span><span class="lb-accent">보습인데요.</span></h3>
+    <p class="lb-sub">아이들은 예쁜 컬러를 즐기고,<br>엄마는 촉촉한 보습을 안심합니다.<br><br>입술에도, 볼에도 콕콕.<br>착색 없이 보습만 남기는<br>아이를 위한 Lip &amp; Cheek Balm</p>
+  </div>
+  <div class="lb-object reveal-item">
+    <div class="lb-object-img"><img src="assets/lipbalm-package.png" alt="코코힐리 큐브립밤 패키지"></div>
+    <p class="lb-object-caption">저자극 유아용 립밤.<br>입술에도 볼에도, 컬러와 보습을 함께.</p>
+  </div>
+</section>
+
+<!-- LIP BALM — 섹션 B: 큐브립밤 갤러리 스트립 -->
+<section class="lipbalm-gallery reveal-group">
+  <div class="wrap">
+    <span class="lg-label reveal-item">Cube Lip Balm — Ring &amp; Balm in One</span>
+    <div class="lg-grid reveal-item">
+      <div class="lg-item-1">
+        <img src="assets/lipbalm-ring-peel.jpg" alt="스티커처럼 립밤 반지를 떼어내는 손 클로즈업">
+        <p class="lg-caption">스티커처럼 떼어 끼우는 립밤 링</p>
+      </div>
+      <div class="lg-item-2">
+        <img src="assets/lipbalm-ring-face.jpg" alt="반지를 낀 채 얼굴을 만지는 아이">
+        <div class="lg-item-3"><img src="assets/lipbalm-swatch-cutout.png" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT WORLD -->
+<section class="wrap pad-xl reveal-group" id="products">
+  <span class="pill-badge reveal-item">Product World</span>
+  <div class="product-head">
+    <h2 class="reveal-item">세 갈래의 <span class="accent-italic">놀이</span>,<br>하나의 습관.</h2>
+    <p class="lede reveal-item">이 마음을 담은, 코코힐리의 도구들 — 아래 제품들은 각자의 놀이 방식으로 같은 습관을 만듭니다.</p>
+  </div>
+
+  <div class="pline pline--pair tint-lavender" style="margin-top:64px;">
+    <div class="pline-head">
+      <span class="pline-num">01</span>
+      <span class="pline-tag">Pang Line</span>
+      <p class="pline-desc">쿠션처럼 팡팡, 재미있게 바르는 보습</p>
+    </div>
+    <div class="pgrid">
+      <div class="gcard gcard--moment" tabindex="0">
+        <div class="pimg has-texture">
+          <span class="badge-signature">Signature</span>
+          <div class="slide active"><img src="assets/p-creampang.png" alt="크림팡 팩트 핑크"></div>
+          <div class="slide"><img src="assets/p-creampang-2.png" alt="크림팡 팩트 퍼플"></div>
+          <video class="pimg-texture" muted loop playsinline preload="none">
+            <source src="assets/texture-creampang.mp4" type="video/mp4">
+          </video>
+          <span class="texture-badge">제형 보기</span>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
+        </div>
+        <span class="moment-eyebrow">아침을 시작하는 가장 작은 습관.</span>
+        <h4>크림팡 팩트</h4>
+        <p class="pdesc">세라마이드 5종과 식물 유래 보습 성분을 담은 고보습 크림팩트. 아이 스스로 팡팡 두드리며, 매일의 첫 스킨케어 습관을 만들어갑니다.</p>
+        <div class="pfooter">
+          <span class="pmeta">22g · 38,000원 · 핑크/퍼플</span>
+          <span class="plinks">
+            <button type="button" class="plink secondary" data-pkg="assets/package/creampang_raster.png" data-pkg-name="크림팡 팩트 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%AC%EB%A6%BC%ED%8C%A1-%ED%8C%A9%ED%8A%B8-%ED%95%91%ED%81%AC/188/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+      <div class="gcard gcard--moment" tabindex="0">
+        <div class="pimg has-texture">
+          <div class="slide active"><img src="assets/p-sunnypang.png" alt="써니팡 팩트 옐로우"></div>
+          <div class="slide"><img src="assets/p-sunnypang-2.png" alt="써니팡 팩트 민트"></div>
+          <video class="pimg-texture" muted loop playsinline preload="none">
+            <source src="assets/texture-sunnypang.mp4" type="video/mp4">
+          </video>
+          <span class="texture-badge">제형 보기</span>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
+        </div>
+        <span class="moment-eyebrow">문을 나서기 전, 마지막으로 챙기는</span>
+        <h4>써니팡 팩트</h4>
+        <p class="pdesc">SPF 50+ / PA++++의 강력한 자외선 차단 기능성과 백탁 없이 편안하게 스며드는 무기자차 선케어. 스트랩을 목에 걸고 놀이터에서도, 소풍에서도, 물놀이에서도 아이 스스로 꺼내 톡톡. 언제든 덧바르는, 아이의 첫 선케어 습관.</p>
+        <div class="pfooter">
+          <span class="pmeta">22g · 38,000원 · 옐로우/민트</span>
+          <span class="plinks">
+            <button type="button" class="plink secondary" data-pkg="assets/package/sunnypang_raster.png" data-pkg-name="써니팡 팩트 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%8D%A8%EB%8B%88%ED%8C%A1%ED%8C%A9%ED%8A%B8-%EB%A0%88%EB%AA%AC-22g-spf-50-pa/190/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sunny-feature">
+    <div class="sunny-feature-grid">
+      <div class="sunny-feature-card">
+        <span class="sf-badge">UV Care</span>
+        <h3 class="sf-headline">선크림을 챙기는 아이는 없습니다. <span class="sf-accent">좋아하는 가방은 스스로</span> 챙기죠.</h3>
+        <p class="sf-subline">Sunny Pang is made to be carried.</p>
+        <p class="sf-body">목에 걸고 뛰어놀다가<br>생각날 때마다 팡팡</p>
+        <p class="sf-pullquote"><span class="pq-base">선크림을 바르는 일은 엄마의 잔소리가 아니라</span><span class="pq-accent">아이의 습관이 됩니다.</span></p>
+        <div class="sf-specs">
+          <div class="sf-spec-row"><span class="sf-spec-key">SPF50+ / PA++++</span><span class="sf-spec-desc">자외선 차단 기능성</span></div>
+          <div class="sf-spec-row"><span class="sf-spec-key">Vitamin Ampoule</span><span class="sf-spec-desc">비타민 앰플 함유</span></div>
+          <div class="sf-spec-row"><span class="sf-spec-key">Hydrating UV Care</span><span class="sf-spec-desc">촉촉하게 채우는 선케어</span></div>
+        </div>
+      </div>
+      <div class="sunny-feature-photo">
+        <img src="assets/brand_background_sunnypang.jpg" alt="모래사장에서 코코힐리 써니팡 팩트를 크로스백처럼 걸고 있는 모습">
+      </div>
+    </div>
+  </div>
+
+  <div class="pline pline--rail tint-mint">
+    <div class="pline-head">
+      <span class="pline-num">02</span>
+      <span class="pline-tag">Cube &amp; immuimmu Line</span>
+      <p class="pline-desc">쌓고 붙이고 떼는 창의 놀이부터, 온 가족이 함께 쓰는 자연 유래 스킨케어까지 — 한 줄로 이어지는 놀이와 케어</p>
+    </div>
+    <div class="pgrid">
+      <div class="gcard gcard--moment" tabindex="0">
+        <div class="pimg">
+          <div class="slide active"><img src="assets/p-lipbalm.png" alt="큐브립밤 핑크베리"></div>
+          <div class="slide"><img src="assets/p-lipbalm-2.png" alt="큐브립밤 오렌지팝"></div>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
+        </div>
+        <span class="moment-eyebrow">심심한 오후를 채우는 작은 놀이.</span>
+        <h4>큐브립밤</h4>
+        <p class="pdesc">자연 유래 오일 베이스의 착색없이 자연스러운 컬러 보습 립 앤 치크. 점선을 뜯어 나만의 반지를 만들며, 바르는 즐거움과 만드는 재미를 함께 누립니다.</p>
+        <div class="pfooter">
+          <span class="pmeta">3g · 19,000원</span>
+          <span class="plinks">
+            <button type="button" class="plink secondary" data-pkg="assets/package/lipbalm_raster.png" data-pkg-name="큐브립밤 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%90%EB%B8%8C%EB%B0%98%EC%A7%80-%ED%95%91%ED%81%AC%EB%B2%A0%EB%A6%AC-%EC%BC%80%EC%96%B4-%EB%A6%BD%EB%B0%A4/183/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+      <div class="gcard gcard--moment" tabindex="0">
+        <div class="pimg">
+          <div class="slide active"><img src="assets/p-cubenail.png" alt="큐브네일 러브캔디"></div>
+          <div class="slide"><img src="assets/p-cubenail-2.png" alt="큐브네일 드림캔디"></div>
+          <div class="slide"><img src="assets/p-cubenail-3.png" alt="큐브네일 샤인팝"></div>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span><span class="dot" onclick="slideTo(this,2)"></span></div>
+        </div>
+        <span class="moment-eyebrow">손끝에서 시작되는 나만의 컬러.</span>
+        <h4>큐브네일</h4>
+        <p class="pdesc">아세톤 없이 스티커처럼 떼어내는 수성 베이스 키즈 네일. 아이가 오늘의 컬러 조합을 직접 고르며, 매일 다른 나를 표현합니다.</p>
+        <div class="pfooter">
+          <span class="pmeta">13.5g · 33,000원</span>
+          <span class="plinks">
+            <button type="button" class="plink secondary" data-pkg="assets/package/cubenail_raster.png" data-pkg-name="큐브네일 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%90%EB%B8%8C-%EB%84%A4%EC%9D%BC-%EB%9F%AC%EB%B8%8C%EC%BA%94%EB%94%94/184/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+      <div class="gcard">
+        <div class="pimg"><div class="slide active"><img src="assets/p-nailsticker.jpg" alt="이지 케어 네일스티커"></div></div>
+        <span class="moment-eyebrow">놀이인 줄 알았는데,</span>
+        <h4>이지 케어 네일스티커</h4>
+        <p class="pdesc">붙이는 순간 완성되는 네일아트. 하이드로콜로이드 성분이 손톱을 케어하며, 세계 최초 접착 특허로 손톱 거칠기 개선 임상까지 마쳤습니다. 붙이고 떼는 것만으로, 아이 스스로 즐기는 손끝 놀이.</p>
+        <div class="pfooter">
+          <span class="pmeta">14,900원</span>
+          <span class="plinks">
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%9D%B4%EC%A7%80-%EC%95%84%ED%8A%B8-%EB%84%A4%EC%9D%BC%EC%8A%A4%ED%8B%B0%EC%BB%A4/368/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+      <div class="gcard">
+        <div class="pimg">
+          <div class="slide active"><img src="assets/p-masksheet.png" alt="이뮤이뮤 마스크 카밍"></div>
+          <div class="slide"><img src="assets/p-masksheet-2.png" alt="이뮤이뮤 마스크 하이드로&카밍"></div>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
+        </div>
+        <span class="moment-eyebrow">하루의 마무리, 잠들기 전 5분</span>
+        <h4>이뮤이뮤 마스크팩</h4>
+        <p class="pdesc">표고·영지·차가·흰목이·진흙·꽃송이, 6종 버섯 추출 immuimmu 컴플렉스가 자는 동안 피부 장벽을 채워줍니다. 진정에 강한 병풀 추출물과 저자극 방부 시스템으로, 알레르기 유발 향료를 뺀 온 가족이 편하게 쓸 수 있는 왕관 모양 시트.</p>
+        <div class="pfooter">
+          <span class="pmeta">23ml×5 · 15,000원</span>
+          <span class="plinks">
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%96%B4%EB%A6%B0%EC%9D%B4-%EB%A7%88%EC%8A%A4%ED%81%AC-%ED%8C%A9-5%EA%B0%9C%EC%9E%85/131/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+      <div class="gcard">
+        <div class="pimg">
+          <div class="slide active"><img src="assets/p-immuimmu-cl-1.png" alt="이뮤이뮤 클렌저 & 로션"></div>
+          <div class="slide"><img src="assets/p-immuimmu-cl-2.png" alt="이뮤이뮤 바디클렌저 라이트"></div>
+          <div class="slide"><img src="assets/p-immuimmu-cl-3.png" alt="이뮤이뮤 올인원로션 라이트"></div>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span><span class="dot" onclick="slideTo(this,2)"></span></div>
+        </div>
+        <span class="moment-eyebrow">온 가족이 함께하는 씻는 시간.</span>
+        <h4>이뮤이뮤 클렌저 &amp; 로션</h4>
+        <p class="pdesc">MCT오일과 병풀·라벤더·바나나·캐모마일 4종 추출물, 저자극 임상 완료 + 22종 유해성분 무첨가. 아이부터 어른까지, 온 가족이 함께 쓰는 라이트 포뮬러.</p>
+        <div class="pfooter">
+          <span class="pmeta">각 300ml · 26,000원</span>
+          <span class="plinks">
+            <a class="plink" href="https://cocoheali.com/product/%EC%9D%B4%EB%AE%A4%EC%9D%B4%EB%AE%A4-%EB%9D%BC%EC%9D%B4%ED%8A%B8-%ED%81%B4%EB%A0%8C%EC%A0%80-%EB%A1%9C%EC%85%98-%EC%84%B8%ED%8A%B8/393/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="rail-progress" aria-hidden="true"><div class="thumb"></div></div>
+  </div>
+</section>
+
+<!-- FULLBLEED 1 — 나도 해볼래 (2026-08-03, Cube&immuimmu → Gift Box 사이로 위치 이동) -->
+<div class="bleed reveal-group">
+  <img src="assets/mood-nailsticker.jpg" alt="스스로 네일스티커를 붙여보는 아이">
+
+  <div class="bleed-caption">
+    <span class="en reveal-item">나도 해볼래 — Me do it</span>
+    <p class="reveal-item">놀이인 줄 알았던 순간이,<br>사실은 케어였습니다.</p>
+  </div>
+
+  <div class="sticker-note-wrap reveal-item">
+    <div class="sticker-mockup">
+      <img class="mockup-accent a1" src="assets/sticker-checker-blue.png" alt="">
+      <img class="mockup-product" src="assets/sticker-mockup.png" alt="코코힐리 네일스티커 실제 제품(패키지+스티커 시트)">
+      <img class="mockup-accent a2" src="assets/sticker-flower.png" alt="">
+    </div>
+    <p class="bleed-note">하이드로콜로이드 성분함유 네일스티커.<br>나를 표현하면서 손톱까지 케어합니다.</p>
+  </div>
+</div>
+
+<section class="wrap pad-xl reveal-group">
+  <div class="pline pline--feature tint-peach">
+    <div class="pline-head">
+      <span class="pline-num">03</span>
+      <span class="pline-tag">Gift Box</span>
+      <p class="pline-desc">라인업을 한 번에 만나는 선물용 구성</p>
+    </div>
+    <div class="pgrid">
+      <div class="gcard">
+        <div class="pimg has-texture">
+          <div class="slide active"><img src="assets/p-mybeauty.jpg" alt="마이 뷰티 에디션"></div>
+          <video class="pimg-texture" muted loop playsinline preload="none">
+            <source src="assets/boxopen-mybeauty.mp4" type="video/mp4">
+          </video>
+          <span class="texture-badge">펼쳐보기</span>
+        </div>
+        <p class="ptag">Play Colors Edition · S</p>
+        <h4>마이 뷰티 에디션</h4>
+        <p class="pdesc">크림팡 팩트 + 큐브립밤 + 스티커를 함께 담은 S 사이즈 놀이 에디션. 처음 코코힐리를 만나는 아이에게 알맞은 구성입니다.</p>
+        <div class="pfooter">
+          <span class="pmeta">가격 확인 중</span>
+          <span class="plinks">
+            <button type="button" class="plink secondary" data-pkg="assets/package/mybeauty_raster.png" data-pkg-name="마이 뷰티 에디션 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-my-beauty-edition-%ED%81%AC%EB%A6%BC%ED%8C%A1-%EB%A6%BD%EB%B0%A4/384/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+      <div class="gcard">
+        <div class="pimg has-texture">
+          <div class="slide active"><img src="assets/p-mydream.jpg" alt="마이 드림 에디션"></div>
+          <video class="pimg-texture" muted loop playsinline preload="none">
+            <source src="assets/boxopen-mydream.mp4" type="video/mp4">
+          </video>
+          <span class="texture-badge">펼쳐보기</span>
+        </div>
+        <p class="ptag">Play Colors Edition · M</p>
+        <h4>마이 드림 에디션</h4>
+        <p class="pdesc">크림팡 팩트 + 큐브네일 + 큐브립밤 + 스티커 구성을 더 넉넉하게 담은 M 사이즈 에디션.</p>
+        <div class="pfooter">
+          <span class="pmeta">가격 확인 중</span>
+          <span class="plinks">
+            <button type="button" class="plink secondary" data-pkg="assets/package/mydream_raster.png" data-pkg-name="마이 드림 에디션 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-my-dream-edition-%ED%81%AC%EB%A6%BC%ED%8C%A1-%EB%A6%BD%EB%B0%A4-3-in-1-%EC%88%98%EC%84%B1%EB%84%A4%EC%9D%BC/383/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+      <div class="gcard">
+        <div class="pimg has-texture">
+          <div class="slide active"><img src="assets/p-summer.jpg" alt="썸머 에디션"></div>
+          <video class="pimg-texture" muted loop playsinline preload="none">
+            <source src="assets/boxopen-summer.mp4" type="video/mp4">
+          </video>
+          <span class="texture-badge">펼쳐보기</span>
+        </div>
+        <p class="ptag">Cocoland Edition · L</p>
+        <h4>썸머 에디션</h4>
+        <p class="pdesc">써니팡 팩트 + 큐브립밤 + 큐브네일 + 마스크팩을 함께 담은 L 사이즈 에디션.</p>
+        <div class="pfooter">
+          <span class="pmeta">99,000원</span>
+          <span class="plinks">
+            <a class="plink" href="https://cocoheali.com/product/detail.html?product_no=386" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shopall-wrap">
+    <a class="pill-badge" href="https://cocoheali.com" target="_blank" rel="noopener">( 전체 제품 보기 )</a>
+  </div>
+</section>
+
+<!-- FULLBLEED SAFETY — 2:1 스플릿 (모델컷 2 : 크림팡 텍스처 1) -->
+<div class="bleed bleed-split reveal-group">
+  <div class="bleed-split-imgs">
+    <div class="bs-model"><img src="assets/mood-lotion.jpg" alt="크림을 직접 바르는 아이, 화장이 아닌 스킨케어"></div>
+    <div class="bs-texture"><img src="assets/texture-creampang-jar.jpg" alt="하트 모양으로 담긴 크림팡 크리미한 제형"></div>
+  </div>
+  <div class="bleed-caption">
+    <span class="en reveal-item">Why skincare, not makeup</span>
+    <p class="reveal-item">약한 아이 피부, 지켜야 할 피부장벽, 안심할 수 있는 성분, 그리고 매일 이어가는 습관 — 우리가 색조 대신 스킨케어를 선택한 이유입니다.</p>
+  </div>
+</div>
+
+<!-- BRAND VISION — 2026-08-01 일단 보류 (실제 사진 없이 플레이스홀더뿐이라 사용자 요청으로 임시 비활성화, 사진 확보되면 복원)
+<section class="wrap pad-xl reveal">
+  <p class="eyebrow">Brand Vision</p>
+  <h2 style="font-size:clamp(1.7rem,3.4vw,2.5rem); font-style:italic;">COCOHEALI를 사용하면,<br>이렇게 됩니다.</h2>
+  <p style="max-width:560px; margin-top:22px;">우리가 만드는 것은 화장품이 아니라, 아이가 스스로 해보는 습관입니다. 코코힐리를 경험한 아이는 스스로 선택하고, 스스로 바르고, 스스로 완성합니다.</p>
+
+  <div class="vision-grid">
+    <div class="vitem">
+      <div class="vimg img-placeholder">이미지 예정<br>스스로 선택하는 모습<br>(Cube Nail 커스텀 컬러 조합)</div>
+      <div class="vcap"><b>스스로 선택하고</b><br>매일 다른 컬러를 직접 고르는 큐브네일</div>
+    </div>
+    <div class="vitem">
+      <div class="vimg img-placeholder">이미지 예정<br>스스로 만드는 모습<br>(DDP 나만의 팩트 만들기)</div>
+      <div class="vcap"><b>스스로 만들고</b><br>자신만의 팩트를 완성하는 순간</div>
+    </div>
+    <div class="vitem">
+      <div class="vimg img-placeholder">이미지 예정<br>스스로 표현하는 모습<br>(Cube 라인 창의적 놀이)</div>
+      <div class="vcap"><b>스스로 표현하고</b><br>큐브 라인으로 자신만의 이야기를 그리는 아이</div>
+    </div>
+  </div>
+
+  <div class="vision-note">
+    <b>DDP 동대문디자인플라자 — "이상한 K-Beauty : 엄마의 서랍"</b> (2026.04.10–07.19, DDP마켓 내 BtheB Downtown B2F)의 &lt;나만의 팩트 만들기&gt; 체험. "코코힐리는 화장을 권하지 않습니다. 다르게 보는 시선을 놀이로 경험하게 하며, 스스로 가꾸는 습관을 만들어갑니다." — Creative + Cosmetics = Creametics.
+  </div>
+</section>
+-->
+
+<!-- BRAND HISTORY : Scene 1 — Milestone Timeline + Key Achievements -->
+<section class="zone-ivory reveal-group">
+  <div class="wrap pad-xl">
+    <p class="eyebrow reveal-item">Brand History</p>
+    <h2 class="zone-h2 reveal-item">습관은 <span class="zone-accent">하루아침</span>에<br>만들어지지 않습니다.</h2>
+    <p class="zone-lede reveal-item">코코힐리는 2019년 런칭 이후 국내 키즈 코스메틱 시장에서 꾸준히 유통망과 신뢰를 쌓아왔고, 이제 유럽과 일본 등 해외 시장으로 그 습관을 확장하고 있습니다.</p>
+
+    <div class="milestone reveal-item" id="milestone">
+      <div class="milestone-track" id="milestoneTrack">
+        <button type="button" class="milestone-pt" data-year="2019" data-title="세계 최초 가방형 크림팩트" data-items="코코힐리 브랜드 런칭|세계 최초 가방형(파우치형) 크림팩트 개발|스티커형 키즈 네일, 거품 입욕제 함께 출시">
+          <span class="dot"></span><span class="yr">2019</span><span class="headline">브랜드 런칭</span>
+        </button>
+        <button type="button" class="milestone-pt" data-year="2020" data-title="백화점 3사 입점" data-items="롯데·신세계·갤러리아 백화점 입점|스킨케어 라인 &lsquo;이뮤이뮤&rsquo; 런칭|그랑프리 디지털 광고&amp;캠페인 화장품 부문 수상">
+          <span class="dot"></span><span class="yr">2020</span><span class="headline">백화점 입점</span>
+        </button>
+        <button type="button" class="milestone-pt" data-year="2021" data-title="글로벌 진출 시작" data-items="벤처기업 인증 획득|서울시 위코노미 우수스타트업 선정|아마존몰 입점으로 해외 진출 시작">
+          <span class="dot"></span><span class="yr">2021</span><span class="headline">글로벌 진출</span>
+        </button>
+        <button type="button" class="milestone-pt" data-year="2022" data-title="해외 6개국 수출 확정" data-items="대만·미국·일본 외 해외 6개국 수출 확정|Pre-A 투자 유치 지속(라구나·김기사랩 등)">
+          <span class="dot"></span><span class="yr">2022</span><span class="headline">6개국 수출</span>
+        </button>
+        <button type="button" class="milestone-pt" data-year="2024" data-title="유럽 27개국 확장" data-items="유럽 27개국 총판 계약(Alpen-Handel)|해외공동기술 R&amp;D 국책과제(30억) 선정|K브랜드 대상 수상">
+          <span class="dot"></span><span class="yr">2024</span><span class="headline">27개국 확장</span>
+        </button>
+        <button type="button" class="milestone-pt" data-year="2025" data-title="해외 유통 확장" data-items="일본 AEON Mall, 불가리아 등 해외 유통 확장|바이오텍 기업부설연구소 설립|청와대 초청 어린이날 행사 참여(05.05)">
+          <span class="dot"></span><span class="yr">2025</span><span class="headline">유통망 확장</span>
+        </button>
+        <button type="button" class="milestone-pt active" data-year="2026" data-title="브랜드 리뉴얼" data-items="DDP 팝업 &lsquo;이상한 K-Beauty : 엄마의 서랍&rsquo;(04.10–07.19)|브랜드 아이덴티티 리뉴얼 진행">
+          <span class="dot"></span><span class="yr">2026</span><span class="headline">브랜드 리뉴얼</span>
+        </button>
+      </div>
+
+      <div class="milestone-panel" id="milestonePanel">
+        <span class="mp-yr" id="mpYear">2026</span>
+        <h4 id="mpTitle">브랜드 리뉴얼</h4>
+        <ul id="mpItems"></ul>
+      </div>
+    </div>
+
+    <div class="achieve">
+      <p class="eyebrow reveal-item">Key Achievements</p>
+      <div class="achieve-grid reveal-item">
+        <div class="achieve-cell">
+          <div class="ai-tag">Global</div>
+          <div class="ai-big">27+<small>Countries</small></div>
+          <p class="ai-sub">유럽 27개국 총판 계약 외 다수국 수출망</p>
+        </div>
+        <div class="achieve-cell">
+          <div class="ai-tag">Offline</div>
+          <div class="ai-big">3<small>Dept. Stores</small></div>
+          <p class="ai-sub">롯데 · 신세계 · 갤러리아 입점</p>
+        </div>
+        <div class="achieve-cell">
+          <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="6.2"></circle><path d="M9 14.5 7.4 21 12 18.3 16.6 21 15 14.5"></path></svg>
+          <div class="ai-tag">Patent</div>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">디자인 특허<br>5개국</div>
+          <p class="ai-sub">KOREA · EU · UK · JAPAN · CHINA</p>
+        </div>
+        <div class="achieve-cell">
+          <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8.5"></circle><path d="M3.5 12h17M12 3.5c2.6 2.4 4 5.3 4 8.5s-1.4 6.1-4 8.5c-2.6-2.4-4-5.3-4-8.5s1.4-6.1 4-8.5Z"></path></svg>
+          <div class="ai-tag">Global First</div>
+          <div class="ai-big" style="font-size:14px; line-height:1.6;">① 리본 팩트 용기<br>디자인특허<br>② 네일 스티커<br>접착 특허</div>
+          <p class="ai-sub">디자인특허 5개국 확보 · 접착 특허는 하이드로콜로이드 방식 세계 최초</p>
+        </div>
+        <div class="achieve-cell">
+          <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 12.3 6.5 20.5 12 17l5.5 3.5-2-8.2"></path></svg>
+          <div class="ai-tag">Award</div>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">K브랜드 대상<br>2024</div>
+          <p class="ai-sub">그랑프리 디지털 광고&amp;캠페인 화장품 부문</p>
+        </div>
+        <div class="achieve-cell">
+          <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3.5 19 6.5v5c0 5-3 8.2-7 9.5-4-1.3-7-4.5-7-9.5v-5Z"></path><path d="m9 12 2.2 2.2L15.5 10"></path></svg>
+          <div class="ai-tag">Certified</div>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">벤처기업<br>인증</div>
+          <p class="ai-sub">서울시 위코노미 우수스타트업 선정</p>
+        </div>
+        <div class="achieve-cell">
+          <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 21V4"></path><path d="M6 4h12l-3 4 3 4H6"></path></svg>
+          <div class="ai-tag">Pop-up</div>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">DDP 팝업<br>2026</div>
+          <p class="ai-sub">이상한 K-Beauty : 엄마의 서랍</p>
+        </div>
+        <div class="achieve-cell">
+          <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2.5c3 3 4.5 6.7 4.5 10.3 0 4.5-2 7-4.5 8.7-2.5-1.7-4.5-4.2-4.5-8.7C7.5 9.2 9 5.5 12 2.5Z"></path><path d="M8.5 8.5h7"></path></svg>
+          <div class="ai-tag">Duty-Free</div>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">인천공항<br>면세점</div>
+          <p class="ai-sub">Global Travel Retail</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED PROJECTS -->
+<section class="zone-oak reveal">
+  <div class="wrap pad-xl">
+    <div class="reveal-group">
+      <p class="eyebrow reveal-item">Selected Projects</p>
+      <h2 class="zone-h2 reveal-item">숫자가 아니라,<br><span class="zone-accent">현장</span>으로 보여드립니다.</h2>
+    </div>
+
+    <!-- A. Brand Experience — 자체 reveal-group: 이 카테고리가 화면에 들어올 때 따로 순차 등장 -->
+    <div class="proj-cat reveal-group">
+      <div class="cat-head reveal-item">
+        <span class="cat-label">A · Brand Experience</span>
+        <span class="cat-sub">Offline Events &amp; Collaborations</span>
+      </div>
+      <!-- 21st.dev "circular-testimonials" 참고 — React 컴포넌트를 쓰지 않고 카드 스택 순환 전환만
+           바닐라 JS/CSS로 재구현 (2026-08-04). 카드 클릭/더보기 → 각 상세 모달로 연결. -->
+      <div class="exp-carousel reveal-item">
+        <div class="exp-stack" id="expStack">
+          <div class="exp-card" data-modal="ddpModal"><img src="assets/act-ddp-poster.jpg" alt="DDP 팝업 '이상한 K-Beauty : 엄마의 서랍' 공식 포스터"></div>
+          <div class="exp-card" data-modal="bluehouseModal"><img src="assets/act-bluehouse.jpg" alt="청와대 어린이날 행사 코코힐리 체험 부스"></div>
+          <div class="exp-card" data-modal="hotelModal"><img src="assets/hotel-hero.jpg" alt="코코힐리 테마로 꾸며진 호텔 객실"></div>
+          <div class="exp-card" data-modal="brandcollabModal"><img src="assets/brandcollab-hero.jpg" alt="네파키즈 매장 내 코코힐리 샵인샵"></div>
+        </div>
+        <div class="exp-info">
+          <span class="exp-badge" id="expBadge">Offline Pop-up</span>
+          <h3 class="exp-title" id="expTitle">DDP 팝업 — 이상한 K-Beauty : 엄마의 서랍</h3>
+          <p class="exp-desc" id="expDesc">화장이 아닌 "다르게 보는 시선"을 아이들이 직접 경험한 DDP 브랜드 체험형 전시.</p>
+          <div class="exp-actions">
+            <button type="button" class="exp-more" id="expMoreBtn">더보기 →</button>
+            <div class="exp-nav">
+              <button type="button" class="exp-nav-btn" id="expPrev" aria-label="이전 카드">‹</button>
+              <button type="button" class="exp-nav-btn" id="expNext" aria-label="다음 카드">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B. Global Exhibitions & Retail — 21st.dev "framer-thumbnails" 참고, Brand Film과 동일한
+         자동 슬라이드 레일로 통합 (2026-08-03, 기존 B·Global Exhibitions + C·Global Retail 병합) -->
+    <div class="proj-cat reveal-group">
+      <div class="cat-head reveal-item">
+        <span class="cat-label">B · Global Exhibitions &amp; Retail</span>
+        <span class="cat-sub">Expo Booths &amp; Department Stores Worldwide</span>
+      </div>
+      <div class="film-rail-wrap reveal-item">
+        <button type="button" class="rail-nav prev" aria-label="이전 이미지">‹</button>
+        <button type="button" class="rail-nav next" aria-label="다음 이미지">›</button>
+        <div class="film-rail">
+          <div class="film-item">
+            <img class="rail-photo" src="assets/proj-expo-austria.jpg" alt="오스트리아 빈 Korea Business Expo 코코힐리 부스">
+            <p class="film-cap"><b>Vienna</b> · Austria · Korea Business Expo</p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/proj-expo-japan.jpg" alt="일본 Baby & Kids Expo 코코힐리 부스">
+            <p class="film-cap"><b>Japan</b> · Baby &amp; Kids Expo</p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/proj-expo-vietnam.jpg" alt="베트남 VIETBABY 박람회 코코힐리 부스">
+            <p class="film-cap"><b>Vietnam</b> · VIETBABY Expo</p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/proj-retail-taiwan.jpg" alt="대만 백화점 코코힐리 매대">
+            <p class="film-cap"><b>Taiwan</b> · Department Store</p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/proj-retail-japan.jpg" alt="일본 마루이 백화점 코코힐리 concept shop">
+            <p class="film-cap"><b>Japan · MARUI</b> · Concept Shop</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C. Space & Retail Design — 7종으로 확장, 동일한 자동 슬라이드 레일 (2026-08-03) -->
+    <div class="proj-cat reveal-group">
+      <div class="cat-head reveal-item">
+        <span class="cat-label">C · Space &amp; Retail Design</span>
+        <span class="cat-sub">'22–'24</span>
+      </div>
+      <div class="film-rail-wrap reveal-item">
+        <button type="button" class="rail-nav prev" aria-label="이전 이미지">‹</button>
+        <button type="button" class="rail-nav next" aria-label="다음 이미지">›</button>
+        <div class="film-rail">
+          <div class="film-item">
+            <img class="rail-photo" src="assets/전경.jpg" alt="DDP 팝업 브랜드 전시공간 전경">
+            <p class="film-cap"><b>01 브랜드 체험형 전시</b> · DDP</p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/space-deptstore.jpg" alt="백화점 매대 디자인">
+            <p class="film-cap"><b>02 백화점 디스플레이</b></p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/retail-dutyfree-shilla.jpg" alt="인천공항 신라면세점 코코힐리 매대">
+            <p class="film-cap"><b>03 면세점 디스플레이</b></p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/space-shopinshop.jpg" alt="샵인샵 디자인">
+            <p class="film-cap"><b>04 샵인샵</b></p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/space-booth.jpg" alt="박람회 부스 디자인">
+            <p class="film-cap"><b>05 박람회 부스</b></p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/space-pharmacy.jpg" alt="약국·편의점 등 소형 전시대 매대 디자인">
+            <p class="film-cap"><b>06 약국·편의점 등 소형 매대</b></p>
+          </div>
+          <div class="film-item">
+            <img class="rail-photo" src="assets/space-popup.jpg" alt="팝업스토어 디자인">
+            <p class="film-cap"><b>07 기타 매대디자인</b> · Pop-up</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RETAIL NETWORK + FOUNDER'S STORY + COMPANY -->
+<section class="zone-ivory reveal-group">
+  <div class="wrap pad-xl">
+    <div class="section-divider reveal-item"><span>Global expansion since 2019</span></div>
+    <p class="eyebrow reveal-item">Where to Find Cocoheali</p>
+    <h2 class="zone-h2 reveal-item">유통 네트워크</h2>
+
+    <div class="retail-grid reveal-item">
+      <div class="retail-card">
+        <div class="rc-photo"><img src="assets/retail-dutyfree.jpg" alt="인천공항 면세점 코코힐리 매대"></div>
+        <div class="rc-body">
+          <div class="rc-label">Offline Retail</div>
+          <div class="rc-value"><b>롯데 · 신세계 · 갤러리아</b> 백화점<br>인천공항 면세점 · 드럭스토어</div>
+        </div>
+      </div>
+      <div class="retail-card text-only">
+        <div class="rc-body">
+          <svg class="rc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"></path></svg>
+          <div class="rc-label">Online</div>
+          <div class="rc-value"><b>자사몰</b> · 스마트스토어 · <b>Amazon</b></div>
+        </div>
+      </div>
+      <div class="retail-card">
+        <div class="rc-photo"><img src="assets/retail-global.jpg" alt="일본 마루이 백화점 코코힐리 콘셉트샵 현장"></div>
+        <div class="rc-body">
+          <div class="rc-label">Global Retail</div>
+          <div class="rc-value"><b>유럽 27개국</b> 총판<br>일본 <b>AEON Mall</b> · 대만·미국 외</div>
+        </div>
+      </div>
+      <div class="retail-card text-only">
+        <div class="rc-body">
+          <svg class="rc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"></path><path d="M8 12H4m16 0h-4"></path></svg>
+          <div class="rc-label">Brand Collaboration</div>
+          <div class="rc-value">네파키즈 · 신라스테이 · 노보텔
+            <span class="retail-extra" id="collabExtra"><br>파라다이스시티 · 호야골프앤키즈 · 엘리시안 강촌</span>
+          </div>
+          <button type="button" class="retail-more" id="collabMore">View all partners <span aria-hidden="true">↓</span></button>
+        </div>
+      </div>
+    </div>
+
+    <p class="eyebrow reveal-item" style="margin-top:100px;">Founder's Story</p>
+    <a class="founder-card reveal-item" href="../../_inputs/originals/video/[final] cocoheali CEO interview_250226.mp4" target="_blank" rel="noopener">
+      <img src="assets/ceo-still.jpg" alt="박은정 대표 CEO 인터뷰 스틸컷">
+      <div class="founder-body">
+        <span class="fc-eyebrow">Founder's Story</span>
+        <h3>왜 아이의 첫 Self Care를 만들었는가</h3>
+        <p>박은정 대표가 직접 전하는 코코힐리의 시작과 철학 — Watch the Founder's Story</p>
+      </div>
+      <span class="founder-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l14-7.5z"></path></svg></span>
+    </a>
+
+    <div class="company reveal-item">
+      <div class="row"><span>회사명</span><span>㈜퍼플러스 (PURPLUS Co., Ltd.)</span></div>
+      <div class="row"><span>대표이사</span><span>박은정</span></div>
+      <div class="row"><span>설립일</span><span>2018.02.14</span></div>
+      <div class="row"><span>본사</span><span>서울시 마포구 양화로 136</span></div>
+      <div class="row"><span>연구소</span><span>경기도 성남시 중원구</span></div>
+      <div class="row"><span>웹사이트</span><span>www.cocoheali.com</span></div>
+      <div class="row"><span>인스타그램</span><span>@cocoheali_kr · @cocoheali_official_global</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE GUIDE -->
+<section class="wrap pad-l reveal-group">
+  <p class="eyebrow reveal-item">Brand Voice — 내부 참고</p>
+  <h2 class="reveal-item" style="font-size:clamp(1.5rem,2.8vw,2rem); font-style:italic;">이렇게 말하고,<br>이렇게는 말하지 않습니다.</h2>
+  <div class="voice reveal-item">
+    <div class="col use">
+      <h4>자주 쓰는 말</h4>
+      <div class="tagset">
+        <span>스스로</span><span>스킨케어</span><span>자기관리</span><span>피부장벽</span>
+        <span>습관</span><span>성장</span><span>뿌듯함</span><span>나도 해볼래</span><span>Me do it</span><span>나답게</span>
+      </div>
+      <p class="note">캠페인 태그라인은 "나도 해볼래 / Me do it"(확정). "나답게"는 브랜드가 지향하는 정서를 보조적으로 설명할 때 사용. '자신감'도 보조적으로 사용 가능(브랜드 결정 기준).</p>
+    </div>
+    <div class="col avoid">
+      <h4>쓰지 않는 말</h4>
+      <div class="tagset">
+        <span>화장</span><span>메이크업</span><span>꾸미기</span>
+      </div>
+      <p class="note">'정체성' 관련 언어는 국내외 공통으로 사용하지 않습니다 — 유사 사례(Rini) 참고, 구체적 행동·감정 표현으로 대체.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing reveal-group">
+  <div class="closing-visual reveal-item">
+    <video src="assets/hero_background.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+  </div>
+  <p class="line reveal-item">The first thing I did myself.</p>
+  <p class="signoff reveal-item"><span class="signoff-love">Love,</span><span class="signoff-name">Cocoheali</span></p>
+</section>
+
+<footer>
+  <div class="links">www.cocoheali.com · @cocoheali_kr · @cocoheali_official_global</div>
+  <p>본 문서는 coco 브랜드 리뉴얼 프로젝트의 브랜드소개서 초안(Draft)입니다. 내부 검토 후 승인된 버전만 배포용으로 사용합니다.</p>
+  <p>Copyright PURPLUS Co., Ltd. — cocoheali brand renewal draft, 2026.</p>
+</footer>
+
+<div class="pkg-modal" id="pkgModal">
+  <div class="pkg-modal-inner">
+    <div class="pkg-modal-name" id="pkgModalName"></div>
+    <img id="pkgModalImg" src="" alt="패키지 도면">
+    <button type="button" class="pkg-modal-close" id="pkgModalClose" aria-label="닫기">✕</button>
+  </div>
+</div>
+
+<div class="ddp-modal-overlay" id="ddpModal">
+  <div class="ddp-modal">
+    <button type="button" class="ddp-modal-close" id="ddpModalClose" aria-label="닫기">✕</button>
+    <div class="ddp-modal-scroll">
+    <div class="ddp-hero-carousel" id="ddpHero">
+      <div class="ddp-hero-track" id="ddpHeroTrack">
+        <div class="ddp-hero-slide">
+          <img src="assets/입장존.jpg" alt="DDP 팝업 '이상한 K-Beauty : 엄마의 서랍' 입구 전경">
+          <span class="ddp-hero-cap">입장존</span>
+        </div>
+        <div class="ddp-hero-slide">
+          <img src="assets/포토존.jpg" alt="같지만 다르게 보면 새로운 세상이 보일거야 포토존">
+          <span class="ddp-hero-cap">포토존</span>
+        </div>
+        <div class="ddp-hero-slide">
+          <img src="assets/영상존.jpg" alt="엄마의 OO 영상존 촬영 현장">
+          <span class="ddp-hero-cap">영상존</span>
+        </div>
+        <div class="ddp-hero-slide">
+          <img src="assets/체험존.jpg" alt="나만의 팩트 만들기 체험존 전경">
+          <span class="ddp-hero-cap">체험존</span>
+        </div>
+        <div class="ddp-hero-slide">
+          <img src="assets/휴게존.jpg" alt="빈백 소파와 포토미러가 있는 휴게존">
+          <span class="ddp-hero-cap">휴게존</span>
+        </div>
+        <div class="ddp-hero-slide">
+          <img src="assets/전경.jpg" alt="DDP 팝업 전시장 전경">
+          <span class="ddp-hero-cap">전경</span>
+        </div>
+      </div>
+      <button type="button" class="ddp-hero-nav ddp-hero-prev" id="ddpHeroPrev" aria-label="이전 사진">‹</button>
+      <button type="button" class="ddp-hero-nav ddp-hero-next" id="ddpHeroNext" aria-label="다음 사진">›</button>
+      <div class="ddp-hero-dots" id="ddpHeroDots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    <div class="ddp-modal-body">
+      <p class="eyebrow">Offline Pop-up</p>
+      <h3 class="ddp-title">이상한 K-Beauty : 엄마의 서랍</h3>
+      <p class="ddp-sub">A Different K-Beauty Begins in Mom's Drawer</p>
+      <p class="ddp-meta">당초 2026.04.10 – 06.10 예정 · DDP 측 요청으로 <b>07.19까지 연장 운영</b> · 동대문디자인플라자(DDP) · DDP마켓 내 BtheB Downtown B2F</p>
+      <div class="exp-stats">
+        <div class="exp-stat"><b>약 3개월</b><span>운영 기간</span></div>
+        <div class="exp-stat"><b>약 5만 명</b><span>누적 방문객</span></div>
+      </div>
+
+      <div class="ddp-concept">
+        <p class="ddp-formula">Creative + Cosmetics = <i>Creametics</i></p>
+        <p class="ddp-statement">"코코힐리는 화장을 권하지 않습니다.<br>다르게 보는 시선을 놀이로 경험하게 하며,<br>스스로 가꾸는 습관을 만들어갑니다."</p>
+        <p class="ddp-statement-en">We don't promote makeup. Instead, we inspire a different way of seeing —<br>through creative experiences, play naturally becomes a habit of self-care.</p>
+        <div class="ddp-doc-btns">
+          <button type="button" class="ddp-doc-btn" data-pkg="assets/ddp-poster.jpg" data-pkg-name="포스터 — 이상한 K-Beauty : 엄마의 서랍">
+            포스터 보기
+            <span class="ddp-doc-preview"><img src="assets/ddp-poster.jpg" alt=""></span>
+          </button>
+          <button type="button" class="ddp-doc-btn" data-pkg="assets/ddp-leaflet.jpg" data-pkg-name="리플렛 — 이상한 K-Beauty : 엄마의 서랍">
+            리플렛 보기
+            <span class="ddp-doc-preview"><img src="assets/ddp-leaflet.jpg" alt=""></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="ddp-zones">
+        <div class="ddp-zone-step">
+          <span class="zone-num">01</span>
+          <div>
+            <b>입구 — 이상한 서랍</b>
+            <p>익숙한데 다르게 보여! 좀 더 자세히 들여다볼까?<br><i>Let's take a closer look.</i></p>
+          </div>
+        </div>
+        <div class="ddp-zone-step">
+          <span class="zone-num">02</span>
+          <div>
+            <b>영상존 — 엄마의 OO</b>
+            <p>이제 더 이상 엄마의 것이 아닌 이것은?<br><i>No longer just Mom's — what could it be?</i></p>
+          </div>
+        </div>
+        <div class="ddp-zone-step">
+          <span class="zone-num">03</span>
+          <div>
+            <b>체험존 — 같은데, 다른것 <span style="font-weight:400; color:var(--ink-soft);">(나만의 팩트 만들기 · Make Your Own Compact)</span></b>
+            <p>똑같아도 다르게 써보자, 이제 네 차례야!<br><i>See differently. Own your way.</i></p>
+          </div>
+        </div>
+        <div class="ddp-zone-step">
+          <span class="zone-num">04</span>
+          <div>
+            <b>출구 — 숨겨진 보물</b>
+            <p>보이는 게 다가 아니야! 숨겨진 이스터에그를 찾아보자.<br><i>Look closer — find the hidden easter egg.</i></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ddp-gallery">
+        <img src="assets/ddp-s1.jpg" alt="벽에 걸린 컬러풀한 오브제 장식">
+        <img src="assets/ddp-s2.jpg" alt="나만의 팩트 만들기 체험 클로즈업">
+        <img src="assets/ddp-s3.jpg" alt="포토존 앞에 줄지어 선 아이들">
+        <img src="assets/ddp-s4.jpg" alt="전시장 벽 앞에 앉아있는 아이들">
+        <img class="g-feature" src="assets/ddp-s7.jpg" alt="체험 테이블에 둘러앉아 팩트를 만드는 아이들">
+        <img src="assets/ddp-s6.jpg" alt="이지아트 키트로 체험하는 아이 클로즈업">
+        <img src="assets/ddp-s8.jpg" alt="원형 테이블과 대형 거울이 있는 체험존 전경">
+        <img src="assets/ddp-s9.jpg" alt="유리 복도에 줄지어 선 아이들">
+        <img src="assets/ddp-s10.jpg" alt="거울 통로에 모인 아이들">
+        <img src="assets/ddp-s11.jpg" alt="낙서 매트 위에서 노는 아이들을 위에서 내려다본 모습">
+        <img src="assets/ddp-s12.jpg" alt="그림 배경 앞에서 포즈를 취하는 포토존 연출">
+        <img src="assets/ddp-s13.jpg" alt="완성한 라벤더 팩트를 든 손">
+        <img src="assets/ddp-s14.jpg" alt="완성한 컬러 스월 팩트를 든 손">
+        <img src="assets/ddp-s15.jpg" alt="완성한 블루 팩트를 든 손">
+      </div>
+
+      <p class="ddp-location"><b>Location</b> · 동대문디자인플라자(DDP) · DDP마켓 내 BtheB Downtown B2F · 동대문역사문화공원역 1번출구 46m</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="ddp-modal-overlay" id="bluehouseModal">
+  <div class="ddp-modal">
+    <button type="button" class="ddp-modal-close" aria-label="닫기">✕</button>
+    <div class="ddp-modal-scroll">
+    <div class="exp-modal-hero"><img src="assets/act-bluehouse.jpg" alt="청와대 어린이날 행사 코코힐리 체험 부스"></div>
+    <div class="ddp-modal-body">
+      <p class="eyebrow">Official Invitation</p>
+      <h3 class="ddp-title">청와대 초청 어린이날 행사</h3>
+      <p class="ddp-sub">The Only Cosmetics Brand Invited Inside the Blue House</p>
+      <p class="ddp-meta">2025.05.05 · 청와대(대한민국 대통령 집무 공간)</p>
+
+      <div class="ddp-concept">
+        <p class="ddp-formula">화장품 브랜드 <i>최초·유일</i></p>
+        <p class="ddp-statement">화장품 브랜드로는 유일하게,<br>대한민국 대통령의 집무 공간인 청와대 안에서 진행된 행사입니다.<br>아이들은 큐브네일(수성 매니큐어)로 자신만의 팩트 케이스를 직접 꾸몄습니다.</p>
+        <p class="ddp-statement-en">The only cosmetics brand ever invited inside the Blue House — Korea's most authoritative address.<br>Children decorated their own compact cases using Cube Nail, a water-based nail polish.</p>
+      </div>
+
+      <div class="ddp-gallery">
+        <img src="assets/act-bluehouse.jpg" alt="전통 한옥 지붕을 배경으로 한 체험 부스">
+        <img src="assets/bluehouse-3.jpg" alt="팩트 꾸미기 체험 부스 전경">
+        <img src="assets/bluehouse-1.jpg" alt="가족 단위로 팩트를 꾸미는 모습">
+        <img src="assets/bluehouse-2.jpg" alt="큐브네일로 팩트를 꾸미는 아이">
+        <img src="assets/bluehouse-4.jpg" alt="행사장 야외 부스 전경">
+      </div>
+
+      <p class="ddp-location"><b>Location</b> · 청와대 · 서울</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="ddp-modal-overlay" id="hotelModal">
+  <div class="ddp-modal">
+    <button type="button" class="ddp-modal-close" aria-label="닫기">✕</button>
+    <div class="ddp-modal-scroll">
+    <div class="exp-modal-hero"><img src="assets/hotel-hero.jpg" alt="코코힐리 테마로 꾸며진 호텔 객실"></div>
+    <div class="ddp-modal-body">
+      <p class="eyebrow">Hotel Collaboration</p>
+      <h3 class="ddp-title">호텔 콜라보</h3>
+      <p class="ddp-sub">Cocoheali in Premium Family Suites</p>
+      <p class="ddp-meta">노보텔 · 신라스테이 · 더위크앤리조트 · 그랜드앰버서더</p>
+
+      <div class="ddp-concept">
+        <p class="ddp-formula">Hotel <i>x</i> Cocoheali</p>
+        <p class="ddp-statement">노보텔, 신라스테이, 더위크앤리조트, 그랜드앰버서더 등<br>주요 호텔과 협업하여 객실을 코코힐리 테마로 꾸미고<br>제품을 비치하는 콜라보를 진행했습니다.</p>
+        <p class="ddp-statement-en">In collaboration with major hotels — Novotel, Shilla Stay, The Wequ & Resort, and Grand Ambassador —<br>cocoheali transformed guest rooms into themed spaces stocked with our products.</p>
+      </div>
+
+      <div class="ddp-gallery">
+        <img src="assets/hotel-hero.jpg" alt="코코힐리 제품이 놓인 호텔 객실 라운지">
+        <img src="assets/hotel-1.jpg" alt="호텔 수영장에서 코코힐리 팩트 목걸이를 한 아이">
+        <img src="assets/hotel-2.jpg" alt="호텔 수영장에서 웃고 있는 아이">
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="ddp-modal-overlay" id="brandcollabModal">
+  <div class="ddp-modal">
+    <button type="button" class="ddp-modal-close" aria-label="닫기">✕</button>
+    <div class="ddp-modal-scroll">
+    <div class="exp-modal-hero"><img src="assets/brandcollab-hero.jpg" alt="네파키즈 매장 내 코코힐리 샵인샵"></div>
+    <div class="ddp-modal-body">
+      <p class="eyebrow">Brand Collaboration</p>
+      <h3 class="ddp-title">네파키즈 x 코코힐리</h3>
+      <p class="ddp-sub">Shop-in-Shop Across Every NEPA Kids Store</p>
+      <p class="ddp-meta">전국 네파키즈 오프라인 매장</p>
+
+      <div class="ddp-concept">
+        <p class="ddp-formula">NEPA KIDS <i>x</i> Cocoheali</p>
+        <p class="ddp-statement">네파키즈와 협업하여,<br>전국 모든 네파키즈 오프라인 매장에 샵인샵 형태로<br>코코힐리 매장을 운영했습니다.</p>
+        <p class="ddp-statement-en">In partnership with NEPA Kids, cocoheali operates shop-in-shop spaces<br>inside every NEPA Kids store nationwide.</p>
+      </div>
+
+      <div class="ddp-gallery">
+        <img src="assets/brandcollab-3.jpg" alt="네파키즈 매장 내 코코힐리 샵인샵 진열대">
+        <img src="assets/brandcollab-1.jpg" alt="코코힐리 제품 진열 클로즈업">
+        <img src="assets/brandcollab-2.jpg" alt="샵인샵에서 제품을 살펴보는 아이">
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var modal = document.getElementById('pkgModal');
+    var img = document.getElementById('pkgModalImg');
+    var name = document.getElementById('pkgModalName');
+    var closeBtn = document.getElementById('pkgModalClose');
+    if(!modal || !img) return;
+
+    function open(src, label){
+      img.src = src;
+      img.alt = label || '패키지 도면';
+      name.textContent = label || '';
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+      img.src = '';
+    }
+
+    document.querySelectorAll('[data-pkg]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        open(btn.getAttribute('data-pkg'), btn.getAttribute('data-pkg-name'));
+      });
+    });
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('show')) close(); });
+  })();
+
+  (function(){
+    // 상세 모달 4종(DDP/청와대/호텔콜라보/브랜드콜라보) 공통 open/close + DDP 전용 히어로 캐러셀 리셋.
+    // .ddp-modal-overlay 클래스를 공유하는 모든 모달에 동일한 인터랙션 패턴을 일괄 적용.
+    function initHeroCarousel(overlay){
+      var track = overlay.querySelector('.ddp-hero-track');
+      if(!track) return null;
+      var slides = Array.prototype.slice.call(track.children);
+      var dots = Array.prototype.slice.call(overlay.querySelectorAll('.ddp-hero-dots .dot'));
+      var idx = 0;
+      function go(i){
+        idx = (i + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        dots.forEach(function(d, n){ d.classList.toggle('active', n === idx); });
+      }
+      var prevBtn = overlay.querySelector('.ddp-hero-prev');
+      var nextBtn = overlay.querySelector('.ddp-hero-next');
+      if(prevBtn) prevBtn.addEventListener('click', function(){ go(idx - 1); });
+      if(nextBtn) nextBtn.addEventListener('click', function(){ go(idx + 1); });
+      dots.forEach(function(d, n){ d.addEventListener('click', function(){ go(n); }); });
+      return function reset(){ go(0); };
+    }
+
+    var modals = {};
+    Array.prototype.slice.call(document.querySelectorAll('.ddp-modal-overlay')).forEach(function(overlay){
+      var scroller = overlay.querySelector('.ddp-modal-scroll');
+      var closeBtn = overlay.querySelector('.ddp-modal-close');
+      var resetHero = initHeroCarousel(overlay);
+
+      function open(){
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        if(scroller) scroller.scrollTop = 0;
+        if(resetHero) resetHero();
+      }
+      function close(){
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+      if(closeBtn) closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', function(e){ if(e.target === overlay) close(); });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && overlay.classList.contains('show')) close(); });
+
+      modals[overlay.id] = { open: open, close: close };
+    });
+    window.openDetailModal = function(id){ if(modals[id]) modals[id].open(); };
+
+    // Brand Experience — 순환 카드 캐러셀 (21st.dev "circular-testimonials" 동작 참고,
+    // React 컴포넌트 대신 카드 스택 pos-0~3 클래스 전환으로 바닐라 구현)
+    var stack = document.getElementById('expStack');
+    if(!stack) return;
+    var cards = Array.prototype.slice.call(stack.children);
+    var data = [
+      { modal:'ddpModal', badge:'Offline Pop-up', title:'DDP 팝업 — 이상한 K-Beauty : 엄마의 서랍',
+        desc:'화장이 아닌 "다르게 보는 시선"을 아이들이 직접 경험한 DDP 브랜드 체험형 전시.' },
+      { modal:'bluehouseModal', badge:'Official Invitation', title:'청와대 초청 어린이날 행사',
+        desc:'화장품 브랜드로는 유일하게, 대한민국 대통령의 집무 공간에서 진행된 체험 행사.' },
+      { modal:'hotelModal', badge:'Hotel Collaboration', title:'호텔 콜라보',
+        desc:'노보텔·신라스테이 등 주요 호텔 객실을 코코힐리 테마로 꾸민 콜라보.' },
+      { modal:'brandcollabModal', badge:'Brand Collaboration', title:'네파키즈 x 코코힐리',
+        desc:'전국 모든 네파키즈 매장에 샵인샵 형태로 운영한 코코힐리 매장.' }
+    ];
+    var idx = 0;
+    var badgeEl = document.getElementById('expBadge');
+    var titleEl = document.getElementById('expTitle');
+    var descEl = document.getElementById('expDesc');
+    var moreBtn = document.getElementById('expMoreBtn');
+
+    function render(){
+      cards.forEach(function(card, i){
+        var pos = (i - idx + cards.length) % cards.length;
+        card.className = 'exp-card pos-' + pos;
+      });
+      var d = data[idx];
+      badgeEl.textContent = d.badge;
+      titleEl.textContent = d.title;
+      descEl.textContent = d.desc;
+    }
+    function go(dir){ idx = (idx + dir + data.length) % data.length; render(); }
+
+    document.getElementById('expPrev').addEventListener('click', function(){ go(-1); });
+    document.getElementById('expNext').addEventListener('click', function(){ go(1); });
+    cards.forEach(function(card, i){
+      card.addEventListener('click', function(){
+        if(i === idx){ window.openDetailModal(data[i].modal); }
+        else { idx = i; render(); }
+      });
+    });
+    moreBtn.addEventListener('click', function(){ window.openDetailModal(data[idx].modal); });
+    render();
+  })();
+
+  function slideMove(btn, dir){
+    var box = btn.closest('.pimg');
+    var slides = Array.prototype.slice.call(box.querySelectorAll('.slide'));
+    var dots = Array.prototype.slice.call(box.querySelectorAll('.dot'));
+    var idx = slides.findIndex(function(s){ return s.classList.contains('active'); });
+    var next = (idx + dir + slides.length) % slides.length;
+    slides[idx].classList.remove('active');
+    if(dots[idx]) dots[idx].classList.remove('active');
+    slides[next].classList.add('active');
+    if(dots[next]) dots[next].classList.add('active');
+  }
+  function slideTo(dot, i){
+    var box = dot.closest('.pimg');
+    var slides = Array.prototype.slice.call(box.querySelectorAll('.slide'));
+    var dots = Array.prototype.slice.call(box.querySelectorAll('.dot'));
+    var idx = slides.findIndex(function(s){ return s.classList.contains('active'); });
+    if(idx === i) return;
+    slides[idx].classList.remove('active');
+    if(dots[idx]) dots[idx].classList.remove('active');
+    slides[i].classList.add('active');
+    if(dots[i]) dots[i].classList.add('active');
+  }
+  (function(){
+    var pts = Array.prototype.slice.call(document.querySelectorAll('.milestone-pt'));
+    var panel = document.getElementById('milestonePanel');
+    if(!pts.length || !panel) return;
+    var yearEl = document.getElementById('mpYear');
+    var titleEl = document.getElementById('mpTitle');
+    var itemsEl = document.getElementById('mpItems');
+
+    function show(pt){
+      pts.forEach(function(p){ p.classList.toggle('active', p === pt); });
+      yearEl.textContent = pt.getAttribute('data-year');
+      titleEl.textContent = pt.getAttribute('data-title');
+      var items = pt.getAttribute('data-items').split('|');
+      itemsEl.innerHTML = items.map(function(t){ return '<li>' + t + '</li>'; }).join('');
+      panel.classList.add('open');
+    }
+
+    pts.forEach(function(pt){
+      pt.addEventListener('mouseenter', function(){ show(pt); });
+      pt.addEventListener('focus', function(){ show(pt); });
+    });
+
+    var initial = pts.filter(function(p){ return p.classList.contains('active'); })[0] || pts[pts.length - 1];
+    show(initial);
+  })();
+
+  (function(){
+    var btn = document.getElementById('collabMore');
+    var extra = document.getElementById('collabExtra');
+    if(!btn || !extra) return;
+    btn.addEventListener('click', function(){
+      var open = extra.classList.toggle('open');
+      btn.firstChild.textContent = open ? 'Show less ' : 'View all partners ';
+    });
+  })();
+
+  (function(){
+    var gate = document.getElementById('introGate');
+    var mark = document.getElementById('introMark');
+    if(!gate || !mark) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function closeGate(){
+      gate.classList.add('opening');
+      document.body.classList.remove('gate-active');
+      mark.removeEventListener('click', closeGate);
+      mark.removeEventListener('keydown', onKey);
+      var done = false;
+      function finish(){
+        if(done) return;
+        done = true;
+        gate.classList.add('gone');
+      }
+      gate.addEventListener('transitionend', finish, {once:true});
+      setTimeout(finish, reduceMotion ? 50 : 1400);
+    }
+    function onKey(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); closeGate(); }
+    }
+
+    if(reduceMotion){
+      gate.classList.add('gone');
+      document.body.classList.remove('gate-active');
+    } else {
+      mark.addEventListener('click', closeGate);
+      mark.addEventListener('keydown', onKey);
+      mark.focus({preventScroll:true});
+    }
+  })();
+
+  (function(){
+    document.querySelectorAll('.pimg.has-texture').forEach(function(box){
+      var vid = box.querySelector('.pimg-texture');
+      if(!vid) return;
+      box.addEventListener('mouseenter', function(){
+        vid.currentTime = 0;
+        vid.play().catch(function(){});
+      });
+      box.addEventListener('mouseleave', function(){
+        vid.pause();
+        vid.currentTime = 0;
+      });
+    });
+  })();
+
+  (function(){
+    document.querySelectorAll('.pline--rail .pgrid').forEach(function(track){
+      var isDown = false, startX = 0, scrollStart = 0, moved = false;
+
+      track.addEventListener('mousedown', function(e){
+        isDown = true; moved = false;
+        startX = e.pageX;
+        scrollStart = track.scrollLeft;
+      });
+
+      window.addEventListener('mousemove', function(e){
+        if(!isDown) return;
+        var dx = e.pageX - startX;
+        if(!moved && Math.abs(dx) > 4){
+          moved = true;
+          track.classList.add('dragging');
+        }
+        if(moved){
+          e.preventDefault();
+          track.scrollLeft = scrollStart - dx;
+        }
+      });
+
+      window.addEventListener('mouseup', function(){
+        if(!isDown) return;
+        isDown = false;
+        track.classList.remove('dragging');
+        if(moved){
+          var blockClick = function(ev){ ev.preventDefault(); ev.stopPropagation(); };
+          track.addEventListener('click', blockClick, {capture:true, once:true});
+        }
+        moved = false;
+      });
+    });
+  })();
+
+  (function(){
+    document.querySelectorAll('.pline--rail').forEach(function(line){
+      var track = line.querySelector('.pgrid');
+      var thumb = line.querySelector('.rail-progress .thumb');
+      if(!track || !thumb) return;
+      function update(){
+        var max = track.scrollWidth - track.clientWidth;
+        var ratio = max > 0 ? track.scrollLeft / max : 0;
+        var thumbWidth = Math.max(track.clientWidth / track.scrollWidth, 0.12) * 100;
+        thumb.style.width = thumbWidth + '%';
+        thumb.style.transform = 'translateX(' + (ratio * (100 / thumbWidth - 1) * 100) + '%)';
+      }
+      track.addEventListener('scroll', update, {passive:true});
+      window.addEventListener('resize', update);
+      update();
+    });
+  })();
+
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 60){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  });
+
+  (function(){
+    // hero parallax — 배경이 본문보다 느리게 움직이는 미묘한 깊이감. 원본 이미지는
+    // .hero-bg가 top:-6%/height:112%로 여유를 둬서, 아래 offset만큼 움직여도 빈 공간이 드러나지 않음.
+    var heroBg = document.querySelector('.hero-bg');
+    if(!heroBg) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduceMotion) return;
+    var isMobile = window.matchMedia('(max-width:760px)').matches;
+    var factor = isMobile ? 0.10 : 0.30;
+    var cap = isMobile ? 14 : 36;
+    var ticking = false;
+    function update(){
+      var y = Math.max(-cap, Math.min(cap, window.scrollY * factor));
+      heroBg.style.transform = 'translateY(' + y + 'px)';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ window.requestAnimationFrame(update); ticking = true; }
+    }, {passive:true});
+  })();
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  (function(){
+    // scroll-stagger reveal engine — .reveal-group 안의 .reveal-item이 진입 시 순서대로 나타남
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.reveal-group'));
+    if(!groups.length) return;
+    groups.forEach(function(g){
+      var items = Array.prototype.slice.call(g.querySelectorAll('.reveal-item'));
+      items.forEach(function(it, i){ it.style.setProperty('--ri', i); });
+    });
+    if('IntersectionObserver' in window){
+      var groupIo = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('in'); groupIo.unobserve(e.target); }
+        });
+      }, {threshold:0.15});
+      groups.forEach(function(g){ groupIo.observe(g); });
+    } else {
+      groups.forEach(function(g){ g.classList.add('in'); });
+    }
+  })();
+
+  function wireFilmPlay(btn){
+    btn.addEventListener('click', function(){
+      if(btn.classList.contains('playing')) return;
+      var src = btn.getAttribute('data-src');
+      var video = document.createElement('video');
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      var source = document.createElement('source');
+      source.src = src;
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      var img = btn.querySelector('img');
+      btn.insertBefore(video, img);
+      img.remove();
+      btn.classList.add('playing');
+    });
+  }
+  document.querySelectorAll('.film-play').forEach(wireFilmPlay);
+
+  // 자동 슬라이드 레일 — Brand Film에서 처음 만든 구조를 모든 .film-rail-wrap에 재사용
+  // (Selected Projects의 Global Exhibitions & Retail / Space & Retail Design, 2026-08-03).
+  // 레일마다 독립된 상태를 갖도록 클로저로 감싸 각 .film-rail-wrap에 개별 배선.
+  document.querySelectorAll('.film-rail-wrap').forEach(function(wrap){
+    var rail = wrap.querySelector('.film-rail');
+    if(!rail) return;
+    var originalItems = Array.prototype.slice.call(rail.querySelectorAll('.film-item'));
+    var prevBtn = wrap.querySelector('.rail-nav.prev');
+    var nextBtn = wrap.querySelector('.rail-nav.next');
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 계속 반복되는 자동 슬라이드를 위해 카드 세트를 한 번 더 복제(끊김 없는 무한 루프)
+    if(!reduceMotion){
+      originalItems.forEach(function(item){
+        var clone = item.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        var cloneBtn = clone.querySelector('.film-play');
+        if(cloneBtn){ cloneBtn.tabIndex = -1; wireFilmPlay(cloneBtn); }
+        rail.appendChild(clone);
+      });
+    }
+    var items = Array.prototype.slice.call(rail.querySelectorAll('.film-item'));
+
+    // drag-to-scroll, same pattern as the product rails
+    var isDown = false, startX = 0, scrollStart = 0, moved = false;
+    rail.addEventListener('mousedown', function(e){
+      isDown = true; moved = false;
+      startX = e.pageX;
+      scrollStart = rail.scrollLeft;
+    });
+    window.addEventListener('mousemove', function(e){
+      if(!isDown) return;
+      var dx = e.pageX - startX;
+      if(!moved && Math.abs(dx) > 4){ moved = true; rail.classList.add('dragging'); }
+      if(moved){ e.preventDefault(); rail.scrollLeft = scrollStart - dx; }
+    });
+    window.addEventListener('mouseup', function(){
+      if(!isDown) return;
+      isDown = false;
+      rail.classList.remove('dragging');
+      if(moved){
+        var blockClick = function(ev){ ev.preventDefault(); ev.stopPropagation(); };
+        rail.addEventListener('click', blockClick, {capture:true, once:true});
+      }
+      moved = false;
+    });
+
+    // focus rail — 레일 중앙에 가장 가까운 카드만 확대/선명하게 (21st.dev "focus-rail" 참고)
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          e.target.classList.toggle('focused', e.isIntersecting && e.intersectionRatio > 0.6);
+        });
+      }, {root: rail, threshold: [0, 0.6, 0.9]});
+      items.forEach(function(item){ io.observe(item); });
+    } else if(items[0]){
+      items[0].classList.add('focused');
+    }
+
+    function scrollByItem(dir){
+      var w = originalItems[0].getBoundingClientRect().width + 28;
+      rail.scrollBy({left: dir * w, behavior: 'smooth'});
+    }
+    if(prevBtn) prevBtn.addEventListener('click', function(){ scrollByItem(-1); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ scrollByItem(1); });
+
+    if(reduceMotion) return;
+
+    // 자동 슬라이드 — 천천히 계속 옆으로 흐르다가 끝에 닿으면 끊김 없이 처음으로 되돌아감.
+    // 마우스를 올리거나 드래그하거나 영상이 재생 중일 때는 멈춤.
+    var loopWidth = 0;
+    var speed = 0.35; // px / frame(~16ms) ≈ 21px/s, 천천히
+    var hovering = false;
+
+    function getLoopWidth(){
+      if(items.length <= originalItems.length) return 0;
+      return items[originalItems.length].offsetLeft - items[0].offsetLeft;
+    }
+    function anyPlaying(){
+      return items.some(function(item){ return item.querySelector('.film-play.playing'); });
+    }
+
+    wrap.addEventListener('mouseenter', function(){ hovering = true; });
+    wrap.addEventListener('mouseleave', function(){ hovering = false; });
+
+    function tick(){
+      if(!loopWidth) loopWidth = getLoopWidth();
+      if(!hovering && !isDown && loopWidth > 0 && !anyPlaying()){
+        rail.scrollLeft += speed;
+        if(rail.scrollLeft >= loopWidth){ rail.scrollLeft -= loopWidth; }
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+</script>
+
+</body>
+</html>
