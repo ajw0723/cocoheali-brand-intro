@@ -147,6 +147,17 @@
      플레인 영상, 자동재생·무음·반복. */
   .story-film{width:100%; aspect-ratio:16/9; display:block; background:#000; box-shadow:0 30px 60px rgba(43,36,48,0.15);}
 
+  /* brand story — 엔딩 로고 (2026-08-15) — mp4 자체에는 화이트 페이드까지만 있고 로고가
+     합성되어 있지 않아, 영상이 화이트로 완전히 비는 구간(23.6s~26.75s)에 맞춰 HTML에서
+     로고를 겹쳐 페이드인/아웃. 루프 시작(currentTime 리셋) 즉시 사라짐. */
+  .story-video{position:relative;}
+  .story-logo{
+    position:absolute; top:50%; left:50%; width:32%; max-width:220px;
+    transform:translate(-50%,-50%) scale(0.94); opacity:0; pointer-events:none;
+    transition:opacity .9s ease, transform .9s ease;
+  }
+  .story-logo.show{opacity:1; transform:translate(-50%,-50%) scale(1);}
+
   /* brand film — focus rail, 21st.dev "focus-rail" 인터랙션 참고
      (가로 스크롤 + 중앙 포커스 카드만 확대/선명, 나머지는 축소·흐림) (2026-08-02)
      scroll-snap은 계속 흐르는 자동 슬라이드와 충돌(매 프레임 미세 스크롤을 스냅이 되돌려버림)해서 뺌 —
@@ -196,7 +207,6 @@
     content:""; position:absolute; inset:0; background:rgba(20,15,18,0.2); transition:background .3s ease;
   }
   .film-play:hover::after{background:rgba(20,15,18,0.34);}
-  .film-play.playing::after{content:none;}
   .film-play .play-icon{
     position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:2;
     width:54px; height:54px; border-radius:50%; background:rgba(255,255,255,0.88);
@@ -296,8 +306,9 @@
   .editorial-bleed{position:relative; background:var(--paper); padding:110px 24px 120px;}
   .editorial-bleed .eb-inner{max-width:1360px; margin:0 auto;}
   .editorial-bleed .eb-pullquote{
-    position:relative; max-width:920px; margin:0 0 60px; font-family:var(--sans); font-weight:600; color:var(--ink);
-    font-size:clamp(1.5rem,2.7vw,2.15rem); line-height:1.55; letter-spacing:-0.01em;
+    position:relative; max-width:920px; margin:0 0 60px; font-family:var(--font-en-accent), var(--serif);
+    font-style:italic; font-weight:600; color:var(--ink);
+    font-size:clamp(1.7rem,3.2vw,2.6rem); line-height:1.3; letter-spacing:-0.01em;
   }
   .editorial-bleed .eb-pullquote::before{
     content:"\201C"; display:block; font-family:var(--serif); font-size:64px; color:var(--lavender);
@@ -316,21 +327,11 @@
     content:""; position:absolute; left:-9px; top:9px; right:9px; bottom:-9px; z-index:-1;
     background:var(--lavender-soft); border-radius:4px;
   }
-  .editorial-bleed .eb-pill{
-    display:inline-block; background:var(--logo-purple); color:var(--white); font-family:var(--sans);
-    font-size:12px; font-weight:700; letter-spacing:0.05em; padding:7px 18px; border-radius:999px;
-    margin-bottom:12px;
-  }
-  .editorial-bleed .eb-kicker{
-    margin:0; color:var(--ink); font-family:var(--sans); font-weight:800;
-    font-size:clamp(1.9rem,3.4vw,2.8rem); line-height:1.12;
-  }
-  .editorial-bleed .eb-kicker i{font-family:var(--serif); font-style:italic; font-weight:600; color:var(--logo-purple);}
-  .editorial-bleed .eb-scribble{display:block; width:110px; height:10px; margin:16px 0 22px; color:var(--logo-purple); opacity:0.7;}
   .editorial-bleed .eb-body{
     font-family:var(--sans); font-weight:300; color:var(--ink-soft);
-    font-size:14.5px; line-height:1.9; margin:0;
+    font-size:14.5px; line-height:1.9; margin:0 0 18px;
   }
+  .editorial-bleed .eb-body:last-child{margin-bottom:0;}
   @media (max-width:760px){
     .editorial-bleed{padding:80px 20px 60px;}
     .editorial-bleed .eb-photo{aspect-ratio:4/5;}
@@ -362,17 +363,29 @@
     font-family:var(--font-kr-base); font-weight:400; font-size:14px;
     line-height:2; color:var(--ink-soft); margin:0;
   }
-  .lb-object{position:absolute; right:4%; bottom:5%; z-index:2; width:150px; text-align:center;}
+  .lb-sub-accent{font-weight:700; color:var(--purple-strong);}
+  .lb-object{position:absolute; left:8vw; bottom:5%; z-index:2; width:150px; text-align:center;}
   .lb-object-img{
+    cursor:pointer;
     transform:rotate(-7deg);
     filter:drop-shadow(0 10px 16px rgba(43,36,48,0.25)) drop-shadow(0 2px 6px rgba(43,36,48,0.18));
   }
   .lb-object-img img{width:100%; height:auto; display:block;}
-  .lb-object-caption{margin:14px 0 0; font-family:var(--font-kr-base); font-size:10.5px; line-height:1.55; color:var(--ink-soft);}
+  .lb-object-img:hover{ animation:lb-object-pop .6s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes lb-object-pop{
+    0%{ transform:rotate(-7deg) translateY(0) scale(1); }
+    30%{ transform:rotate(-7deg) translateY(-14px) scale(1.06); }
+    55%{ transform:rotate(-7deg) translateY(-4px) scale(0.97); }
+    75%{ transform:rotate(-7deg) translateY(-8px) scale(1.02); }
+    100%{ transform:rotate(-7deg) translateY(0) scale(1); }
+  }
+  .lb-object-caption{
+    margin:14px 0 0; font-family:var(--font-kr-base); font-size:10.5px; line-height:1.55; color:var(--ink-soft);
+  }
   @media (max-width:760px){
     .lipbalm-bleed{height:auto; aspect-ratio:4/5;}
     .lb-overlay{top:36px; padding:0 26px; max-width:88%;}
-    .lb-object{width:104px; right:5%; bottom:4%;}
+    .lb-object{width:104px; left:26px; bottom:4%;}
   }
 
   /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (섹션 A보다 절제된 톤, 3분할 비대칭) */
@@ -382,9 +395,10 @@
     color:var(--purple-ui); margin-bottom:40px;
   }
   .lg-grid{display:flex; gap:44px; align-items:flex-start;}
-  .lg-item-1{flex:0 0 45%;}
-  .lg-item-2{flex:0 0 35%; margin-top:64px; position:relative;}
-  .lg-item-1 img, .lg-item-2 > img{
+  .lg-item-1{flex:0 0 43%;}
+  .lg-item-2{flex:0 0 33%; margin-top:64px; position:relative;}
+  .lg-item-4{flex:0 0 16%;}
+  .lg-item-1 img, .lg-item-2 > img, .lg-item-4 img{
     width:100%; height:auto; display:block; border-radius:6px;
     box-shadow:0 16px 32px rgba(43,36,48,0.12);
   }
@@ -393,8 +407,20 @@
   .lg-item-3 img{width:100%; height:auto; display:block; filter:drop-shadow(4px 8px 10px rgba(43,36,48,0.2));}
   @media (max-width:760px){
     .lg-grid{flex-direction:column; gap:60px;}
-    .lg-item-1, .lg-item-2{flex:none; width:100%; margin-top:0;}
+    .lg-item-1, .lg-item-2, .lg-item-4{flex:none; width:100%; margin-top:0;}
     .lg-item-3{width:32%;}
+  }
+
+  /* 립밤 갤러리 — 가로 사진 추가 열 (2026-08-15). lg-grid의 세로형 3분할과 다른 가로
+     비율(1400×933) 사진이라, 좁은 flex 칼럼에 억지로 넣으면 옆이 잘려서 별도 와이드 로우로
+     분리 — object-fit 없이 원본 비율 그대로, 잘리는 부분 없음. */
+  .lg-wide{margin-top:44px;}
+  .lg-wide img{
+    width:100%; height:auto; display:block; border-radius:6px;
+    box-shadow:0 16px 32px rgba(43,36,48,0.12);
+  }
+  @media (max-width:760px){
+    .lg-wide{margin-top:36px;}
   }
 
   /* full-bleed PHOTO + 큰 오버레이 스테이트먼트 — 기존 .bleed-caption(하단 캡션바)보다 크고
@@ -450,9 +476,9 @@
     font-family:var(--serif); font-style:italic; color:var(--lavender-deep);
     font-size:clamp(1.25rem, 2.6vw, 1.7rem); line-height:1.65; margin:0 0 36px;
   }
-  .decl .sc-phrase{font-weight:700;}
+  .decl .sc-phrase{font-weight:800; color:var(--purple-strong);}
   .decl .sc-word{
-    font-family:'Playfair Display', var(--serif); font-style:normal; font-weight:700;
+    font-family:var(--font-en-accent), var(--serif); font-style:italic; font-weight:600;
     letter-spacing:0.015em;
   }
 
@@ -538,6 +564,30 @@
   @media (max-width:780px){
     .pline--feature .pgrid{grid-template-columns:1fr;}
     .pline--feature .gcard:first-child{grid-row:auto;}
+  }
+
+  /* Gift Box 스토리 스트립 — 선물박스 언박싱 → 보물지도 놀이 (2026-08-12, 선물패키지_사용방법.png 4컷 일러스트 분할) */
+  .giftbox-story{margin:36px 0 44px;}
+  .giftbox-story-lede{
+    font-family:var(--serif); font-style:italic; font-size:clamp(19px,2.4vw,25px);
+    color:var(--ink); margin:0 0 20px; text-align:center;
+  }
+  .giftbox-story-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .giftbox-story-strip figure{margin:0;}
+  .giftbox-story-strip img{
+    width:100%; aspect-ratio:3/2; object-fit:cover; display:block;
+    border-radius:14px; box-shadow:0 10px 24px rgba(43,36,48,0.10);
+  }
+  .giftbox-story-strip figcaption{
+    display:flex; align-items:baseline; gap:6px; margin-top:10px;
+    font-size:12.5px; color:var(--ink-soft); line-height:1.5;
+  }
+  .giftbox-story-strip .gs-num{
+    font-family:var(--serif); font-style:italic; font-size:12px; color:rgba(var(--pline-accent),0.9);
+    flex:none;
+  }
+  @media (max-width:780px){
+    .giftbox-story-strip{grid-template-columns:1fr 1fr; gap:12px;}
   }
 
   /* 써니팡 라이프스타일 피처 — Pang Line 아래 삽입 (2026-08-03, "Clinical Studies" 스탯 카드
@@ -750,6 +800,32 @@
     font-size:13px; font-weight:700; color:var(--lavender-deep); border-bottom:1px solid var(--line);
   }
   @media (max-width:520px){ .pgrid{grid-template-columns:1fr;} }
+
+  /* brand film lightbox — 재생 버튼 클릭 시 화면 중앙에 큰 사이즈로 영상 재생.
+     pkg-modal과 동일한 open/close 인터랙션 패턴 재사용. */
+  .film-lightbox{
+    position:fixed; inset:0; z-index:500; display:none;
+    align-items:center; justify-content:center; padding:32px;
+    background:rgba(10,8,10,0.9);
+  }
+  .film-lightbox.show{display:flex;}
+  .film-lightbox-inner{
+    position:relative; width:min(1040px,92vw);
+    box-shadow:0 30px 80px rgba(0,0,0,0.45);
+  }
+  .film-lightbox-inner video{width:100%; height:auto; max-height:86vh; display:block; background:#000;}
+  .film-lightbox-close{
+    position:absolute; top:-44px; right:0; z-index:2;
+    width:34px; height:34px; border-radius:50%; border:none;
+    background:rgba(255,255,255,0.92); color:var(--ink);
+    font-size:16px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .film-lightbox-close:hover{background:var(--white);}
+  @media (max-width:640px){
+    .film-lightbox{padding:16px;}
+    .film-lightbox-close{top:-40px; right:0;}
+  }
 
   /* DDP 팝업 상세 모달 — 리플렛을 그대로 옮기지 않고 에디토리얼 구조(히어로 → 컨셉 스테이트먼트 →
      Zone 여정 → 현장 갤러리)로 재구성 (2026-08-01). pkg-modal과 동일한 open/close 인터랙션 패턴 재사용. */
@@ -1269,7 +1345,8 @@
       </div>
     </div>
     <div class="story-video reveal-item">
-      <video class="story-film" src="assets/coco_brandfilm_story.mp4" poster="assets/poster-storyfilm.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="story-film" id="storyFilmVideo" src="assets/coco_brandfilm_story.mp4" poster="assets/poster-storyfilm.jpg" muted loop playsinline aria-hidden="true"></video>
+      <img class="story-logo" id="storyLogo" src="assets/logo-story-end.png" alt="cocoheali">
     </div>
   </div>
 </section>
@@ -1338,17 +1415,19 @@
   </div>
 </section>
 
-<!-- COLOR STATEMENT — 에디토리얼 재해석: Little Hands (2026-08-03, Glossier About/Explore 스프레드 참고) -->
+<!-- COLOR STATEMENT — 에디토리얼 재해석: Little Hands (2026-08-03, Glossier About/Explore 스프레드 참고;
+     2026-08-15 카피 전면 교체 — "설계했습니다" 선언형 대신 아이가 스스로 방법을 찾아가는 과정을
+     먼저 보여준 뒤 "그래서 손에서 시작했다"로 이어지는 구조로. Little Hands 카피는 상단
+     풀쿼트로 옮기고, 하단 패널의 pill/kicker/scribble은 제거하고 설명 문단만 남김) -->
 <section class="editorial-bleed reveal-group">
   <div class="eb-inner">
-    <p class="eb-pullquote reveal-item">아이는 스스로 발라야 합니다. 그래서 우리는 <span class="eb-accent">아이의 손으로부터</span> 모든 것을 설계했습니다.</p>
+    <p class="eb-pullquote reveal-item">Little Hands. Lifelong Habits.</p>
     <div class="eb-photo">
       <img src="assets/brand_background_creampang01.jpg" alt="아이의 두 손이 코코힐리 크림팡 팩트를 여는 클로즈업">
       <div class="eb-panel reveal-item">
-        <span class="eb-pill">Self Care</span>
-        <p class="eb-kicker"><b>Little</b> <i>Hands.</i></p>
-        <svg class="eb-scribble" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 8c18-8 34-8 50-2s34 8 54 0 34-8 50 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-        <p class="eb-body">작은 손으로도 쉽게 쥐고,<br>혼자서도 편하게 바르고,<br>매일 스스로 사용할 수 있도록.</p>
+        <p class="eb-body">아이는 스스로 해보는 동안<br>어떻게 해야 할지 생각하고,<br>자기만의 방법을 찾아갑니다.</p>
+        <p class="eb-body">그래서 우리는<br><span class="eb-accent">아이의 작은 손에서</span> 시작했습니다.</p>
+        <p class="eb-body"><span class="eb-accent">스스로 해보고, 스스로 해낼 수 있도록.</span></p>
       </div>
     </div>
   </div>
@@ -1360,7 +1439,7 @@
   <div class="lb-overlay reveal-item">
     <span class="lb-badge">Lip &amp; Cheek</span>
     <h3 class="lb-headline"><span class="lb-base">화장 아니고,</span><span class="lb-accent">보습인데요.</span></h3>
-    <p class="lb-sub">아이들은 예쁜 컬러를 즐기고,<br>엄마는 촉촉한 보습을 안심합니다.<br><br>입술에도, 볼에도 콕콕.<br>착색 없이 보습만 남기는<br>아이를 위한 Lip &amp; Cheek Balm</p>
+    <p class="lb-sub">아이들은 예쁜 컬러를 즐기고,<br>엄마는 촉촉한 보습을 안심합니다.<br><br>입술에도, 볼에도 콕콕.<br>착색 없이 보습만 남기는<br>아이를 위한 <b class="lb-sub-accent">Lip &amp; Cheek Balm</b></p>
   </div>
   <div class="lb-object reveal-item">
     <div class="lb-object-img"><img src="assets/lipbalm-package.png" alt="코코힐리 큐브립밤 패키지"></div>
@@ -1381,6 +1460,14 @@
         <img src="assets/lipbalm-ring-face.jpg" alt="반지를 낀 채 얼굴을 만지는 아이">
         <div class="lg-item-3"><img src="assets/lipbalm-swatch-cutout.png" alt=""></div>
       </div>
+      <div class="lg-item-4">
+        <img src="assets/lipbalm-selfapply.jpg" alt="큐브립밤을 스스로 발라보는 아이">
+        <p class="lg-caption">아이 스스로 바를 수 있는 구조와<br>착색되지 않는 보습 컬러</p>
+      </div>
+    </div>
+    <div class="lg-wide reveal-item">
+      <img src="assets/lipbalm-pinkberry-model.jpg" alt="핑크베리 컬러 큐브립밤을 볼에 대보는 아이">
+      <p class="lg-caption">핑크베리 컬러로 즐기는<br>나만의 색</p>
     </div>
   </div>
 </section>
@@ -1426,6 +1513,7 @@
       </div>
       <div class="gcard gcard--moment" tabindex="0">
         <div class="pimg has-texture">
+          <span class="badge-signature">Best</span>
           <div class="slide active"><img src="assets/p-sunnypang.png" alt="써니팡 팩트 옐로우"></div>
           <div class="slide"><img src="assets/p-sunnypang-2.png" alt="써니팡 팩트 민트"></div>
           <video class="pimg-texture" muted loop playsinline preload="none">
@@ -1478,9 +1566,12 @@
     </div>
     <div class="pgrid">
       <div class="gcard gcard--moment" tabindex="0">
-        <div class="pimg">
+        <div class="pimg has-texture">
+          <span class="badge-signature">Best</span>
           <div class="slide active"><img src="assets/p-lipbalm.png" alt="큐브립밤 핑크베리"></div>
           <div class="slide"><img src="assets/p-lipbalm-2.png" alt="큐브립밤 오렌지팝"></div>
+          <img class="pimg-texture" src="assets/model-lipbalm.jpg" alt="큐브립밤을 직접 발라보는 아이">
+          <span class="texture-badge">모델 컷</span>
           <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
           <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
@@ -1497,10 +1588,13 @@
         </div>
       </div>
       <div class="gcard gcard--moment" tabindex="0">
-        <div class="pimg">
+        <div class="pimg has-texture">
+          <span class="badge-signature">Best</span>
           <div class="slide active"><img src="assets/p-cubenail.png" alt="큐브네일 러브캔디"></div>
           <div class="slide"><img src="assets/p-cubenail-2.png" alt="큐브네일 드림캔디"></div>
           <div class="slide"><img src="assets/p-cubenail-3.png" alt="큐브네일 샤인팝"></div>
+          <img class="pimg-texture" src="assets/model-cubenail.jpg" alt="큐브네일로 컬러를 표현한 아이의 손">
+          <span class="texture-badge">모델 컷</span>
           <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
           <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span><span class="dot" onclick="slideTo(this,2)"></span></div>
@@ -1517,7 +1611,11 @@
         </div>
       </div>
       <div class="gcard">
-        <div class="pimg"><div class="slide active"><img src="assets/p-nailsticker.jpg" alt="이지 케어 네일스티커"></div></div>
+        <div class="pimg has-texture">
+          <div class="slide active"><img src="assets/p-nailsticker-mockup.png" alt="이지 케어 네일스티커"></div>
+          <img class="pimg-texture" src="assets/model-nailsticker.jpg" alt="손톱에 네일스티커를 붙여주는 모습">
+          <span class="texture-badge">모델 컷</span>
+        </div>
         <span class="moment-eyebrow">놀이인 줄 알았는데,</span>
         <h4>이지 케어 네일스티커</h4>
         <p class="pdesc">붙이는 순간 완성되는 네일아트. 하이드로콜로이드 성분이 손톱을 케어하며, 세계 최초 접착 특허로 손톱 거칠기 개선 임상까지 마쳤습니다. 붙이고 떼는 것만으로, 아이 스스로 즐기는 손끝 놀이.</p>
@@ -1529,9 +1627,11 @@
         </div>
       </div>
       <div class="gcard">
-        <div class="pimg">
+        <div class="pimg has-texture">
           <div class="slide active"><img src="assets/p-masksheet.png" alt="이뮤이뮤 마스크 카밍"></div>
           <div class="slide"><img src="assets/p-masksheet-2.png" alt="이뮤이뮤 마스크 하이드로&카밍"></div>
+          <img class="pimg-texture" src="assets/model-masksheet.jpg" alt="이뮤이뮤 마스크팩을 붙이고 얼굴을 감싸는 아이">
+          <span class="texture-badge">모델 컷</span>
           <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
           <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
@@ -1596,6 +1696,29 @@
       <span class="pline-tag">Gift Box</span>
       <p class="pline-desc">라인업을 한 번에 만나는 선물용 구성</p>
     </div>
+
+    <div class="giftbox-story reveal-item">
+      <p class="giftbox-story-lede">선물박스를 열면, 보물지도가 됩니다.</p>
+      <div class="giftbox-story-strip">
+        <figure>
+          <img src="assets/story-giftbox-1.jpg" alt="엄마에게 선물박스를 건네받는 아이">
+          <figcaption><span class="gs-num">01</span>선물처럼 건네받은 상자</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/story-giftbox-2.jpg" alt="박스를 펼치자 구름 모양 보물지도가 나타남">
+          <figcaption><span class="gs-num">02</span>펼치면, 우리 집 보물지도</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/story-giftbox-3.jpg" alt="지도를 들고 집 안을 탐험하는 아이">
+          <figcaption><span class="gs-num">03</span>지도를 들고 온 집안 탐험</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/story-giftbox-4.jpg" alt="침대 밑에서 코코힐리 제품 보물을 발견한 아이">
+          <figcaption><span class="gs-num">04</span>침대 밑에서 만난 보물</figcaption>
+        </figure>
+      </div>
+    </div>
+
     <div class="pgrid">
       <div class="gcard">
         <div class="pimg has-texture">
@@ -1670,6 +1793,13 @@
   <div class="bleed-caption">
     <span class="en reveal-item">Why skincare, not makeup</span>
     <p class="reveal-item">약한 아이 피부, 지켜야 할 피부장벽, 안심할 수 있는 성분, 그리고 매일 이어가는 습관 — 우리가 색조 대신 스킨케어를 선택한 이유입니다.</p>
+  </div>
+
+  <div class="sticker-note-wrap reveal-item">
+    <div class="sticker-mockup">
+      <img class="mockup-product" src="assets/p-creampang.png" alt="코코힐리 크림팡 팩트 실제 제품">
+    </div>
+    <p class="bleed-note">세라마이드 5종 담은 고보습 크림팩트.<br>아이 스스로 팡팡 두드리며 채웁니다.</p>
   </div>
 </div>
 
@@ -2002,7 +2132,7 @@
   <div class="closing-visual reveal-item">
     <video src="assets/hero_background.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
   </div>
-  <p class="line reveal-item">The first thing I did myself.</p>
+  <p class="line reveal-item">The first thing I did, all by myself.</p>
   <p class="signoff reveal-item"><span class="signoff-love">Love,</span><span class="signoff-name">Cocoheali</span></p>
 </section>
 
@@ -2017,6 +2147,13 @@
     <div class="pkg-modal-name" id="pkgModalName"></div>
     <img id="pkgModalImg" src="" alt="패키지 도면">
     <button type="button" class="pkg-modal-close" id="pkgModalClose" aria-label="닫기">✕</button>
+  </div>
+</div>
+
+<div class="film-lightbox" id="filmLightbox">
+  <div class="film-lightbox-inner">
+    <button type="button" class="film-lightbox-close" id="filmLightboxClose" aria-label="닫기">✕</button>
+    <video id="filmLightboxVideo" controls playsinline></video>
   </div>
 </div>
 
@@ -2259,6 +2396,35 @@
   })();
 
   (function(){
+    // 브랜드 필름 라이트박스 — .film-play 클릭 시 화면 중앙에 큰 사이즈로 재생.
+    // pkgModal과 동일한 open/close 패턴이며, wireFilmPlay(하단 스크립트)가 window.openFilmLightbox를 호출.
+    var lightbox = document.getElementById('filmLightbox');
+    var video = document.getElementById('filmLightboxVideo');
+    var closeBtn = document.getElementById('filmLightboxClose');
+    if(!lightbox || !video) return;
+
+    function open(src){
+      video.src = src;
+      lightbox.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      video.currentTime = 0;
+      video.play();
+    }
+    function close(){
+      video.pause();
+      video.removeAttribute('src');
+      video.load();
+      lightbox.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    window.openFilmLightbox = open;
+
+    closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', function(e){ if(e.target === lightbox) close(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lightbox.classList.contains('show')) close(); });
+  })();
+
+  (function(){
     // 상세 모달 4종(DDP/청와대/호텔콜라보/브랜드콜라보) 공통 open/close + DDP 전용 히어로 캐러셀 리셋.
     // .ddp-modal-overlay 클래스를 공유하는 모든 모달에 동일한 인터랙션 패턴을 일괄 적용.
     function initHeroCarousel(overlay){
@@ -2442,9 +2608,11 @@
   })();
 
   (function(){
+    // has-texture는 제형 영상뿐 아니라 모델컷 이미지 호버 전환에도 재사용됨(2026-08-14) —
+    // .pimg-texture가 <video>일 때만 play/pause를 걸고, <img>면 CSS opacity 전환만으로 충분.
     document.querySelectorAll('.pimg.has-texture').forEach(function(box){
       var vid = box.querySelector('.pimg-texture');
-      if(!vid) return;
+      if(!vid || vid.tagName !== 'VIDEO') return;
       box.addEventListener('mouseenter', function(){
         vid.currentTime = 0;
         vid.play().catch(function(){});
@@ -2570,23 +2738,68 @@
 
   function wireFilmPlay(btn){
     btn.addEventListener('click', function(){
-      if(btn.classList.contains('playing')) return;
       var src = btn.getAttribute('data-src');
-      var video = document.createElement('video');
-      video.controls = true;
-      video.autoplay = true;
-      video.playsInline = true;
-      var source = document.createElement('source');
-      source.src = src;
-      source.type = 'video/mp4';
-      video.appendChild(source);
-      var img = btn.querySelector('img');
-      btn.insertBefore(video, img);
-      img.remove();
-      btn.classList.add('playing');
+      if(window.openFilmLightbox) window.openFilmLightbox(src);
     });
   }
   document.querySelectorAll('.film-play').forEach(wireFilmPlay);
+
+  (function(){
+    // 브랜드스토리 영상 — 스크롤로 화면에 들어올 때만 처음부터 재생, 벗어나면 정지(다음에 다시
+    // 들어오면 다시 처음부터).
+    var storyVideo = document.getElementById('storyFilmVideo');
+    if(!storyVideo) return;
+    var storyLogo = document.getElementById('storyLogo');
+    if(storyLogo){
+      // duration 메타데이터에만 의존하지 않도록, 실제 프레임을 캔버스로 샘플링해 화이트
+      // 페이드가 끝났는지 직접 판별(가능한 환경에서). 캔버스 접근이 막히는 환경(file://
+      // 등 일부 로컬 프리뷰)에서는 절대시간 폴백(23.6s~) 사용.
+      var wCanvas = document.createElement('canvas');
+      wCanvas.width = 6; wCanvas.height = 6;
+      var wCtx = wCanvas.getContext('2d');
+      function isFrameWhite(){
+        try{
+          var vw = storyVideo.videoWidth, vh = storyVideo.videoHeight;
+          if(!vw || !vh) return false;
+          wCtx.drawImage(storyVideo, vw*0.2, vh*0.2, vw*0.6, vh*0.6, 0, 0, 6, 6);
+          var d = wCtx.getImageData(0,0,6,6).data;
+          for(var i=0;i<d.length;i+=4){
+            if(d[i] < 245 || d[i+1] < 245 || d[i+2] < 245) return false;
+          }
+          return true;
+        }catch(e){ return null; }
+      }
+      storyVideo.addEventListener('timeupdate', function(){
+        var t = storyVideo.currentTime;
+        if(t < 1){ storyLogo.classList.remove('show'); return; }
+        var white = isFrameWhite();
+        var shouldShow;
+        if(white === null){
+          var d = storyVideo.duration;
+          shouldShow = (d && isFinite(d)) ? (t >= d - 3.1) : (t >= 23.6);
+        } else {
+          shouldShow = white;
+        }
+        storyLogo.classList.toggle('show', shouldShow);
+      });
+    }
+    if('IntersectionObserver' in window){
+      var storyIo = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            storyVideo.currentTime = 0;
+            if(storyLogo) storyLogo.classList.remove('show');
+            storyVideo.play();
+          } else {
+            storyVideo.pause();
+          }
+        });
+      }, {threshold:0.4});
+      storyIo.observe(storyVideo);
+    } else {
+      storyVideo.play();
+    }
+  })();
 
   // 자동 슬라이드 레일 — Brand Film에서 처음 만든 구조를 모든 .film-rail-wrap에 재사용
   // (Selected Projects의 Global Exhibitions & Retail / Space & Retail Design, 2026-08-03).
@@ -2667,7 +2880,8 @@
       return items[originalItems.length].offsetLeft - items[0].offsetLeft;
     }
     function anyPlaying(){
-      return items.some(function(item){ return item.querySelector('.film-play.playing'); });
+      var lightbox = document.getElementById('filmLightbox');
+      return !!(lightbox && lightbox.classList.contains('show'));
     }
 
     wrap.addEventListener('mouseenter', function(){ hovering = true; });
