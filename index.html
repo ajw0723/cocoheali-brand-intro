@@ -81,6 +81,26 @@
   }
   header.top img{height:26px;}
   header.top nav{font-size:11px; letter-spacing:0.18em; color:var(--ink-soft); text-transform:uppercase;}
+  header.top nav #hdrChapter{display:inline-block; transition:opacity .2s ease;}
+  header.top nav #hdrChapter.swap{opacity:0;}
+
+  /* 챕터 표식 — "한 권으로 읽히는" 뼈대 (2026-08-16). 큰 번호 + 챕터명 한 줄, 주변에
+     최소 120px 여백(디스플레이 스케일 원칙과 공유) — 이게 곧 챕터 구분선 역할을 해서
+     기존 .section-divider(헤어라인+캡션) 패턴은 여기선 안 씀. 헤더 nav의 현재 챕터
+     표시(#hdrChapter)는 아래 JS가 스크롤에 따라 텍스트만 opacity로 교체. */
+  .chapter-mark{display:flex; align-items:baseline; gap:22px; margin:0 0 120px;}
+  .chapter-mark .ch-num{
+    font-family:var(--font-en-accent), var(--serif); font-style:italic; font-weight:500;
+    font-size:clamp(3.6rem,8vw,6.4rem); line-height:0.9; color:var(--oak);
+  }
+  .chapter-mark .ch-name{
+    font-family:var(--font-kr-base); font-weight:700; font-size:13px;
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft);
+  }
+  @media (max-width:640px){
+    .chapter-mark{margin-bottom:64px;}
+    .chapter-mark .ch-num{font-size:clamp(2.4rem,15vw,3.2rem);}
+  }
 
   /* section shells */
   section{position:relative;}
@@ -1316,7 +1336,7 @@
 
 <header class="top" id="siteHeader">
   <img src="assets/logo.png" alt="cocoheali">
-  <nav>Brand Introduction</nav>
+  <nav><span id="hdrChapter">Brand Introduction</span></nav>
 </header>
 
 <!-- HERO -->
@@ -1331,6 +1351,7 @@
 
 <!-- BRAND STORY -->
 <section class="wrap pad-xl reveal-group">
+  <div class="chapter-mark reveal-item" data-chapter="01"><span class="ch-num">01</span><span class="ch-name">Brand Story</span></div>
   <div class="story-split">
     <div class="text-block story-text">
       <p class="eyebrow reveal-item">Brand Story</p>
@@ -1436,6 +1457,12 @@
     </div>
   </div>
 </section>
+
+<!-- CHAPTER 02 표식 (2026-08-16) — 다음 풀블리드 섹션이 배경 꽉 채우는 구조라 여기서
+     별도 wrap으로 챕터 번호만 조용히 얹음 -->
+<div class="wrap pad-m reveal-group" style="padding-bottom:0;">
+  <div class="chapter-mark reveal-item" data-chapter="02"><span class="ch-num">02</span><span class="ch-name">Product World</span></div>
+</div>
 
 <!-- LIP BALM — 섹션 A: 메인 풀블리드 (2026-08-03) -->
 <section class="lipbalm-bleed reveal-group">
@@ -1833,6 +1860,7 @@
 <!-- BRAND HISTORY : Scene 1 — Milestone Timeline + Key Achievements -->
 <section class="zone-ivory reveal-group">
   <div class="wrap pad-xl">
+    <div class="chapter-mark reveal-item" data-chapter="03"><span class="ch-num">03</span><span class="ch-name">Brand History</span></div>
     <p class="eyebrow reveal-item">Brand History</p>
     <h2 class="zone-h2 reveal-item">습관은 <span class="zone-accent">하루아침</span>에<br>만들어지지 않습니다.</h2>
     <p class="zone-lede reveal-item">코코힐리는 2019년 런칭 이후 국내 키즈 코스메틱 시장에서 꾸준히 유통망과 신뢰를 쌓아왔고, 이제 유럽과 일본 등 해외 시장으로 그 습관을 확장하고 있습니다.</p>
@@ -2043,6 +2071,7 @@
 <!-- RETAIL NETWORK + FOUNDER'S STORY + COMPANY -->
 <section class="zone-ivory reveal-group">
   <div class="wrap pad-xl">
+    <div class="chapter-mark reveal-item" data-chapter="04"><span class="ch-num">04</span><span class="ch-name">Retail Network</span></div>
     <div class="section-divider reveal-item"><span>Global expansion since 2019</span></div>
     <p class="eyebrow reveal-item">Where to Find Cocoheali</p>
     <h2 class="zone-h2 reveal-item">유통 네트워크</h2>
@@ -2683,6 +2712,33 @@
     if(window.scrollY > 60){ header.classList.add('scrolled'); }
     else{ header.classList.remove('scrolled'); }
   });
+
+  (function(){
+    // 러닝 헤더 — 챕터 체계 (2026-08-16). 새 라이브러리 없이 기존 reveal 엔진과 같은 스크롤
+    // 리스너 방식. "현재 챕터"는 헤더(고정, 상단 기준선) 위쪽을 이미 지나간 챕터 표식 중
+    // 가장 마지막 것 — 딱 4개뿐이라 매 scroll 이벤트에 바로 계산해도 비용이 거의 없음(rAF로
+    // 스로틀링했더니 백그라운드/포커스 없는 탭에서 콜백 자체가 지연돼 버리는 문제가 있어서
+    // 뺌 — IntersectionObserver보다도 이 방식이 더 단순하고 확실함).
+    var marks = Array.prototype.slice.call(document.querySelectorAll('.chapter-mark'));
+    var hdrChapter = document.getElementById('hdrChapter');
+    if(!marks.length || !hdrChapter) return;
+    var defaultLabel = hdrChapter.textContent;
+    var current = null;
+    function pickChapter(){
+      var found = null;
+      for(var i=0;i<marks.length;i++){
+        if(marks[i].getBoundingClientRect().top <= 96){ found = marks[i]; }
+      }
+      var label = found ? (found.getAttribute('data-chapter') + ' · ' + found.querySelector('.ch-name').textContent) : defaultLabel;
+      if(label !== current){
+        current = label;
+        hdrChapter.classList.add('swap');
+        setTimeout(function(){ hdrChapter.textContent = label; hdrChapter.classList.remove('swap'); }, 200);
+      }
+    }
+    window.addEventListener('scroll', pickChapter, {passive:true});
+    pickChapter();
+  })();
 
   (function(){
     // hero parallax — 배경이 본문보다 느리게 움직이는 미묘한 깊이감. 원본 이미지는
