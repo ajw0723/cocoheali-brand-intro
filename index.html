@@ -337,7 +337,13 @@
   .eb-headline .eb-h2{margin:-0.08em 0 -0.5em 12vw;}
   .eb-headline .eb-dot{color:var(--lavender-deep);}
 
-  .editorial-bleed .eb-photo{position:relative; z-index:1; width:76%; margin:0 0 0 auto; aspect-ratio:16/9; overflow:hidden;}
+  /* 2026-08-16 — 헤드라인 아래·사진 왼쪽에 비어있던 여백에 본문을 옮겨 채움(사용자 지적).
+     eb-copy를 eb-photo와 같은 행에 두는 flex 행으로 재구성 — 사진은 76% 폭 그대로 오른쪽,
+     본문은 그 왼쪽 남는 24% 칸에. margin-top으로 "Hands." 겹침 구간 아래까지 내려서
+     헤드라인과 안 겹치게 함. */
+  .eb-row{display:flex; align-items:flex-start; gap:44px;}
+  .eb-copy{flex:0 1 300px; margin-top:150px;}
+  .editorial-bleed .eb-photo{position:relative; z-index:1; flex:1 1 auto; min-width:0; aspect-ratio:16/9; overflow:hidden;}
   .editorial-bleed .eb-photo img{width:100%; height:100%; object-fit:cover; display:block;}
 
   .eb-h3{
@@ -347,7 +353,6 @@
   }
   .eb-h3 em{font-style:italic; color:var(--lavender-deep);}
 
-  .eb-copy{max-width:320px; margin-top:56px;}
   .eb-copy .eb-tag{
     display:block; margin:0 0 16px; font-family:var(--sans); font-weight:700;
     font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--purple-ui);
@@ -362,10 +367,11 @@
     .editorial-bleed{padding:90px 20px 80px;}
     .eb-headline .eb-h-line{font-size:clamp(2.3rem,11vw,3.1rem);}
     .eb-headline .eb-h2{margin:8px 0 20px;}
-    .editorial-bleed .eb-photo{width:100%; aspect-ratio:4/5;}
+    .eb-row{flex-direction:column; gap:0;}
+    .eb-copy{flex:none; order:2; margin-top:32px;}
+    .editorial-bleed .eb-photo{width:100%; aspect-ratio:4/5; order:1;}
     .editorial-bleed .eb-photo img{object-position:35% center;}
     .eb-h3{text-align:left; margin-top:20px; font-size:clamp(1.5rem,7vw,2rem);}
-    .eb-copy{max-width:100%; margin-top:32px;}
   }
 
   /* 립밤 풀블리드 — 섹션 A (2026-08-03). Little Hands 2차 버전과 동일한 방식으로
@@ -1445,16 +1451,18 @@
       <span class="eb-h-line eb-h1">Little</span>
       <span class="eb-h-line eb-h2">Hands<span class="eb-dot">.</span></span>
     </div>
-    <div class="eb-photo">
-      <img src="assets/brand_background_creampang01.jpg" alt="아이의 두 손이 코코힐리 크림팡 팩트를 여는 클로즈업">
+    <div class="eb-row">
+      <div class="eb-copy reveal-item">
+        <span class="eb-tag">01 / First Ritual</span>
+        <p class="eb-body">아이는 스스로 해보는 동안<br>어떻게 해야 할지 생각하고,<br>자기만의 방법을 찾아갑니다.</p>
+        <p class="eb-body">그래서 우리는<br><span class="eb-accent">아이의 작은 손에서</span> 시작했습니다.</p>
+        <p class="eb-body"><span class="eb-accent">스스로 해보고, 스스로 해낼 수 있도록.</span></p>
+      </div>
+      <div class="eb-photo">
+        <img src="assets/brand_background_creampang01.jpg" alt="아이의 두 손이 코코힐리 크림팡 팩트를 여는 클로즈업">
+      </div>
     </div>
     <p class="eb-h3 reveal-item">Lifelong <em>Habits.</em></p>
-    <div class="eb-copy reveal-item">
-      <span class="eb-tag">01 / First Ritual</span>
-      <p class="eb-body">아이는 스스로 해보는 동안<br>어떻게 해야 할지 생각하고,<br>자기만의 방법을 찾아갑니다.</p>
-      <p class="eb-body">그래서 우리는<br><span class="eb-accent">아이의 작은 손에서</span> 시작했습니다.</p>
-      <p class="eb-body"><span class="eb-accent">스스로 해보고, 스스로 해낼 수 있도록.</span></p>
-    </div>
   </div>
 </section>
 
