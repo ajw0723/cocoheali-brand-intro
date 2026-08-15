@@ -388,17 +388,22 @@
     .lb-object{width:104px; left:26px; bottom:4%;}
   }
 
-  /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (섹션 A보다 절제된 톤, 3분할 비대칭) */
+  /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (섹션 A보다 절제된 톤, 4분할 비대칭,
+     2026-08-15 4번째(가로) 사진 추가하며 비율 재조정 — 세로 사진 3장(1, 2, 4)과 가로 사진
+     1장(5)이 한 줄에 같이 놓이는 "액자식" 콜라주. object-fit crop 없이 각 사진 원본 비율
+     그대로, flex-basis만 사진 성격에 맞게 배분(가로 사진은 넓게, 세로는 좁게) — 그래서 5장
+     다 한 화면 안에서 잘림 없이 보임. */
   .lipbalm-gallery{padding:96px 0 110px;}
   .lg-label{
     display:block; font-family:var(--font-kr-base); font-size:11.5px; font-weight:600;
     color:var(--purple-ui); margin-bottom:40px;
   }
-  .lg-grid{display:flex; gap:44px; align-items:flex-start;}
-  .lg-item-1{flex:0 0 43%;}
-  .lg-item-2{flex:0 0 33%; margin-top:64px; position:relative;}
-  .lg-item-4{flex:0 0 16%;}
-  .lg-item-1 img, .lg-item-2 > img, .lg-item-4 img{
+  .lg-grid{display:flex; gap:32px; align-items:flex-start;}
+  .lg-item-1{flex:0 0 28%;}
+  .lg-item-2{flex:0 0 19%; margin-top:64px; position:relative;}
+  .lg-item-4{flex:0 0 13%;}
+  .lg-item-5{flex:0 0 27%; margin-top:24px;}
+  .lg-item-1 img, .lg-item-2 > img, .lg-item-4 img, .lg-item-5 img{
     width:100%; height:auto; display:block; border-radius:6px;
     box-shadow:0 16px 32px rgba(43,36,48,0.12);
   }
@@ -407,20 +412,8 @@
   .lg-item-3 img{width:100%; height:auto; display:block; filter:drop-shadow(4px 8px 10px rgba(43,36,48,0.2));}
   @media (max-width:760px){
     .lg-grid{flex-direction:column; gap:60px;}
-    .lg-item-1, .lg-item-2, .lg-item-4{flex:none; width:100%; margin-top:0;}
+    .lg-item-1, .lg-item-2, .lg-item-4, .lg-item-5{flex:none; width:100%; margin-top:0;}
     .lg-item-3{width:32%;}
-  }
-
-  /* 립밤 갤러리 — 가로 사진 추가 열 (2026-08-15). lg-grid의 세로형 3분할과 다른 가로
-     비율(1400×933) 사진이라, 좁은 flex 칼럼에 억지로 넣으면 옆이 잘려서 별도 와이드 로우로
-     분리 — object-fit 없이 원본 비율 그대로, 잘리는 부분 없음. */
-  .lg-wide{margin-top:44px;}
-  .lg-wide img{
-    width:100%; height:auto; display:block; border-radius:6px;
-    box-shadow:0 16px 32px rgba(43,36,48,0.12);
-  }
-  @media (max-width:760px){
-    .lg-wide{margin-top:36px;}
   }
 
   /* full-bleed PHOTO + 큰 오버레이 스테이트먼트 — 기존 .bleed-caption(하단 캡션바)보다 크고
@@ -1464,10 +1457,10 @@
         <img src="assets/lipbalm-selfapply.jpg" alt="큐브립밤을 스스로 발라보는 아이">
         <p class="lg-caption">아이 스스로 바를 수 있는 구조와<br>착색되지 않는 보습 컬러</p>
       </div>
-    </div>
-    <div class="lg-wide reveal-item">
-      <img src="assets/lipbalm-pinkberry-model.jpg" alt="핑크베리 컬러 큐브립밤을 볼에 대보는 아이">
-      <p class="lg-caption">핑크베리 컬러로 즐기는<br>나만의 색</p>
+      <div class="lg-item-5">
+        <img src="assets/lipbalm-pinkberry-wide.jpg" alt="핑크베리 컬러 큐브립밤을 볼에 대보는 아이">
+        <p class="lg-caption">핑크베리 컬러로 즐기는<br>나만의 색</p>
+      </div>
     </div>
   </div>
 </section>
