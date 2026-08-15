@@ -52,7 +52,11 @@
     font-weight:600;
     margin:0 0 18px;
   }
-  h1,h2,h3{font-family:var(--serif); font-weight:600; margin:0; line-height:1.25;}
+  /* 2026-08-15 — 타이포 하이브리드(2026-08-03 결정) 소급 적용: 골격은 Pretendard bold,
+     감성 강조는 문장 안 한 구절만 Gowun Batang(국문)/Fraunces(영문) italic. h1/h2/h3에
+     남아있던 --serif 기본값을 여기서 교체 — 한글에 이탤릭을 걸던 하위 규칙들도 이 커밋에서
+     전수 제거(합성 기울임이 부자연스러워 보이는 문제 해결, grep으로 전수 확인). */
+  h1,h2,h3{font-family:var(--font-kr-base); font-weight:700; font-style:normal; margin:0; line-height:1.25;}
   p{margin:0 0 1.1em; line-height:1.85; color:var(--ink-soft); font-size:15.5px;}
   .draft-tag{
     position:fixed; top:18px; right:18px; z-index:50;
@@ -235,7 +239,7 @@
     color:var(--white);
   }
   .bleed-caption .en{
-    font-family:var(--serif); font-style:italic; font-size:15px; letter-spacing:0.04em;
+    font-family:var(--serif); font-style:normal; font-size:15px; letter-spacing:0.04em;
     opacity:0.85; margin-bottom:10px; display:block;
   }
   .bleed-caption p{
@@ -328,7 +332,7 @@
     display:block; margin:0 0 16px; font-family:var(--sans); font-weight:700;
     font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--purple-ui);
   }
-  .editorial-bleed .eb-accent{font-family:var(--serif); font-style:italic; font-weight:600; color:var(--logo-purple);}
+  .editorial-bleed .eb-accent{font-family:var(--font-kr-accent); font-style:normal; font-weight:600; color:var(--logo-purple);}
   .editorial-bleed .eb-body{
     font-family:var(--sans); font-weight:300; color:var(--ink-soft);
     font-size:14.5px; line-height:1.9; margin:0 0 18px;
@@ -463,14 +467,13 @@
   /* philosophy / text sections */
   .text-block h2{
     font-size:clamp(1.7rem, 3.4vw, 2.5rem);
-    font-style:italic;
     margin-bottom:30px;
   }
   .text-block p{font-size:16.5px;}
 
   /* philosophy declaration */
   .decl{
-    font-family:var(--serif); font-style:italic; color:var(--lavender-deep);
+    font-family:var(--font-kr-base); font-weight:700; font-style:normal; color:var(--ink);
     font-size:clamp(1.25rem, 2.6vw, 1.7rem); line-height:1.65; margin:0 0 36px;
   }
   .decl .sc-phrase{font-weight:800; color:var(--purple-strong);}
@@ -484,7 +487,7 @@
      하단 우측에 작게). 기존 crayon 4단계 성장 애니메이션은 폐기 — 4단계는 색 블록 아래 밝은
      배경에 작은 캡션 라인으로 축소. 배경은 "큰 면적" 톤인 --purple-field(#9B6B9E) 사용. */
   .phil-statement{position:relative; background:var(--purple-field); padding:150px 0 110px; overflow:hidden;}
-  .phil-statement .stmt-accent{font-family:var(--serif); font-style:italic; font-weight:600; color:var(--mint);}
+  .phil-statement .stmt-accent{font-family:var(--font-kr-accent); font-style:normal; font-weight:600; color:var(--mint);}
   .phil-statement .phil-stmt-sub{
     font-family:var(--sans); font-weight:400; color:rgba(255,255,255,0.8);
     font-size:13.5px; line-height:1.85; max-width:320px;
@@ -519,7 +522,7 @@
     flex-wrap:wrap; margin-top:18px;
   }
   .product-head h2{font-family:var(--sans); font-weight:700; font-style:normal; font-size:clamp(1.7rem,3.4vw,2.5rem); color:var(--ink);}
-  .product-head h2 .accent-italic{font-family:var(--serif); font-style:italic; font-weight:600; color:var(--lavender-deep);}
+  .product-head h2 .accent-italic{font-family:var(--font-kr-accent); font-style:normal; font-weight:600; color:var(--lavender-deep);}
   .product-head .lede{
     max-width:320px; font-size:13.5px; color:var(--lavender-deep); line-height:1.75;
     text-align:right; margin:0;
@@ -566,7 +569,7 @@
   /* Gift Box 스토리 스트립 — 선물박스 언박싱 → 보물지도 놀이 (2026-08-12, 선물패키지_사용방법.png 4컷 일러스트 분할) */
   .giftbox-story{margin:36px 0 44px;}
   .giftbox-story-lede{
-    font-family:var(--serif); font-style:italic; font-size:clamp(19px,2.4vw,25px);
+    font-family:var(--serif); font-style:normal; font-size:clamp(19px,2.4vw,25px);
     color:var(--ink); margin:0 0 20px; text-align:center;
   }
   .giftbox-story-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
@@ -753,7 +756,7 @@
      아래 마크업의 class="gcard--moment"만 지우면 100% 원상복구.
      ============================================================ */
   .gcard .moment-eyebrow{
-    font-family:var(--serif); font-style:italic; font-size:13.5px;
+    font-family:var(--font-kr-accent); font-style:normal; font-size:13.5px;
     color:var(--lavender-deep); display:block; margin:20px 0 12px;
   }
   .gcard--moment .pdesc{max-width:40ch; font-size:14px; line-height:1.85;}
@@ -857,7 +860,7 @@
   .ddp-hero-cap{
     position:absolute; left:20px; bottom:18px; z-index:2;
     padding:7px 14px; border-radius:100px; background:rgba(20,16,18,0.55);
-    font-family:var(--serif); font-style:italic; font-size:13px; color:var(--white);
+    font-family:var(--serif); font-style:normal; font-size:13px; color:var(--white);
   }
   .ddp-hero-nav{
     position:absolute; top:50%; transform:translateY(-50%); z-index:3;
@@ -894,9 +897,9 @@
     font-family:var(--sans); font-weight:700; font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
     color:var(--lavender-deep); margin-bottom:14px;
   }
-  .ddp-formula i{font-family:var(--serif); font-style:italic; font-size:15px; text-transform:none; letter-spacing:0;}
+  .ddp-formula i{font-family:var(--serif); font-style:normal; font-size:15px; text-transform:none; letter-spacing:0;}
   .ddp-statement{
-    font-family:var(--serif); font-style:italic; font-size:17px; line-height:1.65; color:var(--ink);
+    font-family:var(--serif); font-style:normal; font-size:17px; line-height:1.65; color:var(--ink);
     margin-bottom:10px;
   }
   .ddp-statement-en{font-size:12.5px; line-height:1.7; color:var(--ink-soft); margin:0;}
@@ -995,7 +998,7 @@
   .zone-ivory{background:var(--paper);}
   .zone-oak{background:var(--oak);}
   .zone-white{background:var(--white);}
-  .zone-h2{font-size:clamp(1.7rem,3.4vw,2.5rem); font-style:italic; max-width:640px;}
+  .zone-h2{font-size:clamp(1.7rem,3.4vw,2.5rem); max-width:640px;}
   .zone-accent{color:var(--lavender-deep); font-weight:700;}
   .zone-lede{max-width:600px; margin-top:18px; font-size:15.5px;}
 
@@ -1200,7 +1203,7 @@
   }
   .voice .col{padding:36px 38px;}
   .voice .col.use{border-right:1px solid var(--line); background:var(--lavender-soft);}
-  .voice .col h4{font-family:var(--serif); font-style:italic; font-size:16px; margin-bottom:18px;}
+  .voice .col h4{font-family:var(--serif); font-style:normal; font-size:16px; margin-bottom:18px;}
   .voice .col.use h4{color:var(--lavender-deep);}
   .voice .col.avoid h4{color:var(--ink-soft);}
   .voice .tagset{display:flex; flex-wrap:wrap; gap:9px;}
@@ -1805,7 +1808,7 @@
 <!-- BRAND VISION — 2026-08-01 일단 보류 (실제 사진 없이 플레이스홀더뿐이라 사용자 요청으로 임시 비활성화, 사진 확보되면 복원)
 <section class="wrap pad-xl reveal">
   <p class="eyebrow">Brand Vision</p>
-  <h2 style="font-size:clamp(1.7rem,3.4vw,2.5rem); font-style:italic;">COCOHEALI를 사용하면,<br>이렇게 됩니다.</h2>
+  <h2 style="font-size:clamp(1.7rem,3.4vw,2.5rem);">COCOHEALI를 사용하면,<br>이렇게 됩니다.</h2>
   <p style="max-width:560px; margin-top:22px;">우리가 만드는 것은 화장품이 아니라, 아이가 스스로 해보는 습관입니다. 코코힐리를 경험한 아이는 스스로 선택하고, 스스로 바르고, 스스로 완성합니다.</p>
 
   <div class="vision-grid">
@@ -2106,7 +2109,7 @@
 <!-- VOICE GUIDE -->
 <section class="wrap pad-l reveal-group">
   <p class="eyebrow reveal-item">Brand Voice — 내부 참고</p>
-  <h2 class="reveal-item" style="font-size:clamp(1.5rem,2.8vw,2rem); font-style:italic;">이렇게 말하고,<br>이렇게는 말하지 않습니다.</h2>
+  <h2 class="reveal-item" style="font-size:clamp(1.5rem,2.8vw,2rem);">이렇게 말하고,<br>이렇게는 말하지 않습니다.</h2>
   <div class="voice reveal-item">
     <div class="col use">
       <h4>자주 쓰는 말</h4>
