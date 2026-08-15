@@ -388,23 +388,22 @@
     .lb-object{width:104px; left:26px; bottom:4%;}
   }
 
-  /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (섹션 A보다 절제된 톤, 4분할 비대칭,
-     2026-08-15 4번째(가로) 사진 추가하며 비율 재조정 — 세로 사진 3장(1, 2, 4)과 가로 사진
-     1장(5)이 한 줄에 같이 놓이는 "액자식" 콜라주. object-fit crop 없이 각 사진 원본 비율
-     그대로, flex-basis만 사진 성격에 맞게 배분(가로 사진은 넓게, 세로는 좁게) — 그래서 5장
-     다 한 화면 안에서 잘림 없이 보임. */
+  /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (2026-08-15 재설계 — 사진마다 다른
+     flex-basis%로 비율을 맞추려던 방식이 사진별로 캡션·이미지 높이가 다 달라서 기준선이
+     안 맞고 산만해 보인다는 피드백. 대신 세 장 모두 동일한 고정 높이(260px)로 통일하고
+     너비는 원본 비율에 맡기는 "필름스트립" 방식으로 교체 — 가로 사진은 넓게, 세로 사진은
+     좁게 자연히 배분되면서도 전부 같은 높이 선 위에 나란히 놓여 기준선이 딱 맞음. 3번째
+     자리에 있던 셀프어플라이 컷은 사용자 요청으로 제거, 핑크베리 컷이 그 자리를 대신함. */
   .lipbalm-gallery{padding:96px 0 110px;}
   .lg-label{
     display:block; font-family:var(--font-kr-base); font-size:11.5px; font-weight:600;
     color:var(--purple-ui); margin-bottom:40px;
   }
-  .lg-grid{display:flex; gap:32px; align-items:flex-start;}
-  .lg-item-1{flex:0 0 28%;}
-  .lg-item-2{flex:0 0 19%; margin-top:64px; position:relative;}
-  .lg-item-4{flex:0 0 13%;}
-  .lg-item-5{flex:0 0 27%; margin-top:24px;}
-  .lg-item-1 img, .lg-item-2 > img, .lg-item-4 img, .lg-item-5 img{
-    width:100%; height:auto; display:block; border-radius:6px;
+  .lg-grid{display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap;}
+  .lg-item-1, .lg-item-2, .lg-item-5{flex:0 0 auto;}
+  .lg-item-2{position:relative;}
+  .lg-item-1 img, .lg-item-2 > img, .lg-item-5 img{
+    height:260px; width:auto; max-width:100%; display:block; border-radius:6px;
     box-shadow:0 16px 32px rgba(43,36,48,0.12);
   }
   .lg-caption{margin:14px 0 0; font-family:var(--font-kr-base); font-size:12px; color:var(--ink-soft); line-height:1.6;}
@@ -412,7 +411,8 @@
   .lg-item-3 img{width:100%; height:auto; display:block; filter:drop-shadow(4px 8px 10px rgba(43,36,48,0.2));}
   @media (max-width:760px){
     .lg-grid{flex-direction:column; gap:60px;}
-    .lg-item-1, .lg-item-2, .lg-item-4, .lg-item-5{flex:none; width:100%; margin-top:0;}
+    .lg-item-1, .lg-item-2, .lg-item-5{flex:none;}
+    .lg-item-1 img, .lg-item-2 > img, .lg-item-5 img{width:100%; height:auto;}
     .lg-item-3{width:32%;}
   }
 
@@ -1453,13 +1453,9 @@
         <img src="assets/lipbalm-ring-face.jpg" alt="반지를 낀 채 얼굴을 만지는 아이">
         <div class="lg-item-3"><img src="assets/lipbalm-swatch-cutout.png" alt=""></div>
       </div>
-      <div class="lg-item-4">
-        <img src="assets/lipbalm-selfapply.jpg" alt="큐브립밤을 스스로 발라보는 아이">
-        <p class="lg-caption">아이 스스로 바를 수 있는 구조와<br>착색되지 않는 보습 컬러</p>
-      </div>
       <div class="lg-item-5">
         <img src="assets/lipbalm-pinkberry-wide.jpg" alt="핑크베리 컬러 큐브립밤을 볼에 대보는 아이">
-        <p class="lg-caption">핑크베리 컬러로 즐기는<br>나만의 색</p>
+        <p class="lg-caption">콕콕 발라보는<br>핑크베리 컬러</p>
       </div>
     </div>
   </div>
