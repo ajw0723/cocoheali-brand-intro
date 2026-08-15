@@ -326,8 +326,12 @@
      사진 위에 텍스트를 얹던 이전 방식 대신, 제목 두 줄이 사진과 서로 다른 기준선에서
      겹치며 지나가도록 구성 — 타이포 자체가 그래픽 요소가 되는 방식. .eb-panel(블러·그림자·
      라벤더 뒤판)과 인용부호 장식은 완전히 제거. 카피 문구는 원문 그대로, 구조만 변경. */
-  .editorial-bleed{position:relative; background:var(--paper); padding:150px 24px 150px;}
-  .editorial-bleed .eb-inner{max-width:1360px; margin:0 auto;}
+  /* 2026-08-16 — 컨테이너 폭을 .wrap과 통일(1180/40px 패딩 → 실효 1100px). 기존
+     eb-inner:1360px는 이 섹션 좌우 여백만 유독 좁아서(90px대 24px) 위아래 다른 섹션과
+     텍스트 왼쪽 기준선이 안 맞았음 — 그리드 통일(3번) 중 실제로 눈에 보이는 문제라 먼저
+     고침, 나머지 그리드 작업(12컬럼 시스템 자체)은 더 큰 범위라 아래 보고 참고. */
+  .editorial-bleed{position:relative; background:var(--paper); padding:150px 40px 150px;}
+  .editorial-bleed .eb-inner{max-width:1180px; margin:0 auto;}
 
   .eb-headline{
     position:relative; z-index:2; font-family:var(--font-en-accent), var(--serif);
