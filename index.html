@@ -670,7 +670,7 @@
   /* 써니팡 라이프스타일 피처 — Pang Line 아래 삽입 (2026-08-03, "Clinical Studies" 스탯 카드
      레퍼런스 참고: 좌측 연한 카드(배지+헤드라인+스펙 리스트) : 우측 풀블리드 인물사진 2단 그리드) */
   .sunny-feature{margin-top:120px;}
-  .sunny-feature-grid{position:relative; display:grid; grid-template-columns:0.82fr 1fr; gap:28px; align-items:stretch;}
+  .sunny-feature-grid{display:grid; grid-template-columns:0.82fr 1fr; gap:28px; align-items:stretch;}
   @media (max-width:760px){ .sunny-feature-grid{grid-template-columns:1fr; gap:20px;} }
 
   .sunny-feature-card{
@@ -726,24 +726,38 @@
   }
   .sf-spec-desc{font-family:var(--font-kr-base); font-size:12.5px; color:var(--ink-soft); text-align:right; line-height:1.6;}
 
-  .sunny-feature-photo{border-radius:12px; overflow:hidden; min-height:420px;}
+  .sunny-feature-photo{position:relative; border-radius:12px; overflow:hidden; min-height:420px;}
   .sunny-feature-photo img{width:100%; height:100%; object-fit:cover; display:block;}
 
-  /* 큐브네일 피처 전용 — 카드/사진 경계에 걸치는 원형 클로즈업 (2026-08-19) */
-  .cn-closeup{
-    position:absolute; left:54%; top:50%;
-    width:clamp(220px, 23vw, 300px);
-    transform:translate(-50%,-50%) scale(1);
-    filter:drop-shadow(0 20px 34px rgba(43,36,48,0.32));
-    transition:transform .3s cubic-bezier(.34,1.56,.64,1), filter .3s ease;
-    z-index:2; cursor:pointer;
+  /* 써니팡 피처 전용 — 우측 하단 "팩트+큐브네일" 호버 스왑 (2026-08-19, 큐브네일
+     단독 섹션 대신 이미 있는 "써니팡을 큐브네일로 꾸민" 실사(brand_background_sunnypang.jpg)를
+     활용 — 그 사진 자체가 이미 두 제품을 함께 쓰는 증거라 새 사진 없이도 성립 */
+  .sf-pair-wrap{
+    position:absolute; right:24px; bottom:24px; z-index:3;
+    display:flex; flex-direction:column; align-items:flex-end; gap:10px;
   }
-  .cn-closeup img{width:100%; display:block;}
-  .cn-closeup:hover{
-    transform:translate(-50%,-50%) scale(1.08) rotate(-2deg);
-    filter:drop-shadow(0 26px 40px rgba(43,36,48,0.4));
+  .sf-pair-hover{
+    position:relative; width:100px; height:100px; border-radius:12px; overflow:hidden;
+    background:var(--white); box-shadow:0 14px 26px rgba(43,36,48,0.22);
+    cursor:pointer;
   }
-  @media (max-width:760px){ .cn-closeup{display:none;} }
+  .sf-pair-hover img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:16px;
+    transition:opacity .4s ease;
+  }
+  .sf-pair-hover .sf-pair-swap{opacity:0;}
+  .sf-pair-hover:hover .sf-pair-base{opacity:0;}
+  .sf-pair-hover:hover .sf-pair-swap{opacity:1;}
+  .sf-pair-note{
+    max-width:200px; text-align:right; font-size:11.5px; color:var(--white);
+    line-height:1.6; text-shadow:0 1px 6px rgba(43,36,48,0.55), 0 1px 2px rgba(43,36,48,0.7);
+  }
+  .sf-pair-note b{font-weight:700;}
+  @media (max-width:640px){
+    .sf-pair-wrap{right:16px; bottom:16px;}
+    .sf-pair-hover{width:76px; height:76px;}
+    .sf-pair-note{max-width:150px; font-size:10.5px;}
+  }
 
   /* backgrounds stay warm ivory/cream (Brand Mood = Warm Morning, 2026-07-30) —
      color lives only in small accents (numbers, hairlines, links, dots), set per line via --pline-accent.
@@ -1687,6 +1701,13 @@
       </div>
       <div class="sunny-feature-photo">
         <img src="assets/brand_background_sunnypang.jpg" alt="모래사장에서 코코힐리 써니팡 팩트를 크로스백처럼 걸고 있는 모습">
+        <div class="sf-pair-wrap">
+          <div class="sf-pair-hover">
+            <img class="sf-pair-base" src="assets/p-sunnypang.png" alt="써니팡 팩트">
+            <img class="sf-pair-swap" src="assets/p-cubenail.png" alt="큐브네일">
+          </div>
+          <p class="sf-pair-note"><b>팩트 + 큐브네일</b><br>스스로 해보면, 나만의 멋진 방법을 발견할 수 있어요!</p>
+        </div>
       </div>
     </div>
   </div>
