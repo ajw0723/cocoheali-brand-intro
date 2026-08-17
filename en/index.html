@@ -58,15 +58,6 @@
      전수 제거(합성 기울임이 부자연스러워 보이는 문제 해결, grep으로 전수 확인). */
   h1,h2,h3{font-family:var(--font-en-base); font-weight:700; font-style:normal; margin:0; line-height:1.25;}
   p{margin:0 0 1.1em; line-height:1.85; color:var(--ink-soft); font-size:15.5px;}
-  .draft-tag{
-    /* top을 헤더 높이(66px) 아래로 내려 header nav(언어 전환 추가 후 폭이 늘어남)와
-       겹치지 않게 함 (2026-08-17) */
-    position:fixed; top:76px; right:18px; z-index:50;
-    background:var(--ink); color:var(--white);
-    font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
-    padding:7px 12px; border-radius:100px; opacity:0.82;
-    font-family:var(--sans);
-  }
 
   /* header */
   header.top{
@@ -1406,8 +1397,6 @@
 </style>
 </head>
 <body class="gate-active">
-
-<div class="draft-tag">DRAFT · Internal Review</div>
 
 <div class="intro-gate" id="introGate">
   <button type="button" class="intro-mark" id="introMark" aria-label="Open cocoheali brand introduction">
