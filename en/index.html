@@ -109,6 +109,16 @@
   .lang-switch a.is-current{background:var(--ink); color:var(--white);}
   .lang-switch a.is-current:hover{color:var(--white);}
 
+  .quote-cta{
+    display:inline-flex; align-items:center; flex:none; margin-left:10px;
+    padding:7px 15px; border-radius:100px; white-space:nowrap;
+    background:var(--lavender-deep); color:var(--white);
+    font-size:11px; font-weight:700; letter-spacing:0.04em; text-decoration:none;
+    transition:background .2s ease;
+  }
+  .quote-cta:hover{background:var(--purple-strong);}
+  @media (max-width:640px){ .quote-cta{display:none;} }
+
   /* 챕터 표식 — "한 권으로 읽히는" 뼈대 (2026-08-16). 큰 번호 + 챕터명 한 줄, 주변에
      최소 120px 여백(디스플레이 스케일 원칙과 공유) — 이게 곧 챕터 구분선 역할을 해서
      기존 .section-divider(헤어라인+캡션) 패턴은 여기선 안 씀. 헤더 nav의 현재 챕터
@@ -596,6 +606,70 @@
   }
 
   .shopall-wrap{text-align:center; margin-top:76px;}
+
+  .quote-section{background:var(--oak);}
+  .quote-table{margin-top:56px; border-top:1px solid rgba(43,36,48,0.14);}
+  .quote-row{
+    display:grid; grid-template-columns:56px 1fr 130px 110px 120px; align-items:center;
+    gap:20px; padding:16px 0; border-bottom:1px solid rgba(43,36,48,0.14);
+  }
+  .quote-row--head{
+    font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft);
+    font-weight:700; padding-bottom:10px;
+  }
+  .quote-row--total{
+    grid-template-columns:1fr 120px; padding-top:20px; border-bottom:none;
+  }
+  .quote-row--total .qc-name{font-weight:700; color:var(--ink); font-size:15px;}
+  .quote-row--total .qc-amount{font-weight:700; color:var(--purple-strong); font-size:17px; text-align:right;}
+  .qc-photo{
+    width:56px; height:56px; border-radius:6px; overflow:hidden; background:var(--white);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .qc-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .qc-photo.qc-photo--empty{color:var(--line); font-size:9px; text-align:center; line-height:1.3;}
+  .qc-name{font-size:13.5px; color:var(--ink); line-height:1.5;}
+  .qc-name small{display:block; color:var(--ink-soft); font-size:11.5px; margin-top:2px;}
+  .qc-unitprice{font-size:12.5px; color:var(--ink-soft);}
+  .qc-unitprice small{font-size:10px; margin-left:2px;}
+  .qc-qty-input{
+    width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:6px;
+    font-size:13px; color:var(--ink); font-family:inherit; background:var(--white);
+    -moz-appearance:textfield;
+  }
+  .qc-qty-input::-webkit-outer-spin-button, .qc-qty-input::-webkit-inner-spin-button{margin-left:6px;}
+  .qc-qty-input:focus{outline:none; border-color:var(--lavender-deep);}
+  .qc-amount{font-size:13.5px; color:var(--ink); text-align:right; font-weight:600;}
+  @media (max-width:760px){
+    .quote-row{grid-template-columns:44px 1fr 90px; grid-template-areas:"photo name name" "photo tier qty" "photo amount amount"; row-gap:8px;}
+    .quote-row--head{display:none;}
+    .qc-photo{grid-area:photo;} .qc-name{grid-area:name;} .qc-unitprice{grid-area:tier;}
+    .qc-qty-input{grid-area:qty;} .qc-amount{grid-area:amount; text-align:left;}
+    .quote-row--total{grid-template-columns:1fr auto; grid-template-areas:none;}
+  }
+
+  .quote-buyer{margin-top:56px; max-width:640px;}
+  .quote-buyer h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:0 0 20px;}
+  .quote-buyer-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .quote-buyer-grid label{display:block; font-size:11.5px; color:var(--ink-soft); font-weight:600;}
+  .quote-buyer-grid input{
+    display:block; width:100%; margin-top:6px; padding:10px 12px;
+    border:1px solid var(--line); border-radius:6px; font-size:13.5px; font-family:inherit;
+    background:var(--white); color:var(--ink);
+  }
+  .quote-buyer-grid input:focus{outline:none; border-color:var(--lavender-deep);}
+  @media (max-width:640px){ .quote-buyer-grid{grid-template-columns:1fr;} }
+
+  .quote-submit{
+    display:inline-flex; align-items:center; gap:8px; margin-top:40px;
+    padding:15px 30px; border:none; border-radius:100px; cursor:pointer;
+    background:var(--lavender-deep); color:var(--white);
+    font-size:14px; font-weight:700; font-family:inherit; letter-spacing:0.02em;
+    transition:background .2s ease;
+  }
+  .quote-submit:hover{background:var(--purple-strong);}
+  .quote-submit:disabled{background:var(--line); cursor:not-allowed; color:var(--ink-soft);}
+  .quote-note{margin-top:16px; max-width:560px; font-size:12px; color:var(--ink-soft); line-height:1.7;}
 
   /* product gallery — editorial rhythm varies per line, no card borders/price-forward buttons */
   .pline{margin-top:120px;}
@@ -1380,6 +1454,7 @@
       <a href="../">KR</a>
       <a href="./" class="is-current" aria-current="page">EN</a>
     </span>
+    <a href="#quote" class="quote-cta">Request a Quote</a>
   </nav>
 </header>
 
@@ -1763,6 +1838,145 @@
     </div>
     <div class="rail-progress" aria-hidden="true"><div class="thumb"></div></div>
   </div>
+</section>
+
+<!-- Request a Quote — 2026-08-18. Header CTA (#quote) links here. Pricing from
+     _inputs/originals/document/해외수출/cocoheali_202607_NorthAmerica.xlsx. The file this
+     generates is a buyer-prepared PO, not an official Proforma Invoice (that's issued by
+     Purplus after internal review — see quote-note). -->
+<section class="wrap pad-xl reveal-group quote-section" id="quote">
+  <span class="pill-badge reveal-item">Wholesale / Export</span>
+  <div class="product-head">
+    <h2 class="reveal-item">Get an instant <span class="accent-italic">quote</span><br>for bulk orders.</h2>
+    <p class="lede reveal-item">Enter quantities and tiered pricing applies automatically — get your total calculated and download it as a Purchase Order (PO).</p>
+  </div>
+
+  <div class="quote-table reveal-item" id="quoteTable">
+    <div class="quote-row quote-row--head">
+      <span></span>
+      <span>Product</span>
+      <span>Unit Price</span>
+      <span>Quantity</span>
+      <span>Amount</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-CR-v2-01P" data-tiers="9.6,8.64,8,7.36">
+      <span class="qc-photo"><img src="../assets/p-creampang.png" alt="Cream Pang Pact"></span>
+      <span class="qc-name">Cream Pang Pact<small>Love Pink</small></span>
+      <span class="qc-unitprice">$9.60<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cream Pang Pact quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-SP-Y02" data-tiers="9.6,8.64,8,7.36">
+      <span class="qc-photo"><img src="../assets/p-sunnypang.png" alt="Sunny Pang Pact"></span>
+      <span class="qc-name">Sunny Pang Pact<small>Yellow</small></span>
+      <span class="qc-unitprice">$9.60<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Sunny Pang Pact quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-LI02eCU" data-tiers="5.1,4.59,4.25,3.91">
+      <span class="qc-photo"><img src="../assets/p-lipbalm.png" alt="Cube Lip Balm"></span>
+      <span class="qc-name">Cube Lip Balm<small>Pink Berry</small></span>
+      <span class="qc-unitprice">$5.10<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cube Lip Balm quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-NP03CU" data-tiers="6,5.4,5,4.6">
+      <span class="qc-photo"><img src="../assets/p-cubenail.png" alt="Cube Nail"></span>
+      <span class="qc-name">Cube Nail<small>Set of 3</small></span>
+      <span class="qc-unitprice">$6.00<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cube Nail quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-OL-SH02-LI-I" data-tiers="3.9,3.51,3.25,2.99">
+      <span class="qc-photo"><img src="../assets/p-masksheet.png" alt="immuimmu Calming Mask Sheet"></span>
+      <span class="qc-name">immuimmu Mask Sheet<small>Calming, 1 Box (5P)</small></span>
+      <span class="qc-unitprice">$3.90<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="immuimmu Mask Sheet quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-NS04A" data-tiers="3,2.7,2.5,2.3">
+      <span class="qc-photo"><img src="../assets/p-nailsticker-mockup-cutout.png" alt="Easy Nail Sticker"></span>
+      <span class="qc-name">Easy Nail Sticker<small>9 Types</small></span>
+      <span class="qc-unitprice">$3.00<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Easy Nail Sticker quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-OL-L01SET" data-tiers="9,8.1,7.5,6.9">
+      <span class="qc-photo"><img src="../assets/p-immuimmu-cl-1.png" alt="immuimmu Light Set"></span>
+      <span class="qc-name">immuimmu Light Set<small>Lotion + Cleanser</small></span>
+      <span class="qc-unitprice">$9.00<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="immuimmu Light Set quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-SETSP" data-tiers="25.5,22.95,21.25,19.55">
+      <span class="qc-photo"><img src="../assets/p-summer.jpg" alt="Cocoland Summer Edition"></span>
+      <span class="qc-name">Cocoland Summer Edition<small>Gift Set</small></span>
+      <span class="qc-unitprice">$25.50<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cocoland Summer Edition quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-SETGB01" data-tiers="15,13.5,12.5,11.5">
+      <span class="qc-photo"><img src="../assets/p-mybeauty.jpg" alt="My Beauty Edition"></span>
+      <span class="qc-name">My Beauty Edition<small>Gift Set</small></span>
+      <span class="qc-unitprice">$15.00<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="My Beauty Edition quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-SETGB02" data-tiers="20.1,18.09,16.75,15.41">
+      <span class="qc-photo"><img src="../assets/p-mydream.jpg" alt="My Dream Edition"></span>
+      <span class="qc-name">My Dream Edition<small>Gift Set</small></span>
+      <span class="qc-unitprice">$20.10<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="My Dream Edition quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-PT03A" data-tiers="0.3,0.27,0.25,0.23">
+      <span class="qc-photo qc-photo--empty"></span>
+      <span class="qc-name">Play Sticker<small>3 Types</small></span>
+      <span class="qc-unitprice">$0.30<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Play Sticker quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-CRPP" data-tiers="0.75,0.675,0.625,0.575">
+      <span class="qc-photo qc-photo--empty"></span>
+      <span class="qc-name">Pang Line Puff<small>2P</small></span>
+      <span class="qc-unitprice">$0.75<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Pang Line Puff quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-PT04A" data-tiers="0.75,0.675,0.625,0.575">
+      <span class="qc-photo qc-photo--empty"></span>
+      <span class="qc-name">Coloring Workbook</span>
+      <span class="qc-unitprice">$0.75<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Coloring Workbook quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CB01H" data-tiers="9,8.1,7.5,6.9">
+      <span class="qc-photo qc-photo--empty"></span>
+      <span class="qc-name">Cococat Hologram Cross Bag<small>Purple / Pink</small></span>
+      <span class="qc-unitprice">$9.00<small>/unit</small></span>
+      <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cococat Hologram Cross Bag quantity">
+      <span class="qc-amount">$0.00</span>
+    </div>
+    <div class="quote-row quote-row--total">
+      <span class="qc-name">Total</span>
+      <span class="qc-amount" id="quoteGrandTotal">$0.00</span>
+    </div>
+  </div>
+
+  <div class="quote-buyer reveal-item">
+    <h3>Buyer Information</h3>
+    <div class="quote-buyer-grid">
+      <label>Company Name<input type="text" id="qbCompany" autocomplete="organization"></label>
+      <label>Contact Person<input type="text" id="qbContact" autocomplete="name"></label>
+      <label>Email<input type="email" id="qbEmail" autocomplete="email"></label>
+      <label>Phone<input type="text" id="qbPhone" autocomplete="tel"></label>
+      <label>Country<input type="text" id="qbCountry" autocomplete="country-name"></label>
+      <label>Address<input type="text" id="qbAddress" autocomplete="street-address"></label>
+    </div>
+  </div>
+
+  <button type="button" class="quote-submit reveal-item" id="quoteDownloadBtn" disabled>Download PO <span class="arrow">→</span></button>
+  <p class="quote-note reveal-item">This downloads an Excel (PO, Purchase Order) file. A formal Proforma Invoice will be issued separately after our team reviews your request.</p>
 </section>
 
 <!-- FULLBLEED 1 — Me do it (positioned between Cube&immuimmu and Gift Box) -->
@@ -2454,6 +2668,7 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
   (function(){
     var modal = document.getElementById('pkgModal');
@@ -3053,6 +3268,99 @@
     }
     requestAnimationFrame(tick);
   });
+
+  (function(){
+    var section = document.getElementById('quote');
+    if(!section) return;
+    var rows = Array.prototype.slice.call(section.querySelectorAll('.quote-row[data-tiers]'));
+    var grandEl = document.getElementById('quoteGrandTotal');
+    var downloadBtn = document.getElementById('quoteDownloadBtn');
+    var fmt = function(n){ return '$' + n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}); };
+
+    function tierPrice(tiers, qty){
+      if(qty >= 10000) return tiers[3];
+      if(qty >= 5000) return tiers[2];
+      if(qty >= 3000) return tiers[1];
+      return tiers[0];
+    }
+
+    function recalc(){
+      var grand = 0, anyQty = false;
+      rows.forEach(function(row){
+        var tiers = row.getAttribute('data-tiers').split(',').map(Number);
+        var input = row.querySelector('.qc-qty-input');
+        var qty = Math.max(0, parseInt(input.value, 10) || 0);
+        if(qty > 0) anyQty = true;
+        var price = tierPrice(tiers, qty);
+        var amount = qty * price;
+        grand += amount;
+        row.querySelector('.qc-unitprice').innerHTML = fmt(price) + '<small>/unit</small>';
+        row.querySelector('.qc-amount').textContent = fmt(amount);
+      });
+      grandEl.textContent = fmt(grand);
+      downloadBtn.disabled = !anyQty;
+      return grand;
+    }
+
+    rows.forEach(function(row){
+      row.querySelector('.qc-qty-input').addEventListener('input', recalc);
+    });
+    recalc();
+
+    downloadBtn.addEventListener('click', function(){
+      if(downloadBtn.disabled) return;
+      if(typeof XLSX === 'undefined'){
+        alert('Could not load the Excel library. Please check your connection and try again.');
+        return;
+      }
+      var today = new Date().toISOString().slice(0, 10);
+      var poNo = 'PO-' + today.replace(/-/g, '') + '-' + Math.floor(1000 + Math.random() * 9000);
+      var data = [];
+      data.push(['PURCHASE ORDER']);
+      data.push(['PO No.', poNo]);
+      data.push(['Date', today]);
+      data.push([]);
+      data.push(['Seller', 'Purplus Co.,Ltd']);
+      data.push(['', '#406, Yanghwa-ro 136, Mapo-Gu, Seoul, South Korea']);
+      data.push(['', '+82-2-3662-1318']);
+      data.push([]);
+      data.push(['Buyer']);
+      data.push(['Company', document.getElementById('qbCompany').value]);
+      data.push(['Contact', document.getElementById('qbContact').value]);
+      data.push(['Email', document.getElementById('qbEmail').value]);
+      data.push(['Phone', document.getElementById('qbPhone').value]);
+      data.push(['Country', document.getElementById('qbCountry').value]);
+      data.push(['Address', document.getElementById('qbAddress').value]);
+      data.push([]);
+      data.push(['NO.', 'ITEM NO.', 'DESCRIPTION', 'OPTION', "Q'TY", 'UNIT', 'UNIT PRICE (USD)', 'AMOUNT (USD)']);
+      var no = 1, grand = 0;
+      rows.forEach(function(row){
+        var input = row.querySelector('.qc-qty-input');
+        var qty = Math.max(0, parseInt(input.value, 10) || 0);
+        if(qty <= 0) return;
+        var tiers = row.getAttribute('data-tiers').split(',').map(Number);
+        var price = tierPrice(tiers, qty);
+        var amount = qty * price;
+        grand += amount;
+        var nameEl = row.querySelector('.qc-name');
+        var name = nameEl.childNodes[0].textContent.trim();
+        var option = nameEl.querySelector('small') ? nameEl.querySelector('small').textContent.trim() : '';
+        data.push([no++, row.getAttribute('data-sku'), name, option, qty, 'PCS', price, amount]);
+      });
+      data.push([]);
+      data.push(['', '', '', '', '', '', 'TOTAL', grand]);
+      data.push([]);
+      data.push(['Notice']);
+      data.push(['This is a Purchase Order (PO) prepared by the buyer, not an official Proforma Invoice.']);
+      data.push(['cocoheali / Purplus Co.,Ltd will review this PO and issue a formal Proforma Invoice separately.']);
+
+      var ws = XLSX.utils.aoa_to_sheet(data);
+      ws['!cols'] = [{wch:6},{wch:16},{wch:28},{wch:16},{wch:8},{wch:6},{wch:14},{wch:14}];
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'PO');
+      XLSX.writeFile(wb, 'cocoheali_' + poNo + '.xlsx');
+    });
+  })();
 </script>
 
 </body>
