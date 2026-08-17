@@ -1073,7 +1073,9 @@
     scrollbar-width:thin;
   }
   .milestone-track::before{
-    content:""; position:absolute; left:4px; right:4px; top:38px; height:1px;
+    /* 점(.dot) 중심(트랙 padding-top 10px + dot 높이 13px의 절반)과 정확히 맞춤 —
+       예전엔 top:38px로 하드코딩돼 있어 점 중심(16.5px)과 21.5px 어긋나 있었음 (2026-08-17) */
+    content:""; position:absolute; left:4px; right:4px; top:16.5px; height:1px;
     background:linear-gradient(90deg, rgba(156,106,140,0.45), rgba(156,106,140,0.45) 100%);
   }
   .milestone-pt{
@@ -1617,7 +1619,7 @@
     <div class="sunny-feature-grid">
       <div class="sunny-feature-card">
         <span class="sf-badge">Daily Ritual</span>
-        <h3 class="sf-headline">화장 거울이 아니라, <span class="sf-accent">스스로 확인하는 거울</span>입니다.</h3>
+        <h3 class="sf-headline">화장 거울이 아니라, <span class="sf-accent">스스로를 돌보는 거울</span>입니다.</h3>
         <p class="sf-subline">Creampang is made to be a mirror to yourself.</p>
         <p class="sf-body">팡팡 두드리며<br>오늘의 내 얼굴을 마주하는 시간</p>
         <div class="sf-specs">
@@ -1695,9 +1697,9 @@
         </div>
         <span class="moment-eyebrow">손끝에서 시작되는 나만의 컬러.</span>
         <h4>큐브네일</h4>
-        <p class="pdesc">아세톤 없이 스티커처럼 떼어내는 수성 베이스 키즈 네일. 아이가 오늘의 컬러 조합을 직접 고르며, 매일 다른 나를 표현합니다.</p>
+        <p class="pdesc">아세톤 없이 스티커처럼 떼어내는 수성 베이스 키즈 네일. 러브캔디·드림캔디·샤인팝, 컬러 3가지가 한 세트에 담겨 아이가 오늘의 조합을 직접 고르며 매일 다른 나를 표현합니다.</p>
         <div class="pfooter">
-          <span class="pmeta">13.5g · 33,000원</span>
+          <span class="pmeta">13.5g · 33,000원 · 3 Colors in 1</span>
           <span class="plinks">
             <button type="button" class="plink secondary" data-pkg="assets/package/cubenail_raster.png" data-pkg-name="큐브네일 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
             <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%90%EB%B8%8C-%EB%84%A4%EC%9D%BC-%EB%9F%AC%EB%B8%8C%EC%BA%94%EB%94%94/184/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
@@ -2155,7 +2157,7 @@
         <div class="rc-body">
           <svg class="rc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"></path></svg>
           <div class="rc-label">Online</div>
-          <div class="rc-value"><b>자사몰</b> · 스마트스토어 · <b>Amazon</b></div>
+          <div class="rc-value"><b>자사몰</b> · 스마트스토어 · <b>Amazon</b> · Qoo10</div>
         </div>
       </div>
       <div class="retail-card">
