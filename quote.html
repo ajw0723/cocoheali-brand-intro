@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대량 주문 견적 — cocoheali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lavender:#D9AFCA;
+    --lavender-soft:#EFE0EA;
+    --lavender-deep:#9C6A8C;
+    --ink:#2B2430;
+    --ink-soft:#6B6070;
+    --paper:#FBF7F8;
+    --white:#FFFFFF;
+    --line: rgba(43,36,48,0.14);
+    --oak:#F3ECDF;
+    --purple-strong:#6B4368;
+    --font-kr-base: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', sans-serif;
+    --font-kr-accent: 'Gowun Batang', serif;
+    --sans: var(--font-kr-base);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--oak); color:var(--ink);
+    font-family:var(--font-kr-base); word-break:keep-all; overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  p{margin:0 0 1.1em; line-height:1.85; color:var(--ink-soft); font-size:15.5px;}
+
+  .qp-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px; background:var(--paper); border-bottom:1px solid var(--line);
+  }
+  .qp-header img{height:24px;}
+  .qp-back{
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft);
+    text-decoration:none;
+  }
+  .qp-back:hover{color:var(--purple-strong);}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
+  .pad-xl{padding:90px 0 120px;}
+
+  .pill-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    border:1.3px solid var(--lavender-deep); border-radius:100px;
+    padding:7px 16px; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    font-weight:700; color:var(--lavender-deep); background:none;
+  }
+  .product-head{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:40px;
+    flex-wrap:wrap; margin-top:18px;
+  }
+  .product-head h2{font-family:var(--sans); font-weight:700; font-size:clamp(1.7rem,3.4vw,2.5rem); color:var(--ink); margin:0; line-height:1.25;}
+  .product-head h2 .accent-italic{font-family:var(--font-kr-accent); font-weight:600; color:var(--lavender-deep);}
+  .product-head .lede{
+    max-width:320px; font-size:13.5px; color:var(--lavender-deep); line-height:1.75;
+    text-align:right; margin:0;
+  }
+  @media (max-width:760px){
+    .product-head{flex-direction:column; align-items:flex-start;}
+    .product-head .lede{text-align:left; max-width:none;}
+  }
+
+  .quote-table{margin-top:56px; border-top:1px solid var(--line);}
+  .quote-row{
+    display:grid; grid-template-columns:56px 1fr 150px; align-items:center;
+    gap:20px; padding:16px 0; border-bottom:1px solid var(--line);
+  }
+  .quote-row--head{
+    font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft);
+    font-weight:700; padding-bottom:10px;
+  }
+  .qc-photo{
+    width:56px; height:56px; border-radius:6px; overflow:hidden; background:var(--white);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .qc-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .qc-name{font-size:13.5px; color:var(--ink); line-height:1.5;}
+  .qc-name small{display:block; color:var(--ink-soft); font-size:11.5px; margin-top:2px;}
+  .qc-qty-cell{display:flex; flex-direction:column; align-items:flex-end; gap:5px;}
+  .qc-qty-input{
+    width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:6px;
+    font-size:13px; color:var(--ink); font-family:inherit; background:var(--white);
+    -moz-appearance:textfield; text-align:right;
+  }
+  .qc-qty-input:focus{outline:none; border-color:var(--lavender-deep);}
+  .qc-qty-input.is-under-moq{border-color:#C0392B;}
+  .qc-qty-hint{
+    display:none; font-size:10.5px; color:#C0392B; line-height:1.4; text-align:right;
+  }
+  .qc-qty-cell.is-under-moq .qc-qty-hint{display:block;}
+  @media (max-width:640px){
+    .quote-row{grid-template-columns:44px 1fr 90px; gap:12px;}
+  }
+
+  .quote-tier-note{
+    margin-top:18px; padding:14px 18px; background:var(--lavender-soft);
+    border-radius:8px; font-size:12.5px; color:var(--purple-strong); line-height:1.7;
+    max-width:640px;
+  }
+
+  .quote-currency{
+    display:flex; align-items:center; gap:12px; margin-top:32px;
+  }
+  .quote-currency-label{font-size:11.5px; color:var(--ink-soft); font-weight:600;}
+  .quote-currency-switch{
+    display:inline-flex; padding:3px; border-radius:100px; background:var(--white);
+    border:1px solid var(--line);
+  }
+  .quote-currency-switch button{
+    border:none; background:none; padding:7px 18px; border-radius:100px;
+    font-family:inherit; font-size:12.5px; font-weight:700; color:var(--ink-soft);
+    cursor:pointer; transition:background .2s ease, color .2s ease;
+  }
+  .quote-currency-switch button.is-active{background:var(--ink); color:var(--white);}
+
+  .quote-buyer{margin-top:56px; max-width:640px;}
+  .quote-buyer h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:0 0 20px;}
+  .quote-buyer-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .quote-buyer-grid label{display:block; font-size:11.5px; color:var(--ink-soft); font-weight:600;}
+  .quote-buyer-grid input{
+    display:block; width:100%; margin-top:6px; padding:10px 12px;
+    border:1px solid var(--line); border-radius:6px; font-size:13.5px; font-family:inherit;
+    background:var(--white); color:var(--ink);
+  }
+  .quote-buyer-grid input:focus{outline:none; border-color:var(--lavender-deep);}
+  .qb-phone-row{display:flex; gap:8px; margin-top:6px;}
+  .qb-phone-row input{margin-top:0;}
+  #qbPhoneCode{width:64px; flex:none; text-align:center;}
+  #qbPhone{flex:1;}
+  @media (max-width:640px){ .quote-buyer-grid{grid-template-columns:1fr;} }
+
+  .quote-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:40px;}
+  .quote-submit{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:15px 30px; border:none; border-radius:100px; cursor:pointer;
+    background:var(--lavender-deep); color:var(--white);
+    font-size:14px; font-weight:700; font-family:inherit; letter-spacing:0.02em;
+    transition:background .2s ease;
+  }
+  .quote-submit .arrow{display:inline-block; transition:transform .15s ease;}
+  .quote-submit:hover .arrow{transform:translateX(4px);}
+  .quote-submit:hover{background:var(--purple-strong);}
+  .quote-submit:disabled{background:var(--line); cursor:not-allowed; color:var(--ink-soft);}
+  .quote-mail{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 28px; border-radius:100px; cursor:pointer;
+    background:none; color:var(--lavender-deep); border:1.3px solid var(--lavender-deep);
+    font-size:14px; font-weight:700; font-family:inherit; letter-spacing:0.02em;
+    transition:background .2s ease, color .2s ease;
+  }
+  .quote-mail:hover{background:var(--lavender-deep); color:var(--white);}
+  .quote-mail:disabled{border-color:var(--line); color:var(--ink-soft); cursor:not-allowed; background:none;}
+  .quote-note{margin-top:16px; max-width:560px; font-size:12px; color:var(--ink-soft); line-height:1.7;}
+</style>
+</head>
+<body>
+
+<header class="qp-header">
+  <a href="index.html"><img src="assets/logo.png" alt="cocoheali"></a>
+  <a href="index.html" class="qp-back">← 브랜드 소개서로 돌아가기</a>
+</header>
+
+<main class="wrap pad-xl">
+  <span class="pill-badge">Wholesale / Export</span>
+  <div class="product-head">
+    <h2>대량 주문 <span class="accent-italic">견적</span>을<br>바로 받아보세요.</h2>
+    <p class="lede">수량을 입력하시면 담당자 검토 후 정확한 견적으로 안내드립니다. 아래에서 바로 구매요청서(PO)를 받아보실 수 있습니다.</p>
+  </div>
+
+  <div class="quote-currency">
+    <span class="quote-currency-label">견적 통화 / Currency</span>
+    <span class="quote-currency-switch" id="quoteCurrencySwitch" role="group" aria-label="견적 통화 선택">
+      <button type="button" class="is-active" data-currency="USD">USD</button>
+      <button type="button" data-currency="KRW">KRW</button>
+    </span>
+  </div>
+
+  <div class="quote-table" id="quoteTable">
+    <div class="quote-row quote-row--head">
+      <span></span>
+      <span>Product</span>
+      <span>Quantity</span>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-CR-v2-01P" data-tiers="9.6,8.64,8,7.36" data-tiers-krw="13680,12312,11400,10488">
+      <span class="qc-photo"><img src="assets/p-creampang.png" alt="Cream Pang Pact"></span>
+      <span class="qc-name">Cream Pang Pact<small>Love Pink</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cream Pang Pact quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-SP-Y02" data-tiers="9.6,8.64,8,7.36" data-tiers-krw="13680,12312,11400,10488">
+      <span class="qc-photo"><img src="assets/p-sunnypang.png" alt="Sunny Pang Pact"></span>
+      <span class="qc-name">Sunny Pang Pact<small>Yellow</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Sunny Pang Pact quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-LI02eCU" data-tiers="5.1,4.59,4.25,3.91" data-tiers-krw="7200,6480,6000,5520">
+      <span class="qc-photo"><img src="assets/p-lipbalm.png" alt="Cube Lip Balm"></span>
+      <span class="qc-name">Cube Lip Balm<small>Pink Berry</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cube Lip Balm quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-NP03CU" data-tiers="6,5.4,5,4.6" data-tiers-krw="8640,7776,7200,6624">
+      <span class="qc-photo"><img src="assets/p-cubenail.png" alt="Cube Nail"></span>
+      <span class="qc-name">Cube Nail<small>Set of 3</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cube Nail quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-OL-SH02-LI-I" data-tiers="3.9,3.51,3.25,2.99" data-tiers-krw="5400,4860,4500,4140">
+      <span class="qc-photo"><img src="assets/p-masksheet.png" alt="immuimmu Calming Mask Sheet"></span>
+      <span class="qc-name">immuimmu Mask Sheet<small>Calming, 1 Box (5P)</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="immuimmu Mask Sheet quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-NS04A" data-tiers="3,2.7,2.5,2.3" data-tiers-krw="4644,4179.6,3870,3560.4">
+      <span class="qc-photo"><img src="assets/p-nailsticker-mockup-cutout.png" alt="Easy Nail Sticker"></span>
+      <span class="qc-name">Easy Nail Sticker<small>9 Types</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Easy Nail Sticker quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-OL-L01SET" data-tiers="9,8.1,7.5,6.9" data-tiers-krw="14400,12960,12000,11040">
+      <span class="qc-photo"><img src="assets/p-immuimmu-cl-1.png" alt="immuimmu Light Set"></span>
+      <span class="qc-name">immuimmu Light Set<small>Lotion + Cleanser</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="immuimmu Light Set quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-SETSP" data-tiers="25.5,22.95,21.25,19.55" data-tiers-krw="35640,32076,29700,27324">
+      <span class="qc-photo"><img src="assets/p-summer.jpg" alt="Cocoland Summer Edition"></span>
+      <span class="qc-name">Cocoland Summer Edition<small>Gift Set</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cocoland Summer Edition quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-SETGB01" data-tiers="15,13.5,12.5,11.5" data-tiers-krw="21240,19116,17700,16284">
+      <span class="qc-photo"><img src="assets/p-mybeauty.jpg" alt="My Beauty Edition"></span>
+      <span class="qc-name">My Beauty Edition<small>Gift Set</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="My Beauty Edition quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-SETGB02" data-tiers="20.1,18.09,16.75,15.41" data-tiers-krw="28440,25596,23700,21804">
+      <span class="qc-photo"><img src="assets/p-mydream.jpg" alt="My Dream Edition"></span>
+      <span class="qc-name">My Dream Edition<small>Gift Set</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="My Dream Edition quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-PT03A" data-tiers="0.3,0.27,0.25,0.23" data-tiers-krw="540,486,450,414">
+      <span class="qc-photo"><img src="assets/p-playsticker.png" alt="Play Sticker"></span>
+      <span class="qc-name">Play Sticker<small>3 Types</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Play Sticker quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-CRPP" data-tiers="0.75,0.675,0.625,0.575" data-tiers-krw="1080,972,900,828">
+      <span class="qc-photo"><img src="assets/p-puff.png" alt="Pang Line Puff"></span>
+      <span class="qc-name">Pang Line Puff<small>2P</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Pang Line Puff quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CL-PT04A" data-tiers="0.75,0.675,0.625,0.575" data-tiers-krw="1080,972,900,828">
+      <span class="qc-photo"><img src="assets/p-workbook.jpg" alt="Coloring Workbook"></span>
+      <span class="qc-name">Coloring Workbook</span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Coloring Workbook quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+    <div class="quote-row" data-sku="CO-CB01H" data-tiers="9,8.1,7.5,6.9" data-tiers-krw="12600,11340,10500,9660">
+      <span class="qc-photo"><img src="assets/p-cococat.jpg" alt="Cococat Hologram Cross Bag"></span>
+      <span class="qc-name">Cococat Hologram Cross Bag<small>Purple / Pink</small></span>
+      <div class="qc-qty-cell">
+        <input type="number" class="qc-qty-input" min="0" step="1" value="0" aria-label="Cococat Hologram Cross Bag quantity">
+        <span class="qc-qty-hint">100개 미만은 소량주문 — 이메일로 문의해주세요</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="quote-tier-note">품목당 최소 주문 수량은 100개입니다. 100개 미만 소량 주문은 PO 대신 이메일(purplus@purpluskr.com)로 별도 문의해주세요. 단가는 주문 수량 구간(~3,000 / ~5,000 / ~10,000 / 10,000개~)에 따라 자동으로 차등 적용됩니다. 위에서 선택하신 통화 기준으로 계산되며, 정확한 단가와 합계는 아래 PO(구매요청서) 다운로드 시 파일에서 확인하실 수 있습니다.</p>
+
+  <div class="quote-buyer">
+    <h3>Buyer Information</h3>
+    <div class="quote-buyer-grid">
+      <label>Company Name<input type="text" id="qbCompany" autocomplete="organization"></label>
+      <label>Contact Person<input type="text" id="qbContact" autocomplete="name"></label>
+      <label>Email<input type="email" id="qbEmail" autocomplete="email"></label>
+      <label>Phone
+        <div class="qb-phone-row">
+          <input type="text" id="qbPhoneCode" placeholder="+82" autocomplete="tel-country-code">
+          <input type="text" id="qbPhone" placeholder="10-1234-5678" autocomplete="tel-national">
+        </div>
+      </label>
+      <label>Country<input type="text" id="qbCountry" autocomplete="country-name"></label>
+      <label>Address<input type="text" id="qbAddress" autocomplete="street-address"></label>
+    </div>
+  </div>
+
+  <div class="quote-actions">
+    <button type="button" class="quote-submit" id="quoteDownloadBtn" disabled>PO 다운로드 <span class="arrow">→</span></button>
+    <button type="button" class="quote-mail" id="quoteMailBtn" disabled>메일 보내기</button>
+  </div>
+  <p class="quote-note">엑셀(PO, Purchase Order) 파일이 다운로드됩니다. 정식 Proforma Invoice는 담당자 확인 후 별도로 발행해드립니다. "메일 보내기"는 메일 앱을 열어드리니, 방금 다운로드한 PO 파일을 직접 첨부해 보내주세요(브라우저 보안 정책상 파일 자동 첨부는 지원되지 않습니다).</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<script>
+  (function(){
+    /* 견적요청(Request a Quote) 독립 페이지 (2026-08-19 — 메인 브랜드소개서에서 분리).
+       화면에는 단가·합계를 노출하지 않고 수량만 입력받되(data-tiers는 계산용으로 DOM에
+       유지), PO 다운로드 시에만 ExcelJS로 Proforma Invoice.xlsx 양식을 참고한 정식 서식
+       (테두리·병합·Purplus 로고 포함)으로 실제 단가·합계를 채워 넣는다. */
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.quote-row[data-tiers]'));
+    var downloadBtn = document.getElementById('quoteDownloadBtn');
+    var mailBtn = document.getElementById('quoteMailBtn');
+    var currency = 'USD';
+    var currencySwitch = document.getElementById('quoteCurrencySwitch');
+    currencySwitch.addEventListener('click', function(e){
+      var btn = e.target.closest('button[data-currency]');
+      if(!btn) return;
+      currency = btn.getAttribute('data-currency');
+      Array.prototype.slice.call(currencySwitch.querySelectorAll('button')).forEach(function(b){
+        b.classList.toggle('is-active', b === btn);
+      });
+    });
+
+    function tierPrice(tiers, qty){
+      if(qty >= 10000) return tiers[3];
+      if(qty >= 5000) return tiers[2];
+      if(qty >= 3000) return tiers[1];
+      return tiers[0];
+    }
+
+    var MOQ = 100;
+
+    function rowQty(row){
+      return Math.max(0, parseInt(row.querySelector('.qc-qty-input').value, 10) || 0);
+    }
+
+    function updateRowValidity(row){
+      var qty = rowQty(row);
+      var underMoq = qty > 0 && qty < MOQ;
+      row.querySelector('.qc-qty-input').classList.toggle('is-under-moq', underMoq);
+      row.querySelector('.qc-qty-cell').classList.toggle('is-under-moq', underMoq);
+    }
+
+    function formValid(){
+      var hasValidOrder = false;
+      var hasUnderMoq = false;
+      rows.forEach(function(row){
+        var qty = rowQty(row);
+        if(qty >= MOQ) hasValidOrder = true;
+        if(qty > 0 && qty < MOQ) hasUnderMoq = true;
+      });
+      return hasValidOrder && !hasUnderMoq;
+    }
+
+    rows.forEach(function(row){
+      row.querySelector('.qc-qty-input').addEventListener('input', function(){
+        updateRowValidity(row);
+        downloadBtn.disabled = !formValid();
+        mailBtn.disabled = !formValid();
+      });
+    });
+
+    mailBtn.addEventListener('click', function(){
+      if(mailBtn.disabled) return;
+      var companyName = document.getElementById('qbCompany').value.trim();
+      var contactName = document.getElementById('qbContact').value.trim();
+      var subject = '[PO] 주문확인 요청드립니다' + (companyName ? ' - ' + companyName : '');
+      var introLine = companyName && contactName ? companyName + '의 ' + contactName + ' 입니다.'
+        : (contactName || companyName ? (contactName || companyName) + ' 입니다.' : '');
+      var body = '안녕하세요.\n' + introLine + '\n\nPO 보내드리오니 확인 부탁드립니다\n감사합니다.';
+      var mailto = 'mailto:purplus@purpluskr.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+    });
+
+    var LOGO_URL = 'assets/purplus-logo.png';
+    var LOGO_ASPECT = 754 / 2057;
+
+    function fetchImageBase64(url){
+      return fetch(url).then(function(res){ return res.blob(); }).then(function(blob){
+        return new Promise(function(resolve, reject){
+          var reader = new FileReader();
+          reader.onloadend = function(){ resolve(reader.result.split(',')[1]); };
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+      });
+    }
+
+    downloadBtn.addEventListener('click', function(){
+      if(downloadBtn.disabled) return;
+      if(typeof ExcelJS === 'undefined'){
+        alert('엑셀 생성 라이브러리를 불러오지 못했습니다. 인터넷 연결을 확인하고 다시 시도해주세요.');
+        return;
+      }
+      downloadBtn.disabled = true;
+      var originalLabel = downloadBtn.innerHTML;
+      downloadBtn.innerHTML = '생성 중…';
+
+      var today = new Date().toISOString().slice(0, 10);
+      var poNo = 'PO-' + today.replace(/-/g, '') + '-' + Math.floor(1000 + Math.random() * 9000);
+
+      var tiersAttr = currency === 'KRW' ? 'data-tiers-krw' : 'data-tiers';
+      var priceFmt = currency === 'KRW' ? '#,##0' : '#,##0.00';
+
+      var items = [];
+      var grand = 0;
+      rows.forEach(function(row){
+        var qty = Math.max(0, parseInt(row.querySelector('.qc-qty-input').value, 10) || 0);
+        if(qty <= 0) return;
+        var tiers = row.getAttribute(tiersAttr).split(',').map(Number);
+        var price = tierPrice(tiers, qty);
+        var amount = qty * price;
+        grand += amount;
+        var nameEl = row.querySelector('.qc-name');
+        var name = nameEl.childNodes[0].textContent.trim();
+        var option = nameEl.querySelector('small') ? nameEl.querySelector('small').textContent.trim() : '';
+        items.push({name: name, option: option, qty: qty, price: price, amount: amount});
+      });
+
+      var phoneCode = document.getElementById('qbPhoneCode').value.trim();
+      var phoneNum = document.getElementById('qbPhone').value.trim();
+      var phoneFull = (phoneCode ? phoneCode + ' ' : '') + phoneNum;
+
+      var wb = new ExcelJS.Workbook();
+      var ws = wb.addWorksheet('PO');
+      ws.columns = [{width:6},{width:28},{width:16},{width:8},{width:6},{width:14},{width:14}];
+
+      var thin = {style:'thin', color:{argb:'FF2B2430'}};
+      var border = {top:thin,left:thin,bottom:thin,right:thin};
+
+      ws.mergeCells('A1:G1');
+      var title = ws.getCell('A1');
+      title.value = 'PURCHASE ORDER';
+      title.font = {size:20, bold:true, color:{argb:'FF2B2430'}};
+      title.alignment = {horizontal:'center', vertical:'middle'};
+      ws.getRow(1).height = 32;
+
+      ws.getCell('A3').value = 'PO No.'; ws.getCell('A3').font = {bold:true};
+      ws.getCell('B3').value = poNo;
+      ws.getCell('A4').value = 'Date'; ws.getCell('A4').font = {bold:true};
+      ws.getCell('B4').value = today;
+
+      ws.getCell('A6').value = 'Seller'; ws.getCell('A6').font = {bold:true};
+      ws.getCell('E6').value = 'Buyer'; ws.getCell('E6').font = {bold:true};
+      ws.getCell('A7').value = 'Purplus Co.,Ltd';
+      ws.getCell('A8').value = '#406, Yanghwa-ro 136, Mapo-Gu, Seoul, South Korea';
+      ws.getCell('A9').value = '+82-2-3662-1318';
+
+      ws.getCell('E7').value = 'Company: ' + (document.getElementById('qbCompany').value || '');
+      ws.getCell('E8').value = 'Contact: ' + (document.getElementById('qbContact').value || '');
+      ws.getCell('E9').value = 'Email: ' + (document.getElementById('qbEmail').value || '');
+      ws.getCell('E10').value = 'Phone: ' + phoneFull;
+      ws.getCell('E11').value = 'Country: ' + (document.getElementById('qbCountry').value || '');
+      ws.getCell('E12').value = 'Address: ' + (document.getElementById('qbAddress').value || '');
+
+      var headerRow = 14;
+      var headers = ['NO.','DESCRIPTION','OPTION',"Q'TY",'UNIT','UNIT PRICE (' + currency + ')','AMOUNT (' + currency + ')'];
+      headers.forEach(function(h, i){
+        var c = ws.getCell(headerRow, i + 1);
+        c.value = h;
+        c.font = {bold:true, size:10.5};
+        c.border = border;
+        c.fill = {type:'pattern', pattern:'solid', fgColor:{argb:'FFF3ECDF'}};
+        c.alignment = {vertical:'middle', horizontal: i >= 5 ? 'right' : (i === 0 || i === 3 ? 'center' : 'left')};
+      });
+
+      var r = headerRow + 1;
+      items.forEach(function(item, idx){
+        var vals = [idx + 1, item.name, item.option, item.qty, 'PCS', item.price, item.amount];
+        vals.forEach(function(v, i){
+          var c = ws.getCell(r, i + 1);
+          c.value = v;
+          c.border = border;
+          c.alignment = {vertical:'middle', horizontal: i >= 5 ? 'right' : (i === 0 || i === 3 || i === 4 ? 'center' : 'left')};
+          if(i === 5 || i === 6){ c.numFmt = priceFmt; }
+        });
+        r++;
+      });
+
+      ws.mergeCells(r, 1, r, 5);
+      var totalLabel = ws.getCell(r, 1);
+      totalLabel.value = 'Total';
+      totalLabel.font = {bold:true};
+      totalLabel.border = border;
+      for(var col = 2; col <= 5; col++){ ws.getCell(r, col).border = border; }
+      var totalVal = ws.getCell(r, 7);
+      totalVal.value = grand;
+      totalVal.numFmt = priceFmt;
+      totalVal.font = {bold:true};
+      totalVal.border = border;
+      ws.getCell(r, 6).border = border;
+      r += 2;
+
+      ws.getCell('A' + r).value = 'Notice'; ws.getCell('A' + r).font = {bold:true};
+      r++;
+      ws.getCell('A' + r).value = 'This is a Purchase Order (PO) prepared by the buyer, not an official Proforma Invoice.';
+      r++;
+      ws.getCell('A' + r).value = 'cocoheali / Purplus Co.,Ltd will review this PO and issue a formal Proforma Invoice separately.';
+      r += 3;
+
+      fetchImageBase64(LOGO_URL).then(function(base64){
+        var imgId = wb.addImage({base64: base64, extension: 'png'});
+        var logoWidth = 130;
+        ws.addImage(imgId, {
+          tl: {col: 0.15, row: r - 1 + 0.15},
+          ext: {width: logoWidth, height: logoWidth * LOGO_ASPECT}
+        });
+        return wb.xlsx.writeBuffer();
+      }).catch(function(){
+        return wb.xlsx.writeBuffer();
+      }).then(function(buffer){
+        var blob = new Blob([buffer], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'cocoheali_' + poNo + '.xlsx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        downloadBtn.disabled = !formValid();
+        downloadBtn.innerHTML = originalLabel;
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
