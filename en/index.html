@@ -95,13 +95,19 @@
      링크는 상대경로라 커스텀 도메인(intro.cocoheali.com)과 github.io 하위경로
      양쪽에서 모두 동작함. */
   .lang-switch{
-    display:flex; align-items:center; gap:6px; flex:none;
-    margin-left:16px; padding-left:16px; border-left:1px solid var(--line);
+    display:flex; align-items:center; flex:none; gap:2px;
+    margin-left:16px; padding:3px; border-radius:100px;
+    background:rgba(43,36,48,0.06); border:1px solid var(--line);
   }
-  .lang-switch a{color:var(--ink-soft); text-decoration:none; transition:color .2s ease;}
+  .lang-switch a{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:28px; padding:5px 11px; border-radius:100px;
+    color:var(--ink-soft); text-decoration:none; font-weight:600;
+    transition:background .2s ease, color .2s ease;
+  }
   .lang-switch a:hover{color:var(--ink);}
-  .lang-switch a.is-current{color:var(--ink); font-weight:600;}
-  .lang-switch .lang-div{color:var(--line);}
+  .lang-switch a.is-current{background:var(--ink); color:var(--white);}
+  .lang-switch a.is-current:hover{color:var(--white);}
 
   /* 챕터 표식 — "한 권으로 읽히는" 뼈대 (2026-08-16). 큰 번호 + 챕터명 한 줄, 주변에
      최소 120px 여백(디스플레이 스케일 원칙과 공유) — 이게 곧 챕터 구분선 역할을 해서
@@ -1370,9 +1376,8 @@
   <img src="../assets/logo.png" alt="cocoheali">
   <nav>
     <span id="hdrChapter">Brand Introduction</span>
-    <span class="lang-switch">
+    <span class="lang-switch" role="group" aria-label="Language">
       <a href="../">KR</a>
-      <span class="lang-div">/</span>
       <a href="./" class="is-current" aria-current="page">EN</a>
     </span>
   </nav>
@@ -2664,7 +2669,13 @@
     if(!gate || !mark) return;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    var GATE_KEY = 'cocoheali_gate_opened';
+    var alreadyOpened = false;
+    try{ alreadyOpened = sessionStorage.getItem(GATE_KEY) === '1'; }catch(e){}
+    function markOpened(){ try{ sessionStorage.setItem(GATE_KEY, '1'); }catch(e){} }
+
     function closeGate(){
+      markOpened();
       gate.classList.add('opening');
       document.body.classList.remove('gate-active');
       mark.removeEventListener('click', closeGate);
@@ -2682,13 +2693,46 @@
       if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); closeGate(); }
     }
 
-    if(reduceMotion){
+    if(reduceMotion || alreadyOpened){
+      markOpened();
       gate.classList.add('gone');
       document.body.classList.remove('gate-active');
     } else {
       mark.addEventListener('click', closeGate);
       mark.addEventListener('keydown', onKey);
       mark.focus({preventScroll:true});
+    }
+  })();
+
+  (function(){
+    var SCROLL_KEY = 'cocoheali_scroll_frac';
+    var switchLinks = document.querySelectorAll('.lang-switch a');
+    for(var i=0;i<switchLinks.length;i++){
+      switchLinks[i].addEventListener('click', function(){
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var frac = max > 0 ? window.scrollY / max : 0;
+        try{ sessionStorage.setItem(SCROLL_KEY, String(frac)); }catch(e){}
+      });
+    }
+    var saved = null;
+    try{ saved = sessionStorage.getItem(SCROLL_KEY); }catch(e){}
+    if(saved !== null){
+      try{ sessionStorage.removeItem(SCROLL_KEY); }catch(e){}
+      var frac = parseFloat(saved);
+      if(!isNaN(frac)){
+        window.addEventListener('load', function(){
+          function tryRestore(attempt){
+            var vh = window.innerHeight;
+            if(vh === 0 && attempt < 10){
+              requestAnimationFrame(function(){ tryRestore(attempt + 1); });
+              return;
+            }
+            var max = document.documentElement.scrollHeight - vh;
+            window.scrollTo({top:Math.max(0, frac * max), left:0, behavior:'instant'});
+          }
+          requestAnimationFrame(function(){ tryRestore(0); });
+        });
+      }
     }
   })();
 
