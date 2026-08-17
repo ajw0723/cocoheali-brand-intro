@@ -109,6 +109,8 @@
   }
   .quote-cta:hover{background:var(--purple-strong);}
   @media (max-width:640px){ .quote-cta{display:none;} }
+  /* 모바일 헤더 오버플로우 수정 (2026-08-18) — KR과 동일 이슈, KR 쪽 주석 참고 */
+  @media (max-width:640px){ header.top nav #hdrChapter{display:none;} }
 
   /* 챕터 표식 — "한 권으로 읽히는" 뼈대 (2026-08-16). 큰 번호 + 챕터명 한 줄, 주변에
      최소 120px 여백(디스플레이 스케일 원칙과 공유) — 이게 곧 챕터 구분선 역할을 해서
@@ -181,7 +183,8 @@
   }
 
   @media (max-width:760px){
-    .hero-bg img{object-position:22% 20%;}
+    /* 2026-08-18 수정 — KR과 동일 이슈, KR 쪽 주석 참고 */
+    .hero-bg img{object-position:51% 20%;}
   }
 
   /* brand story — 텍스트 옆 브랜드 필름 (2026-08-02) */
@@ -451,6 +454,8 @@
     .lipbalm-bleed{height:auto; aspect-ratio:4/5;}
     .lb-overlay{top:36px; padding:0 26px; max-width:88%;}
     .lb-object{width:104px; left:26px; bottom:4%;}
+    /* 2026-08-18 추가 — KR과 동일 이슈, KR 쪽 주석 참고 */
+    .lipbalm-bleed > img{object-position:85% 50%;}
   }
 
   /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (2026-08-15 재설계 — 사진마다 다른
@@ -1272,6 +1277,8 @@
     .founder-body{max-width:none; padding:0 26px 96px; justify-content:flex-end;}
     .founder-play{right:26px; top:auto; bottom:26px; transform:none; width:58px; height:58px;}
     .founder-card:hover .founder-play{transform:scale(1.08);}
+    /* 2026-08-18 추가 — KR과 동일 이슈, KR 쪽 주석 참고 */
+    .founder-card img{object-position:82% 50%;}
   }
 
   /* ---------- Company colophon (light) ---------- */

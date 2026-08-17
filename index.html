@@ -114,6 +114,11 @@
   }
   .quote-cta:hover{background:var(--purple-strong);}
   @media (max-width:640px){ .quote-cta{display:none;} }
+  /* 모바일 헤더 오버플로우 수정 (2026-08-18) — "Brand Introduction" 챕터 라벨 +
+     KR/EN 토글이 좁은 화면에서 폭을 넘어 KR/EN 버튼이 화면 밖으로 잘려나가는 문제 발견
+     (사용자가 모바일 확인 요청). quote-cta처럼 챕터 라벨을 숨겨서 로고+토글만 남김 —
+     토글이 실제 이동 컨트롤이라 우선순위가 더 높음. */
+  @media (max-width:640px){ header.top nav #hdrChapter{display:none;} }
 
   /* 챕터 표식 — "한 권으로 읽히는" 뼈대 (2026-08-16). 큰 번호 + 챕터명 한 줄, 주변에
      최소 120px 여백(디스플레이 스케일 원칙과 공유) — 이게 곧 챕터 구분선 역할을 해서
@@ -186,7 +191,12 @@
   }
 
   @media (max-width:760px){
-    .hero-bg img{object-position:22% 20%;}
+    /* 2026-08-18 수정 — 원본(1619x971)이 매우 와이드한데 모바일 히어로 컨테이너는
+       세로로 매우 길어서(iPhone 기준 폭의 24~25%만 보임) 기존 22%로는 배경 커튼만
+       보이고 정작 손에 든 제품(사진 중앙~오른쪽, 아이 손과 만나는 지점)이 통째로
+       프레임 밖으로 빠졌음(모바일 확인 중 발견). 제품+양쪽 손이 만나는 지점을
+       기준으로 재조정. y는 이 비율에서 세로 크롭이 거의 없어 의미 없음(그대로 둠). */
+    .hero-bg img{object-position:51% 20%;}
   }
 
   /* brand story — 텍스트 옆 브랜드 필름 (2026-08-02) */
@@ -456,6 +466,10 @@
     .lipbalm-bleed{height:auto; aspect-ratio:4/5;}
     .lb-overlay{top:36px; padding:0 26px; max-width:88%;}
     .lb-object{width:104px; left:26px; bottom:4%;}
+    /* 2026-08-18 추가 — 원본(1600x900)이 왼쪽은 여백, 아이 얼굴+립밤은 오른쪽에
+       치우쳐 있는데 기본 50% 중앙 크롭으로는 세로 포맷 모바일에서 얼굴 오른쪽
+       절반이 잘려나감(모바일 확인 중 발견). 오른쪽으로 이동. */
+    .lipbalm-bleed > img{object-position:85% 50%;}
   }
 
   /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (2026-08-15 재설계 — 사진마다 다른
@@ -1284,6 +1298,10 @@
     .founder-body{max-width:none; padding:0 26px 96px; justify-content:flex-end;}
     .founder-play{right:26px; top:auto; bottom:26px; transform:none; width:58px; height:58px;}
     .founder-card:hover .founder-play{transform:scale(1.08);}
+    /* 2026-08-18 추가 — 인터뷰 스틸컷(1100x499, 21:9용)을 모바일 4:5 세로 카드에
+       넣으면 폭의 36%만 보이는데, 기본 50% 중앙 크롭은 대표님 얼굴이 사진 오른쪽에
+       있어서 배경 벽/말풍선만 보이고 얼굴이 빠짐(모바일 확인 중 발견). 오른쪽으로 이동. */
+    .founder-card img{object-position:82% 50%;}
   }
 
   /* ---------- Company colophon (light) ---------- */
