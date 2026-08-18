@@ -108,9 +108,20 @@
     transition:background .2s ease;
   }
   .quote-cta:hover{background:var(--purple-strong);}
-  @media (max-width:640px){ .quote-cta{display:none;} }
+  .quote-cta .cta-short{display:none;}
   /* 모바일 헤더 오버플로우 수정 (2026-08-18) — KR과 동일 이슈, KR 쪽 주석 참고 */
   @media (max-width:640px){ header.top nav #hdrChapter{display:none;} }
+  /* 2026-08-18(이어서) — KR과 동일 이슈+동일 수정(짧은 라벨로 견적요청 버튼 복원),
+     KR 쪽 주석 참고 */
+  @media (max-width:640px){
+    header.top, header.top.scrolled{padding-left:18px; padding-right:18px;}
+    header.top img{height:22px;}
+    .lang-switch{margin-left:8px;}
+    .lang-switch a{padding:5px 9px;}
+    .quote-cta{margin-left:6px; padding:6px 10px; font-size:10px;}
+    .quote-cta .cta-full{display:none;}
+    .quote-cta .cta-short{display:inline;}
+  }
 
   /* 챕터 표식 — "한 권으로 읽히는" 뼈대 (2026-08-16). 큰 번호 + 챕터명 한 줄, 주변에
      최소 120px 여백(디스플레이 스케일 원칙과 공유) — 이게 곧 챕터 구분선 역할을 해서
@@ -1419,7 +1430,7 @@
       <a href="../">KR</a>
       <a href="./" class="is-current" aria-current="page">EN</a>
     </span>
-    <a href="../quote.html" class="quote-cta" target="_blank" rel="noopener">Request a Quote</a>
+    <a href="../quote.html" class="quote-cta" target="_blank" rel="noopener"><span class="cta-full">Request a Quote</span><span class="cta-short">Quote</span></a>
   </nav>
 </header>
 

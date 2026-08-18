@@ -113,12 +113,25 @@
     transition:background .2s ease;
   }
   .quote-cta:hover{background:var(--purple-strong);}
-  @media (max-width:640px){ .quote-cta{display:none;} }
+  .quote-cta .cta-short{display:none;}
   /* 모바일 헤더 오버플로우 수정 (2026-08-18) — "Brand Introduction" 챕터 라벨 +
      KR/EN 토글이 좁은 화면에서 폭을 넘어 KR/EN 버튼이 화면 밖으로 잘려나가는 문제 발견
      (사용자가 모바일 확인 요청). quote-cta처럼 챕터 라벨을 숨겨서 로고+토글만 남김 —
      토글이 실제 이동 컨트롤이라 우선순위가 더 높음. */
   @media (max-width:640px){ header.top nav #hdrChapter{display:none;} }
+  /* 2026-08-18(이어서) — 처음엔 quote-cta를 아예 숨겼는데(위 커밋), 사용자가 "모바일에
+     견적요청창이 빠졌다"고 지적 — 견적요청은 핵심 전환 버튼이라 모바일에서도 있어야
+     함. 대신 로고+토글+버튼 세 개가 좁은 화면에 다 들어가도록 헤더 여백·버튼을 축소하고,
+     라벨을 "견적요청"→"견적"(EN: "Request a Quote"→"Quote")로 줄인 짧은 버전을 보여줌. */
+  @media (max-width:640px){
+    header.top, header.top.scrolled{padding-left:18px; padding-right:18px;}
+    header.top img{height:22px;}
+    .lang-switch{margin-left:8px;}
+    .lang-switch a{padding:5px 9px;}
+    .quote-cta{margin-left:6px; padding:6px 10px; font-size:10px;}
+    .quote-cta .cta-full{display:none;}
+    .quote-cta .cta-short{display:inline;}
+  }
 
   /* 챕터 표식 — "한 권으로 읽히는" 뼈대 (2026-08-16). 큰 번호 + 챕터명 한 줄, 주변에
      최소 120px 여백(디스플레이 스케일 원칙과 공유) — 이게 곧 챕터 구분선 역할을 해서
@@ -1445,7 +1458,7 @@
       <a href="./" class="is-current" aria-current="page">KR</a>
       <a href="en/">EN</a>
     </span>
-    <a href="quote.html" class="quote-cta" target="_blank" rel="noopener">견적요청</a>
+    <a href="quote.html" class="quote-cta" target="_blank" rel="noopener"><span class="cta-full">견적요청</span><span class="cta-short">견적</span></a>
   </nav>
 </header>
 
