@@ -194,8 +194,11 @@
   }
 
   @media (max-width:760px){
-    /* 2026-08-18 수정 — KR과 동일 이슈, KR 쪽 주석 참고 */
-    .hero-bg img{object-position:51% 20%;}
+    /* 2026-08-18 수정 → 실기기 재확인 후 재수정 — KR과 동일 이슈+동일 해결(컨테이너를
+       원본 비율로 맞춰 크롭 자체 제거), KR 쪽 주석 참고 */
+    .hero{min-height:auto; aspect-ratio:1619/971;}
+    .hero-bg{top:0; height:100%;}
+    .hero-bg img{object-position:center center; animation:none;}
   }
 
   /* brand story — 텍스트 옆 브랜드 필름 (2026-08-02) */
@@ -1459,7 +1462,7 @@
       </div>
     </div>
     <div class="story-video reveal-item">
-      <video class="story-film" id="storyFilmVideo" src="../assets/coco_brandfilm_story.mp4" poster="../assets/poster-storyfilm.jpg" muted loop playsinline aria-hidden="true"></video>
+      <video class="story-film" id="storyFilmVideo" src="../assets/coco_brandfilm_story.mp4" poster="../assets/poster-storyfilm.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <img class="story-logo" id="storyLogo" src="../assets/logo-story-end.png" alt="cocoheali">
     </div>
   </div>

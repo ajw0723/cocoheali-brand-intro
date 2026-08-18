@@ -204,12 +204,20 @@
   }
 
   @media (max-width:760px){
-    /* 2026-08-18 수정 — 원본(1619x971)이 매우 와이드한데 모바일 히어로 컨테이너는
-       세로로 매우 길어서(iPhone 기준 폭의 24~25%만 보임) 기존 22%로는 배경 커튼만
-       보이고 정작 손에 든 제품(사진 중앙~오른쪽, 아이 손과 만나는 지점)이 통째로
-       프레임 밖으로 빠졌음(모바일 확인 중 발견). 제품+양쪽 손이 만나는 지점을
-       기준으로 재조정. y는 이 비율에서 세로 크롭이 거의 없어 의미 없음(그대로 둠). */
-    .hero-bg img{object-position:51% 20%;}
+    /* 2026-08-18 수정 → 2026-08-18(실기기 재확인 후) 재수정 — object-position 퍼센트
+       조정(22%→51%)만으로는 근본 해결이 안 됐음: 실제 아이폰으로 확인해보니 여전히
+       아이 손은 보이는데 제품을 든 어른 손은 거의 다 잘려 있었음(사용자 제보,
+       스크린샷 첨부) — min-height:100vh인 세로로 매우 긴 컨테이너에 1619x971 와이드
+       사진을 cover로 채우면 폭의 25~48%밖에 못 보여줘서, object-position을 아무리
+       조정해도 "아이 손 + 제품 + 어른 손"이 전부 걸쳐 있는 구간(전체 폭의 약 65%)을
+       한 번에 담을 수 없었음 — 애초에 산수가 안 맞는 문제였음. 사용자 제안대로
+       "이미지를 줄여서"(컨테이너를 사진 원본 비율에 맞춤) 크롭 자체를 없앰 —
+       min-height:100vh 대신 원본 비율(1619:971)로 aspect-ratio 지정, 케ン번스 줌 여백용
+       overscan(-6%/112%)도 그 비율을 깨트리므로 모바일에서만 제거. 대신 히어로가
+       전체화면이 아니라 짧은 배너 형태가 됨 — 임팩트는 줄지만 손이 잘리는 것보다 나음. */
+    .hero{min-height:auto; aspect-ratio:1619/971;}
+    .hero-bg{top:0; height:100%;}
+    .hero-bg img{object-position:center center; animation:none;}
   }
 
   /* brand story — 텍스트 옆 브랜드 필름 (2026-08-02) */
@@ -1487,7 +1495,7 @@
       </div>
     </div>
     <div class="story-video reveal-item">
-      <video class="story-film" id="storyFilmVideo" src="assets/coco_brandfilm_story.mp4" poster="assets/poster-storyfilm.jpg" muted loop playsinline aria-hidden="true"></video>
+      <video class="story-film" id="storyFilmVideo" src="assets/coco_brandfilm_story.mp4" poster="assets/poster-storyfilm.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <img class="story-logo" id="storyLogo" src="assets/logo-story-end.png" alt="cocoheali">
     </div>
   </div>
