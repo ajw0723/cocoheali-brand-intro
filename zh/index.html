@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cocoheali | Brand Introduction</title>
-<meta name="description" content="아이가 스스로 해보는 첫 스킨케어 습관, 코코힐리 브랜드소개서.">
+<title>Cocoheali | 品牌介绍</title>
+<meta name="description" content="孩子自己动手体验的第一个护肤习惯 —— Cocoheali 品牌介绍。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="cocoheali">
-<meta property="og:title" content="Cocoheali | Brand Introduction">
-<meta property="og:description" content="아이가 스스로 해보는 첫 스킨케어 습관, 코코힐리 브랜드소개서.">
+<meta property="og:title" content="Cocoheali | 品牌介绍">
+<meta property="og:description" content="孩子自己动手体验的第一个护肤习惯 —— Cocoheali 品牌介绍。">
 <meta property="og:image" content="https://intro.cocoheali.com/assets/og-image.png">
-<meta property="og:url" content="https://intro.cocoheali.com/">
+<meta property="og:url" content="https://intro.cocoheali.com/zh/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cocoheali | Brand Introduction">
-<meta name="twitter:description" content="아이가 스스로 해보는 첫 스킨케어 습관, 코코힐리 브랜드소개서.">
+<meta name="twitter:title" content="Cocoheali | 品牌介绍">
+<meta name="twitter:description" content="孩子自己动手体验的第一个护肤习惯 —— Cocoheali 品牌介绍。">
 <meta name="twitter:image" content="https://intro.cocoheali.com/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
     --font-en-base: 'Inter', var(--font-kr-base);
     --font-kr-accent: 'Gowun Batang', serif;
     --font-en-accent: 'Fraunces', serif;
-    --sans: var(--font-kr-base);
+    --sans: var(--font-en-base);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -49,7 +49,7 @@
     margin:0;
     background:var(--paper);
     color:var(--ink);
-    font-family:var(--font-kr-base);
+    font-family:var(--font-en-base);
     word-break:keep-all;
     overflow-wrap:break-word;
     -webkit-font-smoothing:antialiased;
@@ -63,11 +63,8 @@
     font-weight:600;
     margin:0 0 18px;
   }
-  /* 2026-08-15 — 타이포 하이브리드(2026-08-03 결정) 소급 적용: 골격은 Pretendard bold,
-     감성 강조는 문장 안 한 구절만 Gowun Batang(국문)/Fraunces(영문) italic. h1/h2/h3에
-     남아있던 --serif 기본값을 여기서 교체 — 한글에 이탤릭을 걸던 하위 규칙들도 이 커밋에서
-     전수 제거(합성 기울임이 부자연스러워 보이는 문제 해결, grep으로 전수 확인). */
-  h1,h2,h3{font-family:var(--font-kr-base); font-weight:700; font-style:normal; margin:0; line-height:1.25;}
+  
+  h1,h2,h3{font-family:var(--font-en-base); font-weight:700; font-style:normal; margin:0; line-height:1.25;}
   p{margin:0 0 1.1em; line-height:1.85; color:var(--ink-soft); font-size:15.5px;}
 
   /* header */
@@ -91,14 +88,7 @@
   header.top nav #hdrChapter{display:inline-block; transition:opacity .2s ease; white-space:nowrap;}
   header.top nav #hdrChapter.swap{opacity:0;}
 
-  /* 언어 전환 (2026-08-17) — 국문/영문 두 판이 같은 사이트의 두 경로(/ 와 /en/)로
-     배포되므로 헤더에서 서로 오갈 수 있어야 함. 챕터 표시와 같은 11px 대문자
-     레지스터를 쓰되, 얇은 세로선으로 "현재 읽는 위치"(챕터)와 "이동"(언어)을 구분한다.
-     링크는 상대경로라 커스텀 도메인(intro.cocoheali.com)과 github.io 하위경로
-     양쪽에서 모두 동작함. */
-  /* 버튼형 스위치로 교체(2026-08-18) — 텍스트 링크 "KR / EN"이 잘 안 보인다는 피드백.
-     세그먼트 컨트롤(pill 트랙 + 활성 세그먼트만 진한 배경)로 바꿔 지금 어느 언어인지
-     색 대비로 바로 보이게 함. */
+  
   .lang-switch{
     display:flex; align-items:center; flex:none; gap:2px;
     margin-left:16px; padding:3px; border-radius:100px;
@@ -114,8 +104,6 @@
   .lang-switch a.is-current{background:var(--ink); color:var(--white);}
   .lang-switch a.is-current:hover{color:var(--white);}
 
-  /* 견적요청 헤더 CTA (2026-08-18) — 언어 스위치 옆, 항상 눈에 띄어야 하는 행동 버튼이라
-     정보성 회색조 대신 브랜드 라벤더로 채워 시각적으로 분리. */
   .quote-cta{
     display:inline-flex; align-items:center; flex:none; margin-left:10px;
     padding:7px 15px; border-radius:100px; white-space:nowrap;
@@ -125,15 +113,9 @@
   }
   .quote-cta:hover{background:var(--purple-strong);}
   .quote-cta .cta-short{display:none;}
-  /* 모바일 헤더 오버플로우 수정 (2026-08-18) — "Brand Introduction" 챕터 라벨 +
-     KR/EN 토글이 좁은 화면에서 폭을 넘어 KR/EN 버튼이 화면 밖으로 잘려나가는 문제 발견
-     (사용자가 모바일 확인 요청). quote-cta처럼 챕터 라벨을 숨겨서 로고+토글만 남김 —
-     토글이 실제 이동 컨트롤이라 우선순위가 더 높음. */
+  
   @media (max-width:640px){ header.top nav #hdrChapter{display:none;} }
-  /* 2026-08-18(이어서) — 처음엔 quote-cta를 아예 숨겼는데(위 커밋), 사용자가 "모바일에
-     견적요청창이 빠졌다"고 지적 — 견적요청은 핵심 전환 버튼이라 모바일에서도 있어야
-     함. 대신 로고+토글+버튼 세 개가 좁은 화면에 다 들어가도록 헤더 여백·버튼을 축소하고,
-     라벨을 "견적요청"→"견적"(EN: "Request a Quote"→"Quote")로 줄인 짧은 버전을 보여줌. */
+  
   @media (max-width:640px){
     header.top, header.top.scrolled{padding-left:18px; padding-right:18px;}
     header.top img{height:22px;}
@@ -144,17 +126,14 @@
     .quote-cta .cta-short{display:inline;}
   }
 
-  /* 챕터 표식 — "한 권으로 읽히는" 뼈대 (2026-08-16). 큰 번호 + 챕터명 한 줄, 주변에
-     최소 120px 여백(디스플레이 스케일 원칙과 공유) — 이게 곧 챕터 구분선 역할을 해서
-     기존 .section-divider(헤어라인+캡션) 패턴은 여기선 안 씀. 헤더 nav의 현재 챕터
-     표시(#hdrChapter)는 아래 JS가 스크롤에 따라 텍스트만 opacity로 교체. */
+  
   .chapter-mark{display:flex; align-items:baseline; gap:22px; margin:0 0 120px;}
   .chapter-mark .ch-num{
     font-family:var(--font-en-accent), var(--serif); font-style:italic; font-weight:500;
     font-size:clamp(3.6rem,8vw,6.4rem); line-height:0.9; color:var(--oak);
   }
   .chapter-mark .ch-name{
-    font-family:var(--font-kr-base); font-weight:700; font-size:13px;
+    font-family:var(--font-en-base); font-weight:700; font-size:13px;
     letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft);
   }
   @media (max-width:640px){
@@ -171,7 +150,7 @@
   .pad-m{padding:90px 0;}
   .center{text-align:center; margin-left:auto; margin-right:auto;}
 
-  /* HERO — full-bleed editorial cover (2026-08-02, renewal_branding 완성형 히어로 비주얼로 교체) */
+  
   .hero{
     position:relative;
     min-height:100vh;
@@ -215,38 +194,23 @@
   }
 
   @media (max-width:760px){
-    /* 2026-08-18 수정 → 2026-08-18(실기기 재확인 후) 재수정 — object-position 퍼센트
-       조정(22%→51%)만으로는 근본 해결이 안 됐음: 실제 아이폰으로 확인해보니 여전히
-       아이 손은 보이는데 제품을 든 어른 손은 거의 다 잘려 있었음(사용자 제보,
-       스크린샷 첨부) — min-height:100vh인 세로로 매우 긴 컨테이너에 1619x971 와이드
-       사진을 cover로 채우면 폭의 25~48%밖에 못 보여줘서, object-position을 아무리
-       조정해도 "아이 손 + 제품 + 어른 손"이 전부 걸쳐 있는 구간(전체 폭의 약 65%)을
-       한 번에 담을 수 없었음 — 애초에 산수가 안 맞는 문제였음. 사용자 제안대로
-       "이미지를 줄여서"(컨테이너를 사진 원본 비율에 맞춤) 크롭 자체를 없앰 —
-       min-height:100vh 대신 원본 비율(1619:971)로 aspect-ratio 지정, 케ン번스 줌 여백용
-       overscan(-6%/112%)도 그 비율을 깨트리므로 모바일에서만 제거. 대신 히어로가
-       전체화면이 아니라 짧은 배너 형태가 됨 — 임팩트는 줄지만 손이 잘리는 것보다 나음. */
+    
     .hero{min-height:auto; aspect-ratio:1619/971;}
     .hero-bg{top:0; height:100%;}
     .hero-bg img{object-position:center center; animation:none;}
   }
 
-  /* brand story — 텍스트 옆 브랜드 필름 (2026-08-02) */
+  
   .story-split{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
   @media (max-width:860px){
     .story-split{grid-template-columns:1fr; gap:40px;}
     .story-split .story-video{order:-1;}
   }
 
-  /* brand story — 완성된 단일 브랜드필름 (2026-08-03, ffmpeg로 v1~v7 씬 이어붙이고 엔딩 워딩·
-     로고 페이드까지 미리 합성해 하나의 mp4로 제작 — DOM에서 여러 파일을 JS로 이어재생하던
-     이전 방식은 파일 접근/용량 문제로 미리보기에서 재생되지 않아 폐기). 테두리·그림자 없이
-     플레인 영상, 자동재생·무음·반복. */
+  
   .story-film{width:100%; aspect-ratio:16/9; display:block; background:#000;}
 
-  /* brand story — 엔딩 로고 (2026-08-15) — mp4 자체에는 화이트 페이드까지만 있고 로고가
-     합성되어 있지 않아, 영상이 화이트로 완전히 비는 구간(23.6s~26.75s)에 맞춰 HTML에서
-     로고를 겹쳐 페이드인/아웃. 루프 시작(currentTime 리셋) 즉시 사라짐. */
+  
   .story-video{position:relative;}
   .story-logo{
     position:absolute; top:50%; left:50%; width:32%; max-width:220px;
@@ -255,10 +219,7 @@
   }
   .story-logo.show{opacity:1; transform:translate(-50%,-50%) scale(1);}
 
-  /* brand film — focus rail, 21st.dev "focus-rail" 인터랙션 참고
-     (가로 스크롤 + 중앙 포커스 카드만 확대/선명, 나머지는 축소·흐림) (2026-08-02)
-     scroll-snap은 계속 흐르는 자동 슬라이드와 충돌(매 프레임 미세 스크롤을 스냅이 되돌려버림)해서 뺌 —
-     대신 nav 화살표의 smooth scrollBy와 focus 효과로 카드 정렬감을 대신 표현 */
+  
   .film-rail-wrap{position:relative; margin-top:56px;}
   .film-rail{
     display:flex; gap:28px; overflow-x:auto;
@@ -344,9 +305,7 @@
     letter-spacing:0.01em; margin:0; text-align:right;
   }
 
-  /* 네일스티커 실제품 목업 (2026-08-01, Nailsticker_목업.png 사용 → 2026-08-04 레이어 재구성) —
-     bleed-note 문구 위에 박스+시트 목업을 살짝 기울여 띄우고, 낱개 스티커 2장을 뒤/옆에 겹쳐
-     "제품+흩어진 스티커" 구성으로 연출. 라벤더 배경 카드 대신 이중 drop-shadow로 입체감을 만듦. */
+  
   .sticker-note-wrap{
     position:absolute; right:40px; bottom:40px; z-index:2;
     display:flex; flex-direction:column; align-items:flex-end; gap:14px; max-width:230px;
@@ -382,7 +341,7 @@
     .mockup-accent.a2{width:22px; right:-7px; bottom:5px;}
   }
 
-  /* Why skincare, not makeup — 2:1 이미지 스플릿 (모델컷 2 : 크림팡 텍스처 1) (2026-08-03) */
+  
   .bleed-split .bleed-split-imgs{position:absolute; inset:0; display:flex;}
   .bleed-split .bs-model{flex:3 1 0; position:relative; overflow:hidden;}
   .bleed-split .bs-texture{flex:2 1 0; position:relative; overflow:hidden;}
@@ -394,15 +353,8 @@
     .bleed-split .bs-texture{flex:2 1 0;}
   }
 
-  /* 풀블리드 에디토리얼 재해석 — "Little Hands" (2026-08-15 재설계 — Codex 브레인스토밍 1안
-     "타이포가 사진을 가르는 오버사이즈 스프레드" 채택, 사용자 승인. 카드+반투명 패널로
-     사진 위에 텍스트를 얹던 이전 방식 대신, 제목 두 줄이 사진과 서로 다른 기준선에서
-     겹치며 지나가도록 구성 — 타이포 자체가 그래픽 요소가 되는 방식. .eb-panel(블러·그림자·
-     라벤더 뒤판)과 인용부호 장식은 완전히 제거. 카피 문구는 원문 그대로, 구조만 변경. */
-  /* 2026-08-16 — 컨테이너 폭을 .wrap과 통일(1180/40px 패딩 → 실효 1100px). 기존
-     eb-inner:1360px는 이 섹션 좌우 여백만 유독 좁아서(90px대 24px) 위아래 다른 섹션과
-     텍스트 왼쪽 기준선이 안 맞았음 — 그리드 통일(3번) 중 실제로 눈에 보이는 문제라 먼저
-     고침, 나머지 그리드 작업(12컬럼 시스템 자체)은 더 큰 범위라 아래 보고 참고. */
+  
+  
   .editorial-bleed{position:relative; background:var(--paper); padding:150px 40px 150px;}
   .editorial-bleed .eb-inner{max-width:1180px; margin:0 auto;}
 
@@ -414,10 +366,7 @@
   .eb-headline .eb-h2{margin:-0.08em 0 -0.5em 12vw;}
   .eb-headline .eb-dot{color:var(--lavender-deep);}
 
-  /* 2026-08-16 — 헤드라인 아래·사진 왼쪽에 비어있던 여백에 본문을 옮겨 채움(사용자 지적).
-     eb-copy를 eb-photo와 같은 행에 두는 flex 행으로 재구성 — 사진은 76% 폭 그대로 오른쪽,
-     본문은 그 왼쪽 남는 24% 칸에. margin-top으로 "Hands." 겹침 구간 아래까지 내려서
-     헤드라인과 안 겹치게 함. */
+  
   .eb-row{display:flex; align-items:flex-start; gap:44px;}
   .eb-copy{flex:0 1 300px; margin-top:150px;}
   .editorial-bleed .eb-photo{position:relative; z-index:1; flex:1 1 auto; min-width:0; aspect-ratio:16/9; overflow:hidden;}
@@ -452,19 +401,18 @@
     .eb-h3{text-align:left; margin-top:20px; font-size:clamp(1.5rem,7vw,2rem);}
   }
 
-  /* 립밤 풀블리드 — 섹션 A (2026-08-03). Little Hands 2차 버전과 동일한 방식으로
-     카드 없이 사진의 왼쪽 여백 위에 텍스트를 직접 배치 */
+  
   .lipbalm-bleed{position:relative; height:82vh; min-height:520px;}
   .lipbalm-bleed > img{width:100%; height:100%; object-fit:cover; display:block;}
   .lb-overlay{position:absolute; left:0; top:64px; z-index:2; padding:0 8vw; max-width:560px;}
   .lb-badge{
     display:inline-flex; border:1px solid var(--purple-ui); color:var(--purple-ui);
-    font-family:var(--font-kr-base); font-size:11.5px; font-weight:600;
+    font-family:var(--font-en-base); font-size:11.5px; font-weight:600;
     padding:6px 16px; border-radius:100px; margin-bottom:22px;
   }
   .lb-headline{margin:0 0 28px;}
   .lb-headline .lb-base{
-    display:block; font-family:var(--font-kr-base); font-weight:700; font-style:normal;
+    display:block; font-family:var(--font-en-base); font-weight:700; font-style:normal;
     font-size:clamp(1.5rem,2.6vw,2rem); line-height:1.35; color:var(--ink);
   }
   .lb-headline .lb-accent{
@@ -472,7 +420,7 @@
     font-size:clamp(1.725rem,3vw,2.3rem); line-height:1.3; color:var(--purple-strong); margin-top:4px;
   }
   .lb-sub{
-    font-family:var(--font-kr-base); font-weight:400; font-size:14px;
+    font-family:var(--font-en-base); font-weight:400; font-size:14px;
     line-height:2; color:var(--ink-soft); margin:0;
   }
   .lb-sub-accent{font-weight:700; color:var(--purple-strong);}
@@ -492,30 +440,20 @@
     100%{ transform:rotate(-7deg) translateY(0) scale(1); }
   }
   .lb-object-caption{
-    margin:14px 0 0; font-family:var(--font-kr-base); font-size:10.5px; line-height:1.55; color:var(--ink-soft);
+    margin:14px 0 0; font-family:var(--font-en-base); font-size:10.5px; line-height:1.55; color:var(--ink-soft);
   }
   @media (max-width:760px){
     .lipbalm-bleed{height:auto; aspect-ratio:4/5;}
     .lb-overlay{top:36px; padding:0 26px; max-width:88%;}
     .lb-object{width:104px; left:26px; bottom:4%;}
-    /* 2026-08-18 추가 — 원본(1600x900)이 왼쪽은 여백, 아이 얼굴+립밤은 오른쪽에
-       치우쳐 있는데 기본 50% 중앙 크롭으로는 세로 포맷 모바일에서 얼굴 오른쪽
-       절반이 잘려나감(모바일 확인 중 발견). 오른쪽으로 이동하되, 85%까지 옮기면
-       .lb-overlay 헤드라인이 곱슬머리 위에 겹쳐 가독성이 떨어져서(실제 배포 후
-       재확인하며 발견) 62%로 절충 — 얼굴은 대부분 보이면서 텍스트 자리는 아직
-       배경이 남아있는 지점. */
+    
     .lipbalm-bleed > img{object-position:62% 50%;}
   }
 
-  /* 립밤 풀블리드 — 섹션 B: 큐브립밤 갤러리 스트립 (2026-08-15 재설계 — 사진마다 다른
-     flex-basis%로 비율을 맞추려던 방식이 사진별로 캡션·이미지 높이가 다 달라서 기준선이
-     안 맞고 산만해 보인다는 피드백. 대신 세 장 모두 동일한 고정 높이(260px)로 통일하고
-     너비는 원본 비율에 맡기는 "필름스트립" 방식으로 교체 — 가로 사진은 넓게, 세로 사진은
-     좁게 자연히 배분되면서도 전부 같은 높이 선 위에 나란히 놓여 기준선이 딱 맞음. 3번째
-     자리에 있던 셀프어플라이 컷은 사용자 요청으로 제거, 핑크베리 컷이 그 자리를 대신함. */
+  
   .lipbalm-gallery{padding:96px 0 110px;}
   .lg-label{
-    display:block; font-family:var(--font-kr-base); font-size:11.5px; font-weight:600;
+    display:block; font-family:var(--font-en-base); font-size:11.5px; font-weight:600;
     color:var(--purple-ui); margin-bottom:40px;
   }
   .lg-grid{display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap;}
@@ -524,7 +462,7 @@
   .lg-item-1 img, .lg-item-2 > img, .lg-item-5 img{
     height:260px; width:auto; max-width:100%; display:block;
   }
-  .lg-caption{margin:14px 0 0; font-family:var(--font-kr-base); font-size:12px; color:var(--ink-soft); line-height:1.6;}
+  .lg-caption{margin:14px 0 0; font-family:var(--font-en-base); font-size:12px; color:var(--ink-soft); line-height:1.6;}
   .lg-item-3{position:absolute; right:-8%; bottom:-8%; width:25%; z-index:2;}
   .lg-item-3 img{width:100%; height:auto; display:block;}
   @media (max-width:760px){
@@ -534,8 +472,7 @@
     .lg-item-3{width:32%;}
   }
 
-  /* full-bleed PHOTO + 큰 오버레이 스테이트먼트 — 기존 .bleed-caption(하단 캡션바)보다 크고
-     화면 중앙에 가깝게 얹히는 굵은 카피용 변형 */
+  
   .bleed-statement{position:relative; height:82vh; min-height:480px; overflow:hidden;}
   .bleed-statement img{width:100%; height:100%; object-fit:cover;}
   .phil-statement .stmt-text{
@@ -544,8 +481,7 @@
     color:var(--white); text-shadow:0 2px 24px rgba(20,15,18,0.35);
   }
 
-  /* bleed-statement — 영문 전환 (2026-08-03): 국문 중앙 오버레이 대신 좌측 상단 배치,
-     하이브리드 타이포(본문 Inter black / 강조 구절 Fraunces italic) 적용 */
+  
   .bleed-statement .stmt-scrim{
     position:absolute; left:0; top:0; z-index:1; pointer-events:none;
     width:55%; height:45%;
@@ -568,8 +504,7 @@
     color:var(--paper);
     text-shadow:0 2px 12px rgba(43,36,48,0.45);
   }
-  /* 좌측 하단 국문 설명 한 줄 (2026-08-16) — 영문 스테이트먼트를 짧게 풀어주는 보조선,
-     본문보다 훨씬 작게·조용히 */
+  
   .bleed-statement .stmt-caption-kr{
     position:absolute; left:0; bottom:32px; z-index:2; padding:0 8vw;
     font-family:var(--sans); font-weight:500; font-size:12.5px; color:var(--paper);
@@ -591,7 +526,7 @@
 
   /* philosophy declaration */
   .decl{
-    font-family:var(--font-kr-base); font-weight:700; font-style:normal; color:var(--ink);
+    font-family:var(--font-en-base); font-weight:700; font-style:normal; color:var(--ink);
     font-size:clamp(1.25rem, 2.6vw, 1.7rem); line-height:1.65; margin:0 0 36px;
   }
   .decl .sc-phrase{font-weight:800; color:var(--purple-strong);}
@@ -600,10 +535,7 @@
     letter-spacing:0.015em;
   }
 
-  /* Brand Philosophy — 풀블리드 컬러 스테이트먼트로 전면 교체 (2026-08-03, Glossier 레퍼런스:
-     큰 컬러 필드 위 굵은 헤드라인에서 한 구절만 세리프 이탤릭+컬러 포인트로 강조, 보조 문단은
-     하단 우측에 작게). 기존 crayon 4단계 성장 애니메이션은 폐기 — 4단계는 색 블록 아래 밝은
-     배경에 작은 캡션 라인으로 축소. 배경은 "큰 면적" 톤인 --purple-field(#9B6B9E) 사용. */
+  
   .phil-statement{position:relative; background:var(--purple-field); padding:150px 0 110px; overflow:hidden;}
   .phil-statement .stmt-accent{font-family:var(--font-kr-accent); font-style:normal; font-weight:600; color:var(--mint);}
   .phil-statement .phil-stmt-sub{
@@ -625,8 +557,7 @@
   @media (max-width:760px){ .phil-caption-row{grid-template-columns:repeat(2,1fr); row-gap:24px;} }
   @media (max-width:420px){ .phil-caption-row{grid-template-columns:1fr;} }
 
-  /* product world intro — Glossier-ref header: outline pill + mixed-weight headline + right-aligned lede
-     (2026-08-01, 컬러는 브랜드 라벤더로 대체 — 레퍼런스의 배치·포인트 기법만 참고) */
+  
   .pill-badge{
     display:inline-flex; align-items:center; gap:6px;
     border:1.3px solid var(--lavender-deep); border-radius:100px;
@@ -684,7 +615,7 @@
     .pline--feature .gcard:first-child{grid-row:auto;}
   }
 
-  /* Gift Box 스토리 스트립 — 선물박스 언박싱 → 보물지도 놀이 (2026-08-12, 선물패키지_사용방법.png 4컷 일러스트 분할) */
+  
   .giftbox-story{margin:36px 0 44px;}
   .giftbox-story-lede{
     font-family:var(--serif); font-style:normal; font-size:clamp(19px,2.4vw,25px);
@@ -707,8 +638,7 @@
     .giftbox-story-strip{grid-template-columns:1fr 1fr; gap:12px;}
   }
 
-  /* 써니팡 라이프스타일 피처 — Pang Line 아래 삽입 (2026-08-03, "Clinical Studies" 스탯 카드
-     레퍼런스 참고: 좌측 연한 카드(배지+헤드라인+스펙 리스트) : 우측 풀블리드 인물사진 2단 그리드) */
+  
   .sunny-feature{margin-top:120px;}
   .sunny-feature-grid{display:grid; grid-template-columns:0.82fr 1fr; gap:28px; align-items:stretch;}
   @media (max-width:760px){ .sunny-feature-grid{grid-template-columns:1fr; gap:20px;} }
@@ -721,33 +651,30 @@
   .sf-badge{
     display:inline-flex; align-self:flex-start;
     border:1px solid var(--purple-ui); color:var(--purple-ui);
-    font-family:var(--font-kr-base); font-size:11.5px; font-weight:600;
+    font-family:var(--font-en-base); font-size:11.5px; font-weight:600;
     padding:6px 16px; border-radius:100px; margin-bottom:24px;
   }
   .sf-headline{
-    font-family:var(--font-kr-base); font-weight:700; font-style:normal;
+    font-family:var(--font-en-base); font-weight:700; font-style:normal;
     font-size:clamp(1.35rem,2.2vw,1.7rem); line-height:1.48; color:var(--ink);
     margin:0 0 14px;
   }
-  /* 한글은 synthetic italic이 부자연스러워 기울이지 않고, 폰트(Gowun Batang 정자체)+컬러
-     대비만으로 강조 (2026-08-03) */
+  
   .sf-headline .sf-accent{font-family:var(--font-kr-accent); font-style:normal; font-weight:400; color:var(--purple-strong);}
   .sf-subline{
     font-family:var(--font-en-accent); font-style:italic; font-weight:500;
     font-size:13.5px; color:var(--ink-soft); margin:0 0 44px;
   }
   .sf-body{
-    font-family:var(--font-kr-base); font-weight:400; font-size:14.5px;
+    font-family:var(--font-en-base); font-weight:400; font-size:14.5px;
     line-height:2; color:var(--ink-soft); margin:0;
   }
-  /* 풀쿼트 — 본문에서 분리한 핵심 문장 (2026-08-03). 이 섹션의 시선은 스펙 숫자가 아니라
-     이 한 문장이 끌도록: 왼쪽 세로선 + 여백으로 인용구처럼 띄우고, 마지막 구절만
-     Gowun Batang 정자체(이탤릭 아님)+퍼플로 키워 대비를 줌 */
+  
   .sf-pullquote{
     margin:2.5rem 0; border-left:2px solid var(--purple-ui); padding-left:20px;
   }
   .sf-pullquote .pq-base{
-    display:block; font-family:var(--font-kr-base); font-weight:400;
+    display:block; font-family:var(--font-en-base); font-weight:400;
     font-size:14.5px; line-height:1.8; color:var(--ink-soft);
   }
   .sf-pullquote .pq-accent{
@@ -764,21 +691,17 @@
     font-family:var(--font-en-base); font-weight:700; font-size:clamp(1.3rem,2vw,1.5rem);
     letter-spacing:0.01em; color:var(--purple-strong); line-height:1.25;
   }
-  .sf-spec-desc{font-family:var(--font-kr-base); font-size:12.5px; color:var(--ink-soft); text-align:right; line-height:1.6;}
+  .sf-spec-desc{font-family:var(--font-en-base); font-size:12.5px; color:var(--ink-soft); text-align:right; line-height:1.6;}
 
   .sunny-feature-photo{position:relative; border-radius:12px; overflow:hidden; min-height:420px;}
   .sunny-feature-photo img{width:100%; height:100%; object-fit:cover; display:block;}
 
-  /* 써니팡 피처 전용 — 우측 하단 "팩트+큐브네일" 호버 스왑 (2026-08-19, 큐브네일
-     단독 섹션 대신 이미 있는 "써니팡을 큐브네일로 꾸민" 실사(brand_background_sunnypang.jpg)를
-     활용 — 그 사진 자체가 이미 두 제품을 함께 쓰는 증거라 새 사진 없이도 성립 */
+  
   .sf-pair-wrap{
     position:absolute; right:24px; bottom:24px; z-index:3;
     display:flex; flex-direction:column; align-items:flex-end; gap:10px;
   }
-  .sf-pair-hover{
-    position:relative; width:120px; height:120px; cursor:pointer;
-  }
+  .sf-pair-hover{position:relative; width:120px; height:120px; cursor:pointer;}
   .sf-pair-hover img{
     position:absolute; inset:0; width:100%; height:100%; object-fit:contain;
     filter:drop-shadow(0 14px 22px rgba(43,36,48,0.4));
@@ -798,18 +721,14 @@
     .sf-pair-note{max-width:150px; font-size:10.5px;}
   }
 
-  /* 크림팡 피처 전용 — 닫힌 팩트 → 호버 시 열리는 모션 (2026-08-19, 써니팡의
-     .sf-pair-hover 컨테이너/위치는 그대로 재사용하되, 이미지 자체에 scale+rotate를 줘서
-     "탁 열리는" 느낌 추가 — 단순 크로스페이드였던 써니팡과 차별화) */
+  /* Creampang feature — closed pact opens on hover (2026-08-19, ported from KR draft) */
   .cp-pair-hover img{transition:opacity .45s ease, transform .45s cubic-bezier(.34,1.56,.64,1);}
   .cp-pair-closed{opacity:1; transform:scale(1) rotate(0deg);}
   .cp-pair-open{opacity:0; transform:scale(0.82) rotate(-10deg);}
   .cp-pair-hover:hover .cp-pair-closed{opacity:0; transform:scale(0.88) rotate(10deg);}
   .cp-pair-hover:hover .cp-pair-open{opacity:1; transform:scale(1) rotate(0deg);}
 
-  /* backgrounds stay warm ivory/cream (Brand Mood = Warm Morning, 2026-07-30) —
-     color lives only in small accents (numbers, hairlines, links, dots), set per line via --pline-accent.
-     card backdrop unified to one flat neutral (2026-08-01, Glossier ref — 배경은 톤 차이 없이 한 톤으로) */
+  
   .pline.tint-lavender{--pline-accent:156,106,140;}
   .pline.tint-mint{--pline-accent:79,140,124;}
   .pline.tint-paper{--pline-accent:108,138,168;}
@@ -903,19 +822,13 @@
   .gcard .plink.secondary:hover{color:var(--ink);}
   .gcard .plink.secondary .pkg-icon{width:12px; height:12px; flex:0 0 auto;}
 
-  /* ============================================================
-     TEST — "moment" card variant (2026-08-01)
-     크림팡 카드 1개에만 적용해보는 실험용 스타일.
-     기존 .gcard/.pfooter/.plink 규칙은 전혀 수정하지 않고,
-     .gcard--moment 스코프 안에서만 추가로 덮어씀 → 이 블록과
-     아래 마크업의 class="gcard--moment"만 지우면 100% 원상복구.
-     ============================================================ */
+  
   .gcard .moment-eyebrow{
     font-family:var(--font-kr-accent); font-style:normal; font-size:13.5px;
     color:var(--lavender-deep); display:block; margin:20px 0 12px;
   }
   .gcard--moment .pdesc{max-width:40ch; font-size:14px; line-height:1.85;}
-  /* 가격/버튼 영역을 기본으로는 조용히 숨겨두고, hover(또는 키보드 포커스) 시에만 드러냄 */
+  
   .gcard--moment .pfooter{
     opacity:0; transform:translateY(6px);
     transition:opacity .28s ease, transform .28s ease;
@@ -924,7 +837,7 @@
   .gcard--moment:focus-within .pfooter{
     opacity:1; transform:translateY(0);
   }
-  /* 터치 기기는 hover가 없으니 늘 보이되, 톤만 은은하게 */
+  
   @media (hover:none){
     .gcard--moment .pfooter{opacity:0.82; transform:none;}
   }
@@ -956,8 +869,7 @@
   }
   @media (max-width:520px){ .pgrid{grid-template-columns:1fr;} }
 
-  /* brand film lightbox — 재생 버튼 클릭 시 화면 중앙에 큰 사이즈로 영상 재생.
-     pkg-modal과 동일한 open/close 인터랙션 패턴 재사용. */
+  
   .film-lightbox{
     position:fixed; inset:0; z-index:500; display:none;
     align-items:center; justify-content:center; padding:32px;
@@ -982,8 +894,7 @@
     .film-lightbox-close{top:-40px; right:0;}
   }
 
-  /* DDP 팝업 상세 모달 — 리플렛을 그대로 옮기지 않고 에디토리얼 구조(히어로 → 컨셉 스테이트먼트 →
-     Zone 여정 → 현장 갤러리)로 재구성 (2026-08-01). pkg-modal과 동일한 open/close 인터랙션 패턴 재사용. */
+  
   .ddp-modal-overlay{
     position:fixed; inset:0; z-index:300; display:none;
     align-items:flex-start; justify-content:center; padding:5vh 20px;
@@ -1005,9 +916,7 @@
     display:flex; align-items:center; justify-content:center;
   }
   .ddp-modal-close:hover{background:var(--ink);}
-  /* 히어로 캐러셀 (2026-08-04) — 21st.dev "framer-normal-carousel" 참고: React/Motion 컴포넌트를
-     그대로 쓰지 않고, 슬라이드 트랙 translateX + prev/next + dot indicator를 바닐라 JS/CSS로 재구현.
-     전시 동선 순서: 입장존 → 포토존 → 영상존 → 체험존. */
+  
   .ddp-hero-carousel{position:relative; width:100%; aspect-ratio:16/10; overflow:hidden; border-radius:8px 8px 0 0; background:var(--ink);}
   .ddp-hero-track{display:flex; width:100%; height:100%; transition:transform .6s var(--ease-premium,cubic-bezier(.16,1,.3,1));}
   .ddp-hero-slide{position:relative; flex:0 0 100%; width:100%; height:100%;}
@@ -1033,8 +942,7 @@
   .ddp-hero-dots .dot{width:6px; height:6px; border-radius:100px; background:rgba(255,255,255,0.5); cursor:pointer; transition:width .3s ease, background .3s ease;}
   .ddp-hero-dots .dot.active{width:18px; background:var(--white);}
 
-  /* 청와대/호텔콜라보/브랜드콜라보 모달 — 히어로가 캐러셀이 아니라 단일 이미지인 버전.
-     .ddp-modal-overlay 등 나머지 클래스는 DDP 모달과 그대로 공유해서 톤을 통일함. */
+  
   .exp-modal-hero{width:100%; aspect-ratio:16/10; overflow:hidden; border-radius:8px 8px 0 0;}
   .exp-modal-hero img{width:100%; height:100%; object-fit:cover; display:block;}
   @media (max-width:600px){ .exp-modal-hero{border-radius:0; aspect-ratio:4/3;} }
@@ -1059,7 +967,7 @@
   }
   .ddp-statement-en{font-size:12.5px; line-height:1.7; color:var(--ink-soft); margin:0;}
 
-  /* 포스터/리플렛 — 호버 시 확대 미리보기(순수 CSS) + 클릭 시 기존 pkg-modal 라이트박스 재사용 */
+  
   .ddp-doc-btns{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;}
   .ddp-doc-btn{
     position:relative; padding:10px 18px; border-radius:100px; border:1px solid var(--line);
@@ -1093,11 +1001,7 @@
   .ddp-zone-step p{font-size:13px; line-height:1.75; color:var(--ink-soft); margin:0;}
   .ddp-zone-step p i{font-style:italic;}
 
-  /* 현장 갤러리 — s1~s15 (2026-08-04, s5는 영상존 히어로 슬라이드와 중복이라 하단 갤러리에서 제외) —
-     2026-08-04 재작업: 세로 사진(팩트를 든 손 클로즈업 등)이 고정 그리드 칸에서 위아래로 잘리는
-     문제가 있어, object-fit:cover 그리드 대신 CSS 컬럼(매스너리) 방식으로 전환 — 각 사진을 원본
-     비율 그대로(height:auto) 보여줘서 세로/가로 상관없이 내용이 잘리지 않음. s7만 column-span:all로
-     전체 폭을 차지하는 피처 컷으로 살짝 리듬을 줌. */
+  
   .ddp-gallery{
     columns:3 200px; column-gap:8px; margin:36px 0 32px;
   }
@@ -1145,11 +1049,7 @@
   }
   .vision-note b{color:var(--ink);}
 
-  /* ============================================================
-     BRAND HISTORY / SELECTED PROJECTS / RETAIL NETWORK
-     Warm Morning 원칙 적용 (2026-07-31 재설계) — 진한 보라 배경 폐기.
-     Warm Ivory 70% / Light Oak 20% / Lavender 10%(포인트 전용).
-     ============================================================ */
+  
   .zone-ivory{background:var(--paper);}
   .zone-oak{background:var(--oak);}
   .zone-white{background:var(--white);}
@@ -1172,8 +1072,6 @@
     scrollbar-width:thin;
   }
   .milestone-track::before{
-    /* 점(.dot) 중심(트랙 padding-top 10px + dot 높이 13px의 절반)과 정확히 맞춤 —
-       예전엔 top:38px로 하드코딩돼 있어 점 중심(16.5px)과 21.5px 어긋나 있었음 (2026-08-17) */
     content:""; position:absolute; left:4px; right:4px; top:16.5px; height:1px;
     background:linear-gradient(90deg, rgba(156,106,140,0.45), rgba(156,106,140,0.45) 100%);
   }
@@ -1233,7 +1131,7 @@
   .proj-cat{margin-top:96px;}
   .proj-cat:first-of-type{margin-top:60px;}
 
-  /* Brand Experience — 순환 카드 캐러셀 (2026-08-04, 21st.dev circular-testimonials 동작 참고) */
+  
   .exp-carousel{display:grid; grid-template-columns:0.9fr 1fr; gap:70px; align-items:center; margin-top:8px;}
   .exp-stack{position:relative; width:100%; max-width:380px; aspect-ratio:4/5; margin:0 auto;}
   .exp-card{
@@ -1270,15 +1168,13 @@
     .exp-desc{min-height:0;}
   }
 
-  /* Global Exhibitions & Retail / Space & Retail Design — 21st.dev "framer-thumbnails" 참고,
-     Brand Film 레일과 동일한 자동 슬라이드 구조(.film-rail-wrap/.film-rail/.film-item)를 재사용
-     (2026-08-03). 사진 전용 아이템이라 .film-play 대신 .rail-photo(썸네일)만 들어감. */
+  
   .rail-photo{
     display:block; width:100%; aspect-ratio:4/3; object-fit:cover;
   }
   .film-item .img-placeholder{aspect-ratio:4/3;}
 
-  /* 섹션 전환부 여백을 "의도된 숨"으로 읽히게 하는 얇은 구분선 + 캡션 (2026-08-03) */
+  
   .section-divider{display:flex; align-items:center; justify-content:center; gap:18px; margin:0 0 60px;}
   .section-divider::before, .section-divider::after{content:""; flex:1 1 0; max-width:100px; height:1px; background:var(--line);}
   .section-divider span{font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); white-space:nowrap;}
@@ -1333,9 +1229,7 @@
     .founder-body{max-width:none; padding:0 26px 96px; justify-content:flex-end;}
     .founder-play{right:26px; top:auto; bottom:26px; transform:none; width:58px; height:58px;}
     .founder-card:hover .founder-play{transform:scale(1.08);}
-    /* 2026-08-18 추가 — 인터뷰 스틸컷(1100x499, 21:9용)을 모바일 4:5 세로 카드에
-       넣으면 폭의 36%만 보이는데, 기본 50% 중앙 크롭은 대표님 얼굴이 사진 오른쪽에
-       있어서 배경 벽/말풍선만 보이고 얼굴이 빠짐(모바일 확인 중 발견). 오른쪽으로 이동. */
+    
     .founder-card img{object-position:82% 50%;}
   }
 
@@ -1388,10 +1282,7 @@
     font-family:var(--serif); font-style:italic; color:var(--ink);
     font-size:clamp(1.05rem,1.8vw,1.35rem); letter-spacing:0.01em; margin:0;
   }
-  /* 편지처럼 마무리하는 서명 (2026-08-03) — 원래 있던 문구를 영상 바로 아래에 두고,
-     문단 간격을 둔 뒤 "Love, Cocoheali" 서명이 이어지도록. "Love," 작고 옅게,
-     "Cocoheali" 크고 진하게, 둘 다 Fraunces 이탤릭으로 손글씨 서명 톤. 아래 별도
-     COCOHEALI 워드마크는 서명과 중복이라 제거함(2026-08-03). */
+  
   .closing .signoff{margin:36px 0 0;}
   .closing .signoff .signoff-love{
     display:block; font-family:var(--font-en-accent); font-style:italic; font-weight:500;
@@ -1410,11 +1301,7 @@
   .reveal{opacity:0; transform:translateY(18px); transition:opacity .8s ease, transform .8s ease;}
   .reveal.in{opacity:1; transform:none;}
 
-  /* scroll-stagger reveal engine — GSAP ScrollTrigger 방식의 "스크롤 시 텍스트·이미지·영상이
-     순차 등장" 연출을 vanilla JS로 구현 (2026-08-02). 이 파일은 EXPORT_RULE.md에 따라 CDN 없는
-     단일 self-contained HTML로 빌드되므로 GSAP/AOS를 그대로 불러오는 대신 동일한 시각 효과를
-     IntersectionObserver + CSS transition-delay로 재현함. .reveal-group(섹션 단위) 안의
-     .reveal-item들이 진입 시 순서대로 살짝 늦게 나타남. */
+  
   .reveal-group .reveal-item{
     opacity:0; transform:translateY(26px);
     transition:opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
@@ -1464,28 +1351,28 @@
 <body class="gate-active">
 
 <div class="intro-gate" id="introGate">
-  <button type="button" class="intro-mark" id="introMark" aria-label="코코힐리 브랜드소개서 열기">
-    <img src="assets/h-mark.png" alt="">
+  <button type="button" class="intro-mark" id="introMark" aria-label="打开 Cocoheali 品牌介绍页面">
+    <img src="../assets/h-mark.png" alt="">
   </button>
 </div>
 
 <header class="top" id="siteHeader">
-  <img src="assets/logo.png" alt="cocoheali">
+  <img src="../assets/logo.png" alt="cocoheali">
   <nav>
     <span id="hdrChapter">Brand Introduction</span>
-    <span class="lang-switch" role="group" aria-label="언어 선택">
-      <a href="./" class="is-current" aria-current="page">KR</a>
-      <a href="en/">EN</a>
-      <a href="zh/">中文</a>
+    <span class="lang-switch" role="group" aria-label="语言选择">
+      <a href="../">KR</a>
+      <a href="../en/">EN</a>
+      <a href="./" class="is-current" aria-current="page">中文</a>
     </span>
-    <a href="quote.html" class="quote-cta" target="_blank" rel="noopener"><span class="cta-full">견적요청</span><span class="cta-short">견적</span></a>
+    <a href="../quote.html" class="quote-cta" target="_blank" rel="noopener"><span class="cta-full">申请报价</span><span class="cta-short">报价</span></a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="assets/last_ending.png" alt="코코힐리 — 부모의 손과 아이의 손이 클렌징팩을 주고받는 순간">
+    <img src="../assets/last_ending.png" alt="Cocoheali —— 父母的手将洁颜粉饼盒递到孩子手中的瞬间">
   </div>
   <div class="hero-scrollcue reveal">
     <span>Scroll ↓</span>
@@ -1498,24 +1385,24 @@
   <div class="story-split">
     <div class="text-block story-text">
       <p class="eyebrow reveal-item">Brand Story</p>
-      <h2 class="reveal-item">엄마처럼,<br><span class="zone-accent">스스로</span> 해보고 싶은 마음.</h2>
+      <h2 class="reveal-item">像妈妈一样，<br>也想<span class="zone-accent">自己</span>来试一试。</h2>
       <div class="reveal-item">
-        <p>아이들은 예뻐지고 싶어서<br>엄마를 따라 하는 것이 아닙니다.</p>
-        <p>엄마처럼 스스로 해보고 싶은 마음.</p>
-        <p>코코힐리는<br>엄마의 화장품처럼 익숙한 모습 안에,<br>아이를 위한 안전한 스킨케어를 담았습니다.</p>
-        <p class="decl" style="margin-top:30px;">엄마를 따라 하던 순간을,<br>아이의 <span class="sc-phrase">첫 <span class="sc-word">Self Care</span> 경험</span>으로 바꿉니다.</p>
+        <p>孩子模仿妈妈，<br>并不是因为想变漂亮。</p>
+        <p>而是想要像妈妈一样，自己试试看。</p>
+        <p>Cocoheali 在妈妈化妆品般熟悉的外形里，<br>装入了专为孩子打造的<br>安心护肤配方。</p>
+        <p class="decl" style="margin-top:30px;">我们把模仿妈妈的那一刻，<br>变成孩子<span class="sc-phrase">第一次 <span class="sc-word">Self Care</span> 体验</span>。</p>
       </div>
     </div>
     <div class="story-video reveal-item">
-      <video class="story-film" id="storyFilmVideo" src="assets/coco_brandfilm_story.mp4" poster="assets/poster-storyfilm.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
-      <img class="story-logo" id="storyLogo" src="assets/logo-story-end.png" alt="cocoheali">
+      <video class="story-film" id="storyFilmVideo" src="../assets/coco_brandfilm_story.mp4" poster="../assets/poster-storyfilm.jpg" muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <img class="story-logo" id="storyLogo" src="../assets/logo-story-end.png" alt="cocoheali">
     </div>
   </div>
 </section>
 
-<!-- FULLBLEED STATEMENT — 풀블리드 사진 + 큰 오버레이 카피 (Behance/Glossier 레퍼런스 리듬 참고) -->
+<!-- FULLBLEED STATEMENT -->
 <div class="bleed-statement reveal-group">
-  <img src="assets/mood-happyface.jpg" alt="편안하게 눈을 감고 웃는 아이">
+  <img src="../assets/mood-happyface.jpg" alt="轻轻闭上眼睛微笑的孩子">
   <div class="stmt-scrim" aria-hidden="true"></div>
   <div class="stmt-overlay reveal-item">
     <p class="stmt-text-en">
@@ -1524,24 +1411,24 @@
       <span class="stmt-en-base">of doing it yourself.</span>
     </p>
   </div>
-  <p class="stmt-caption-kr reveal-item">스스로 하는 얼굴과 따라하는 얼굴은 표정이 다릅니다.</p>
+  <p class="stmt-caption-kr reveal-item">靠自己做到时的神情，和只是模仿时，是不一样的。</p>
 </div>
 
-<!-- BRAND PHILOSOPHY — 풀블리드 컬러 스테이트먼트 (2026-08-03, Glossier 레퍼런스) -->
+<!-- BRAND PHILOSOPHY -->
 <section class="phil-statement reveal-group">
   <div class="wrap">
-    <p class="stmt-text reveal-item">코코힐리에게 셀프케어란,<br>아이가 <span class="stmt-accent">스스로 해내는 즐거움</span>을<br>발견하는 과정입니다.</p>
-    <p class="phil-stmt-sub reveal-item">우리는 화장품을 파는 브랜드가 아니라,<br>아이가 스스로 돌보는 첫 Self Care 경험을<br>만드는 브랜드입니다.</p>
+    <p class="stmt-text reveal-item">对 Cocoheali 而言，Self Care 是一个过程——<br>让孩子发现，<br><span class="stmt-accent">原来靠自己做到，是这样快乐</span>。</p>
+    <p class="phil-stmt-sub reveal-item">我们不是只卖化妆品的品牌，<br>而是为孩子创造人生第一次<br>Self Care 体验的品牌。</p>
   </div>
 </section>
 
 <section class="phil-caption-section reveal-group">
   <div class="wrap">
     <div class="phil-caption-row reveal-item">
-      <div class="pcap-item"><span class="pcap-num">01</span><span class="pcap-label">Curiosity</span><span class="pcap-text">엄마를 따라 하며 시작된 작은 호기심</span></div>
-      <div class="pcap-item"><span class="pcap-num">02</span><span class="pcap-label">I Can Do It</span><span class="pcap-text">스스로 해보며 얻는 첫 자신감</span></div>
-      <div class="pcap-item"><span class="pcap-num">03</span><span class="pcap-label">Daily Ritual</span><span class="pcap-text">매일 반복되는 즐거운 셀프케어 습관</span></div>
-      <div class="pcap-item"><span class="pcap-num">04</span><span class="pcap-label">Skin &amp; Self</span><span class="pcap-text">건강한 피부와 자기효능감이 함께 자라는 순간</span></div>
+      <div class="pcap-item"><span class="pcap-num">01</span><span class="pcap-label">Curiosity</span><span class="pcap-text">从模仿妈妈开始的小小好奇心</span></div>
+      <div class="pcap-item"><span class="pcap-num">02</span><span class="pcap-label">I Can Do It</span><span class="pcap-text">自己试一试，收获的第一份自信</span></div>
+      <div class="pcap-item"><span class="pcap-num">03</span><span class="pcap-label">Daily Ritual</span><span class="pcap-text">每天重复的快乐 Self Care 习惯</span></div>
+      <div class="pcap-item"><span class="pcap-num">04</span><span class="pcap-label">Skin &amp; Self</span><span class="pcap-text">健康肌肤与“我也能做到”的信心一同成长的瞬间</span></div>
     </div>
   </div>
 </section>
@@ -1550,39 +1437,35 @@
 <section class="wrap pad-l reveal">
   <p class="eyebrow center" style="text-align:center;">Brand Film</p>
   <div class="film-rail-wrap">
-    <button type="button" class="rail-nav prev" aria-label="이전 영상">‹</button>
-    <button type="button" class="rail-nav next" aria-label="다음 영상">›</button>
+    <button type="button" class="rail-nav prev" aria-label="上一个视频">‹</button>
+    <button type="button" class="rail-nav next" aria-label="下一个视频">›</button>
     <div class="film-rail">
       <div class="film-item">
-        <button type="button" class="film-play" data-src="assets/brandfilm-animation.mp4" aria-label="브랜드 애니메이션 재생">
-          <img src="assets/poster-brandstory.jpg" alt="브랜드 애니메이션">
+        <button type="button" class="film-play" data-src="../assets/brandfilm-animation.mp4" aria-label="播放品牌动画">
+          <img src="../assets/poster-brandstory.jpg" alt="品牌动画画面">
           <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l14-7.5z"></path></svg></span>
         </button>
-        <p class="film-cap"><b>브랜드 애니메이션</b></p>
+        <p class="film-cap"><b>品牌动画</b></p>
       </div>
       <div class="film-item">
-        <button type="button" class="film-play" data-src="assets/brandfilm-ad-yunji-rani.mp4" aria-label="매체 광고영상(윤지x라니) 재생">
-          <img src="assets/poster-ad1.jpg" alt="매체 광고영상 (윤지x라니)">
+        <button type="button" class="film-play" data-src="../assets/brandfilm-ad-yunji-rani.mp4" aria-label="播放品牌广告片（Yoonji x Rani）">
+          <img src="../assets/poster-ad1.jpg" alt="品牌广告片画面（Yoonji x Rani）">
           <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l14-7.5z"></path></svg></span>
         </button>
-        <p class="film-cap"><b>매체 광고영상</b> (윤지x라니)</p>
+        <p class="film-cap"><b>品牌广告片</b>（Yoonji x Rani）</p>
       </div>
       <div class="film-item">
-        <button type="button" class="film-play" data-src="assets/brandfilm-ad-songkyunga.mp4" aria-label="매체 광고영상(송경아) 재생">
-          <img src="assets/poster-ad2.jpg" alt="매체 광고영상 (송경아)">
+        <button type="button" class="film-play" data-src="../assets/brandfilm-ad-songkyunga.mp4" aria-label="播放品牌广告片（Song Kyung-ah）">
+          <img src="../assets/poster-ad2.jpg" alt="品牌广告片画面（Song Kyung-ah）">
           <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l14-7.5z"></path></svg></span>
         </button>
-        <p class="film-cap"><b>매체 광고영상</b> (송경아)</p>
+        <p class="film-cap"><b>品牌广告片</b>（Song Kyung-ah）</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COLOR STATEMENT — 에디토리얼 재해석: Little Hands (2026-08-15, Codex 브레인스토밍 1안
-     "타이포가 사진을 가르는 오버사이즈 스프레드" 채택 — "Little Hands." / 사진 /
-     "Lifelong Habits." 세 요소가 서로 다른 기준선에서 겹치며 지나가고, 본문은 카드 없이
-     여백에 좁은 단으로 배치. 문장 자체("Little Hands. Lifelong Habits.")와 본문 카피는
-     그대로, 그래픽으로 조판만 다시 함) -->
+<!-- COLOR STATEMENT — editorial reinterpretation: Little Hands -->
 <section class="editorial-bleed reveal-group">
   <div class="eb-inner">
     <div class="eb-headline reveal-item">
@@ -1592,54 +1475,53 @@
     <div class="eb-row">
       <div class="eb-copy reveal-item">
         <span class="eb-tag">01 / First Ritual</span>
-        <p class="eb-body">아이는 스스로 해보는 동안<br>어떻게 해야 할지 생각하고,<br>자기만의 방법을 찾아갑니다.</p>
-        <p class="eb-body">그래서 우리는<br><span class="eb-accent">아이의 작은 손에서</span> 시작했습니다.</p>
-        <p class="eb-body eb-final"><span class="eb-accent">스스로 해보고,<br>스스로 해낼 수 있도록.</span></p>
+        <p class="eb-body">孩子自己动手尝试的时候，<br>会一边思考该怎么做，<br>一边找到属于自己的方法。</p>
+        <p class="eb-body">所以我们从<br><span class="eb-accent">孩子的小手</span>开始。</p>
+        <p class="eb-body eb-final"><span class="eb-accent">让他们能够自己尝试，<br>也能自己完成。</span></p>
       </div>
       <div class="eb-photo">
-        <img src="assets/brand_background_creampang01.jpg" alt="아이의 두 손이 코코힐리 크림팡 팩트를 여는 클로즈업">
+        <img src="../assets/brand_background_creampang01.jpg" alt="孩子的两只小手打开 Cocoheali Cream Pang Compact 的特写">
       </div>
     </div>
     <p class="eb-h3 reveal-item">Lifelong <em>Habits.</em></p>
   </div>
 </section>
 
-<!-- CHAPTER 02 표식 (2026-08-16) — 다음 풀블리드 섹션이 배경 꽉 채우는 구조라 여기서
-     별도 wrap으로 챕터 번호만 조용히 얹음 -->
+<!-- CHAPTER 02 marker — placed in its own wrap since the next section is full-bleed -->
 <div class="wrap pad-m reveal-group" style="padding-bottom:0;">
   <div class="chapter-mark reveal-item" data-chapter="02"><span class="ch-num">02</span><span class="ch-name">Product World</span></div>
 </div>
 
-<!-- LIP BALM — 섹션 A: 메인 풀블리드 (2026-08-03) -->
+<!-- LIP BALM — Section A: main full-bleed -->
 <section class="lipbalm-bleed reveal-group">
-  <img src="assets/brand_backgraound_lipbalm_.jpg" alt="아이가 코코힐리 립밤을 볼에 대는 모습">
+  <img src="../assets/brand_backgraound_lipbalm_.jpg" alt="孩子把 Cocoheali 唇膏抹在脸颊上的样子">
   <div class="lb-overlay reveal-item">
     <span class="lb-badge">Lip &amp; Cheek</span>
-    <h3 class="lb-headline"><span class="lb-base">화장 아니고,</span><span class="lb-accent">보습인데요.</span></h3>
-    <p class="lb-sub">아이들은 예쁜 컬러를 즐기고,<br>엄마는 촉촉한 보습을 안심합니다.<br><br>입술에도, 볼에도 콕콕.<br>착색 없이 보습만 남기는<br>아이를 위한 <b class="lb-sub-accent">Lip &amp; Cheek Balm</b></p>
+    <h3 class="lb-headline"><span class="lb-base">不是化妆，</span><span class="lb-accent">是在保湿呀。</span></h3>
+    <p class="lb-sub">孩子享受漂亮的颜色，<br>妈妈也能放心，<br>它带来的只是水润呵护。<br><br>点一点唇上，点一点脸颊。<br>不染色，只留下水润，<br>专为孩子设计的 <b class="lb-sub-accent">Lip &amp; Cheek Balm</b>。</p>
   </div>
   <div class="lb-object reveal-item">
-    <div class="lb-object-img"><img src="assets/lipbalm-package.png" alt="코코힐리 큐브립밤 패키지"></div>
-    <p class="lb-object-caption">저자극 유아용 립밤.<br>입술에도 볼에도, 컬러와 보습을 함께.</p>
+    <div class="lb-object-img"><img src="../assets/lipbalm-package.png" alt="Cocoheali Cube Lip Balm 包装"></div>
+    <p class="lb-object-caption">温和低刺激的儿童唇膏。<br>唇部脸颊都能用，色彩与保湿一次拥有。</p>
   </div>
 </section>
 
-<!-- LIP BALM — 섹션 B: 큐브립밤 갤러리 스트립 -->
+<!-- LIP BALM — Section B: Cube Lip Balm gallery strip -->
 <section class="lipbalm-gallery reveal-group">
   <div class="wrap">
     <span class="lg-label reveal-item">Cube Lip Balm — Ring &amp; Balm in One</span>
     <div class="lg-grid reveal-item">
       <div class="lg-item-1">
-        <img src="assets/lipbalm-ring-peel.jpg" alt="스티커처럼 립밤 반지를 떼어내는 손 클로즈업">
-        <p class="lg-caption">스티커처럼 떼어 끼우는 립밤 링</p>
+        <img src="../assets/lipbalm-ring-peel.jpg" alt="像撕贴纸一样撕下唇膏戒指的手部特写">
+        <p class="lg-caption">像贴纸一样撕下佩戴的唇膏戒指</p>
       </div>
       <div class="lg-item-2">
-        <img src="assets/lipbalm-ring-face.jpg" alt="반지를 낀 채 얼굴을 만지는 아이">
-        <div class="lg-item-3"><img src="assets/lipbalm-swatch-cutout.png" alt=""></div>
+        <img src="../assets/lipbalm-ring-face.jpg" alt="戴着戒指抚摸脸颊的孩子">
+        <div class="lg-item-3"><img src="../assets/lipbalm-swatch-cutout.png" alt=""></div>
       </div>
       <div class="lg-item-5">
-        <img src="assets/lipbalm-pinkberry-wide.jpg" alt="핑크베리 컬러 큐브립밤을 볼에 대보는 아이">
-        <p class="lg-caption">착색없는 컬러 보습케어<br>콕콕</p>
+        <img src="../assets/lipbalm-pinkberry-wide.jpg" alt="把 Pink Berry 色 Cube Lip Balm 抹在脸颊上的孩子">
+        <p class="lg-caption">不留色的彩色保湿护理<br>轻轻一点</p>
       </div>
     </div>
   </div>
@@ -1649,95 +1531,91 @@
 <section class="wrap pad-xl reveal-group" id="products">
   <span class="pill-badge reveal-item">Product World</span>
   <div class="product-head">
-    <h2 class="reveal-item">세 갈래의 <span class="accent-italic">놀이</span>,<br>하나의 습관.</h2>
-    <p class="lede reveal-item">이 마음을 담은, 코코힐리의 도구들 — 아래 제품들은 각자의 놀이 방식으로 같은 습관을 만듭니다.</p>
+    <h2 class="reveal-item">三种<span class="accent-italic">玩法</span>，<br>一个习惯。</h2>
+    <p class="lede reveal-item">承载这份心意的 Cocoheali 小工具 —— 以下产品用各自的玩法，塑造同一个习惯。</p>
   </div>
 
   <div class="pline pline--pair tint-lavender" style="margin-top:64px;">
     <div class="pline-head">
       <span class="pline-num">01</span>
       <span class="pline-tag">Pang Line</span>
-      <p class="pline-desc">쿠션처럼 팡팡, 재미있게 바르는 보습</p>
+      <p class="pline-desc">像气垫一样啪啪拍打，趣味十足的保湿方式</p>
     </div>
     <div class="pgrid">
       <div class="gcard gcard--moment" tabindex="0">
         <div class="pimg has-texture">
           <span class="badge-signature">Signature</span>
-          <div class="slide active"><img src="assets/p-creampang.png" alt="크림팡 팩트 핑크"></div>
-          <div class="slide"><img src="assets/p-creampang-2.png" alt="크림팡 팩트 퍼플"></div>
+          <div class="slide active"><img src="../assets/p-creampang.png" alt="Cream Pang Compact，粉色"></div>
+          <div class="slide"><img src="../assets/p-creampang-2.png" alt="Cream Pang Compact，紫色"></div>
           <video class="pimg-texture" muted loop playsinline preload="none">
-            <source src="assets/texture-creampang.mp4" type="video/mp4">
+            <source src="../assets/texture-creampang.mp4" type="video/mp4">
           </video>
-          <span class="texture-badge">제형 보기</span>
-          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
-          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <span class="texture-badge">查看质地</span>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="上一张图片">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="下一张图片">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
         </div>
-        <span class="moment-eyebrow">아침을 시작하는 가장 작은 습관.</span>
-        <h4>크림팡 팩트</h4>
-        <p class="pdesc">세라마이드 5종과 식물 유래 보습 성분을 담은 고보습 크림팩트. 아이 스스로 팡팡 두드리며, 매일의 첫 스킨케어 습관을 만들어갑니다.</p>
+        <span class="moment-eyebrow">用一个小小的习惯，开启清晨。</span>
+        <h4>Cream Pang Compact</h4>
+        <p class="pdesc">蕴含 5 种神经酰胺与植物来源保湿成分的盒装高保湿乳霜。孩子自己轻轻拍在肌肤上，一点点养成最初的日常护肤习惯。</p>
         <div class="pfooter">
-          <span class="pmeta">22g · 38,000원 · 핑크/퍼플</span>
+          <span class="pmeta">22g · KRW 38,000 · 粉色/紫色</span>
           <span class="plinks">
-            <button type="button" class="plink secondary" data-pkg="assets/package/creampang_raster.png" data-pkg-name="크림팡 팩트 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
-            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%AC%EB%A6%BC%ED%8C%A1-%ED%8C%A9%ED%8A%B8-%ED%95%91%ED%81%AC/188/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <button type="button" class="plink secondary" data-pkg="../assets/package/creampang_raster.png" data-pkg-name="Cream Pang Compact · 包装图"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>包装与成分</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%AC%EB%A6%BC%ED%8C%A1-%ED%8C%A9%ED%8A%B8-%ED%95%91%ED%81%AC/188/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
       <div class="gcard gcard--moment" tabindex="0">
         <div class="pimg has-texture">
           <span class="badge-signature">Best</span>
-          <div class="slide active"><img src="assets/p-sunnypang.png" alt="써니팡 팩트 옐로우"></div>
-          <div class="slide"><img src="assets/p-sunnypang-2.png" alt="써니팡 팩트 민트"></div>
+          <div class="slide active"><img src="../assets/p-sunnypang.png" alt="Sunny Pang Compact，黄色"></div>
+          <div class="slide"><img src="../assets/p-sunnypang-2.png" alt="Sunny Pang Compact，薄荷绿"></div>
           <video class="pimg-texture" muted loop playsinline preload="none">
-            <source src="assets/texture-sunnypang.mp4" type="video/mp4">
+            <source src="../assets/texture-sunnypang.mp4" type="video/mp4">
           </video>
-          <span class="texture-badge">제형 보기</span>
-          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
-          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <span class="texture-badge">查看质地</span>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="上一张图片">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="下一张图片">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
         </div>
-        <span class="moment-eyebrow">문을 나서기 전, 마지막으로 챙기는</span>
-        <h4>써니팡 팩트</h4>
-        <p class="pdesc">SPF 50+ / PA++++의 강력한 자외선 차단 기능성과 백탁 없이 편안하게 스며드는 무기자차 선케어. 스트랩을 목에 걸고 놀이터에서도, 소풍에서도, 물놀이에서도 아이 스스로 꺼내 톡톡. 언제든 덧바르는, 아이의 첫 선케어 습관.</p>
+        <span class="moment-eyebrow">出门前，最后要带上的</span>
+        <h4>Sunny Pang Compact</h4>
+        <p class="pdesc">SPF50+/PA++++高倍防护力，不泛白、轻盈贴肤的物理防晒。挂在脖子上，无论在游乐场、野餐还是玩水时，孩子都能自己拿出来轻轻一拍。随时补涂，孩子的第一个防晒习惯。</p>
         <div class="pfooter">
-          <span class="pmeta">22g · 38,000원 · 옐로우/민트</span>
+          <span class="pmeta">22g · KRW 38,000 · 黄色/薄荷绿</span>
           <span class="plinks">
-            <button type="button" class="plink secondary" data-pkg="assets/package/sunnypang_raster.png" data-pkg-name="써니팡 팩트 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
-            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%8D%A8%EB%8B%88%ED%8C%A1%ED%8C%A9%ED%8A%B8-%EB%A0%88%EB%AA%AC-22g-spf-50-pa/190/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <button type="button" class="plink secondary" data-pkg="../assets/package/sunnypang_raster.png" data-pkg-name="Sunny Pang Compact · 包装图"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>包装与成分</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%8D%A8%EB%8B%88%ED%8C%A1%ED%8C%A9%ED%8A%B8-%EB%A0%88%EB%AA%AC-22g-spf-50-pa/190/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- CREAMPANG FEATURE — 시그니처 제품 전용 스포트라이트 (2026-08-16, .sunny-feature와
-       동일 구조 재사용 — 사용자 지시: "써니팡처럼 전용 섹션 신설". 크림팡 카드만 유일하게
-       호버 시 제형 영상만 있고 모델컷이 없던 것 + 써니팡에만 있던 스포트라이트 섹션이
-       진짜 시그니처 제품인 크림팡엔 없던 구조적 비대칭을 보완. 헤드라인·스펙은
-       foundation/products/creampang.md 팩트시트 근거만 사용, 사용자가 A안(거울 앵글)
-       확정. */ -->
+  <!-- CREAMPANG FEATURE — dedicated spotlight for the signature product, mirroring the
+       Sunny Pang feature below (same .sunny-feature markup, reused) -->
   <div class="sunny-feature">
     <div class="sunny-feature-grid">
       <div class="sunny-feature-card">
         <span class="sf-badge">Daily Ritual</span>
-        <h3 class="sf-headline">화장 거울이 아니라, <span class="sf-accent">스스로를 돌보는 거울</span>입니다.</h3>
+        <h3 class="sf-headline">不是化妆镜，<span class="sf-accent">而是一面让孩子学会照顾自己的镜子</span>。</h3>
         <p class="sf-subline">Creampang is made to be a mirror to yourself.</p>
-        <p class="sf-body">팡팡 두드리며<br>오늘의 내 얼굴을 마주하는 시간</p>
+        <p class="sf-body">轻轻拍一拍，<br>好好看看今天自己的小脸。</p>
         <div class="sf-specs">
-          <div class="sf-spec-row"><span class="sf-spec-key">5 Ceramides + Shea Butter</span><span class="sf-spec-desc">고보습 유래 성분</span></div>
-          <div class="sf-spec-row"><span class="sf-spec-key">Hypoallergenic Tested</span><span class="sf-spec-desc">무자극 테스트 완료</span></div>
-          <div class="sf-spec-row"><span class="sf-spec-key">Refill System</span><span class="sf-spec-desc">케이스는 그대로, 속만 교체</span></div>
+          <div class="sf-spec-row"><span class="sf-spec-key">5 Ceramides + Shea Butter</span><span class="sf-spec-desc">高保湿来源成分</span></div>
+          <div class="sf-spec-row"><span class="sf-spec-key">Hypoallergenic Tested</span><span class="sf-spec-desc">已完成低刺激测试</span></div>
+          <div class="sf-spec-row"><span class="sf-spec-key">Refill System</span><span class="sf-spec-desc">外壳不变，只需替换内芯</span></div>
         </div>
       </div>
       <div class="sunny-feature-photo">
-        <img src="assets/brand_background_pangface.jpg" alt="크림팡 거울로 자기 얼굴을 비춰보며 웃는 아이">
+        <img src="../assets/brand_background_pangface.jpg" alt="对着 Cream Pang Compact 镜子照自己、开心微笑的孩子">
         <div class="sf-pair-wrap">
           <div class="sf-pair-hover cp-pair-hover">
-            <img class="cp-pair-closed" src="assets/creampang-closed.png" alt="닫혀있는 크림팡 팩트">
-            <img class="cp-pair-open" src="assets/creampang-open.png" alt="열려있는 크림팡 팩트">
+            <img class="cp-pair-closed" src="../assets/creampang-closed.png" alt="闭合状态的 Cream Pang Compact">
+            <img class="cp-pair-open" src="../assets/creampang-open.png" alt="打开状态的 Cream Pang Compact">
           </div>
-          <p class="sf-pair-note">톡 열면, <b>오늘의 첫 습관</b></p>
+          <p class="sf-pair-note">轻轻一开，<br><b>今天的第一个习惯</b></p>
         </div>
       </div>
     </div>
@@ -1747,24 +1625,24 @@
     <div class="sunny-feature-grid">
       <div class="sunny-feature-card">
         <span class="sf-badge">UV Care</span>
-        <h3 class="sf-headline">선크림을 챙기는 아이는 없습니다. <span class="sf-accent">좋아하는 가방은 스스로</span> 챙기죠.</h3>
+        <h3 class="sf-headline">没有孩子会主动记得带防晒霜。<span class="sf-accent">但喜欢的包包，他们会自己背上。</span></h3>
         <p class="sf-subline">Sunny Pang is made to be carried.</p>
-        <p class="sf-body">목에 걸고 뛰어놀다가<br>생각날 때마다 팡팡</p>
-        <p class="sf-pullquote"><span class="pq-base">선크림을 바르는 일은 엄마의 잔소리가 아니라</span><span class="pq-accent">아이의 습관이 됩니다.</span></p>
+        <p class="sf-body">挂在脖子上尽情玩耍，<br>想起来就啪啪拍一下。</p>
+        <p class="sf-pullquote"><span class="pq-base">涂防晒，不再是妈妈的一句句提醒，</span><span class="pq-accent">而成了孩子自己的习惯。</span></p>
         <div class="sf-specs">
-          <div class="sf-spec-row"><span class="sf-spec-key">SPF50+ / PA++++</span><span class="sf-spec-desc">자외선 차단 기능성</span></div>
-          <div class="sf-spec-row"><span class="sf-spec-key">Vitamin Ampoule</span><span class="sf-spec-desc">비타민 앰플 함유</span></div>
-          <div class="sf-spec-row"><span class="sf-spec-key">Hydrating UV Care</span><span class="sf-spec-desc">촉촉하게 채우는 선케어</span></div>
+          <div class="sf-spec-row"><span class="sf-spec-key">SPF50+ / PA++++</span><span class="sf-spec-desc">防紫外线功能性</span></div>
+          <div class="sf-spec-row"><span class="sf-spec-key">Vitamin Ampoule</span><span class="sf-spec-desc">含维他命安瓶</span></div>
+          <div class="sf-spec-row"><span class="sf-spec-key">Hydrating UV Care</span><span class="sf-spec-desc">水润保湿的防晒护理</span></div>
         </div>
       </div>
       <div class="sunny-feature-photo">
-        <img src="assets/brand_background_sunnypang.jpg" alt="모래사장에서 코코힐리 써니팡 팩트를 크로스백처럼 걸고 있는 모습">
+        <img src="../assets/brand_background_sunnypang.jpg" alt="在沙滩上像斜挎包一样佩戴 Cocoheali Sunny Pang Compact 的样子">
         <div class="sf-pair-wrap">
           <div class="sf-pair-hover">
-            <img class="sf-pair-base" src="assets/p-sunnypang.png" alt="써니팡 팩트">
-            <img class="sf-pair-swap" src="assets/p-cubenail.png" alt="큐브네일">
+            <img class="sf-pair-base" src="../assets/p-sunnypang.png" alt="Sunny Pang Compact">
+            <img class="sf-pair-swap" src="../assets/p-cubenail.png" alt="Cube Nail">
           </div>
-          <p class="sf-pair-note"><b>팩트 + 큐브네일</b><br>스스로 해보면, 나만의 멋진 방법을 발견할 수 있어요!</p>
+          <p class="sf-pair-note"><b>Compact + Cube Nail</b><br>自己动手试试看，会发现专属于你的精彩玩法！</p>
         </div>
       </div>
     </div>
@@ -1774,106 +1652,106 @@
     <div class="pline-head">
       <span class="pline-num">02</span>
       <span class="pline-tag">Cube &amp; immuimmu Line</span>
-      <p class="pline-desc">쌓고 붙이고 떼는 창의 놀이부터, 온 가족이 함께 쓰는 자연 유래 스킨케어까지 — 한 줄로 이어지는 놀이와 케어</p>
+      <p class="pline-desc">从堆叠、粘贴、撕下的创意玩法，到全家人都能一起使用的天然来源护肤 —— 让玩乐与呵护，连成一条线</p>
     </div>
     <div class="pgrid">
       <div class="gcard gcard--moment" tabindex="0">
         <div class="pimg has-texture">
           <span class="badge-signature">Best</span>
-          <div class="slide active"><img src="assets/p-lipbalm.png" alt="큐브립밤 핑크베리"></div>
-          <div class="slide"><img src="assets/p-lipbalm-2.png" alt="큐브립밤 오렌지팝"></div>
-          <img class="pimg-texture" src="assets/model-lipbalm.jpg" alt="큐브립밤을 직접 발라보는 아이">
-          <span class="texture-badge">모델 컷</span>
-          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
-          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="slide active"><img src="../assets/p-lipbalm.png" alt="Cube Lip Balm，Pink Berry"></div>
+          <div class="slide"><img src="../assets/p-lipbalm-2.png" alt="Cube Lip Balm，Orange Pop"></div>
+          <img class="pimg-texture" src="../assets/model-lipbalm.jpg" alt="亲自涂抹 Cube Lip Balm 的孩子">
+          <span class="texture-badge">实拍图</span>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="上一张图片">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="下一张图片">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
         </div>
-        <span class="moment-eyebrow">심심한 오후를 채우는 작은 놀이.</span>
-        <h4>큐브립밤</h4>
-        <p class="pdesc">자연 유래 오일 베이스의 착색없이 자연스러운 컬러 보습 립 앤 치크. 점선을 뜯어 나만의 반지를 만들며, 바르는 즐거움과 만드는 재미를 함께 누립니다.</p>
+        <span class="moment-eyebrow">填满无聊午后的小小游戏。</span>
+        <h4>Cube Lip Balm</h4>
+        <p class="pdesc">天然来源油脂基底，不留色、呈现自然色调的保湿唇颊两用膏。沿虚线撕下即可做成专属戒指，涂抹的乐趣与动手制作的趣味一次拥有。</p>
         <div class="pfooter">
-          <span class="pmeta">3g · 19,000원</span>
+          <span class="pmeta">3g · KRW 19,000</span>
           <span class="plinks">
-            <button type="button" class="plink secondary" data-pkg="assets/package/lipbalm_raster.png" data-pkg-name="큐브립밤 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
-            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%90%EB%B8%8C%EB%B0%98%EC%A7%80-%ED%95%91%ED%81%AC%EB%B2%A0%EB%A6%AC-%EC%BC%80%EC%96%B4-%EB%A6%BD%EB%B0%A4/183/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <button type="button" class="plink secondary" data-pkg="../assets/package/lipbalm_raster.png" data-pkg-name="Cube Lip Balm · 包装图"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>包装与成分</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%90%EB%B8%8C%EB%B0%98%EC%A7%80-%ED%95%91%ED%81%AC%EB%B2%A0%EB%A6%AC-%EC%BC%80%EC%96%B4-%EB%A6%BD%EB%B0%A4/183/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
       <div class="gcard gcard--moment" tabindex="0">
         <div class="pimg has-texture">
           <span class="badge-signature">Best</span>
-          <div class="slide active"><img src="assets/p-cubenail.png" alt="큐브네일 러브캔디"></div>
-          <div class="slide"><img src="assets/p-cubenail-2.png" alt="큐브네일 드림캔디"></div>
-          <div class="slide"><img src="assets/p-cubenail-3.png" alt="큐브네일 샤인팝"></div>
-          <img class="pimg-texture" src="assets/model-cubenail.jpg" alt="큐브네일로 컬러를 표현한 아이의 손">
-          <span class="texture-badge">모델 컷</span>
-          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
-          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="slide active"><img src="../assets/p-cubenail.png" alt="Cube Nail，Love Candy"></div>
+          <div class="slide"><img src="../assets/p-cubenail-2.png" alt="Cube Nail，Dream Candy"></div>
+          <div class="slide"><img src="../assets/p-cubenail-3.png" alt="Cube Nail，Shine Pop"></div>
+          <img class="pimg-texture" src="../assets/model-cubenail.jpg" alt="展示 Cube Nail 色彩的孩子的手">
+          <span class="texture-badge">实拍图</span>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="上一张图片">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="下一张图片">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span><span class="dot" onclick="slideTo(this,2)"></span></div>
         </div>
-        <span class="moment-eyebrow">손끝에서 시작되는 나만의 컬러.</span>
-        <h4>큐브네일 (3종)</h4>
-        <p class="pdesc">아세톤 없이 스티커처럼 떼어내는 수성베이스 키즈 네일. 3in1으로 세가지 색이 한 세트에 담겨 오늘의 조합으로 직접 고르며 매일 다른 나를 표현합니다.</p>
+        <span class="moment-eyebrow">从指尖开始，专属于我的颜色。</span>
+        <h4>Cube Nail (Set of 3)</h4>
+        <p class="pdesc">无需卸甲水、像贴纸一样撕下的水性儿童指甲油。3合1一套三色，孩子自己搭配今天的组合，每天表达不同的自己。</p>
         <div class="pfooter">
-          <span class="pmeta">13.5g · 33,000원 · 3 Colors in 1</span>
+          <span class="pmeta">13.5g · KRW 33,000 · 3 Colors in 1</span>
           <span class="plinks">
-            <button type="button" class="plink secondary" data-pkg="assets/package/cubenail_raster.png" data-pkg-name="큐브네일 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
-            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%90%EB%B8%8C-%EB%84%A4%EC%9D%BC-%EB%9F%AC%EB%B8%8C%EC%BA%94%EB%94%94/184/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <button type="button" class="plink secondary" data-pkg="../assets/package/cubenail_raster.png" data-pkg-name="Cube Nail · 包装图"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>包装与成分</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%ED%81%90%EB%B8%8C-%EB%84%A4%EC%9D%BC-%EB%9F%AC%EB%B8%8C%EC%BA%94%EB%94%94/184/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
       <div class="gcard gcard--moment" tabindex="0">
         <div class="pimg has-texture">
-          <div class="slide active"><img src="assets/p-nailsticker-mockup-cutout.png" alt="이지 케어 네일스티커"></div>
-          <img class="pimg-texture" src="assets/model-nailsticker.jpg" alt="손톱에 네일스티커를 붙여주는 모습">
-          <span class="texture-badge">모델 컷</span>
+          <div class="slide active"><img src="../assets/p-nailsticker-mockup-cutout.png" alt="Easy Care Nail Stickers"></div>
+          <img class="pimg-texture" src="../assets/model-nailsticker.jpg" alt="把美甲贴纸贴在指甲上的样子">
+          <span class="texture-badge">实拍图</span>
         </div>
-        <span class="moment-eyebrow">놀이인 줄 알았는데,</span>
-        <h4>이지 케어 네일스티커</h4>
-        <p class="pdesc">붙이는 순간 완성되는 네일아트. 하이드로콜로이드 성분이 손톱을 케어하며, 세계 최초 접착 특허로 손톱 거칠기 개선 임상까지 마쳤습니다. 붙이고 떼는 것만으로, 아이 스스로 즐기는 손끝 놀이.</p>
+        <span class="moment-eyebrow">原以为只是玩耍，</span>
+        <h4>Easy Care Nail Stickers</h4>
+        <p class="pdesc">贴上的瞬间就完成的美甲贴纸。水胶体成分呵护指甲，世界首创的粘贴专利更通过了指甲粗糙度改善的临床验证。只需贴上、撕下，就是孩子自己享受的指尖游戏。</p>
         <div class="pfooter">
-          <span class="pmeta">14,900원</span>
+          <span class="pmeta">KRW 14,900</span>
           <span class="plinks">
-            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%9D%B4%EC%A7%80-%EC%95%84%ED%8A%B8-%EB%84%A4%EC%9D%BC%EC%8A%A4%ED%8B%B0%EC%BB%A4/368/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%9D%B4%EC%A7%80-%EC%95%84%ED%8A%B8-%EB%84%A4%EC%9D%BC%EC%8A%A4%ED%8B%B0%EC%BB%A4/368/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
       <div class="gcard gcard--moment" tabindex="0">
         <div class="pimg has-texture">
-          <div class="slide active"><img src="assets/p-masksheet.png" alt="이뮤이뮤 마스크 카밍"></div>
-          <div class="slide"><img src="assets/p-masksheet-2.png" alt="이뮤이뮤 마스크 하이드로&카밍"></div>
-          <img class="pimg-texture" src="assets/model-masksheet.jpg" alt="이뮤이뮤 마스크팩을 붙이고 얼굴을 감싸는 아이">
-          <span class="texture-badge">모델 컷</span>
-          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
-          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="slide active"><img src="../assets/p-masksheet.png" alt="immuimmu Mask Sheet，Calming"></div>
+          <div class="slide"><img src="../assets/p-masksheet-2.png" alt="immuimmu Mask Sheet，Hydro &amp; Calming"></div>
+          <img class="pimg-texture" src="../assets/model-masksheet.jpg" alt="敷着 immuimmu Mask Sheet、双手捧脸的孩子">
+          <span class="texture-badge">实拍图</span>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="上一张图片">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="下一张图片">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span></div>
         </div>
-        <span class="moment-eyebrow">하루의 마무리, 잠들기 전 5분</span>
-        <h4>이뮤이뮤 마스크팩</h4>
-        <p class="pdesc">표고·영지·차가·흰목이·진흙·꽃송이, 6종 버섯 추출 immuimmu 컴플렉스가 자는 동안 피부 장벽을 채워줍니다. 진정에 강한 병풀 추출물과 저자극 방부 시스템으로, 알레르기 유발 향료를 뺀 온 가족이 편하게 쓸 수 있는 왕관 모양 시트.</p>
+        <span class="moment-eyebrow">一天的尾声，睡前的 5 分钟</span>
+        <h4>immuimmu Mask Sheet</h4>
+        <p class="pdesc">香菇、灵芝、白桦茸、银耳、桑黄、绣球菌 —— 萃取自 6 种菌菇的 immuimmu 复合成分，帮助在睡眠时为肌肤屏障补充养分。搭配舒缓力强的积雪草提取物与低刺激防腐系统，不含致敏香料，皇冠造型面膜让全家人都能安心使用。</p>
         <div class="pfooter">
-          <span class="pmeta">23ml×5 · 15,000원</span>
+          <span class="pmeta">23ml × 5 · KRW 15,000</span>
           <span class="plinks">
-            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%96%B4%EB%A6%B0%EC%9D%B4-%EB%A7%88%EC%8A%A4%ED%81%AC-%ED%8C%A9-5%EA%B0%9C%EC%9E%85/131/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-%EC%96%B4%EB%A6%B0%EC%9D%B4-%EB%A7%88%EC%8A%A4%ED%81%AC-%ED%8C%A9-5%EA%B0%9C%EC%9E%85/131/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
       <div class="gcard gcard--moment" tabindex="0">
         <div class="pimg">
-          <div class="slide active"><img src="assets/p-immuimmu-cl-1.png" alt="이뮤이뮤 클렌저 & 로션"></div>
-          <div class="slide"><img src="assets/p-immuimmu-cl-2.png" alt="이뮤이뮤 바디클렌저 라이트"></div>
-          <div class="slide"><img src="assets/p-immuimmu-cl-3.png" alt="이뮤이뮤 올인원로션 라이트"></div>
-          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="이전 이미지">‹</button>
-          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="다음 이미지">›</button>
+          <div class="slide active"><img src="../assets/p-immuimmu-cl-1.png" alt="immuimmu Cleanser & Lotion"></div>
+          <div class="slide"><img src="../assets/p-immuimmu-cl-2.png" alt="immuimmu Body Cleanser Light"></div>
+          <div class="slide"><img src="../assets/p-immuimmu-cl-3.png" alt="immuimmu All-in-One Lotion Light"></div>
+          <button type="button" class="s-nav s-prev" onclick="slideMove(this,-1)" aria-label="上一张图片">‹</button>
+          <button type="button" class="s-nav s-next" onclick="slideMove(this,1)" aria-label="下一张图片">›</button>
           <div class="s-dots"><span class="dot active" onclick="slideTo(this,0)"></span><span class="dot" onclick="slideTo(this,1)"></span><span class="dot" onclick="slideTo(this,2)"></span></div>
         </div>
-        <span class="moment-eyebrow">온 가족이 함께하는 씻는 시간.</span>
-        <h4>이뮤이뮤 클렌저 &amp; 로션</h4>
-        <p class="pdesc">MCT오일과 병풀·라벤더·바나나·캐모마일 4종 추출물, 저자극 임상 완료 + 22종 유해성분 무첨가. 아이부터 어른까지, 온 가족이 함께 쓰는 라이트 포뮬러.</p>
+        <span class="moment-eyebrow">全家人一起度过的洗浴时光。</span>
+        <h4>immuimmu Cleanser &amp; Lotion</h4>
+        <p class="pdesc">MCT 油与积雪草、薰衣草、香蕉、洋甘菊四种萃取物，已完成低刺激临床测试，不添加 22 种有害成分。从孩子到大人，全家共用的清爽配方。</p>
         <div class="pfooter">
-          <span class="pmeta">각 300ml · 26,000원</span>
+          <span class="pmeta">300ml each · KRW 26,000</span>
           <span class="plinks">
-            <a class="plink" href="https://cocoheali.com/product/%EC%9D%B4%EB%AE%A4%EC%9D%B4%EB%AE%A4-%EB%9D%BC%EC%9D%B4%ED%8A%B8-%ED%81%B4%EB%A0%8C%EC%A0%80-%EB%A1%9C%EC%85%98-%EC%84%B8%ED%8A%B8/393/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <a class="plink" href="https://cocoheali.com/product/%EC%9D%B4%EB%AE%A4%EC%9D%B4%EB%AE%A4-%EB%9D%BC%EC%9D%B4%ED%8A%B8-%ED%81%B4%EB%A0%8C%EC%A0%80-%EB%A1%9C%EC%85%98-%EC%84%B8%ED%8A%B8/393/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
@@ -1882,22 +1760,22 @@
   </div>
 </section>
 
-<!-- FULLBLEED 1 — 나도 해볼래 (2026-08-03, Cube&immuimmu → Gift Box 사이로 위치 이동) -->
+<!-- FULLBLEED 1 — Me do it (positioned between Cube&immuimmu and Gift Box) -->
 <div class="bleed reveal-group">
-  <img src="assets/mood-nailsticker.jpg" alt="스스로 네일스티커를 붙여보는 아이">
+  <img src="../assets/mood-nailsticker.jpg" alt="自己动手贴美甲贴纸的孩子">
 
   <div class="bleed-caption">
-    <span class="en reveal-item">나도 해볼래 — Me do it</span>
-    <p class="reveal-item">놀이인 줄 알았던 순간이,<br>사실은 케어였습니다.</p>
+    <span class="en reveal-item">我也要自己来 — Me do it</span>
+    <p class="reveal-item">原以为只是玩耍的瞬间，<br>其实早已是呵护。</p>
   </div>
 
   <div class="sticker-note-wrap reveal-item">
     <div class="sticker-mockup">
-      <img class="mockup-accent a1" src="assets/sticker-checker-blue.png" alt="">
-      <img class="mockup-product" src="assets/sticker-mockup.png" alt="코코힐리 네일스티커 실제 제품(패키지+스티커 시트)">
-      <img class="mockup-accent a2" src="assets/sticker-flower.png" alt="">
+      <img class="mockup-accent a1" src="../assets/sticker-checker-blue.png" alt="">
+      <img class="mockup-product" src="../assets/sticker-mockup.png" alt="Cocoheali 美甲贴纸实际产品（包装与贴纸片）">
+      <img class="mockup-accent a2" src="../assets/sticker-flower.png" alt="">
     </div>
-    <p class="bleed-note">하이드로콜로이드 성분함유 네일스티커.<br>나를 표현하면서 손톱까지 케어합니다.</p>
+    <p class="bleed-note">含水胶体成分的美甲贴纸。<br>表达自我的同时，也呵护指甲。</p>
   </div>
 </div>
 
@@ -1906,27 +1784,27 @@
     <div class="pline-head">
       <span class="pline-num">03</span>
       <span class="pline-tag">Gift Box</span>
-      <p class="pline-desc">라인업을 한 번에 만나는 선물용 구성</p>
+      <p class="pline-desc">一次集齐全系列产品的礼盒组合</p>
     </div>
 
     <div class="giftbox-story reveal-item">
-      <p class="giftbox-story-lede">선물박스를 열면, 보물지도가 됩니다.</p>
+      <p class="giftbox-story-lede">打开礼物盒，就变成一张藏宝图。</p>
       <div class="giftbox-story-strip">
         <figure>
-          <img src="assets/story-giftbox-1.jpg" alt="엄마에게 선물박스를 건네받는 아이">
-          <figcaption><span class="gs-num">01</span>엄마 손에서 건네받은 상자</figcaption>
+          <img src="../assets/story-giftbox-1.jpg" alt="从妈妈手中接过礼物盒的孩子">
+          <figcaption><span class="gs-num">01</span>从妈妈手中接过的盒子</figcaption>
         </figure>
         <figure>
-          <img src="assets/story-giftbox-2.jpg" alt="박스를 펼치자 구름 모양 보물지도가 나타남">
-          <figcaption><span class="gs-num">02</span>펼치면 나타나는 지도</figcaption>
+          <img src="../assets/story-giftbox-2.jpg" alt="打开盒子后出现云朵形状的藏宝图">
+          <figcaption><span class="gs-num">02</span>打开后浮现的地图</figcaption>
         </figure>
         <figure>
-          <img src="assets/story-giftbox-3.jpg" alt="지도를 들고 집 안을 탐험하는 아이">
-          <figcaption><span class="gs-num">03</span>지도를 들고 온 집안 탐험</figcaption>
+          <img src="../assets/story-giftbox-3.jpg" alt="拿着地图在家中探险的孩子">
+          <figcaption><span class="gs-num">03</span>拿着地图探索整个家</figcaption>
         </figure>
         <figure>
-          <img src="assets/story-giftbox-4.jpg" alt="침대 밑에서 코코힐리 제품 보물을 발견한 아이">
-          <figcaption><span class="gs-num">04</span>침대 밑에서 만난 보물</figcaption>
+          <img src="../assets/story-giftbox-4.jpg" alt="在床底下发现 Cocoheali 产品宝藏的孩子">
+          <figcaption><span class="gs-num">04</span>在床底下遇见的宝藏</figcaption>
         </figure>
       </div>
     </div>
@@ -1934,57 +1812,57 @@
     <div class="pgrid">
       <div class="gcard">
         <div class="pimg has-texture">
-          <div class="slide active"><img src="assets/p-mybeauty.jpg" alt="마이 뷰티 에디션"></div>
+          <div class="slide active"><img src="../assets/p-mybeauty.jpg" alt="My Beauty Edition"></div>
           <video class="pimg-texture" muted loop playsinline preload="none">
-            <source src="assets/boxopen-mybeauty.mp4" type="video/mp4">
+            <source src="../assets/boxopen-mybeauty.mp4" type="video/mp4">
           </video>
-          <span class="texture-badge">펼쳐보기</span>
+          <span class="texture-badge">开箱预览</span>
         </div>
         <p class="ptag">Play Colors Edition · S</p>
-        <h4>마이 뷰티 에디션</h4>
-        <p class="pdesc">크림팡 팩트 + 큐브립밤 + 스티커를 함께 담은 S 사이즈 놀이 에디션. 처음 코코힐리를 만나는 아이에게 알맞은 구성입니다.</p>
+        <h4>My Beauty Edition</h4>
+        <p class="pdesc">S 号玩乐礼盒，集合了 Cream Pang Compact、Cube Lip Balm 与贴纸 —— 是孩子初次认识 Cocoheali 的合适选择。</p>
         <div class="pfooter">
-          <span class="pmeta">가격 확인 중</span>
+          <span class="pmeta">价格详询</span>
           <span class="plinks">
-            <button type="button" class="plink secondary" data-pkg="assets/package/mybeauty_raster.png" data-pkg-name="마이 뷰티 에디션 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
-            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-my-beauty-edition-%ED%81%AC%EB%A6%BC%ED%8C%A1-%EB%A6%BD%EB%B0%A4/384/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <button type="button" class="plink secondary" data-pkg="../assets/package/mybeauty_raster.png" data-pkg-name="My Beauty Edition · 包装图"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>包装与成分</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-my-beauty-edition-%ED%81%AC%EB%A6%BC%ED%8C%A1-%EB%A6%BD%EB%B0%A4/384/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
       <div class="gcard">
         <div class="pimg has-texture">
-          <div class="slide active"><img src="assets/p-mydream.jpg" alt="마이 드림 에디션"></div>
+          <div class="slide active"><img src="../assets/p-mydream.jpg" alt="My Dream Edition"></div>
           <video class="pimg-texture" muted loop playsinline preload="none">
-            <source src="assets/boxopen-mydream.mp4" type="video/mp4">
+            <source src="../assets/boxopen-mydream.mp4" type="video/mp4">
           </video>
-          <span class="texture-badge">펼쳐보기</span>
+          <span class="texture-badge">开箱预览</span>
         </div>
         <p class="ptag">Play Colors Edition · M</p>
-        <h4>마이 드림 에디션</h4>
-        <p class="pdesc">크림팡 팩트 + 큐브네일 + 큐브립밤 + 스티커 구성을 더 넉넉하게 담은 M 사이즈 에디션.</p>
+        <h4>My Dream Edition</h4>
+        <p class="pdesc">M 号礼盒，更丰盛地集合了 Cream Pang Compact、Cube Nail、Cube Lip Balm 与贴纸。</p>
         <div class="pfooter">
-          <span class="pmeta">가격 확인 중</span>
+          <span class="pmeta">价格详询</span>
           <span class="plinks">
-            <button type="button" class="plink secondary" data-pkg="assets/package/mydream_raster.png" data-pkg-name="마이 드림 에디션 · 패키지 도면"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>패키지·성분</button>
-            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-my-dream-edition-%ED%81%AC%EB%A6%BC%ED%8C%A1-%EB%A6%BD%EB%B0%A4-3-in-1-%EC%88%98%EC%84%B1%EB%84%A4%EC%9D%BC/383/category/48/display/1/" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <button type="button" class="plink secondary" data-pkg="../assets/package/mydream_raster.png" data-pkg-name="My Dream Edition · 包装图"><svg class="pkg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path></svg>包装与成分</button>
+            <a class="plink" href="https://cocoheali.com/product/%EC%BD%94%EC%BD%94%ED%9E%90%EB%A6%AC-my-dream-edition-%ED%81%AC%EB%A6%BC%ED%8C%A1-%EB%A6%BD%EB%B0%A4-3-in-1-%EC%88%98%EC%84%B1%EB%84%A4%EC%9D%BC/383/category/48/display/1/" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
       <div class="gcard">
         <div class="pimg has-texture">
-          <div class="slide active"><img src="assets/p-summer.jpg" alt="썸머 에디션"></div>
+          <div class="slide active"><img src="../assets/p-summer.jpg" alt="Summer Edition"></div>
           <video class="pimg-texture" muted loop playsinline preload="none">
-            <source src="assets/boxopen-summer.mp4" type="video/mp4">
+            <source src="../assets/boxopen-summer.mp4" type="video/mp4">
           </video>
-          <span class="texture-badge">펼쳐보기</span>
+          <span class="texture-badge">开箱预览</span>
         </div>
         <p class="ptag">Cocoland Edition · L</p>
-        <h4>썸머 에디션</h4>
-        <p class="pdesc">써니팡 팩트 + 큐브립밤 + 큐브네일 + 마스크팩을 함께 담은 L 사이즈 에디션.</p>
+        <h4>Summer Edition</h4>
+        <p class="pdesc">L 号礼盒，集合了 Sunny Pang Compact、Cube Lip Balm、Cube Nail 与面膜。</p>
         <div class="pfooter">
-          <span class="pmeta">99,000원</span>
+          <span class="pmeta">KRW 99,000</span>
           <span class="plinks">
-            <a class="plink" href="https://cocoheali.com/product/detail.html?product_no=386" target="_blank" rel="noopener">자세히 보기<span class="arrow">→</span></a>
+            <a class="plink" href="https://cocoheali.com/product/detail.html?product_no=386" target="_blank" rel="noopener">了解更多<span class="arrow">→</span></a>
           </span>
         </div>
       </div>
@@ -1992,52 +1870,52 @@
   </div>
 
   <div class="shopall-wrap">
-    <a class="pill-badge" href="https://cocoheali.com" target="_blank" rel="noopener">( 전체 제품 보기 )</a>
+    <a class="pill-badge" href="https://cocoheali.com" target="_blank" rel="noopener">( 查看全部产品 )</a>
   </div>
 </section>
 
-<!-- FULLBLEED SAFETY — 2:1 스플릿 (모델컷 2 : 크림팡 텍스처 1) -->
+<!-- FULLBLEED SAFETY — 2:1 split (2 model shots : 1 Creampang texture) -->
 <div class="bleed bleed-split reveal-group">
   <div class="bleed-split-imgs">
-    <div class="bs-model"><img src="assets/mood-lotion.jpg" alt="크림을 직접 바르는 아이, 화장이 아닌 스킨케어"></div>
-    <div class="bs-texture"><img src="assets/texture-creampang-jar.jpg" alt="하트 모양으로 담긴 크림팡 크리미한 제형"></div>
+    <div class="bs-model"><img src="../assets/mood-lotion.jpg" alt="亲自涂抹面霜的孩子 —— 是护肤，不是化妆"></div>
+    <div class="bs-texture"><img src="../assets/texture-creampang-jar.jpg" alt="呈心形盛放的 Cream Pang 奶油质地"></div>
   </div>
   <div class="bleed-caption">
     <span class="en reveal-item">Why skincare, not makeup</span>
-    <p class="reveal-item">약한 아이 피부, 지켜야 할 피부장벽, 안심할 수 있는 성분, 그리고 매일 이어가는 습관 — 우리가 색조 대신 스킨케어를 선택한 이유입니다.</p>
+    <p class="reveal-item">孩子娇嫩的肌肤、需要守护的皮肤屏障、让人安心的成分，以及日复一日的习惯 —— 这就是我们选择护肤而非彩妆的原因。</p>
   </div>
 
   <div class="sticker-note-wrap reveal-item">
     <div class="sticker-mockup">
-      <img class="mockup-product" src="assets/p-creampang.png" alt="코코힐리 크림팡 팩트 실제 제품">
+      <img class="mockup-product" src="../assets/p-creampang.png" alt="Cocoheali Cream Pang Compact —— 实际产品">
     </div>
-    <p class="bleed-note">세라마이드 5종 담은 고보습 크림팩트.<br>아이 스스로 팡팡 두드리며 채웁니다.</p>
+    <p class="bleed-note">蕴含 5 种神经酰胺的盒装高保湿乳霜。<br>孩子自己轻轻拍一拍，为肌肤补充水润。</p>
   </div>
 </div>
 
-<!-- BRAND VISION — 2026-08-01 일단 보류 (실제 사진 없이 플레이스홀더뿐이라 사용자 요청으로 임시 비활성화, 사진 확보되면 복원)
+<!-- BRAND VISION — on hold since 2026-08-01 (placeholder only, no real photos yet; temporarily disabled at the user's request until photos are ready)
 <section class="wrap pad-xl reveal">
   <p class="eyebrow">Brand Vision</p>
-  <h2 style="font-size:clamp(1.7rem,3.4vw,2.5rem);">COCOHEALI를 사용하면,<br>이렇게 됩니다.</h2>
-  <p style="max-width:560px; margin-top:22px;">우리가 만드는 것은 화장품이 아니라, 아이가 스스로 해보는 습관입니다. 코코힐리를 경험한 아이는 스스로 선택하고, 스스로 바르고, 스스로 완성합니다.</p>
+  <h2 style="font-size:clamp(1.7rem,3.4vw,2.5rem);">使用 COCOHEALI，<br>会有这样的改变。</h2>
+  <p style="max-width:560px; margin-top:22px;">我们制作的不是化妆品，而是孩子自己动手尝试的习惯。体验过 Cocoheali 的孩子，会自己选择、自己涂抹、自己完成。</p>
 
   <div class="vision-grid">
     <div class="vitem">
-      <div class="vimg img-placeholder">이미지 예정<br>스스로 선택하는 모습<br>(Cube Nail 커스텀 컬러 조합)</div>
-      <div class="vcap"><b>스스로 선택하고</b><br>매일 다른 컬러를 직접 고르는 큐브네일</div>
+      <div class="vimg img-placeholder">图片待补充<br>自己选择的样子<br>（Cube Nail 自定义配色）</div>
+      <div class="vcap"><b>自己选择</b><br>每天亲自挑选不同颜色的 Cube Nail</div>
     </div>
     <div class="vitem">
-      <div class="vimg img-placeholder">이미지 예정<br>스스로 만드는 모습<br>(DDP 나만의 팩트 만들기)</div>
-      <div class="vcap"><b>스스로 만들고</b><br>자신만의 팩트를 완성하는 순간</div>
+      <div class="vimg img-placeholder">图片待补充<br>自己制作的样子<br>（DDP 我的专属粉饼盒体验）</div>
+      <div class="vcap"><b>自己制作</b><br>完成专属粉饼盒的瞬间</div>
     </div>
     <div class="vitem">
-      <div class="vimg img-placeholder">이미지 예정<br>스스로 표현하는 모습<br>(Cube 라인 창의적 놀이)</div>
-      <div class="vcap"><b>스스로 표현하고</b><br>큐브 라인으로 자신만의 이야기를 그리는 아이</div>
+      <div class="vimg img-placeholder">图片待补充<br>自己表达的样子<br>（Cube 系列创意玩法）</div>
+      <div class="vcap"><b>自己表达</b><br>用 Cube 系列描绘专属故事的孩子</div>
     </div>
   </div>
 
   <div class="vision-note">
-    <b>DDP 동대문디자인플라자 — "이상한 K-Beauty : 엄마의 서랍"</b> (2026.04.10–07.19, DDP마켓 내 BtheB Downtown B2F)의 &lt;나만의 팩트 만들기&gt; 체험. "코코힐리는 화장을 권하지 않습니다. 다르게 보는 시선을 놀이로 경험하게 하며, 스스로 가꾸는 습관을 만들어갑니다." — Creative + Cosmetics = Creametics.
+    <b>DDP 东大门设计广场 ——"不一样的 K-Beauty：妈妈的抽屉"</b>（2026.04.10–07.19，DDP Market 内 BtheB Downtown B2F）的 &lt;打造专属粉饼盒&gt; 体验。"Cocoheali 不提倡化妆。我们让孩子在游戏中体验换个角度去看，逐渐养成自己照顾自己的习惯。" — Creative + Cosmetics = Creametics.
   </div>
 </section>
 -->
@@ -2047,37 +1925,37 @@
   <div class="wrap pad-xl">
     <div class="chapter-mark reveal-item" data-chapter="03"><span class="ch-num">03</span><span class="ch-name">Brand History</span></div>
     <p class="eyebrow reveal-item">Brand History</p>
-    <h2 class="zone-h2 reveal-item">습관은 <span class="zone-accent">하루아침</span>에<br>만들어지지 않습니다.</h2>
-    <p class="zone-lede reveal-item">코코힐리는 2019년 런칭 이후 국내 키즈 코스메틱 시장에서 꾸준히 유통망과 신뢰를 쌓아왔고, 이제 유럽과 일본 등 해외 시장으로 그 습관을 확장하고 있습니다.</p>
+    <h2 class="zone-h2 reveal-item">习惯不是<span class="zone-accent">一夜之间</span>养成的。</h2>
+    <p class="zone-lede reveal-item">Cocoheali 自 2019 年成立以来，在韩国儿童化妆品市场持续拓展经销网络、积累信任，如今正将这份习惯拓展至欧洲、日本等海外市场。</p>
 
     <div class="milestone reveal-item" id="milestone">
       <div class="milestone-track" id="milestoneTrack">
-        <button type="button" class="milestone-pt" data-year="2019" data-title="세계 최초 가방형 크림팩트" data-items="코코힐리 브랜드 런칭|세계 최초 가방형(파우치형) 크림팩트 개발|스티커형 키즈 네일, 거품 입욕제 함께 출시">
-          <span class="dot"></span><span class="yr">2019</span><span class="headline">브랜드 런칭</span>
+        <button type="button" class="milestone-pt" data-year="2019" data-title="全球首创手袋造型奶油粉饼" data-items="Cocoheali 品牌正式创立|开发全球首款手袋造型（化妆包造型）奶油粉饼|同步推出贴纸型儿童指甲油与泡泡沐浴球">
+          <span class="dot"></span><span class="yr">2019</span><span class="headline">品牌创立</span>
         </button>
-        <button type="button" class="milestone-pt" data-year="2020" data-title="백화점 3사 입점" data-items="롯데·신세계·갤러리아 백화점 입점|스킨케어 라인 &lsquo;이뮤이뮤&rsquo; 런칭|그랑프리 디지털 광고&amp;캠페인 화장품 부문 수상">
-          <span class="dot"></span><span class="yr">2020</span><span class="headline">백화점 입점</span>
+        <button type="button" class="milestone-pt" data-year="2020" data-title="入驻三大百货公司" data-items="入驻乐天、新世界、Galleria 百货公司|推出护肤系列 &lsquo;immuimmu&rsquo;|荣获数字广告与营销大奖化妆品类别 Grand Prix">
+          <span class="dot"></span><span class="yr">2020</span><span class="headline">入驻百货公司</span>
         </button>
-        <button type="button" class="milestone-pt" data-year="2021" data-title="글로벌 진출 시작" data-items="벤처기업 인증 획득|서울시 위코노미 우수스타트업 선정|아마존몰 입점으로 해외 진출 시작">
-          <span class="dot"></span><span class="yr">2021</span><span class="headline">글로벌 진출</span>
+        <button type="button" class="milestone-pt" data-year="2021" data-title="启动全球化布局" data-items="获得创投企业认证|入选首尔市 Weconomy 优秀初创企业|入驻亚马逊，正式开启海外市场">
+          <span class="dot"></span><span class="yr">2021</span><span class="headline">全球化布局</span>
         </button>
-        <button type="button" class="milestone-pt" data-year="2022" data-title="해외 6개국 수출 확정" data-items="대만·미국·일본 외 해외 6개국 수출 확정|Pre-A 투자 유치 지속(라구나·김기사랩 등)">
-          <span class="dot"></span><span class="yr">2022</span><span class="headline">6개국 수출</span>
+        <button type="button" class="milestone-pt" data-year="2022" data-title="确定向海外 6 国出口" data-items="确定向台湾、美国、日本等海外 6 个国家出口|持续获得 Pre-A 轮投资（Laguna、Kimgisa Lab 等）">
+          <span class="dot"></span><span class="yr">2022</span><span class="headline">6 国出口</span>
         </button>
-        <button type="button" class="milestone-pt" data-year="2024" data-title="유럽 27개국 확장" data-items="유럽 27개국 총판 계약(Alpen-Handel)|해외공동기술 R&amp;D 국책과제(30억) 선정|K브랜드 대상 수상">
-          <span class="dot"></span><span class="yr">2024</span><span class="headline">27개국 확장</span>
+        <button type="button" class="milestone-pt" data-year="2024" data-title="扩展至欧洲 27 国" data-items="签订覆盖欧洲 27 国的总代理合约（Alpen-Handel）|入选国际联合技术研发国家级项目（30 亿韩元）|荣获 K-Brand 大奖">
+          <span class="dot"></span><span class="yr">2024</span><span class="headline">扩展至 27 国</span>
         </button>
-        <button type="button" class="milestone-pt" data-year="2025" data-title="해외 유통 확장" data-items="불가리아 등 해외 유통 확장|바이오텍 기업부설연구소 설립|청와대 초청 어린이날 행사 참여(05.05)">
-          <span class="dot"></span><span class="yr">2025</span><span class="headline">유통망 확장</span>
+        <button type="button" class="milestone-pt" data-year="2025" data-title="拓展海外经销网络" data-items="扩展至保加利亚等海外市场经销|成立生物科技企业附属研究所|受邀参加青瓦台儿童节活动（05.05）">
+          <span class="dot"></span><span class="yr">2025</span><span class="headline">拓展经销网络</span>
         </button>
-        <button type="button" class="milestone-pt active" data-year="2026" data-title="브랜드 리뉴얼" data-items="DDP 팝업 &lsquo;이상한 K-Beauty : 엄마의 서랍&rsquo;(04.10–07.19)|브랜드 아이덴티티 리뉴얼 진행">
-          <span class="dot"></span><span class="yr">2026</span><span class="headline">브랜드 리뉴얼</span>
+        <button type="button" class="milestone-pt active" data-year="2026" data-title="品牌焕新" data-items="DDP 快闪店「不一样的 K-Beauty：妈妈的抽屉」（04.10–07.19）|品牌形象焕新工程进行中">
+          <span class="dot"></span><span class="yr">2026</span><span class="headline">品牌焕新</span>
         </button>
       </div>
 
       <div class="milestone-panel" id="milestonePanel">
         <span class="mp-yr" id="mpYear">2026</span>
-        <h4 id="mpTitle">브랜드 리뉴얼</h4>
+        <h4 id="mpTitle">品牌焕新</h4>
         <ul id="mpItems"></ul>
       </div>
     </div>
@@ -2088,47 +1966,47 @@
         <div class="achieve-cell">
           <div class="ai-tag">Global</div>
           <div class="ai-big">27+<small>Countries</small></div>
-          <p class="ai-sub">유럽 27개국 총판 계약 외 다수국 수출망</p>
+          <p class="ai-sub">覆盖欧洲 27 国的总代理合约，另有多国出口网络</p>
         </div>
         <div class="achieve-cell">
           <div class="ai-tag">Offline</div>
           <div class="ai-big">3<small>Dept. Stores</small></div>
-          <p class="ai-sub">롯데 · 신세계 · 갤러리아 입점</p>
+          <p class="ai-sub">乐天 · 新世界 · Galleria</p>
         </div>
         <div class="achieve-cell">
           <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="6.2"></circle><path d="M9 14.5 7.4 21 12 18.3 16.6 21 15 14.5"></path></svg>
           <div class="ai-tag">Patent</div>
-          <div class="ai-big" style="font-size:15px; line-height:1.4;">디자인 특허<br>5개국</div>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">外观设计专利<br>5 个国家</div>
           <p class="ai-sub">KOREA · EU · UK · JAPAN · CHINA</p>
         </div>
         <div class="achieve-cell">
           <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8.5"></circle><path d="M3.5 12h17M12 3.5c2.6 2.4 4 5.3 4 8.5s-1.4 6.1-4 8.5c-2.6-2.4-4-5.3-4-8.5s1.4-6.1 4-8.5Z"></path></svg>
           <div class="ai-tag">Global First</div>
-          <div class="ai-big" style="font-size:14px; line-height:1.6;">① 리본 팩트 용기<br>디자인특허<br>② 네일 스티커<br>접착 특허</div>
-          <p class="ai-sub">디자인특허 5개국 확보 · 접착 특허는 하이드로콜로이드 방식 세계 최초</p>
+          <div class="ai-big" style="font-size:14px; line-height:1.6;">① 丝带粉饼盒<br>外观设计专利<br>② 美甲贴纸<br>粘贴专利</div>
+          <p class="ai-sub">已在 5 个国家获得外观设计专利 · 粘贴专利为全球首创水胶体技术</p>
         </div>
         <div class="achieve-cell">
           <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 12.3 6.5 20.5 12 17l5.5 3.5-2-8.2"></path></svg>
           <div class="ai-tag">Award</div>
-          <div class="ai-big" style="font-size:15px; line-height:1.4;">K브랜드 대상<br>2024</div>
-          <p class="ai-sub">그랑프리 디지털 광고&amp;캠페인 화장품 부문</p>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">K-Brand 大奖<br>2024</div>
+          <p class="ai-sub">数字广告与营销大奖 Grand Prix —— 化妆品类别</p>
         </div>
         <div class="achieve-cell">
           <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3.5 19 6.5v5c0 5-3 8.2-7 9.5-4-1.3-7-4.5-7-9.5v-5Z"></path><path d="m9 12 2.2 2.2L15.5 10"></path></svg>
           <div class="ai-tag">Certified</div>
-          <div class="ai-big" style="font-size:15px; line-height:1.4;">벤처기업<br>인증</div>
-          <p class="ai-sub">서울시 위코노미 우수스타트업 선정</p>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">创投企业<br>认证</div>
+          <p class="ai-sub">入选首尔市 Weconomy 优秀初创企业</p>
         </div>
         <div class="achieve-cell">
           <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 21V4"></path><path d="M6 4h12l-3 4 3 4H6"></path></svg>
           <div class="ai-tag">Pop-up</div>
-          <div class="ai-big" style="font-size:15px; line-height:1.4;">DDP 팝업<br>2026</div>
-          <p class="ai-sub">이상한 K-Beauty : 엄마의 서랍</p>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">DDP 快闪店<br>2026</div>
+          <p class="ai-sub">不一样的 K-Beauty：妈妈的抽屉</p>
         </div>
         <div class="achieve-cell">
           <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2.5c3 3 4.5 6.7 4.5 10.3 0 4.5-2 7-4.5 8.7-2.5-1.7-4.5-4.2-4.5-8.7C7.5 9.2 9 5.5 12 2.5Z"></path><path d="M8.5 8.5h7"></path></svg>
           <div class="ai-tag">Duty-Free</div>
-          <div class="ai-big" style="font-size:15px; line-height:1.4;">인천공항<br>면세점</div>
+          <div class="ai-big" style="font-size:15px; line-height:1.4;">仁川机场<br>免税店</div>
           <p class="ai-sub">Global Travel Retail</p>
         </div>
       </div>
@@ -2141,111 +2019,108 @@
   <div class="wrap pad-xl">
     <div class="reveal-group">
       <p class="eyebrow reveal-item">Selected Projects</p>
-      <h2 class="zone-h2 reveal-item">숫자가 아니라,<br><span class="zone-accent">현장</span>으로 보여드립니다.</h2>
+      <h2 class="zone-h2 reveal-item">不靠数字，<br>让<span class="zone-accent">真实现场</span>来回答。</h2>
     </div>
 
-    <!-- A. Brand Experience — 자체 reveal-group: 이 카테고리가 화면에 들어올 때 따로 순차 등장 -->
+    <!-- A. Brand Experience -->
     <div class="proj-cat reveal-group">
       <div class="cat-head reveal-item">
         <span class="cat-label">A · Brand Experience</span>
         <span class="cat-sub">Offline Events &amp; Collaborations</span>
       </div>
-      <!-- 21st.dev "circular-testimonials" 참고 — React 컴포넌트를 쓰지 않고 카드 스택 순환 전환만
-           바닐라 JS/CSS로 재구현 (2026-08-04). 카드 클릭/더보기 → 각 상세 모달로 연결. -->
       <div class="exp-carousel reveal-item">
         <div class="exp-stack" id="expStack">
-          <div class="exp-card" data-modal="ddpModal"><img src="assets/act-ddp-poster.jpg" alt="DDP 팝업 '이상한 K-Beauty : 엄마의 서랍' 공식 포스터"></div>
-          <div class="exp-card" data-modal="bluehouseModal"><img src="assets/act-bluehouse.jpg" alt="청와대 어린이날 행사 코코힐리 체험 부스"></div>
-          <div class="exp-card" data-modal="hotelModal"><img src="assets/hotel-hero.jpg" alt="코코힐리 테마로 꾸며진 호텔 객실"></div>
-          <div class="exp-card" data-modal="brandcollabModal"><img src="assets/brandcollab-hero.jpg" alt="네파키즈 매장 내 코코힐리 샵인샵"></div>
+          <div class="exp-card" data-modal="ddpModal"><img src="../assets/act-ddp-poster.jpg" alt="DDP 快闪店「不一样的 K-Beauty：妈妈的抽屉」官方海报"></div>
+          <div class="exp-card" data-modal="bluehouseModal"><img src="../assets/act-bluehouse.jpg" alt="青瓦台儿童节活动 Cocoheali 体验展位"></div>
+          <div class="exp-card" data-modal="hotelModal"><img src="../assets/hotel-hero.jpg" alt="以 Cocoheali 主题布置的酒店客房"></div>
+          <div class="exp-card" data-modal="brandcollabModal"><img src="../assets/brandcollab-hero.jpg" alt="NEPA Kids 门店内的 Cocoheali 店中店"></div>
         </div>
         <div class="exp-info">
           <span class="exp-badge" id="expBadge">Offline Pop-up</span>
-          <h3 class="exp-title" id="expTitle">DDP 팝업 — 이상한 K-Beauty : 엄마의 서랍</h3>
-          <p class="exp-desc" id="expDesc">화장이 아닌 "다르게 보는 시선"을 아이들이 직접 경험한 DDP 브랜드 체험형 전시.</p>
+          <h3 class="exp-title" id="expTitle">DDP 快闪店 — 不一样的 K-Beauty：妈妈的抽屉</h3>
+          <p class="exp-desc" id="expDesc">在 DDP 举办的品牌体验展，让孩子亲身体验的不是化妆，而是"换一个角度去看"。</p>
           <div class="exp-actions">
-            <button type="button" class="exp-more" id="expMoreBtn">더보기 →</button>
+            <button type="button" class="exp-more" id="expMoreBtn">查看更多 →</button>
             <div class="exp-nav">
-              <button type="button" class="exp-nav-btn" id="expPrev" aria-label="이전 카드">‹</button>
-              <button type="button" class="exp-nav-btn" id="expNext" aria-label="다음 카드">›</button>
+              <button type="button" class="exp-nav-btn" id="expPrev" aria-label="上一张卡片">‹</button>
+              <button type="button" class="exp-nav-btn" id="expNext" aria-label="下一张卡片">›</button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- B. Global Exhibitions & Retail — 21st.dev "framer-thumbnails" 참고, Brand Film과 동일한
-         자동 슬라이드 레일로 통합 (2026-08-03, 기존 B·Global Exhibitions + C·Global Retail 병합) -->
+    <!-- B. Global Exhibitions & Retail -->
     <div class="proj-cat reveal-group">
       <div class="cat-head reveal-item">
         <span class="cat-label">B · Global Exhibitions &amp; Retail</span>
         <span class="cat-sub">Expo Booths &amp; Department Stores Worldwide</span>
       </div>
       <div class="film-rail-wrap reveal-item">
-        <button type="button" class="rail-nav prev" aria-label="이전 이미지">‹</button>
-        <button type="button" class="rail-nav next" aria-label="다음 이미지">›</button>
+        <button type="button" class="rail-nav prev" aria-label="上一张图片">‹</button>
+        <button type="button" class="rail-nav next" aria-label="下一张图片">›</button>
         <div class="film-rail">
           <div class="film-item">
-            <img class="rail-photo" src="assets/proj-expo-austria.jpg" alt="오스트리아 빈 Korea Business Expo 코코힐리 부스">
+            <img class="rail-photo" src="../assets/proj-expo-austria.jpg" alt="cocoheali booth at the Korea Business Expo in Vienna, Austria">
             <p class="film-cap"><b>Vienna</b> · Austria · Korea Business Expo</p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/proj-expo-japan.jpg" alt="일본 Baby & Kids Expo 코코힐리 부스">
+            <img class="rail-photo" src="../assets/proj-expo-japan.jpg" alt="cocoheali booth at the Baby & Kids Expo in Japan">
             <p class="film-cap"><b>Japan</b> · Baby &amp; Kids Expo</p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/proj-expo-vietnam.jpg" alt="베트남 VIETBABY 박람회 코코힐리 부스">
+            <img class="rail-photo" src="../assets/proj-expo-vietnam.jpg" alt="cocoheali booth at the VIETBABY Expo in Vietnam">
             <p class="film-cap"><b>Vietnam</b> · VIETBABY Expo</p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/proj-retail-taiwan.jpg" alt="대만 백화점 코코힐리 매대">
+            <img class="rail-photo" src="../assets/proj-retail-taiwan.jpg" alt="cocoheali display at a department store in Taiwan">
             <p class="film-cap"><b>Taiwan</b> · Department Store</p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/proj-retail-japan.jpg" alt="일본 마루이 백화점 코코힐리 concept shop">
+            <img class="rail-photo" src="../assets/proj-retail-japan.jpg" alt="cocoheali concept shop at MARUI department store, Japan">
             <p class="film-cap"><b>Japan · MARUI</b> · Concept Shop</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- C. Space & Retail Design — 7종으로 확장, 동일한 자동 슬라이드 레일 (2026-08-03) -->
+    <!-- C. Space & Retail Design -->
     <div class="proj-cat reveal-group">
       <div class="cat-head reveal-item">
         <span class="cat-label">C · Space &amp; Retail Design</span>
         <span class="cat-sub">'22–'24</span>
       </div>
       <div class="film-rail-wrap reveal-item">
-        <button type="button" class="rail-nav prev" aria-label="이전 이미지">‹</button>
-        <button type="button" class="rail-nav next" aria-label="다음 이미지">›</button>
+        <button type="button" class="rail-nav prev" aria-label="上一张图片">‹</button>
+        <button type="button" class="rail-nav next" aria-label="下一张图片">›</button>
         <div class="film-rail">
           <div class="film-item">
-            <img class="rail-photo" src="assets/전경.jpg" alt="DDP 팝업 브랜드 전시공간 전경">
-            <p class="film-cap"><b>01 브랜드 체험형 전시</b> · DDP</p>
+            <img class="rail-photo" src="../assets/전경.jpg" alt="DDP 快闪店品牌展览空间全景">
+            <p class="film-cap"><b>01 品牌体验展</b> · DDP</p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/space-deptstore.jpg" alt="백화점 매대 디자인">
-            <p class="film-cap"><b>02 백화점 디스플레이</b></p>
+            <img class="rail-photo" src="../assets/space-deptstore.jpg" alt="百货公司展示柜设计">
+            <p class="film-cap"><b>02 百货公司陈列</b></p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/retail-dutyfree-shilla.jpg" alt="인천공항 신라면세점 코코힐리 매대">
-            <p class="film-cap"><b>03 면세점 디스플레이</b></p>
+            <img class="rail-photo" src="../assets/retail-dutyfree-shilla.jpg" alt="仁川机场新罗免税店 Cocoheali 展示柜">
+            <p class="film-cap"><b>03 免税店陈列</b></p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/space-shopinshop.jpg" alt="샵인샵 디자인">
-            <p class="film-cap"><b>04 샵인샵</b></p>
+            <img class="rail-photo" src="../assets/space-shopinshop.jpg" alt="店中店设计">
+            <p class="film-cap"><b>04 店中店</b></p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/space-booth.jpg" alt="박람회 부스 디자인">
-            <p class="film-cap"><b>05 박람회 부스</b></p>
+            <img class="rail-photo" src="../assets/space-booth.jpg" alt="展会展位设计">
+            <p class="film-cap"><b>05 展会展位</b></p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/space-pharmacy.jpg" alt="약국·편의점 등 소형 전시대 매대 디자인">
-            <p class="film-cap"><b>06 약국·편의점 등 소형 매대</b></p>
+            <img class="rail-photo" src="../assets/space-pharmacy.jpg" alt="药店、便利店等小型陈列设计">
+            <p class="film-cap"><b>06 小型展示柜</b> — 药店与便利店</p>
           </div>
           <div class="film-item">
-            <img class="rail-photo" src="assets/space-popup.jpg" alt="팝업스토어 디자인">
-            <p class="film-cap"><b>07 기타 매대디자인</b> · Pop-up</p>
+            <img class="rail-photo" src="../assets/space-popup.jpg" alt="快闪店设计">
+            <p class="film-cap"><b>07 其他展示设计</b> · Pop-up</p>
           </div>
         </div>
       </div>
@@ -2259,36 +2134,36 @@
     <div class="chapter-mark reveal-item" data-chapter="04"><span class="ch-num">04</span><span class="ch-name">Retail Network</span></div>
     <div class="section-divider reveal-item"><span>Global expansion since 2019</span></div>
     <p class="eyebrow reveal-item">Where to Find Cocoheali</p>
-    <h2 class="zone-h2 reveal-item">유통 네트워크</h2>
+    <h2 class="zone-h2 reveal-item">经销网络</h2>
 
     <div class="retail-grid reveal-item">
       <div class="retail-card">
-        <div class="rc-photo"><img src="assets/retail-dutyfree-v2.jpg" alt="인천공항 면세점 코코힐리 매대"></div>
+        <div class="rc-photo"><img src="../assets/retail-dutyfree-v2.jpg" alt="仁川机场免税店 Cocoheali 展示柜"></div>
         <div class="rc-body">
           <div class="rc-label">Offline Retail</div>
-          <div class="rc-value"><b>롯데 · 신세계 · 갤러리아</b> 백화점<br>인천공항 면세점 · 드럭스토어</div>
+          <div class="rc-value"><b>乐天 · 新世界 · Galleria</b> 百货公司<br>仁川机场免税店 · 药妆店</div>
         </div>
       </div>
       <div class="retail-card text-only">
         <div class="rc-body">
           <svg class="rc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"></path></svg>
           <div class="rc-label">Online</div>
-          <div class="rc-value"><b>자사몰</b> · 스마트스토어 · <b>Amazon</b> · Qoo10</div>
+          <div class="rc-value"><b>自营商城</b> · Naver 智能商店 · <b>Amazon</b> · Qoo10</div>
         </div>
       </div>
       <div class="retail-card">
-        <div class="rc-photo"><img src="assets/retail-global.jpg" alt="일본 마루이 백화점 코코힐리 콘셉트샵 현장"></div>
+        <div class="rc-photo"><img src="../assets/retail-global.jpg" alt="日本丸井百货公司 Cocoheali 概念店实景"></div>
         <div class="rc-body">
           <div class="rc-label">Global Retail</div>
-          <div class="rc-value"><b>유럽 27개국</b> 총판<br>대만·미국 외</div>
+          <div class="rc-value"><b>欧洲 27 国</b>总代理<br>台湾、美国等地</div>
         </div>
       </div>
       <div class="retail-card text-only">
         <div class="rc-body">
           <svg class="rc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"></path><path d="M8 12H4m16 0h-4"></path></svg>
           <div class="rc-label">Brand Collaboration</div>
-          <div class="rc-value">네파키즈 · 신라스테이 · 노보텔
-            <span class="retail-extra" id="collabExtra"><br>파라다이스시티 · 호야골프앤키즈 · 엘리시안 강촌</span>
+          <div class="rc-value">NEPA Kids · Shilla Stay · Novotel
+            <span class="retail-extra" id="collabExtra"><br>Paradise City · Hoya Golf &amp; Kids · Elysian Gangchon</span>
           </div>
           <button type="button" class="retail-more" id="collabMore">View all partners <span aria-hidden="true">↓</span></button>
         </div>
@@ -2296,51 +2171,51 @@
     </div>
 
     <p class="eyebrow reveal-item" style="margin-top:100px;">Founder's Story</p>
-    <a class="founder-card reveal-item" href="assets/ceo-interview.mp4" target="_blank" rel="noopener">
-      <img src="assets/ceo-still.jpg" alt="박은정 대표 CEO 인터뷰 스틸컷">
+    <a class="founder-card reveal-item" href="../assets/ceo-interview.mp4" target="_blank" rel="noopener">
+      <img src="../assets/ceo-still.jpg" alt="CEO 朴银贞（Eunjeong Park）采访画面">
       <div class="founder-body">
         <span class="fc-eyebrow">Founder's Story</span>
-        <h3>왜 코코힐리를 만들었는가</h3>
-        <p>박은정 대표가 직접 전하는 코코힐리의 시작과 철학 — Watch the Founder's Story</p>
+        <h3>为什么我们创立了 Cocoheali</h3>
+        <p>由 CEO 朴银贞亲自讲述 Cocoheali 的起源与理念 — Watch the Founder's Story</p>
       </div>
       <span class="founder-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5v15l14-7.5z"></path></svg></span>
     </a>
 
     <div class="company reveal-item">
-      <div class="row"><span>회사명</span><span>㈜퍼플러스 (PURPLUS Co., Ltd.)</span></div>
-      <div class="row"><span>대표이사</span><span>박은정</span></div>
-      <div class="row"><span>설립일</span><span>2018.02.14</span></div>
-      <div class="row"><span>본사</span><span>서울시 마포구 양화로 136</span></div>
-      <div class="row"><span>연구소</span><span>경기도 성남시 중원구</span></div>
-      <div class="row"><span>웹사이트</span><span>www.cocoheali.com</span></div>
-      <div class="row"><span>인스타그램</span><span>@cocoheali_kr · @cocoheali_official_global</span></div>
+      <div class="row"><span>公司名称</span><span>㈜퍼플러스 (PURPLUS Co., Ltd.)</span></div>
+      <div class="row"><span>CEO</span><span>Eunjeong Park（朴银贞）</span></div>
+      <div class="row"><span>成立日期</span><span>2018年2月14日</span></div>
+      <div class="row"><span>总部</span><span>韩国首尔市麻浦区杨花路136号</span></div>
+      <div class="row"><span>研发中心</span><span>京畿道城南市中原区</span></div>
+      <div class="row"><span>网站</span><span>www.cocoheali.com</span></div>
+      <div class="row"><span>Instagram</span><span>@cocoheali_kr · @cocoheali_official_global</span></div>
     </div>
 
     <div class="shopall-wrap">
-      <a class="pill-badge" href="mailto:purplus@purpluskr.com">( 메일 문의하기 )</a>
+      <a class="pill-badge" href="mailto:purplus@purpluskr.com">( 邮件联系我们 )</a>
     </div>
   </div>
 </section>
 
 <!-- VOICE GUIDE -->
 <section class="wrap pad-l reveal-group">
-  <p class="eyebrow reveal-item">Brand Voice — 내부 참고</p>
-  <h2 class="reveal-item" style="font-size:clamp(1.5rem,2.8vw,2rem);">이렇게 말하고,<br>이렇게는 말하지 않습니다.</h2>
+  <p class="eyebrow reveal-item">Brand Voice — 内部参考</p>
+  <h2 class="reveal-item" style="font-size:clamp(1.5rem,2.8vw,2rem);">我们这样说，<br>不这样说。</h2>
   <div class="voice reveal-item">
     <div class="col use">
-      <h4>자주 쓰는 말</h4>
+      <h4>常用词汇</h4>
       <div class="tagset">
-        <span>스스로</span><span>스킨케어</span><span>자기관리</span><span>피부장벽</span>
-        <span>습관</span><span>성장</span><span>뿌듯함</span><span>나도 해볼래</span><span>Me do it</span><span>나답게</span>
+        <span>自己动手</span><span>护肤</span><span>Self Care</span><span>皮肤屏障</span>
+        <span>习惯</span><span>成长</span><span>成就感</span><span>Me do it</span><span>做自己</span>
       </div>
-      <p class="note">캠페인 태그라인은 "나도 해볼래 / Me do it"(확정). "나답게"는 브랜드가 지향하는 정서를 보조적으로 설명할 때 사용. '자신감'도 보조적으로 사용 가능(브랜드 결정 기준).</p>
+      <p class="note">宣传标语确定为「我也要自己来 / Me do it」。「做自己」用于辅助说明品牌想传达的情绪基调。「自信」也可作为辅助用词使用（依品牌决议为准）。</p>
     </div>
     <div class="col avoid">
-      <h4>쓰지 않는 말</h4>
+      <h4>避免使用的词汇</h4>
       <div class="tagset">
-        <span>화장</span><span>메이크업</span><span>꾸미기</span>
+        <span>化妆</span><span>彩妆</span><span>打扮</span>
       </div>
-      <p class="note">'정체성' 관련 언어는 국내외 공통으로 사용하지 않습니다 — 유사 사례(Rini) 참고, 구체적 행동·감정 표현으로 대체.</p>
+      <p class="note">「身份认同」相关的表述在国内外均不使用 —— 可参考同类案例（Rini），改以具体的行动与情感描述取代。</p>
     </div>
   </div>
 </section>
@@ -2348,7 +2223,7 @@
 <!-- CLOSING -->
 <section class="closing reveal-group">
   <div class="closing-visual reveal-item">
-    <video src="assets/hero_background.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <video src="../assets/hero_background.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
   </div>
   <p class="line reveal-item">The first thing I did, all by myself.</p>
   <p class="signoff reveal-item"><span class="signoff-love">Love,</span><span class="signoff-name">Cocoheali</span></p>
@@ -2356,58 +2231,58 @@
 
 <footer>
   <div class="links">www.cocoheali.com · @cocoheali_kr · @cocoheali_official_global</div>
-  <p>본 문서는 coco 브랜드 리뉴얼 프로젝트의 브랜드소개서 초안(Draft)입니다. 내부 검토 후 승인된 버전만 배포용으로 사용합니다.</p>
+  <p>本文档为 Cocoheali 品牌焕新项目的品牌介绍初稿（Draft）。仅有经内部审核通过的版本会用于对外发布。</p>
   <p>Copyright PURPLUS Co., Ltd. — cocoheali brand renewal draft, 2026.</p>
 </footer>
 
 <div class="pkg-modal" id="pkgModal">
   <div class="pkg-modal-inner">
     <div class="pkg-modal-name" id="pkgModalName"></div>
-    <img id="pkgModalImg" src="" alt="패키지 도면">
-    <button type="button" class="pkg-modal-close" id="pkgModalClose" aria-label="닫기">✕</button>
+    <img id="pkgModalImg" src="" alt="包装图">
+    <button type="button" class="pkg-modal-close" id="pkgModalClose" aria-label="关闭">✕</button>
   </div>
 </div>
 
 <div class="film-lightbox" id="filmLightbox">
   <div class="film-lightbox-inner">
-    <button type="button" class="film-lightbox-close" id="filmLightboxClose" aria-label="닫기">✕</button>
+    <button type="button" class="film-lightbox-close" id="filmLightboxClose" aria-label="关闭">✕</button>
     <video id="filmLightboxVideo" controls playsinline></video>
   </div>
 </div>
 
 <div class="ddp-modal-overlay" id="ddpModal">
   <div class="ddp-modal">
-    <button type="button" class="ddp-modal-close" id="ddpModalClose" aria-label="닫기">✕</button>
+    <button type="button" class="ddp-modal-close" id="ddpModalClose" aria-label="关闭">✕</button>
     <div class="ddp-modal-scroll">
     <div class="ddp-hero-carousel" id="ddpHero">
       <div class="ddp-hero-track" id="ddpHeroTrack">
         <div class="ddp-hero-slide">
-          <img src="assets/입장존.jpg" alt="DDP 팝업 '이상한 K-Beauty : 엄마의 서랍' 입구 전경">
-          <span class="ddp-hero-cap">입장존</span>
+          <img src="../assets/입장존.jpg" alt="DDP 快闪店「不一样的 K-Beauty：妈妈的抽屉」入口全景">
+          <span class="ddp-hero-cap">入场区</span>
         </div>
         <div class="ddp-hero-slide">
-          <img src="assets/포토존.jpg" alt="같지만 다르게 보면 새로운 세상이 보일거야 포토존">
-          <span class="ddp-hero-cap">포토존</span>
+          <img src="../assets/포토존.jpg" alt="「看似相同，换个角度看见新世界」主题拍照区">
+          <span class="ddp-hero-cap">拍照区</span>
         </div>
         <div class="ddp-hero-slide">
-          <img src="assets/영상존.jpg" alt="엄마의 OO 영상존 촬영 현장">
-          <span class="ddp-hero-cap">영상존</span>
+          <img src="../assets/영상존.jpg" alt="「妈妈的○○」影像区拍摄现场">
+          <span class="ddp-hero-cap">影像区</span>
         </div>
         <div class="ddp-hero-slide">
-          <img src="assets/체험존.jpg" alt="나만의 팩트 만들기 체험존 전경">
-          <span class="ddp-hero-cap">체험존</span>
+          <img src="../assets/체험존.jpg" alt="「打造专属粉饼盒」体验区全景">
+          <span class="ddp-hero-cap">体验区</span>
         </div>
         <div class="ddp-hero-slide">
-          <img src="assets/휴게존.jpg" alt="빈백 소파와 포토미러가 있는 휴게존">
-          <span class="ddp-hero-cap">휴게존</span>
+          <img src="../assets/휴게존.jpg" alt="设有豆袋沙发与拍照镜的休息区">
+          <span class="ddp-hero-cap">休息区</span>
         </div>
         <div class="ddp-hero-slide">
-          <img src="assets/전경.jpg" alt="DDP 팝업 전시장 전경">
-          <span class="ddp-hero-cap">전경</span>
+          <img src="../assets/전경.jpg" alt="DDP 快闪店展览空间全景">
+          <span class="ddp-hero-cap">全景</span>
         </div>
       </div>
-      <button type="button" class="ddp-hero-nav ddp-hero-prev" id="ddpHeroPrev" aria-label="이전 사진">‹</button>
-      <button type="button" class="ddp-hero-nav ddp-hero-next" id="ddpHeroNext" aria-label="다음 사진">›</button>
+      <button type="button" class="ddp-hero-nav ddp-hero-prev" id="ddpHeroPrev" aria-label="上一张照片">‹</button>
+      <button type="button" class="ddp-hero-nav ddp-hero-next" id="ddpHeroNext" aria-label="下一张照片">›</button>
       <div class="ddp-hero-dots" id="ddpHeroDots">
         <span class="dot active"></span>
         <span class="dot"></span>
@@ -2419,26 +2294,25 @@
     </div>
     <div class="ddp-modal-body">
       <p class="eyebrow">Offline Pop-up</p>
-      <h3 class="ddp-title">이상한 K-Beauty : 엄마의 서랍</h3>
+      <h3 class="ddp-title">不一样的 K-Beauty：妈妈的抽屉</h3>
       <p class="ddp-sub">A Different K-Beauty Begins in Mom's Drawer</p>
-      <p class="ddp-meta">당초 2026.04.10 – 06.10 예정 · DDP 측 요청으로 <b>07.19까지 연장 운영</b> · 동대문디자인플라자(DDP) · DDP마켓 내 BtheB Downtown B2F</p>
+      <p class="ddp-meta">原定 2026.04.10–06.10 · 应 DDP 方要求<b>延长运营至 07.19</b> · 东大门设计广场（DDP）· DDP Market 内 BtheB Downtown B2F</p>
       <div class="exp-stats">
-        <div class="exp-stat"><b>약 3개월</b><span>운영 기간</span></div>
-        <div class="exp-stat"><b>약 5만 명</b><span>누적 방문객</span></div>
+        <div class="exp-stat"><b>约 3 个月</b><span>运营时长</span></div>
+        <div class="exp-stat"><b>约 5 万人</b><span>累计参观人数</span></div>
       </div>
 
       <div class="ddp-concept">
         <p class="ddp-formula">Creative + Cosmetics = <i>Creametics</i></p>
-        <p class="ddp-statement">"코코힐리는 화장을 권하지 않습니다.<br>다르게 보는 시선을 놀이로 경험하게 하며,<br>스스로 가꾸는 습관을 만들어갑니다."</p>
-        <p class="ddp-statement-en">We don't promote makeup. Instead, we inspire a different way of seeing —<br>through creative experiences, play naturally becomes a habit of self-care.</p>
+        <p class="ddp-statement">Cocoheali 不提倡化妆。我们让孩子在游戏中体验换个角度去看，<br>逐渐养成自己照顾自己的习惯。</p>
         <div class="ddp-doc-btns">
-          <button type="button" class="ddp-doc-btn" data-pkg="assets/ddp-poster.jpg" data-pkg-name="포스터 — 이상한 K-Beauty : 엄마의 서랍">
-            포스터 보기
-            <span class="ddp-doc-preview"><img src="assets/ddp-poster.jpg" alt=""></span>
+          <button type="button" class="ddp-doc-btn" data-pkg="../assets/ddp-poster.jpg" data-pkg-name="海报 — 不一样的 K-Beauty：妈妈的抽屉">
+            查看海报
+            <span class="ddp-doc-preview"><img src="../assets/ddp-poster.jpg" alt=""></span>
           </button>
-          <button type="button" class="ddp-doc-btn" data-pkg="assets/ddp-leaflet.jpg" data-pkg-name="리플렛 — 이상한 K-Beauty : 엄마의 서랍">
-            리플렛 보기
-            <span class="ddp-doc-preview"><img src="assets/ddp-leaflet.jpg" alt=""></span>
+          <button type="button" class="ddp-doc-btn" data-pkg="../assets/ddp-leaflet.jpg" data-pkg-name="宣传册 — 不一样的 K-Beauty：妈妈的抽屉">
+            查看宣传册
+            <span class="ddp-doc-preview"><img src="../assets/ddp-leaflet.jpg" alt=""></span>
           </button>
         </div>
       </div>
@@ -2447,51 +2321,51 @@
         <div class="ddp-zone-step">
           <span class="zone-num">01</span>
           <div>
-            <b>입구 — 이상한 서랍</b>
-            <p>익숙한데 다르게 보여! 좀 더 자세히 들여다볼까?<br><i>Let's take a closer look.</i></p>
+            <b>入口 — 不一样的抽屉</b>
+            <p>似曾相识，却又有些不同！要不要仔细瞧一瞧？</p>
           </div>
         </div>
         <div class="ddp-zone-step">
           <span class="zone-num">02</span>
           <div>
-            <b>영상존 — 엄마의 OO</b>
-            <p>이제 더 이상 엄마의 것이 아닌 이것은?<br><i>No longer just Mom's — what could it be?</i></p>
+            <b>影像区 — 妈妈的○○</b>
+            <p>不再只属于妈妈的，这会是什么呢？</p>
           </div>
         </div>
         <div class="ddp-zone-step">
           <span class="zone-num">03</span>
           <div>
-            <b>체험존 — 같은데, 다른것 <span style="font-weight:400; color:var(--ink-soft);">(나만의 팩트 만들기 · Make Your Own Compact)</span></b>
-            <p>똑같아도 다르게 써보자, 이제 네 차례야!<br><i>See differently. Own your way.</i></p>
+            <b>体验区 — 一样，却不一样 <span style="font-weight:400; color:var(--ink-soft);">（打造专属粉饼盒 · Make Your Own Compact）</span></b>
+            <p>同样的工具，换一种用法。换个角度看，走出自己的路 —— 现在轮到你了。</p>
           </div>
         </div>
         <div class="ddp-zone-step">
           <span class="zone-num">04</span>
           <div>
-            <b>출구 — 숨겨진 보물</b>
-            <p>보이는 게 다가 아니야! 숨겨진 이스터에그를 찾아보자.<br><i>Look closer — find the hidden easter egg.</i></p>
+            <b>出口 — 隐藏的宝藏</b>
+            <p>看到的可不一定是全部！<br>一起找找藏起来的彩蛋吧。</p>
           </div>
         </div>
       </div>
 
       <div class="ddp-gallery">
-        <img src="assets/ddp-s1.jpg" alt="벽에 걸린 컬러풀한 오브제 장식">
-        <img src="assets/ddp-s2.jpg" alt="나만의 팩트 만들기 체험 클로즈업">
-        <img src="assets/ddp-s3.jpg" alt="포토존 앞에 줄지어 선 아이들">
-        <img src="assets/ddp-s4.jpg" alt="전시장 벽 앞에 앉아있는 아이들">
-        <img class="g-feature" src="assets/ddp-s7.jpg" alt="체험 테이블에 둘러앉아 팩트를 만드는 아이들">
-        <img src="assets/ddp-s6.jpg" alt="이지아트 키트로 체험하는 아이 클로즈업">
-        <img src="assets/ddp-s8.jpg" alt="원형 테이블과 대형 거울이 있는 체험존 전경">
-        <img src="assets/ddp-s9.jpg" alt="유리 복도에 줄지어 선 아이들">
-        <img src="assets/ddp-s10.jpg" alt="거울 통로에 모인 아이들">
-        <img src="assets/ddp-s11.jpg" alt="낙서 매트 위에서 노는 아이들을 위에서 내려다본 모습">
-        <img src="assets/ddp-s12.jpg" alt="그림 배경 앞에서 포즈를 취하는 포토존 연출">
-        <img src="assets/ddp-s13.jpg" alt="완성한 라벤더 팩트를 든 손">
-        <img src="assets/ddp-s14.jpg" alt="완성한 컬러 스월 팩트를 든 손">
-        <img src="assets/ddp-s15.jpg" alt="완성한 블루 팩트를 든 손">
+        <img src="../assets/ddp-s1.jpg" alt="墙面上五彩缤纷的装饰物件">
+        <img src="../assets/ddp-s2.jpg" alt="「打造专属粉饼盒」体验特写">
+        <img src="../assets/ddp-s3.jpg" alt="在拍照区前排队的孩子们">
+        <img src="../assets/ddp-s4.jpg" alt="坐在展览墙前的孩子们">
+        <img class="g-feature" src="../assets/ddp-s7.jpg" alt="围坐在体验桌旁制作专属粉饼盒的孩子们">
+        <img src="../assets/ddp-s6.jpg" alt="使用 Easy Art 套组体验的孩子特写">
+        <img src="../assets/ddp-s8.jpg" alt="设有圆桌与大镜子的体验区全景">
+        <img src="../assets/ddp-s9.jpg" alt="在玻璃走廊排队的孩子们">
+        <img src="../assets/ddp-s10.jpg" alt="聚集在镜面通道的孩子们">
+        <img src="../assets/ddp-s11.jpg" alt="从上方俯拍在涂鸦垫上玩耍的孩子们">
+        <img src="../assets/ddp-s12.jpg" alt="在插画背景前摆姿势的拍照区布置">
+        <img src="../assets/ddp-s13.jpg" alt="手持完成的薰衣草色粉饼盒">
+        <img src="../assets/ddp-s14.jpg" alt="手持完成的彩色漩涡粉饼盒">
+        <img src="../assets/ddp-s15.jpg" alt="手持完成的蓝色粉饼盒">
       </div>
 
-      <p class="ddp-location"><b>Location</b> · 동대문디자인플라자(DDP) · DDP마켓 내 BtheB Downtown B2F · 동대문역사문화공원역 1번출구 46m</p>
+      <p class="ddp-location"><b>Location</b> · 东大门设计广场（DDP）· DDP Market 内 BtheB Downtown B2F · 距东大门历史文化公园站 1 号出口 46 米</p>
     </div>
     </div>
   </div>
@@ -2499,30 +2373,29 @@
 
 <div class="ddp-modal-overlay" id="bluehouseModal">
   <div class="ddp-modal">
-    <button type="button" class="ddp-modal-close" aria-label="닫기">✕</button>
+    <button type="button" class="ddp-modal-close" aria-label="关闭">✕</button>
     <div class="ddp-modal-scroll">
-    <div class="exp-modal-hero"><img src="assets/act-bluehouse.jpg" alt="청와대 어린이날 행사 코코힐리 체험 부스"></div>
+    <div class="exp-modal-hero"><img src="../assets/act-bluehouse.jpg" alt="青瓦台儿童节活动 Cocoheali 体验展位"></div>
     <div class="ddp-modal-body">
       <p class="eyebrow">Official Invitation</p>
-      <h3 class="ddp-title">청와대 초청 어린이날 행사</h3>
-      <p class="ddp-sub">The Only Cosmetics Brand Invited Inside the Blue House</p>
-      <p class="ddp-meta">2025.05.05 · 청와대(대한민국 대통령 집무 공간)</p>
+      <h3 class="ddp-title">受邀参加青瓦台儿童节活动</h3>
+      <p class="ddp-sub">A First-of-Its-Kind Invitation to the Blue House</p>
+      <p class="ddp-meta">2025.05.05 · 青瓦台（大韩民国总统办公场所）</p>
 
       <div class="ddp-concept">
-        <p class="ddp-formula">화장품 브랜드 <i>최초·유일</i></p>
-        <p class="ddp-statement">화장품 브랜드로는 유일하게,<br>대한민국 대통령의 집무 공간인 청와대 안에서 진행된 행사입니다.<br>아이들은 큐브네일(수성 매니큐어)로 자신만의 팩트 케이스를 직접 꾸몄습니다.</p>
-        <p class="ddp-statement-en">The only cosmetics brand ever invited inside the Blue House — Korea's most authoritative address.<br>Children decorated their own compact cases using Cube Nail, a water-based nail polish.</p>
+        <p class="ddp-formula">化妆品品牌<i>首个且唯一</i></p>
+        <p class="ddp-statement">作为化妆品品牌中唯一的一个，<br>Cocoheali 受邀进入大韩民国总统办公场所青瓦台内举办活动。<br>孩子们用水性指甲油 Cube Nail，亲手装饰了专属于自己的粉饼盒。</p>
       </div>
 
       <div class="ddp-gallery">
-        <img src="assets/act-bluehouse.jpg" alt="전통 한옥 지붕을 배경으로 한 체험 부스">
-        <img src="assets/bluehouse-3.jpg" alt="팩트 꾸미기 체험 부스 전경">
-        <img src="assets/bluehouse-1.jpg" alt="가족 단위로 팩트를 꾸미는 모습">
-        <img src="assets/bluehouse-2.jpg" alt="큐브네일로 팩트를 꾸미는 아이">
-        <img src="assets/bluehouse-4.jpg" alt="행사장 야외 부스 전경">
+        <img src="../assets/act-bluehouse.jpg" alt="以传统韩屋屋顶为背景的体验展位">
+        <img src="../assets/bluehouse-3.jpg" alt="粉饼盒装饰体验展位全景">
+        <img src="../assets/bluehouse-1.jpg" alt="全家人一起装饰粉饼盒的样子">
+        <img src="../assets/bluehouse-2.jpg" alt="用 Cube Nail 装饰粉饼盒的孩子">
+        <img src="../assets/bluehouse-4.jpg" alt="活动现场户外展位全景">
       </div>
 
-      <p class="ddp-location"><b>Location</b> · 청와대 · 서울</p>
+      <p class="ddp-location"><b>Location</b> · 青瓦台 · 首尔</p>
     </div>
     </div>
   </div>
@@ -2530,25 +2403,24 @@
 
 <div class="ddp-modal-overlay" id="hotelModal">
   <div class="ddp-modal">
-    <button type="button" class="ddp-modal-close" aria-label="닫기">✕</button>
+    <button type="button" class="ddp-modal-close" aria-label="关闭">✕</button>
     <div class="ddp-modal-scroll">
-    <div class="exp-modal-hero"><img src="assets/hotel-hero.jpg" alt="코코힐리 테마로 꾸며진 호텔 객실"></div>
+    <div class="exp-modal-hero"><img src="../assets/hotel-hero.jpg" alt="以 Cocoheali 主题布置的酒店客房"></div>
     <div class="ddp-modal-body">
       <p class="eyebrow">Hotel Collaboration</p>
-      <h3 class="ddp-title">호텔 콜라보</h3>
+      <h3 class="ddp-title">酒店联名合作</h3>
       <p class="ddp-sub">Cocoheali in Premium Family Suites</p>
-      <p class="ddp-meta">노보텔 · 신라스테이 · 더위크앤리조트 · 그랜드앰버서더</p>
+      <p class="ddp-meta">Novotel · Shilla Stay · THE WEEK&amp; Resort · Grand Ambassador</p>
 
       <div class="ddp-concept">
         <p class="ddp-formula">Hotel <i>x</i> Cocoheali</p>
-        <p class="ddp-statement">노보텔, 신라스테이, 더위크앤리조트, 그랜드앰버서더 등<br>주요 호텔과 협업하여 객실을 코코힐리 테마로 꾸미고<br>제품을 비치하는 콜라보를 진행했습니다.</p>
-        <p class="ddp-statement-en">In collaboration with major hotels — Novotel, Shilla Stay, The Wequ & Resort, and Grand Ambassador —<br>cocoheali transformed guest rooms into themed spaces stocked with our products.</p>
+        <p class="ddp-statement">与 Novotel、Shilla Stay、THE WEEK&amp; Resort、Grand Ambassador 等<br>主要酒店合作，将客房布置成 Cocoheali 主题空间，<br>并摆放产品供旅客体验。</p>
       </div>
 
       <div class="ddp-gallery">
-        <img src="assets/hotel-hero.jpg" alt="코코힐리 제품이 놓인 호텔 객실 라운지">
-        <img src="assets/hotel-1.jpg" alt="호텔 수영장에서 코코힐리 팩트 목걸이를 한 아이">
-        <img src="assets/hotel-2.jpg" alt="호텔 수영장에서 웃고 있는 아이">
+        <img src="../assets/hotel-hero.jpg" alt="摆放着 Cocoheali 产品的酒店客房休息区">
+        <img src="../assets/hotel-1.jpg" alt="在酒店泳池佩戴 Cocoheali 粉饼盒项链的孩子">
+        <img src="../assets/hotel-2.jpg" alt="在酒店泳池开心微笑的孩子">
       </div>
     </div>
     </div>
@@ -2557,25 +2429,24 @@
 
 <div class="ddp-modal-overlay" id="brandcollabModal">
   <div class="ddp-modal">
-    <button type="button" class="ddp-modal-close" aria-label="닫기">✕</button>
+    <button type="button" class="ddp-modal-close" aria-label="关闭">✕</button>
     <div class="ddp-modal-scroll">
-    <div class="exp-modal-hero"><img src="assets/brandcollab-hero.jpg" alt="네파키즈 매장 내 코코힐리 샵인샵"></div>
+    <div class="exp-modal-hero"><img src="../assets/brandcollab-hero.jpg" alt="NEPA Kids 门店内的 Cocoheali 店中店"></div>
     <div class="ddp-modal-body">
       <p class="eyebrow">Brand Collaboration</p>
-      <h3 class="ddp-title">네파키즈 x 코코힐리</h3>
+      <h3 class="ddp-title">NEPA Kids x Cocoheali</h3>
       <p class="ddp-sub">Shop-in-Shop Across Every NEPA Kids Store</p>
-      <p class="ddp-meta">전국 네파키즈 오프라인 매장</p>
+      <p class="ddp-meta">全国 NEPA Kids 线下门店</p>
 
       <div class="ddp-concept">
         <p class="ddp-formula">NEPA KIDS <i>x</i> Cocoheali</p>
-        <p class="ddp-statement">네파키즈와 협업하여,<br>전국 모든 네파키즈 오프라인 매장에 샵인샵 형태로<br>코코힐리 매장을 운영했습니다.</p>
-        <p class="ddp-statement-en">In partnership with NEPA Kids, cocoheali operates shop-in-shop spaces<br>inside every NEPA Kids store nationwide.</p>
+        <p class="ddp-statement">与 NEPA Kids 合作，<br>在全国所有 NEPA Kids 线下门店内，<br>以店中店形式运营 Cocoheali 专区。</p>
       </div>
 
       <div class="ddp-gallery">
-        <img src="assets/brandcollab-3.jpg" alt="네파키즈 매장 내 코코힐리 샵인샵 진열대">
-        <img src="assets/brandcollab-1.jpg" alt="코코힐리 제품 진열 클로즈업">
-        <img src="assets/brandcollab-2.jpg" alt="샵인샵에서 제품을 살펴보는 아이">
+        <img src="../assets/brandcollab-3.jpg" alt="NEPA Kids 门店内的 Cocoheali 店中店陈列架">
+        <img src="../assets/brandcollab-1.jpg" alt="Cocoheali 产品陈列特写">
+        <img src="../assets/brandcollab-2.jpg" alt="在店中店查看产品的孩子">
       </div>
     </div>
     </div>
@@ -2592,7 +2463,7 @@
 
     function open(src, label){
       img.src = src;
-      img.alt = label || '패키지 도면';
+      img.alt = label || 'Packaging diagram';
       name.textContent = label || '';
       modal.classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -2614,8 +2485,8 @@
   })();
 
   (function(){
-    // 브랜드 필름 라이트박스 — .film-play 클릭 시 화면 중앙에 큰 사이즈로 재생.
-    // pkgModal과 동일한 open/close 패턴이며, wireFilmPlay(하단 스크립트)가 window.openFilmLightbox를 호출.
+    // Brand film lightbox — clicking .film-play plays it centered and enlarged.
+    // Shares the pkgModal open/close pattern; wireFilmPlay (below) calls window.openFilmLightbox.
     var lightbox = document.getElementById('filmLightbox');
     var video = document.getElementById('filmLightboxVideo');
     var closeBtn = document.getElementById('filmLightboxClose');
@@ -2643,8 +2514,8 @@
   })();
 
   (function(){
-    // 상세 모달 4종(DDP/청와대/호텔콜라보/브랜드콜라보) 공통 open/close + DDP 전용 히어로 캐러셀 리셋.
-    // .ddp-modal-overlay 클래스를 공유하는 모든 모달에 동일한 인터랙션 패턴을 일괄 적용.
+    // Shared open/close logic for the 4 detail modals (DDP / Blue House / Hotel / Brand Collab), plus DDP's own hero carousel reset.
+    // Applies the same interaction pattern to every modal sharing the .ddp-modal-overlay class.
     function initHeroCarousel(overlay){
       var track = overlay.querySelector('.ddp-hero-track');
       if(!track) return null;
@@ -2688,20 +2559,20 @@
     });
     window.openDetailModal = function(id){ if(modals[id]) modals[id].open(); };
 
-    // Brand Experience — 순환 카드 캐러셀 (21st.dev "circular-testimonials" 동작 참고,
-    // React 컴포넌트 대신 카드 스택 pos-0~3 클래스 전환으로 바닐라 구현)
+    // Brand Experience — circular card carousel (ref: 21st.dev "circular-testimonials";
+    // implemented in vanilla JS via pos-0~3 class swaps instead of a React component)
     var stack = document.getElementById('expStack');
     if(!stack) return;
     var cards = Array.prototype.slice.call(stack.children);
     var data = [
-      { modal:'ddpModal', badge:'Offline Pop-up', title:'DDP 팝업 — 이상한 K-Beauty : 엄마의 서랍',
-        desc:'화장이 아닌 "다르게 보는 시선"을 아이들이 직접 경험한 DDP 브랜드 체험형 전시.' },
-      { modal:'bluehouseModal', badge:'Official Invitation', title:'청와대 초청 어린이날 행사',
-        desc:'화장품 브랜드로는 유일하게, 대한민국 대통령의 집무 공간에서 진행된 체험 행사.' },
-      { modal:'hotelModal', badge:'Hotel Collaboration', title:'호텔 콜라보',
-        desc:'노보텔·신라스테이 등 주요 호텔 객실을 코코힐리 테마로 꾸민 콜라보.' },
-      { modal:'brandcollabModal', badge:'Brand Collaboration', title:'네파키즈 x 코코힐리',
-        desc:'전국 모든 네파키즈 매장에 샵인샵 형태로 운영한 코코힐리 매장.' }
+      { modal:'ddpModal', badge:'Offline Pop-up', title:'DDP 快闪店 — 不一样的 K-Beauty：妈妈的抽屉',
+        desc:'在 DDP 举办的品牌体验展，让孩子亲身体验的不是化妆，而是"换一个角度去看"。' },
+      { modal:'bluehouseModal', badge:'Official Invitation', title:'受邀参加青瓦台儿童节活动',
+        desc:'作为化妆品品牌中唯一的一个，受邀进入大韩民国总统办公场所青瓦台内举办的体验活动。' },
+      { modal:'hotelModal', badge:'Hotel Collaboration', title:'酒店联名合作',
+        desc:'与 Novotel、Shilla Stay 等主要酒店合作，将客房布置成 Cocoheali 主题的联名企划。' },
+      { modal:'brandcollabModal', badge:'Brand Collaboration', title:'NEPA Kids x cocoheali',
+        desc:'在全国所有 NEPA Kids 门店中，以店中店形式运营的 Cocoheali 专区。' }
     ];
     var idx = 0;
     var badgeEl = document.getElementById('expBadge');
@@ -2797,11 +2668,6 @@
     if(!gate || !mark) return;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* 이번 브라우저 세션(탭)에서 게이트를 한 번이라도 연 적 있으면 다시 안 보여줌
-       (2026-08-18) — 언어 전환(KR↔EN)은 실제로는 다른 HTML 파일로 이동하는 거라
-       매번 처음부터 다시 로드되는데, "h 눌러서 들어온 건 이미 했으니" 언어만 바꿀 때
-       또 그 화면부터 볼 필요는 없다는 사용자 지시. sessionStorage라 탭을 닫으면
-       초기화됨(새로 방문한 것처럼). */
     var GATE_KEY = 'cocoheali_gate_opened';
     var alreadyOpened = false;
     try{ alreadyOpened = sessionStorage.getItem(GATE_KEY) === '1'; }catch(e){}
@@ -2838,11 +2704,6 @@
   })();
 
   (function(){
-    /* 언어 전환 시 스크롤 위치 유지(2026-08-18) — KR·EN은 번역 길이 차이로 페이지
-       전체 높이가 서로 달라서, 픽셀이 아니라 스크롤 비율(0~1)로 저장·복원한다.
-       .lang-switch 링크 클릭 시(=다른 언어 페이지로 이동하기 직전) 현재 비율을
-       sessionStorage에 저장하고, 로드된 페이지가 그 값을 읽어 같은 비율 위치로
-       한 번만 이동한 뒤 즉시 지운다(그래야 이후 순수 새로고침에는 영향 없음). */
     var SCROLL_KEY = 'cocoheali_scroll_frac';
     var switchLinks = document.querySelectorAll('.lang-switch a');
     for(var i=0;i<switchLinks.length;i++){
@@ -2859,9 +2720,6 @@
       var frac = parseFloat(saved);
       if(!isNaN(frac)){
         window.addEventListener('load', function(){
-          /* 극히 드물게 load 시점에도 레이아웃이 아직 안 잡혀 innerHeight가 0으로
-             읽히는 경우를 대비해 몇 프레임 재시도(2026-08-18) — 정상 브라우저에선
-             1회차에 바로 통과함, 체감 지연 없음. */
           function tryRestore(attempt){
             var vh = window.innerHeight;
             if(vh === 0 && attempt < 10){
@@ -2878,8 +2736,8 @@
   })();
 
   (function(){
-    // has-texture는 제형 영상뿐 아니라 모델컷 이미지 호버 전환에도 재사용됨(2026-08-14) —
-    // .pimg-texture가 <video>일 때만 play/pause를 걸고, <img>면 CSS opacity 전환만으로 충분.
+    // has-texture is reused for both formulation videos and model-shot hover swaps (2026-08-14) —
+    // play/pause only applies when .pimg-texture is a <video>; for <img> a CSS opacity transition is enough.
     document.querySelectorAll('.pimg.has-texture').forEach(function(box){
       var vid = box.querySelector('.pimg-texture');
       if(!vid || vid.tagName !== 'VIDEO') return;
@@ -2955,11 +2813,11 @@
   });
 
   (function(){
-    // 러닝 헤더 — 챕터 체계 (2026-08-16). 새 라이브러리 없이 기존 reveal 엔진과 같은 스크롤
-    // 리스너 방식. "현재 챕터"는 헤더(고정, 상단 기준선) 위쪽을 이미 지나간 챕터 표식 중
-    // 가장 마지막 것 — 딱 4개뿐이라 매 scroll 이벤트에 바로 계산해도 비용이 거의 없음(rAF로
-    // 스로틀링했더니 백그라운드/포커스 없는 탭에서 콜백 자체가 지연돼 버리는 문제가 있어서
-    // 뺌 — IntersectionObserver보다도 이 방식이 더 단순하고 확실함).
+    // Running header — chapter system (2026-08-16). Reuses the same scroll listener as the
+    // reveal engine, no new library needed. The "current chapter" is the last chapter mark whose
+    // position has already scrolled past the fixed header line — only 4 marks total, so recomputing
+    // on every scroll event is cheap (rAF throttling caused callback delays in background/unfocused
+    // tabs, so it was dropped — this approach is simpler and more reliable than IntersectionObserver anyway).
     var marks = Array.prototype.slice.call(document.querySelectorAll('.chapter-mark'));
     var hdrChapter = document.getElementById('hdrChapter');
     if(!marks.length || !hdrChapter) return;
@@ -2982,8 +2840,8 @@
   })();
 
   (function(){
-    // hero parallax — 배경이 본문보다 느리게 움직이는 미묘한 깊이감. 원본 이미지는
-    // .hero-bg가 top:-6%/height:112%로 여유를 둬서, 아래 offset만큼 움직여도 빈 공간이 드러나지 않음.
+    // hero parallax — a subtle depth effect where the background moves slower than the content.
+    // .hero-bg is oversized (top:-6%/height:112%) so the offset never reveals empty space.
     var heroBg = document.querySelector('.hero-bg');
     if(!heroBg) return;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -3014,7 +2872,7 @@
   }
 
   (function(){
-    // scroll-stagger reveal engine — .reveal-group 안의 .reveal-item이 진입 시 순서대로 나타남
+    // scroll-stagger reveal engine — .reveal-item children inside a .reveal-group appear in sequence as it enters view
     var groups = Array.prototype.slice.call(document.querySelectorAll('.reveal-group'));
     if(!groups.length) return;
     groups.forEach(function(g){
@@ -3042,15 +2900,15 @@
   document.querySelectorAll('.film-play').forEach(wireFilmPlay);
 
   (function(){
-    // 브랜드스토리 영상 — 스크롤로 화면에 들어올 때만 처음부터 재생, 벗어나면 정지(다음에 다시
-    // 들어오면 다시 처음부터).
+    // Brand story video — plays from the start only while scrolled into view, pauses when it
+    // leaves (and restarts from the beginning next time it re-enters).
     var storyVideo = document.getElementById('storyFilmVideo');
     if(!storyVideo) return;
     var storyLogo = document.getElementById('storyLogo');
     if(storyLogo){
-      // duration 메타데이터에만 의존하지 않도록, 실제 프레임을 캔버스로 샘플링해 화이트
-      // 페이드가 끝났는지 직접 판별(가능한 환경에서). 캔버스 접근이 막히는 환경(file://
-      // 등 일부 로컬 프리뷰)에서는 절대시간 폴백(23.6s~) 사용.
+      // Rather than relying only on duration metadata, sample an actual frame via canvas to detect
+      // when the white fade has finished (where possible). In environments where canvas access is
+      // blocked (e.g. some local file:// previews), fall back to an absolute time (23.6s~).
       var wCanvas = document.createElement('canvas');
       wCanvas.width = 6; wCanvas.height = 6;
       var wCtx = wCanvas.getContext('2d');
@@ -3098,9 +2956,9 @@
     }
   })();
 
-  // 자동 슬라이드 레일 — Brand Film에서 처음 만든 구조를 모든 .film-rail-wrap에 재사용
-  // (Selected Projects의 Global Exhibitions & Retail / Space & Retail Design, 2026-08-03).
-  // 레일마다 독립된 상태를 갖도록 클로저로 감싸 각 .film-rail-wrap에 개별 배선.
+  // Auto-sliding rail — reuses the structure first built for Brand Film across every .film-rail-wrap
+  // (Selected Projects' Global Exhibitions & Retail / Space & Retail Design, 2026-08-03).
+  // Wrapped in a closure so each .film-rail-wrap gets its own independent, individually wired state.
   document.querySelectorAll('.film-rail-wrap').forEach(function(wrap){
     var rail = wrap.querySelector('.film-rail');
     if(!rail) return;
@@ -3109,7 +2967,7 @@
     var nextBtn = wrap.querySelector('.rail-nav.next');
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // 계속 반복되는 자동 슬라이드를 위해 카드 세트를 한 번 더 복제(끊김 없는 무한 루프)
+    // Duplicate the card set once more for a seamless, endlessly looping auto-slide
     if(!reduceMotion){
       originalItems.forEach(function(item){
         var clone = item.cloneNode(true);
@@ -3145,7 +3003,7 @@
       moved = false;
     });
 
-    // focus rail — 레일 중앙에 가장 가까운 카드만 확대/선명하게 (21st.dev "focus-rail" 참고)
+    // focus rail — only the card closest to the rail's center is enlarged/sharp (ref: 21st.dev "focus-rail")
     if('IntersectionObserver' in window){
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(e){
@@ -3166,10 +3024,10 @@
 
     if(reduceMotion) return;
 
-    // 자동 슬라이드 — 천천히 계속 옆으로 흐르다가 끝에 닿으면 끊김 없이 처음으로 되돌아감.
-    // 마우스를 올리거나 드래그하거나 영상이 재생 중일 때는 멈춤.
+    // Auto-slide — drifts slowly sideways and loops seamlessly back to the start at the end.
+    // Pauses on hover, drag, or while a video is playing.
     var loopWidth = 0;
-    var speed = 0.35; // px / frame(~16ms) ≈ 21px/s, 천천히
+    var speed = 0.35; // px / frame (~16ms) ≈ 21px/s, slow
     var hovering = false;
 
     function getLoopWidth(){
