@@ -1263,6 +1263,11 @@
     transition:background .2s ease, color .2s ease, border-color .2s ease;
   }
   .exp-nav-btn:hover{background:var(--lavender-deep); color:var(--white); border-color:var(--lavender-deep);}
+  .exp-stack-col{display:flex; flex-direction:column; align-items:center; gap:18px;}
+  .exp-dots{display:flex; gap:8px;}
+  .exp-dot{width:7px; height:7px; padding:0; border:none; border-radius:50%; background:var(--line); cursor:pointer; transition:background .2s ease, transform .2s ease;}
+  .exp-dot:hover{background:var(--lavender-deep);}
+  .exp-dot.is-active{background:var(--lavender-deep); transform:scale(1.35);}
   @media (max-width:760px){
     .exp-carousel{grid-template-columns:1fr; gap:36px;}
     .exp-stack{max-width:280px;}
@@ -2153,11 +2158,19 @@
       <!-- 21st.dev "circular-testimonials" 참고 — React 컴포넌트를 쓰지 않고 카드 스택 순환 전환만
            바닐라 JS/CSS로 재구현 (2026-08-04). 카드 클릭/더보기 → 각 상세 모달로 연결. -->
       <div class="exp-carousel reveal-item">
-        <div class="exp-stack" id="expStack">
-          <div class="exp-card" data-modal="ddpModal"><img src="assets/act-ddp-poster.jpg" alt="DDP 팝업 '이상한 K-Beauty : 엄마의 서랍' 공식 포스터"></div>
-          <div class="exp-card" data-modal="bluehouseModal"><img src="assets/act-bluehouse.jpg" alt="청와대 어린이날 행사 코코힐리 체험 부스"></div>
-          <div class="exp-card" data-modal="hotelModal"><img src="assets/hotel-hero.jpg" alt="코코힐리 테마로 꾸며진 호텔 객실"></div>
-          <div class="exp-card" data-modal="brandcollabModal"><img src="assets/brandcollab-hero.jpg" alt="네파키즈 매장 내 코코힐리 샵인샵"></div>
+        <div class="exp-stack-col">
+          <div class="exp-stack" id="expStack">
+            <div class="exp-card" data-modal="ddpModal"><img src="assets/act-ddp-poster.jpg" alt="DDP 팝업 '이상한 K-Beauty : 엄마의 서랍' 공식 포스터"></div>
+            <div class="exp-card" data-modal="bluehouseModal"><img src="assets/act-bluehouse.jpg" alt="청와대 어린이날 행사 코코힐리 체험 부스"></div>
+            <div class="exp-card" data-modal="hotelModal"><img src="assets/hotel-hero.jpg" alt="코코힐리 테마로 꾸며진 호텔 객실"></div>
+            <div class="exp-card" data-modal="brandcollabModal"><img src="assets/brandcollab-hero.jpg" alt="네파키즈 매장 내 코코힐리 샵인샵"></div>
+          </div>
+          <div class="exp-dots" id="expDots" role="tablist" aria-label="카드 선택">
+            <button type="button" class="exp-dot" data-idx="0" aria-label="1번 카드로 이동"></button>
+            <button type="button" class="exp-dot" data-idx="1" aria-label="2번 카드로 이동"></button>
+            <button type="button" class="exp-dot" data-idx="2" aria-label="3번 카드로 이동"></button>
+            <button type="button" class="exp-dot" data-idx="3" aria-label="4번 카드로 이동"></button>
+          </div>
         </div>
         <div class="exp-info">
           <span class="exp-badge" id="expBadge">Offline Pop-up</span>
@@ -2708,6 +2721,7 @@
     var titleEl = document.getElementById('expTitle');
     var descEl = document.getElementById('expDesc');
     var moreBtn = document.getElementById('expMoreBtn');
+    var dots = Array.prototype.slice.call(document.querySelectorAll('#expDots .exp-dot'));
 
     function render(){
       cards.forEach(function(card, i){
@@ -2718,11 +2732,15 @@
       badgeEl.textContent = d.badge;
       titleEl.textContent = d.title;
       descEl.textContent = d.desc;
+      dots.forEach(function(dot, i){ dot.classList.toggle('is-active', i === idx); });
     }
     function go(dir){ idx = (idx + dir + data.length) % data.length; render(); }
 
     document.getElementById('expPrev').addEventListener('click', function(){ go(-1); });
     document.getElementById('expNext').addEventListener('click', function(){ go(1); });
+    dots.forEach(function(dot, i){
+      dot.addEventListener('click', function(){ idx = i; render(); });
+    });
     cards.forEach(function(card, i){
       card.addEventListener('click', function(){
         if(i === idx){ window.openDetailModal(data[i].modal); }
