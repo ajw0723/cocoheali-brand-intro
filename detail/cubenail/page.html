@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>큐브네일 상세페이지</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Gowun+Batang&family=Fraunces:ital,wght@0,600;1,600&display=swap">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #FAF7F1; display: flex; flex-direction: column; align-items: center; }
+/* Main */
+
+    :root{
+      --paper:#FAF7F1; --oak:#F1E9DC; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.14);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+      --font-en-accent:'Fraunces',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-kr);}
+    a{color:var(--purple-ui);text-decoration:none;} a:hover{color:var(--purple-field);}
+  
+
+/* Painpoint */
+
+    :root{
+      --paper:#FAF7F1; --oak:#F1E9DC; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.14);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+      --font-en-accent:'Fraunces',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--oak);color:var(--ink);font-family:var(--font-kr);}
+    a{color:var(--purple-ui);}
+  
+
+/* Fit */
+
+    :root{
+      --paper:#FAF7F1; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.16);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-kr);}
+    .row{display:flex;align-items:flex-start;gap:18px;padding:24px 0;border-bottom:1px solid var(--line);}
+    .row:last-child{border-bottom:none;}
+  
+
+/* Product */
+
+    :root{
+      --paper:#FAF7F1; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.14);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-kr);}
+  
+
+/* Strength */
+
+    :root{
+      --paper:#FAF7F1; --oak:#F1E9DC; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.14);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-kr);}
+  
+
+/* Usage */
+
+    :root{
+      --paper:#FAF7F1; --oak:#F1E9DC; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.14);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--oak);color:var(--ink);font-family:var(--font-kr);}
+  
+
+/* Reviews */
+
+    :root{
+      --paper:#FAF7F1; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.14);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-kr);}
+    .card{background:#fff;border:1px solid var(--line);border-radius:2px;padding:14px;box-shadow:0 16px 32px -20px rgba(43,38,32,0.2);}
+    .card img{display:block;width:100%;height:auto;border-radius:1px;}
+    .quote{font-family:var(--font-kr);font-weight:500;font-size:15px;line-height:1.7;color:var(--ink);margin-top:12px;}
+    .who{font-family:var(--font-kr);font-weight:400;font-size:13px;color:var(--ink-soft);margin-top:6px;}
+  
+
+/* Faq */
+
+    :root{
+      --paper:#FAF7F1; --oak:#F1E9DC; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.14);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-kr);}
+    .qa{padding:24px 0;border-top:1px solid var(--line);}
+    .q{font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);margin-bottom:8px;}
+    .a{font-family:var(--font-kr);font-weight:400;font-size:15px;line-height:1.7;color:var(--ink-soft);}
+  
+
+/* Cta */
+
+    :root{
+      --paper:#FAF7F1; --ink:#2B2620; --ink-soft:#6B6156;
+      --lavender:#D9AFCA; --purple-ui:#8B5A83; --purple-field:#9B6B9E;
+      --line:rgba(43,38,32,0.16);
+      --font-kr:'Noto Sans KR',-apple-system,"Apple SD Gothic Neo",sans-serif;
+      --font-kr-accent:'Gowun Batang',serif;
+      --font-en-accent:'Fraunces',serif;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-kr);}
+  
+</style>
+</head>
+<body>
+<!-- ===== Main ===== -->
+<div style="width:1000px;background:var(--paper);">
+
+<div style="width:1000px;height:760px;background:var(--paper);display:flex;align-items:stretch;overflow:hidden;position:relative;z-index:1;">
+
+  <!-- left: text column, padded -->
+  <div style="width:440px;flex:none;padding:48px 40px 48px 56px;display:flex;flex-direction:column;justify-content:center;">
+
+    <div style="font-family:var(--font-kr);font-weight:700;font-size:13px;letter-spacing:0.16em;color:var(--purple-ui);margin-bottom:28px;">코코힐리 큐브네일</div>
+
+    <!-- pill badge above headline (copy.md 배지 텍스트, 크림팡 히어로 패턴) -->
+    <div style="display:inline-block;align-self:flex-start;background:var(--purple-ui);color:#fff;font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.01em;border-radius:999px;padding:8px 16px;line-height:1.4;">
+      톨루엔·포름알데히드·DBP 무첨가 · 3-in-1 컬러 세트
+    </div>
+
+    <h1 style="margin:20px 0 0 0;font-family:var(--font-kr);font-weight:900;font-size:38px;line-height:1.32;letter-spacing:-0.01em;color:var(--ink);">
+      작은 손으로 발라보는,<br>
+      나만의 첫 <span style="font-family:var(--font-en-accent);font-style:italic;font-weight:600;color:var(--purple-ui);">Nail Art</span>
+    </h1>
+    <div style="margin-top:12px;font-family:var(--font-en-accent);font-style:italic;font-weight:600;font-size:15px;color:var(--ink-soft);">Cube Nail</div>
+    <p style="margin:16px 0 0 0;font-family:var(--font-kr);font-weight:400;font-size:16px;line-height:1.6;color:var(--ink-soft);">
+      러브캔디·드림캔디·샤인팝, 오늘은 어떤 컬러부터 발라볼까요.
+    </p>
+    <div style="margin-top:16px;font-family:var(--font-kr);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--purple-field);">
+      LITTLE HANDS, LONGLIFE HABITS.
+    </div>
+  </div>
+
+  <!-- right: full-bleed photo, edge to edge, no card treatment -->
+  <div style="flex:1;position:relative;">
+    <img src="images/hero_main.jpg" alt="손톱에 스마일을 그려 넣은 네일아트, 멀티컬러 손끝 클로즈업" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center;">
+    <!-- overlapping inset card, floats over the image/text boundary -->
+    <div style="position:absolute;left:-36px;bottom:36px;width:190px;background:var(--paper);box-shadow:0 20px 40px -18px rgba(43,38,32,0.32);padding:8px;">
+      <img src="images/hero_choose.jpg" alt="아이가 컬러 박스 2개를 들고 웃는 모습" style="display:block;width:100%;height:auto;">
+      <div style="margin-top:7px;font-family:var(--font-kr-accent);font-size:12px;color:var(--ink-soft);line-height:1.45;">
+        엄마도, 아이도 — 각자 컬러를 고르는 시간
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <!-- oversized wordmark band, transition into ②페인포인트(--oak) -->
+  <div style="width:1000px;background:var(--oak);padding:28px 56px 32px 56px;overflow:hidden;">
+    <div style="font-family:var(--font-en-accent);font-style:italic;font-weight:600;font-size:104px;line-height:1;color:var(--purple-field);letter-spacing:-0.01em;white-space:nowrap;">
+      Nail&nbsp;Art
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== Painpoint ===== -->
+<div style="width:1000px;background:var(--oak);padding:88px 0 0 0;position:relative;">
+
+  <div style="padding:0 64px;">
+    <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.14em;color:var(--purple-ui);margin-bottom:18px;">01 · WHY</div>
+
+    <h2 style="margin:0;font-family:var(--font-kr);font-weight:900;font-size:36px;line-height:1.45;color:var(--ink);max-width:620px;">
+      발라준 지 얼마 안 됐는데,<br>벌써 답답하다며<br>지우고 싶어해요
+    </h2>
+
+    <p style="margin:28px 0 0 0;font-family:var(--font-kr);font-weight:400;font-size:17px;line-height:1.75;color:var(--ink-soft);max-width:520px;">
+      아이의 손톱은 성인보다 얇고 여려요. 기존 매니큐어는 두껍게 코팅되는
+      방식이라 아이는 금방 갑갑함을 느끼고, 막상 지우려 하면 독한 아세톤
+      리무버가 필요해 부모도 아이도 곤란해집니다.
+    </p>
+  </div>
+
+  <!-- full-bleed illustration, edge to edge -->
+  <div style="margin-top:56px;width:100%;">
+    <img src="images/pain.jpg" alt="떼쓰며 우는 아이와 안절부절 못하는 엄마 → 스티커처럼 편하게 떼어내며 웃는 아이, 2패널 일러스트" style="display:block;width:100%;height:auto;">
+  </div>
+
+  <div style="padding:40px 64px 96px 64px;font-family:var(--font-kr-accent);font-size:16px;color:var(--purple-field);">
+    이런 고민, 낯설지 않으실 거예요.
+  </div>
+
+</div>
+
+<!-- ===== Fit ===== -->
+<div style="width:1000px;background:var(--paper);padding:88px 64px 96px 64px;">
+
+  <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.14em;color:var(--purple-ui);margin-bottom:18px;">02 · FOR YOU</div>
+
+  <h2 style="margin:0 0 44px 0;font-family:var(--font-kr-accent);font-weight:400;font-size:32px;color:var(--purple-ui);">
+    이럴 때, 딱 맞아요
+  </h2>
+
+  <div style="max-width:660px;">
+    <div class="row">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><circle cx="12" cy="12" r="10" stroke="#8B5A83" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#8B5A83" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="font-family:var(--font-kr);font-weight:500;font-size:18px;line-height:1.6;color:var(--ink);">매니큐어를 발라줬더니 얼마 안 가 답답하다며 지워달라고 조른 적 있다면</div>
+    </div>
+    <div class="row">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><circle cx="12" cy="12" r="10" stroke="#8B5A83" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#8B5A83" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="font-family:var(--font-kr);font-weight:500;font-size:18px;line-height:1.6;color:var(--ink);">억지로 지우다 아이 손끝이 벌겋게 되거나 아파했던 적 있다면</div>
+    </div>
+    <div class="row">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><circle cx="12" cy="12" r="10" stroke="#8B5A83" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#8B5A83" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="font-family:var(--font-kr);font-weight:500;font-size:18px;line-height:1.6;color:var(--ink);">한 가지 컬러 말고, 그날그날 다른 컬러를 골라보게 하고 싶다면</div>
+    </div>
+    <div class="row">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:2px;"><circle cx="12" cy="12" r="10" stroke="#8B5A83" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#8B5A83" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="font-family:var(--font-kr);font-weight:500;font-size:18px;line-height:1.6;color:var(--ink);">손톱뿐 아니라 색칠하고 떼어내며 노는 놀이로도 함께 즐기고 싶다면</div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;font-family:var(--font-kr-accent);font-size:16px;color:var(--purple-field);">
+    그 망설임에, 큐브네일은 이렇게 답합니다.
+  </div>
+
+</div>
+
+<!-- ===== Product ===== -->
+<div style="width:1000px;background:var(--paper);padding:88px 64px 96px 64px;">
+
+  <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.14em;color:var(--purple-ui);margin-bottom:16px;">03 · THE PRODUCT</div>
+
+  <h2 style="margin:0;font-family:var(--font-kr);font-weight:900;font-size:32px;line-height:1.5;color:var(--ink);max-width:600px;">
+    성분은 확인됐으니,<br>컬러는 아이가 고릅니다.
+  </h2>
+  <p style="margin:22px 0 0 0;font-family:var(--font-kr);font-weight:400;font-size:17px;line-height:1.75;color:var(--ink-soft);max-width:540px;">
+    물 베이스라 톡 쏘는 냄새가 없고, 스티커처럼 쓱 떼어내는 방식이라 독한
+    리무버도 필요 없습니다. 바르는 것부터 떼는 것까지, 아이 혼자 끝까지
+    해볼 수 있습니다.
+  </p>
+
+  <!-- full-bleed peel macro (right edge), secondary card overlaps bottom -->
+  <div style="position:relative;margin:52px -64px 64px 0;">
+    <img src="images/product_peel.jpg" alt="필름을 손끝으로 살짝 들어 떼어내는 순간, 스티커처럼 쓱" style="display:block;width:100%;height:auto;">
+    <div style="position:absolute;left:0;bottom:-40px;width:260px;background:var(--paper);box-shadow:0 20px 40px -18px rgba(43,38,32,0.32);padding:9px;">
+      <img src="images/product_apply.jpg" alt="아이가 직접 손톱에 바르는 장면" style="display:block;width:100%;height:auto;">
+      <div style="margin-top:7px;font-family:var(--font-kr-accent);font-size:12px;color:var(--ink-soft);line-height:1.5;">바르는 것부터 떼는 것까지, 혼자 해볼 수 있어요</div>
+    </div>
+  </div>
+
+  <!-- numbered step device: 왜 수성 베이스+필오프 방식인가 -->
+  <div style="margin-top:72px;">
+    <div style="font-family:var(--font-en-accent);font-style:italic;font-weight:600;font-size:15px;color:var(--purple-field);margin-bottom:28px;">Why a water base &amp; peel-off</div>
+    <div style="display:flex;align-items:flex-start;gap:20px;">
+      <div style="flex:1;text-align:center;">
+        <div style="width:64px;height:64px;margin:0 auto 18px auto;border-radius:50%;border:1.5px solid var(--purple-ui);display:flex;align-items:center;justify-content:center;font-family:var(--font-kr-accent);font-size:22px;color:var(--purple-ui);">01</div>
+        <div style="font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);margin-bottom:8px;">화학 용매 아닌,<br>물 베이스</div>
+        <div style="font-family:var(--font-kr);font-weight:400;font-size:14px;line-height:1.7;color:var(--ink-soft);">아세톤 같은 용매 대신 물을 기본으로 만들어, 톡 쏘는 냄새 없이 아이도 편하게 바를 수 있어요. 붓자국 걱정도 적습니다.</div>
+      </div>
+      <div style="flex:none;padding-top:20px;font-family:var(--font-kr-accent);font-size:26px;color:var(--lavender);">+</div>
+      <div style="flex:1;text-align:center;">
+        <div style="width:64px;height:64px;margin:0 auto 18px auto;border-radius:50%;border:1.5px solid var(--purple-ui);display:flex;align-items:center;justify-content:center;font-family:var(--font-kr-accent);font-size:22px;color:var(--purple-ui);">02</div>
+        <div style="font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);margin-bottom:8px;">스티커처럼, 쓱</div>
+        <div style="font-family:var(--font-kr);font-weight:400;font-size:14px;line-height:1.7;color:var(--ink-soft);">다 놀고 지울 때도 아세톤 리무버가 필요 없어요. 손톱 위 필름을 스티커처럼 떼어내면 끝이라, 바르는 것부터 떼는 것까지 전 과정을 아이 혼자 해볼 수 있습니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- together block -->
+  <div style="margin-top:44px;background:var(--lavender);border-radius:2px;padding:24px 28px;">
+    <div style="font-family:var(--font-kr);font-size:15px;color:#4A2F47;"><span style="font-weight:700;">함께 고르는 시간</span>: 엄마도, 아이도 — 각자 원하는 컬러를 고르면 됩니다.</div>
+  </div>
+
+  <!-- pull quote -->
+  <div style="margin-top:44px;border-left:2px solid var(--purple-ui);padding-left:24px;">
+    <div style="font-family:var(--font-kr-accent);font-size:19px;line-height:1.7;color:var(--ink);">
+      "안전한 성분에 리무버 없이 쉽게 떼어낼 수 있어서 구매했어요."
+    </div>
+    <div style="margin-top:10px;font-family:var(--font-kr);font-weight:500;font-size:13px;color:var(--ink-soft);">— 실제 구매 후기</div>
+  </div>
+
+  <div style="margin-top:52px;font-family:var(--font-kr-accent);font-size:16px;color:var(--purple-field);">
+    이 방식이 안전한 이유를, 성분으로 한 번 더 확인해보겠습니다.
+  </div>
+
+</div>
+
+<!-- ===== Strength ===== -->
+<div style="width:1000px;background:var(--paper);padding:88px 64px 96px 64px;">
+
+  <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.14em;color:var(--purple-ui);margin-bottom:18px;">04 · FORMULA &amp; TRUST</div>
+
+  <h2 style="margin:0;font-family:var(--font-kr);font-weight:900;font-size:32px;line-height:1.5;color:var(--ink);max-width:600px;">
+    성분을 먼저 확인해야,<br>컬러를 마음껏 고를 수 있습니다.
+  </h2>
+  <p style="margin:20px 0 0 0;font-family:var(--font-kr);font-weight:400;font-size:16px;line-height:1.7;color:var(--ink-soft);max-width:520px;">
+    손톱에 바르는 것이니, 무엇이 들어있고 무엇이 빠졌는지부터 정확히 알려드립니다.
+  </p>
+
+  <!-- big stat callout: real fact (불검출), not fabricated clinical data -->
+  <div style="margin-top:40px;background:var(--oak);padding:36px 40px;display:flex;align-items:center;gap:28px;">
+    <div style="font-family:var(--font-en-accent);font-style:italic;font-weight:600;font-size:76px;line-height:1;color:var(--purple-field);">0</div>
+    <div>
+      <div style="font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);">톨루엔·포름알데히드·DBP 검출</div>
+      <div style="font-family:var(--font-kr);font-weight:400;font-size:13px;color:var(--ink-soft);margin-top:4px;">러브캔디·드림캔디·샤인팝 전 컬러 공통 · 상품정보 제공고시 전성분표 기준</div>
+    </div>
+  </div>
+
+  <!-- full-bleed texture (left edge), ingredient card overlaps from the right -->
+  <div style="position:relative;margin:48px 0 88px -64px;">
+    <img src="images/strength_texture.jpg" alt="러브캔디 컬러 3색이 병에서 흘러나온 제형 드롭과 붓 자국" style="display:block;width:100%;height:auto;">
+    <div style="position:absolute;right:24px;bottom:-40px;width:280px;background:#fff;box-shadow:0 20px 40px -18px rgba(43,38,32,0.32);padding:10px;">
+      <img src="images/strength_back.jpg" alt="상품정보 제공고시 전성분표, 패키지 뒷면" style="display:block;width:100%;height:auto;">
+      <div style="margin-top:8px;font-family:var(--font-kr);font-size:12px;color:var(--ink-soft);">상품정보 제공고시 전성분표</div>
+    </div>
+  </div>
+
+  <!-- 3 point list -->
+  <div style="margin-top:88px;display:flex;flex-direction:column;gap:0;">
+    <div style="padding:26px 0;border-top:1px solid var(--line);display:flex;gap:24px;align-items:flex-start;">
+      <div style="font-family:var(--font-kr-accent);font-size:22px;color:var(--purple-ui);flex:none;width:36px;">01</div>
+      <div>
+        <div style="font-family:var(--font-kr);font-weight:700;font-size:17px;margin-bottom:6px;">톨루엔·포름알데히드·DBP 불검출 — 전 컬러 공통</div>
+        <div style="font-family:var(--font-kr);font-weight:400;font-size:15px;line-height:1.7;color:var(--ink-soft);">성인용 매니큐어에도 흔히 쓰이는 유해 3대 성분(톨루엔·포름알데히드·DBP)을, 큐브네일은 러브캔디·드림캔디·샤인팝 전 컬러 공통으로 검출하지 않았습니다. (상품정보 제공고시 전성분표 기준)</div>
+      </div>
+    </div>
+    <div style="padding:26px 0;border-top:1px solid var(--line);display:flex;gap:24px;align-items:flex-start;">
+      <div style="font-family:var(--font-kr-accent);font-size:22px;color:var(--purple-ui);flex:none;width:36px;">02</div>
+      <div>
+        <div style="font-family:var(--font-kr);font-weight:700;font-size:17px;margin-bottom:6px;">하이드롤라이즈드케라틴 — 손톱 단백질 케어</div>
+        <div style="font-family:var(--font-kr);font-weight:400;font-size:15px;line-height:1.7;color:var(--ink-soft);">장식 성분만 담은 게 아니라, 손톱을 이루는 단백질(케라틴) 케어 성분을 함께 담았습니다.</div>
+      </div>
+    </div>
+    <div style="padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;gap:24px;align-items:flex-start;">
+      <div style="font-family:var(--font-kr-accent);font-size:22px;color:var(--purple-ui);flex:none;width:36px;">03</div>
+      <div>
+        <div style="font-family:var(--font-kr);font-weight:700;font-size:17px;margin-bottom:6px;">수성 베이스</div>
+        <div style="font-family:var(--font-kr);font-weight:400;font-size:15px;line-height:1.7;color:var(--ink-soft);">정제수를 기본으로 한 물 베이스라, 화학 용매 특유의 독한 냄새가 없습니다.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== Usage ===== -->
+<div style="width:1000px;background:var(--oak);padding:88px 64px 96px 64px;">
+
+  <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.14em;color:var(--purple-ui);margin-bottom:18px;">05 · HOW TO PLAY</div>
+
+  <h2 style="margin:0;font-family:var(--font-kr);font-weight:900;font-size:34px;line-height:1.4;color:var(--ink);">
+    질리면 바꾸고, 심심하면 놀고.
+  </h2>
+  <p style="margin:18px 0 0 0;font-family:var(--font-kr);font-weight:400;font-size:16px;line-height:1.7;color:var(--ink-soft);max-width:520px;">
+    ④에서 시작한, 성분 걱정 없는 컬러가 이제 두 가지 방법으로 이어집니다.
+  </p>
+
+  <!-- full-bleed figurine (right edge), multicolor card overlaps top -->
+  <div style="position:relative;margin:52px -64px 72px 0;">
+    <img src="images/usage_figurine.jpg" alt="아이 두 손이 흰 도자기 피규어에 큐브네일 컬러로 자유롭게 색칠하는 장면" style="display:block;width:100%;height:auto;">
+    <div style="position:absolute;left:0;top:-32px;width:220px;background:var(--paper);box-shadow:0 20px 40px -18px rgba(43,38,32,0.32);padding:9px;">
+      <img src="images/usage_multicolor.jpg" alt="손가락마다 다른 컬러를 바른 손" style="display:block;width:100%;height:auto;">
+      <div style="margin-top:7px;font-family:var(--font-kr-accent);font-size:12px;color:var(--ink-soft);">손톱마다 다른 컬러로</div>
+    </div>
+  </div>
+
+  <!-- 3-color chapter strip -->
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:56px;">
+    <div>
+      <div style="display:flex;gap:6px;margin-bottom:12px;">
+        <div style="width:22px;height:22px;border-radius:50%;background:#F2A9B5;"></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#8FC8E8;"></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#E8E5DE;border:1px solid var(--line);"></div>
+      </div>
+      <div style="font-family:var(--font-en-accent);font-style:italic;font-weight:600;font-size:22px;color:var(--ink);">Love Candy</div>
+      <div style="font-family:var(--font-kr);font-weight:500;font-size:13px;color:var(--ink-soft);margin-top:2px;">러브캔디 · 핑크·블루·실버펄</div>
+    </div>
+    <div>
+      <div style="display:flex;gap:6px;margin-bottom:12px;">
+        <div style="width:22px;height:22px;border-radius:50%;background:#B7A8D9;"></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#F0935B;"></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#E0B45A;"></div>
+      </div>
+      <div style="font-family:var(--font-en-accent);font-style:italic;font-weight:600;font-size:22px;color:var(--ink);">Dream Candy</div>
+      <div style="font-family:var(--font-kr);font-weight:500;font-size:13px;color:var(--ink-soft);margin-top:2px;">드림캔디 · 퍼플·오렌지·골드펄</div>
+    </div>
+    <div>
+      <div style="display:flex;gap:6px;margin-bottom:12px;">
+        <div style="width:22px;height:22px;border-radius:50%;background:#E37B9C;"></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#F2C63C;"></div>
+        <div style="width:22px;height:22px;border-radius:50%;background:#C79BE0;"></div>
+      </div>
+      <div style="font-family:var(--font-en-accent);font-style:italic;font-weight:600;font-size:22px;color:var(--ink);">Shine Pop</div>
+      <div style="font-family:var(--font-kr);font-weight:500;font-size:13px;color:var(--ink-soft);margin-top:2px;">샤인팝 · 도트·하트·팝</div>
+    </div>
+  </div>
+
+  <!-- 5 items -->
+  <div style="display:flex;flex-direction:column;">
+    <div style="padding:22px 0;border-top:1px solid var(--line);">
+      <span style="font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);">오늘은 이 컬러</span>
+      <span style="font-family:var(--font-kr);font-weight:400;font-size:15px;color:var(--ink-soft);"> — 러브캔디·드림캔디·샤인팝, 3가지 컬러가 한 세트라 매번 새로 사지 않아도 다른 컬러를 시도해볼 수 있어요.</span>
+    </div>
+    <div style="padding:22px 0;border-top:1px solid var(--line);">
+      <span style="font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);">질리면, 다시</span>
+      <span style="font-family:var(--font-kr);font-weight:400;font-size:15px;color:var(--ink-soft);"> — 스티커처럼 쓱 떼어내는 방식이라 다음 컬러로 바꾸는 데 부담이 없습니다. 오늘은 러브캔디, 내일은 드림캔디 — 그때그때 아이가 고르면 됩니다.</span>
+    </div>
+    <div style="padding:22px 0;border-top:1px solid var(--line);">
+      <span style="font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);">여러 컬러를 한 번에</span>
+      <span style="font-family:var(--font-kr);font-weight:400;font-size:15px;color:var(--ink-soft);"> — 손톱마다 다른 컬러로 발라보거나, 손에도 함께 발라보며 아이가 원하는 조합을 자유롭게 시도할 수 있습니다.</span>
+    </div>
+    <div style="padding:22px 0;border-top:1px solid var(--line);">
+      <span style="font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);">붓끝으로 그림도</span>
+      <span style="font-family:var(--font-kr);font-weight:400;font-size:15px;color:var(--ink-soft);"> — 단색으로 칠하는 것 말고도, 붓끝으로 스마일 같은 간단한 그림을 그려 넣는 네일아트도 해볼 수 있어요.</span>
+    </div>
+    <div style="padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <span style="font-family:var(--font-kr);font-weight:700;font-size:16px;color:var(--ink);">손톱이 아닌 날엔, 케이스와 장난감 위에서</span>
+      <span style="font-family:var(--font-kr);font-weight:400;font-size:15px;color:var(--ink-soft);"> — 케이스나 장난감에 자유롭게 색칠했다가 다시 뜯어내며 노는 것도 큐브네일의 또 다른 방식입니다. 손톱에 "제대로" 발라야 한다는 부담 없이, 마음껏 칠하고 지우며 시도해볼 수 있어요.</span>
+    </div>
+  </div>
+
+  <div style="margin-top:36px;font-family:var(--font-kr);font-weight:500;font-size:15px;line-height:1.7;color:var(--ink);max-width:600px;">
+    손톱 위는 완성해서 보여주는 재미, 케이스와 장난감 위는 자유롭게 실험하는 재미 — 큐브네일은 이 두 가지를 함께 담았습니다.
+  </div>
+
+  <div style="margin-top:44px;font-family:var(--font-kr-accent);font-size:16px;color:var(--purple-field);">
+    이렇게 반복해서 쓰게 됐다는 부모님들의 이야기가, 이제 하나씩 모이고 있습니다.
+  </div>
+
+</div>
+
+<!-- ===== Reviews ===== -->
+<div style="width:1000px;background:var(--paper);padding:88px 64px 96px 64px;">
+
+  <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.14em;color:var(--purple-ui);margin-bottom:16px;">06 · REVIEWS</div>
+  <h2 style="margin:0;font-family:var(--font-kr);font-weight:900;font-size:28px;line-height:1.55;color:var(--ink);max-width:640px;">
+    큐브네일을 먼저 사서 반복해서 쓰게 됐다는 부모님들의 이야기입니다.
+  </h2>
+
+  <!-- trigger② featured card -->
+  <div style="margin-top:48px;display:flex;gap:32px;align-items:flex-start;">
+    <div class="card" style="width:280px;flex:none;">
+      <img src="images/review_semi.jpg" alt="어린이집 교사가 반 전체 아이들과 사용한 후기, 여러 아이 손이 원형으로 모인 사진">
+    </div>
+    <div style="padding-top:8px;">
+      <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.1em;color:var(--purple-ui);">BEST REVIEW</div>
+      <div class="quote" style="font-size:19px;">"발색도 좋고 특히 뜯어져서 너무 좋아요! 반짝이를 제일 좋아하더라고요."</div>
+      <div class="who">— 어린이집 교사, 반 전체 아이들과 사용 (semi****)</div>
+    </div>
+  </div>
+
+  <!-- 5-up grid: 자기주도(shin·gkfl) + 발색·사용감(lh·jjam·bong) -->
+  <div style="margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px;">
+    <div>
+      <div class="card"><img src="images/review_shin.jpg" alt="즐겁게 고민하고 바르는 아이 손, shin***** 리뷰"></div>
+      <div class="quote">"하고 싶을 때 음, 무슨 색 할까 — 즐겁게 고민하고 바르는 모습이 너무 귀여워요. 아직 혼자 바르기는 이르지만, 삐져나와도 마르기 전이면 쓱 닦이고 향도 독하지 않고 좋아요."</div>
+      <div class="who">— shin*****</div>
+    </div>
+    <div>
+      <div class="card"><img src="images/review_gkfl.jpg" alt="드림캔디 3색 병, gkfl**** 리뷰, 아이 8세"></div>
+      <div class="quote">"아이 8세, 아이한테 쓰기 좋은 제품으로 찾아보다 구매했어요. 쉽게 바를 수 있고, 냄새 나지 않구요, 아세톤 필요 없이 잘 떼어져요."</div>
+      <div class="who">— gkfl****</div>
+    </div>
+    <div>
+      <div class="card"><img src="images/review_lh.jpg" alt="아이가 스스로 손톱에 매니큐어를 바르는 모습, lh**** 리뷰"></div>
+      <div class="quote">"정말 금방 마르네요. 향도 좋고요, 애가 좋아해요."</div>
+      <div class="who">— lh****</div>
+    </div>
+    <div>
+      <div class="card"><img src="images/review_jjam.jpg" alt="샤인팝 패키지를 든 손, jjam**** 리뷰"></div>
+      <div class="quote">"바르고 나면 저렴한 제품들과 차이가 확실히 납니다. 제거할 때도 깔끔하구요, 아이가 제일 좋아하는 네일입니다."</div>
+      <div class="who">— jjam****</div>
+    </div>
+    <div>
+      <div class="card"><img src="images/review_bong.jpg" alt="컬러가 발린 두 팔과 코코힐리 박스, bong******* 리뷰"></div>
+      <div class="quote">"색감이 너무 이뻐요."</div>
+      <div class="who">— bong*******(한달사용)</div>
+    </div>
+  </div>
+
+  <div style="margin-top:44px;font-family:var(--font-kr-accent);font-size:16px;color:var(--purple-field);">
+    후기까지 확인하셨다면, 지금 확인할 수 있는 건 하나 더 있습니다 — 자주 묻는 질문입니다.
+  </div>
+
+</div>
+
+<!-- ===== Faq ===== -->
+<div style="width:1000px;background:var(--paper);padding:88px 64px 96px 64px;">
+
+  <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.14em;color:var(--purple-ui);margin-bottom:24px;">07 · Q&amp;A</div>
+
+  <!-- brand summary block -->
+  <div style="background:var(--oak);padding:32px 36px;border-radius:2px;">
+    <div style="font-family:var(--font-kr);font-weight:700;font-size:13px;color:var(--purple-ui);margin-bottom:12px;">왜 매니큐어가 아니라 큐브네일인가</div>
+    <div style="font-family:var(--font-kr);font-weight:400;font-size:15px;line-height:1.8;color:var(--ink);">
+      큐브네일은 손톱에 바르는 컬러를, 성인용 매니큐어와 다른 방식으로 만들었습니다.
+      화학 용매 대신 물을 베이스로 써 톡 쏘는 냄새가 없고, 톨루엔·포름알데히드·DBP는
+      전 컬러 공통으로 검출되지 않았습니다. 지울 때도 아세톤 리무버 없이, 스티커처럼
+      쓱 떼어내면 됩니다. 손톱 단백질(케라틴) 케어 성분을 더했고, 러브캔디·드림캔디·
+      샤인팝 3가지 컬러를 한 세트로 담아 그날그날 원하는 컬러를 골라 쓸 수 있습니다.
+    </div>
+  </div>
+
+  <h2 style="margin:56px 0 8px 0;font-family:var(--font-kr-accent);font-size:24px;color:var(--purple-ui);">자주 묻는 질문</h2>
+
+  <div>
+    <div class="qa">
+      <div class="q">Q1. 지울 때 리무버가 꼭 필요한가요?</div>
+      <div class="a">A. 아니요. 스티커처럼 필름을 떼어내는 방식이라 아세톤 리무버 없이 지울 수 있어요.</div>
+    </div>
+    <div class="qa">
+      <div class="q">Q2. 개봉 후 얼마나 보관할 수 있나요?</div>
+      <div class="a">A. 개봉 후 6개월 이내 사용을 권장합니다. 다른 코코힐리 제품보다 짧은 편이니 개봉일을 기억해두세요.</div>
+    </div>
+    <div class="qa">
+      <div class="q">Q3. 컬러는 몇 가지인가요?</div>
+      <div class="a">A. 러브캔디·드림캔디·샤인팝 3가지 컬러를 한 세트로 판매하고 있어요. (스타캔디는 현재 판매하지 않습니다.)</div>
+    </div>
+    <div class="qa" style="border-bottom:1px solid var(--line);">
+      <div class="q">Q4. 가격과 용량은 어떻게 되나요?</div>
+      <div class="a">A. 30,000원, 총 13.5g(4.5g×3ea) 구성입니다.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:36px;background:var(--purple-field);border-radius:2px;padding:22px 28px;">
+    <div style="font-family:var(--font-kr-accent);font-size:16px;color:#fff;">컬러 하나가 마음에 안 들어도, 세트 안에 두 가지가 더 있습니다.</div>
+  </div>
+
+  <div style="margin-top:36px;font-family:var(--font-kr-accent);font-size:16px;color:var(--purple-field);">
+    여기까지 확인하셨다면, 이제 컬러를 고를 시간입니다.
+  </div>
+
+</div>
+
+<!-- ===== Cta ===== -->
+<div style="width:1000px;background:var(--paper);padding:88px 64px 104px 64px;text-align:center;">
+
+  <div style="font-family:var(--font-kr);font-weight:700;font-size:12px;letter-spacing:0.14em;color:var(--purple-ui);">08 · ME DO IT</div>
+
+  <div style="margin-top:22px;font-family:var(--font-kr-accent);font-size:15px;color:var(--ink-soft);max-width:520px;margin-left:auto;margin-right:auto;">
+    발라준 지 얼마 안 됐는데, 벌써 답답하다며 지우고 싶어했었나요?<br>
+    이제 스티커처럼 편하게 떼어내는 컬러로, 아이가 마음껏 골라볼 차례입니다.
+  </div>
+
+  <h2 style="margin:28px 0 0 0;font-family:var(--font-kr);font-weight:900;font-size:40px;color:var(--ink);">
+    나도 해볼래 — <span style="font-family:var(--font-en-accent);font-style:italic;font-weight:600;color:var(--purple-ui);">Me do it</span>
+  </h2>
+  <div style="margin-top:16px;font-family:var(--font-kr);font-weight:400;font-size:16px;line-height:1.7;color:var(--ink-soft);max-width:460px;margin-left:auto;margin-right:auto;">
+    작은 손으로 시작한 오늘의 습관이 평생 자신을 돌보는 태도가 된다.
+  </div>
+
+  <!-- 3 product colors -->
+  <div style="margin-top:56px;display:flex;justify-content:center;gap:20px;">
+    <img src="images/cta_product.jpg" alt="러브캔디" style="width:180px;height:auto;">
+    <img src="images/cta_product2.jpg" alt="드림캔디" style="width:180px;height:auto;">
+    <img src="images/cta_product3.jpg" alt="샤인팝" style="width:180px;height:auto;">
+  </div>
+
+  <div style="margin-top:44px;display:flex;justify-content:center;gap:44px;">
+    <div style="width:120px;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin:0 auto 10px auto;display:block;"><path d="M12 2l8 3v6c0 5-3.4 8.4-8 11-4.6-2.6-8-6-8-11V5l8-3z" stroke="#8B5A83" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#8B5A83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="font-family:var(--font-kr);font-weight:600;font-size:12px;line-height:1.5;color:var(--ink-soft);">톨루엔·포름알데히드·DBP<br>전 컬러 공통 불검출</div>
+    </div>
+    <div style="width:120px;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin:0 auto 10px auto;display:block;"><path d="M12 3c3 4 6 7.2 6 10.5A6 6 0 0 1 6 13.5C6 10.2 9 7 12 3z" stroke="#8B5A83" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      <div style="font-family:var(--font-kr);font-weight:600;font-size:12px;line-height:1.5;color:var(--ink-soft);">손톱 단백질<br>케어 성분</div>
+    </div>
+    <div style="width:120px;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="margin:0 auto 10px auto;display:block;"><circle cx="8" cy="8" r="4.2" stroke="#8B5A83" stroke-width="1.5"/><circle cx="16" cy="8" r="4.2" stroke="#8B5A83" stroke-width="1.5"/><circle cx="12" cy="15" r="4.2" stroke="#8B5A83" stroke-width="1.5"/></svg>
+      <div style="font-family:var(--font-kr);font-weight:600;font-size:12px;line-height:1.5;color:var(--ink-soft);">러브캔디·드림캔디·샤인팝<br>3컬러 세트</div>
+    </div>
+  </div>
+
+  <div style="margin-top:28px;font-family:var(--font-kr);font-weight:900;font-size:24px;color:var(--ink);">30,000원</div>
+  <div style="font-family:var(--font-kr);font-weight:400;font-size:12px;color:var(--ink-soft);margin-top:4px;">판매처 프로모션에 따라 달라질 수 있어요 — 구매 페이지에서 최신가를 확인하세요</div>
+
+  <div style="margin-top:32px;display:inline-block;background:var(--purple-ui);color:#fff;font-family:var(--font-kr);font-weight:700;font-size:16px;padding:18px 44px;border-radius:999px;">
+    지금, 나만의 컬러 고르기
+  </div>
+
+  <div style="margin-top:64px;font-family:var(--font-en-accent);font-style:italic;font-weight:600;font-size:14px;letter-spacing:0.06em;color:var(--ink-soft);">COCOHEALI CUBE NAIL</div>
+
+</div>
+</body>
+</html>

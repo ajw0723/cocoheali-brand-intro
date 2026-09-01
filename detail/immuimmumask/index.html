@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>마스크팩 상세페이지 검토</title>
+<style>
+  :root {
+    --lavender: #D9AFCA;
+    --purple-ui: #8B5A83;
+    --purple-field: #9B6B9E;
+    --ink: #2b2620;
+    --bg: #faf9f5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 20px;
+    background: #fff;
+    border-bottom: 1px solid #ece6dd;
+    overflow-x: auto;
+    flex: none;
+  }
+  nav .brand {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--purple-ui);
+    margin-right: 16px;
+    white-space: nowrap;
+  }
+  nav a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #9a9187;
+    padding: 8px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+  }
+  nav a:hover { background: #f3ede4; color: var(--ink); }
+  nav a.active { background: var(--lavender); color: #5c3a55; }
+  nav a.pending { color: #c8beb1; }
+  nav a.pending::after { content: " ・진행중"; font-weight: 400; font-size: 11px; }
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+  }
+  .placeholder h1 {
+    font-size: 20px;
+    color: var(--purple-ui);
+    margin-bottom: 8px;
+  }
+  .placeholder p {
+    font-size: 14px;
+    color: #9a9187;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <span class="brand">코코힐리 상세페이지 검토</span>
+  <a href="../creampang/">크림팡</a>
+  <a href="../sunnypang/" class="pending">써니팡</a>
+  <a href="../cubenail/">큐브네일</a>
+  <a href="../cubelipbalm/" class="pending">큐브립밤</a>
+  <a href="../immuimmumask/" class="active pending">마스크팩</a>
+</nav>
+<main>
+  <div class="placeholder">
+    <h1>마스크팩 — 작업 진행중</h1>
+    <p>완료되는 대로 이 페이지에 채워집니다.</p>
+  </div>
+</main>
+</body>
+</html>
