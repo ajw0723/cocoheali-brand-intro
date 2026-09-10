@@ -1426,10 +1426,19 @@
     75%{ opacity:.28; }
   }
   .intro-mark:focus-visible{outline:2px solid var(--lavender-deep); outline-offset:10px; border-radius:50%;}
+  .intro-hint{
+    position:absolute; left:50%; top:calc(50% + 62px); transform:translateX(-50%);
+    margin:0; text-align:center; white-space:nowrap;
+    font-family:var(--font-en-base); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-soft);
+    opacity:1; transition:opacity .5s ease;
+  }
+  .intro-gate.opening .intro-hint{opacity:0; transition:opacity .4s ease; transition-delay:0s;}
   @media (prefers-reduced-motion:reduce){
     .intro-gate{transition:none;}
     .intro-gate.opening .intro-mark{transition:none;}
     .intro-mark img{animation:none;}
+    .intro-hint{transition:none;}
   }
 </style>
 </head>
@@ -1439,6 +1448,7 @@
   <button type="button" class="intro-mark" id="introMark" aria-label="Open cocoheali brand introduction">
     <img src="../assets/h-mark.png" alt="">
   </button>
+  <p class="intro-hint">Click Here</p>
 </div>
 
 <header class="top" id="siteHeader">
