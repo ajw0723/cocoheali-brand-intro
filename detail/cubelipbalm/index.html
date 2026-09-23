@@ -55,20 +55,14 @@
   nav a.pending::after { content: " ・진행중"; font-weight: 400; font-size: 11px; }
   main {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px;
+    min-height: 0;
+    position: relative;
   }
-  .placeholder h1 {
-    font-size: 20px;
-    color: var(--purple-ui);
-    margin-bottom: 8px;
-  }
-  .placeholder p {
-    font-size: 14px;
-    color: #9a9187;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
   }
 </style>
 </head>
@@ -78,14 +72,11 @@
   <a href="../creampang/">크림팡</a>
   <a href="../sunnypang/" class="pending">써니팡</a>
   <a href="../cubenail/">큐브네일</a>
-  <a href="../cubelipbalm/" class="active pending">큐브립밤</a>
+  <a href="../cubelipbalm/" class="active">큐브립밤</a>
   <a href="../immuimmumask/" class="pending">마스크팩</a>
 </nav>
 <main>
-  <div class="placeholder">
-    <h1>큐브립밤 — 작업 진행중</h1>
-    <p>완료되는 대로 이 페이지에 채워집니다.</p>
-  </div>
+  <iframe src="deploy/cubelipbalm-detail-page.html" title="큐브립밤 상세페이지"></iframe>
 </main>
 </body>
 </html>
