@@ -1,91 +1,423 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>써니팡 상세페이지 검토</title>
+<meta name="viewport" content="width=1000">
+<title>코코힐리 써니팡 팩트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Gowun+Batang:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-  :root {
-    --lavender: #D9AFCA;
-    --purple-ui: #8B5A83;
-    --purple-field: #9B6B9E;
-    --ink: #2b2620;
-    --bg: #faf9f5;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { height: 100%; }
-  body {
-    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    display: flex;
-    flex-direction: column;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 10px 20px;
-    background: #fff;
-    border-bottom: 1px solid #ece6dd;
-    overflow-x: auto;
-    flex: none;
-  }
-  nav .brand {
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--purple-ui);
-    margin-right: 16px;
-    white-space: nowrap;
-  }
-  nav a {
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: #9a9187;
-    padding: 8px 14px;
-    border-radius: 999px;
-    white-space: nowrap;
-    transition: background 0.15s, color 0.15s;
-  }
-  nav a:hover { background: #f3ede4; color: var(--ink); }
-  nav a.active { background: var(--lavender); color: #5c3a55; }
-  nav a.pending { color: #c8beb1; }
-  nav a.pending::after { content: " ・진행중"; font-weight: 400; font-size: 11px; }
-  main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px;
-  }
-  .placeholder h1 {
-    font-size: 20px;
-    color: var(--purple-ui);
-    margin-bottom: 8px;
-  }
-  .placeholder p {
-    font-size: 14px;
-    color: #9a9187;
-  }
+  html, body { margin:0; padding:0; background:#E7E1D6; }
+  body { font-family:'Pretendard Variable', Pretendard, -apple-system, sans-serif; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; text-wrap:pretty; word-break:keep-all; }
+  a { color:#8B5A83; text-decoration:none; }
+  a:hover { color:#6E3F94; }
 </style>
 </head>
 <body>
-<nav>
-  <span class="brand">코코힐리 상세페이지 검토</span>
-  <a href="../creampang/">크림팡</a>
-  <a href="../sunnypang/" class="active pending">써니팡</a>
-  <a href="../cubenail/">큐브네일</a>
-  <a href="../cubelipbalm/">큐브립밤</a>
-  <a href="../immuimmumask/" class="pending">마스크팩</a>
-</nav>
-<main>
-  <div class="placeholder">
-    <h1>써니팡 — 작업 진행중</h1>
-    <p>완료되는 대로 이 페이지에 채워집니다.</p>
-  </div>
-</main>
+<div style="width:1000px; margin:0 auto; background:#F7F3EC; color:#23211E; overflow:hidden;">
+
+  <section data-screen-label="01 Hero" style="position:relative; width:1000px; height:1400px; background:#EFE7DC;">
+    <img src="images/img01.jpg" alt="현관 신발장 위 옐로우 팩트를 집어드는 아이" style="position:absolute; inset:0; display:block; width:1000px; height:1400px; object-fit:cover;">
+    <div style="position:absolute; inset:0; background:radial-gradient(ellipse 62% 42% at 100% 0%, rgba(247,243,236,0.92), rgba(247,243,236,0.6) 45%, rgba(247,243,236,0) 78%); pointer-events:none;"></div>
+    <img src="images/img02.png" alt="cocoheali" style="position:absolute; top:64px; right:72px; z-index:1; width:150px; height:auto;">
+    <div style="position:absolute; top:170px; right:72px; z-index:1; display:flex; flex-direction:column; align-items:flex-end; gap:28px; text-align:right;">
+      <h1 style="margin:0; font-size:54px; line-height:1.3; letter-spacing:-0.05em; font-weight:500; color:#23211E;"><span style="display:block; white-space:nowrap;">언제 어디든</span><span style="display:block; white-space:nowrap;">메고다니는</span><span style="display:block; white-space:nowrap; font-weight:700;">나만의 <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600; font-size:64px; letter-spacing:-0.01em; color:#8B5A83;">Sun Pact</span></span></h1>
+    </div>
+    <div style="position:absolute; bottom:130px; right:72px; z-index:1; display:flex; flex-direction:column; align-items:flex-end; gap:10px;">
+      <span style="padding:13px 28px; border-radius:999px; background:#8B5A83; border:1.5px solid #8B5A83; box-shadow:0 8px 20px rgba(60,40,70,0.22), 0 2px 6px rgba(60,40,70,0.14); font-size:20px; font-weight:700; letter-spacing:-0.01em; color:#FFFFFF; white-space:nowrap;">SPF50+ / PA++++</span>
+      <span style="padding:10px 22px; border-radius:999px; background:rgba(247,243,236,0.92); border:1.5px solid #8B5A83; box-shadow:0 8px 20px rgba(60,40,70,0.22), 0 2px 6px rgba(60,40,70,0.14); font-size:16px; font-weight:700; letter-spacing:-0.01em; color:#8B5A83; white-space:nowrap;">무기자차 선크림</span>
+      <span style="padding:13px 28px; border-radius:999px; background:#8B5A83; border:1.5px solid #8B5A83; box-shadow:0 8px 20px rgba(60,40,70,0.22), 0 2px 6px rgba(60,40,70,0.14); font-size:20px; font-weight:700; letter-spacing:-0.01em; color:#FFFFFF; white-space:nowrap;">22g 빅쿠션</span>
+      <span style="padding:10px 22px; border-radius:999px; background:rgba(247,243,236,0.92); border:1.5px solid #8B5A83; box-shadow:0 8px 20px rgba(60,40,70,0.22), 0 2px 6px rgba(60,40,70,0.14); font-size:16px; font-weight:700; letter-spacing:-0.01em; color:#8B5A83; white-space:nowrap;">식약청 자외선차단 기능성 심사필</span>
+    </div>
+  </section>
+
+  <section data-screen-label="02 페인포인트" style="width:1000px; background:#F1EADD; padding:150px 64px 140px; display:flex; flex-direction:column; align-items:center; gap:28px;">
+    <h2 style="margin:0; text-align:center; font-size:42px; line-height:1.45; letter-spacing:-0.04em; font-weight:700;"><span style="display:block; white-space:nowrap;">수시로 발라야 하는 선크림,</span><span style="display:block; white-space:nowrap; font-family:'Gowun Batang', serif;">가방 속에만 있으면 언제 바르죠?</span></h2>
+    <p style="margin:0; max-width:560px; text-align:center; font-size:17px; line-height:2; color:#4A4540;">다시 바르는 습관은, 아이 손이 쉽게 닿는 곳에서 시작됩니다.</p>
+    <img src="images/img03.gif" alt="아이가 팩트를 집어드는 순간" style="margin-top:46px; display:block; width:872px; height:auto;">
+  </section>
+
+  <section data-screen-label="02-2 UGC 콜라주" style="width:1000px; background:#F7F3EC; padding:150px 64px 140px;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:22px; margin-bottom:64px;">
+      <p style="margin:0; text-align:center; font-size:19px; line-height:1.8; color:#4A4540;">엄마가 해주지 않아도 알아서</p>
+      <h2 style="margin:0; text-align:center; font-size:42px; line-height:1.42; letter-spacing:-0.04em; font-weight:700; white-space:nowrap;">열고, 묻히고, <span style="font-family:'Gowun Batang', serif; font-size:56px; color:#8B5A83;">톡톡</span></h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:28px; align-items:stretch;">
+      <div style="display:flex; flex-direction:column; justify-content:space-between; gap:28px; padding-top:40px;">
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(-1.4deg);">
+          <img src="images/img04.gif" alt="실제 고객 후기 영상" style="display:block; width:100%; height:auto;">
+        </div>
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(1deg); margin-left:18px;">
+          <img src="images/img05.gif" alt="실제 고객 후기 영상" style="display:block; width:100%; height:auto;">
+        </div>
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(-0.6deg);">
+          <img src="images/img06.jpg" alt="케이스를 열어 거울을 보는 실제 고객 컷" style="display:block; width:100%; height:auto;">
+        </div>
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(1.2deg); margin-right:16px;">
+          <img src="images/img07.jpg" alt="수영장 옆에서 바르는 실제 고객 컷" style="display:block; width:100%; height:auto;">
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:space-between; gap:28px; padding:0 0 20px;">
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(0.8deg);">
+          <img src="images/img08.jpg" alt="아이가 팩트를 열어 거울을 보는 실제 고객 컷" style="display:block; width:100%; height:auto;">
+        </div>
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(-1deg); margin-right:14px;">
+          <img src="images/img09.gif" alt="실제 고객 후기 영상" style="display:block; width:100%; height:auto;">
+        </div>
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(1.3deg); margin-left:10px;">
+          <img src="images/img10.jpg" alt="퍼프로 뺨에 바르는 실제 고객 컷" style="display:block; width:100%; height:auto;">
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:space-between; gap:28px; padding-top:70px;">
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(1.6deg);">
+          <img src="images/img11.gif" alt="실제 고객 후기 영상" style="display:block; width:100%; height:auto;">
+        </div>
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(-0.8deg); margin-left:12px;">
+          <img src="images/img12.gif" alt="실제 고객 후기 영상" style="display:block; width:100%; height:auto;">
+        </div>
+        <div style="padding:10px; background:#FFFFFF; box-shadow:0 10px 28px rgba(60,45,30,0.10); transform:rotate(1deg);">
+          <img src="images/img13.gif" alt="실제 고객 후기 영상" style="display:block; width:100%; height:auto;">
+        </div>
+      </div>
+    </div>
+    <p style="margin:24px 0 0; text-align:right; font-size:12px; color:#8A837B;">실제 구매 고객 후기</p>
+  </section>
+
+  <section data-screen-label="03 제품" style="width:1000px; background:#F7F3EC; padding:150px 64px 150px;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:26px; margin-bottom:72px;">
+      <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:22px; color:#8B5A83;">No waiting, no mess</span>
+      <h2 style="margin:0; text-align:center; font-size:42px; line-height:1.42; letter-spacing:-0.04em; font-weight:700;">바르자마자,<br><span style="font-family:'Gowun Batang', serif;">바로 뛰어나가도 돼요.</span></h2>
+    </div>
+    <img src="images/img14.gif" alt="써니팡 텍스처" style="display:block; width:100%; height:auto; margin-bottom:72px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div style="background:#F1EADD; padding:36px 34px 32px; display:flex; flex-direction:column; gap:20px;">
+        <span style="font-size:14px; font-weight:700; color:#6E6862;">유기자차 — 흡수된 뒤 작용</span>
+        
+          <img src="images/img15.jpg" alt="유기자차 자외선 흡수 도식" style="display:block; width:100%; height:auto; mix-blend-mode:multiply;">
+        
+        <span style="margin-top:-14px; text-align:center; font-size:16px; line-height:1.8; color:#4A4540;">흡수될 때까지 기다려야 해요.</span>
+      </div>
+      <div style="background:#F1EADD; padding:36px 34px 32px; display:flex; flex-direction:column; gap:20px; border:1px solid #C4A9BE;">
+        <span style="display:flex; align-items:center; gap:10px; font-size:14px; font-weight:700; color:#8B5A83;"><span style="flex:none; width:24px; height:24px; border-radius:50%; background:#8B5A83; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true"><path d="M3.5 8.5 L6.8 11.5 L12.5 4.8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>무기자차 써니팡 — 표면에서 반사</span>
+        
+          <img src="images/img16.jpg" alt="무기자차 자외선 반사·산란 도식" style="display:block; width:100%; height:auto; mix-blend-mode:multiply;">
+        
+        <span style="margin-top:-14px; text-align:center; font-size:16px; line-height:1.8; color:#23211E;">바른 즉시 차단, 흐르거나 묻지 않아요.</span>
+      </div>
+    </div>
+    <div style="position:relative; width:1000px; margin:96px -64px 0;">
+      <img src="images/img17.jpg" alt="써니팡 팩트 쿠션과 텍스처 클로즈업" style="display:block; width:1000px; height:auto;">
+      <div style="position:absolute; left:0; right:0; bottom:0; height:220px; background:linear-gradient(0deg, #F7F3EC 0%, rgba(247,243,236,0.85) 30%, rgba(247,243,236,0) 100%); pointer-events:none;"></div>
+      <div style="position:absolute; left:64px; top:64px; display:flex; flex-direction:column; align-items:flex-start; gap:14px;">
+        <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:300; font-size:18px; letter-spacing:0.08em; color:#8B5A83; white-space:nowrap;">Moisture Care</span>
+        <span style="width:40px; height:1px; background:#3A3630; opacity:0.5;"></span>
+        <p style="margin:0; font-family:'Gowun Batang', serif; font-weight:400; font-size:26px; line-height:1.65; letter-spacing:-0.02em; color:#2E2B27;"><span style="font-weight:700;">글리세린·비타민E 함유</span>로<br>하루종일 촉촉함이 남아요</p>
+      </div>
+      <svg viewBox="0 0 1000 1000" width="1000" height="1000" style="position:absolute; inset:0; pointer-events:none;" fill="none" aria-hidden="true">
+        <circle cx="484" cy="572" r="34" stroke="#6E6862" stroke-width="1.5" stroke-dasharray="4 5"></circle>
+        <path d="M470 606 L446 676" stroke="#6E6862" stroke-width="1.5" stroke-dasharray="4 5"></path>
+        <circle cx="446" cy="680" r="3.5" fill="#6E6862"></circle>
+      </svg>
+      <span style="position:absolute; left:390px; top:694px; padding:6px 14px; background:rgba(255,255,255,0.85); font-size:15px; letter-spacing:-0.02em; color:#3A3630; white-space:nowrap;">비타민 앰플</span>
+    </div>
+    <div style="margin-top:-40px; position:relative; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center;">
+      <span style="font-size:24px; line-height:1.5; letter-spacing:-0.03em; font-weight:400; color:#4A4540;">무기자차로 차단하면서도</span>
+      <span style="font-size:32px; line-height:1.4; letter-spacing:-0.04em; font-weight:400; color:#23211E; white-space:nowrap;"><span style="font-weight:800;"><span style="color:#8B5A83; font-size:38px;">보습</span>까지 챙긴</span> 선쿠션</span>
+    </div>
+    <div style="margin-top:96px; display:flex; flex-direction:column; align-items:center; gap:18px;">
+      <img src="images/img18.jpg" alt="물기 있는 팔에 퍼프로 바르는 클로즈업" style="display:block; width:100%; max-width:760px; margin:0 0 30px; height:auto; border-radius:4px;">
+      <span style="font-size:26px; font-weight:700; letter-spacing:-0.03em; color:#23211E;">흘리지 않고, 묻지 않게</span>
+      <p style="margin:0; max-width:760px; text-align:center; font-size:17px; line-height:1.95; color:#4A4540;">액체형 선크림처럼 흐르거나 손에 묻지 않고, 퍼프로 톡톡 묻혀<br>물기가 있는 피부 위에서도 밀리지 않고 고르게 발립니다.</p>
+    </div>
+
+  </section>
+
+  <section data-screen-label="03-2 Why" style="width:1000px; background:#F1EADD; padding:150px 64px 150px; display:flex; flex-direction:column; align-items:center;">
+    <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:26px; color:#8B5A83;">Why?</span>
+    <h2 style="margin:20px 0 0; text-align:center; font-size:42px; line-height:1.42; letter-spacing:-0.04em; font-weight:700;">아이들 선제품은<br><span style="font-family:'Gowun Batang', serif;">더 꼼꼼하게 선택해야 할까요?</span></h2>
+    <p style="margin:32px 0 0; max-width:600px; text-align:center; font-size:18px; line-height:1.9; color:#4A4540;">아이 피부는 아직 피부장벽이 여려서,<br>자외선차단제도 더 꼼꼼하게 골라야 해요.</p>
+    <div style="position:relative; width:600px; height:520px; margin-top:80px;">
+      <svg viewBox="0 0 600 520" width="600" height="520" style="position:absolute; inset:0;" fill="none" aria-hidden="true"><path d="M300 75 L75 445 L525 445 Z" stroke="#C4A9BE" stroke-width="1.5"></path></svg>
+      <div style="position:absolute; left:225px; top:0px; width:150px; height:150px; border-radius:50%; background:#F7F3EC; border:1px solid #8B5A83; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; letter-spacing:-0.03em; color:#23211E;">저자극</div>
+      <div style="position:absolute; left:0px; top:370px; width:150px; height:150px; border-radius:50%; background:#F7F3EC; border:1px solid #8B5A83; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; letter-spacing:-0.03em; color:#23211E;">보습</div>
+      <div style="position:absolute; left:450px; top:370px; width:150px; height:150px; border-radius:50%; background:#F7F3EC; border:1px solid #8B5A83; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; letter-spacing:-0.03em; color:#23211E;">즉시차단</div>
+    </div>
+    <p style="margin:72px 0 0; text-align:center; font-family:'Gowun Batang', serif; font-size:24px; line-height:1.7; font-weight:700; color:#3A3630;">식약처 인증 + 저자극 테스트를 거친 이유예요.</p>
+    <svg viewBox="0 0 24 60" width="24" height="60" style="margin-top:22px;" fill="none" aria-hidden="true"><path d="M12 2 L12 54 M4 46 L12 55 L20 46" stroke="#8B5A83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div style="margin-top:30px; width:100%; display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
+      <div style="background:#F7F3EC; border:1px solid #DCD3C4; padding:26px 18px; display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;"><span style="flex:none; width:28px; height:28px; border-radius:50%; background:#8B5A83; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" aria-hidden="true"><path d="M3.5 8.5 L6.8 11.5 L12.5 4.8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size:17px; line-height:1.55; font-weight:700; letter-spacing:-0.03em; color:#23211E;">피부 저자극 테스트 완료</span></div>
+      <div style="background:#F7F3EC; border:1px solid #DCD3C4; padding:26px 18px; display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;"><span style="flex:none; width:28px; height:28px; border-radius:50%; background:#8B5A83; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" aria-hidden="true"><path d="M3.5 8.5 L6.8 11.5 L12.5 4.8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size:17px; line-height:1.55; font-weight:700; letter-spacing:-0.03em; color:#23211E;">글리세린·비타민E로<br>보습까지</span></div>
+      <div style="background:#F7F3EC; border:1px solid #DCD3C4; padding:26px 18px; display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;"><span style="flex:none; width:28px; height:28px; border-radius:50%; background:#8B5A83; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" aria-hidden="true"><path d="M3.5 8.5 L6.8 11.5 L12.5 4.8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size:17px; line-height:1.55; font-weight:700; letter-spacing:-0.03em; color:#23211E;">SPF50+/PA++++<br>완벽 차단</span></div>
+    </div>
+  </section>
+
+  <section data-screen-label="04 인증" style="width:1000px; background:#F7F3EC; padding:150px 64px 150px;">
+    <h2 style="margin:0 0 72px; text-align:center; font-size:42px; line-height:1.46; letter-spacing:-0.035em; font-weight:700;"><span style="display:block; white-space:nowrap;">식약처가 인정한 자외선차단이라,</span><span style="display:block; white-space:nowrap; font-family:'Gowun Batang', serif; font-weight:400;">아이에게 맡길 수 있습니다.</span></h2>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:96px; margin-bottom:96px;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:14px; width:100%;">
+        <img src="images/img19.jpg" alt="KOTITI 시험연구원 유해성분 불검출 시험성적서" style="display:block; width:100%; max-width:820px; height:auto;">
+        <span style="margin-top:16px; font-size:24px; font-weight:700; letter-spacing:-0.03em; color:#23211E;">16가지 유해성분 없음</span>
+        <span style="font-size:15px; color:#6E6862;">KOTITI 시험연구원 확인</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:14px; width:100%;">
+        <img src="images/img20.jpg" alt="한국피부과학연구원 피부 일차 자극 시험 결과" style="display:block; width:100%; max-width:820px; height:auto;">
+        <span style="margin-top:16px; font-size:24px; font-weight:700; letter-spacing:-0.03em; color:#23211E;">피부 저자극 테스트 완료</span>
+        <span style="font-size:15px; color:#6E6862;">한국피부과학연구원 피부 일차 자극 시험 (2022.05)</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; border-top:1px solid #DCD3C4;">
+      <div style="display:grid; grid-template-columns:260px 1fr; gap:32px; padding:30px 0; border-bottom:1px solid #DCD3C4;">
+        <span style="font-size:18px; font-weight:700; color:#8B5A83;">식약처 기능성 심사필</span>
+        <span style="font-size:16px; line-height:1.8; color:#4A4540;">SPF50+ / PA++++ 자외선차단 기능성 정식 인증</span>
+      </div>
+      <div style="display:grid; grid-template-columns:260px 1fr; gap:32px; padding:30px 0; border-bottom:1px solid #DCD3C4;">
+        <span style="font-size:18px; font-weight:700; color:#8B5A83;">무기자차</span>
+        <span style="font-size:16px; line-height:1.8; color:#4A4540;">징크옥사이드 · 유기자차 성분 무첨가</span>
+      </div>
+      <div style="display:grid; grid-template-columns:260px 1fr; gap:32px; padding:30px 0; border-bottom:1px solid #DCD3C4;">
+        <span style="font-size:18px; font-weight:700; color:#8B5A83;">알러젠 프리 향료</span>
+        <span style="font-size:16px; line-height:1.8; color:#4A4540;">식약처·EU 지정 알레르기 유발 의심 향료 배제</span>
+      </div>
+    </div>
+    <p style="margin:24px 0 0; font-size:12px; line-height:1.8; color:#8A837B;">※ 피부 자극 시험은 성인 대상으로 진행되었습니다.</p>
+    <div style="margin-top:88px; padding:64px 56px 60px; background:#F1EADD; border:1px solid #DCD3C4; display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;">
+      <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:20px; color:#8B5A83;">Reef friendly</span>
+      <h3 style="margin:0; font-size:34px; line-height:1.45; letter-spacing:-0.04em; font-weight:700; color:#23211E;"><span style="color:#8B5A83;">친환경</span> 생각한다면,<br><span style="font-family:'Gowun Batang', serif;">무기 자외선 차단제 사용</span></h3>
+      <p style="margin:0; max-width:640px; font-size:17px; line-height:2; color:#4A4540;">선크림에 유기 자외선 차단 성분으로 흔히 쓰이는 성분인 ‘옥시벤존’과 ‘옥티녹세이트’가 <strong style="color:#23211E;">바닷속 산호초에 유전자 문제를 일으켜 점점 색을 잃다 죽게 되고,</strong> 이로 인해 해양 생물들의 서식처도 망가지면서 <strong style="color:#23211E;">바다 생물들이 살기 힘든 환경</strong>을 만든대요.</p>
+      <span style="width:48px; height:1px; background:#C4A9BE;"></span>
+      <p style="margin:0; font-family:'Gowun Batang', serif; font-size:21px; line-height:1.8; font-weight:700; color:#3A3630;">코코힐리 써니팡 팩트는<br><span style="color:#8B5A83;">해양 오염 걱정 없이</span> 바닷가에서도 안심하고 사용하세요!</p>
+      <div style="margin-top:18px; display:flex; flex-direction:column; align-items:center; gap:10px;">
+        <span style="font-size:14px; letter-spacing:-0.01em; color:#6E6862;">지구와 나를 위한 안전한 선크림 선택</span>
+        <span style="font-size:24px; font-weight:700; letter-spacing:-0.03em; color:#23211E;">해양생태계를 파괴하는 성분 확인!</span>
+      </div>
+      <div style="display:flex; gap:28px;">
+        <div style="position:relative; width:150px; height:150px; border-radius:50%; border:3px solid #8B5A83; background:#F7F3EC; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; overflow:hidden;">
+          <span style="position:absolute; left:50%; top:50%; width:170px; height:3px; background:#8B5A83; transform:translate(-50%,-50%) rotate(-45deg);"></span>
+          <span style="position:relative; font-size:16px; font-weight:700; color:#23211E; background:#F7F3EC; padding:0 4px;">옥시벤존</span>
+          <span style="position:relative; font-size:11px; letter-spacing:0.06em; color:#6E6862; background:#F7F3EC; padding:0 4px;">OXYBENZONE</span>
+        </div>
+        <div style="position:relative; width:150px; height:150px; border-radius:50%; border:3px solid #8B5A83; background:#F7F3EC; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; overflow:hidden;">
+          <span style="position:absolute; left:50%; top:50%; width:170px; height:3px; background:#8B5A83; transform:translate(-50%,-50%) rotate(-45deg);"></span>
+          <span style="position:relative; font-size:16px; font-weight:700; color:#23211E; background:#F7F3EC; padding:0 4px;">옥티녹세이트</span>
+          <span style="position:relative; font-size:11px; letter-spacing:0.06em; color:#6E6862; background:#F7F3EC; padding:0 4px;">OCTINOXATE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="04-2 Heali Nissi Complex" style="width:1000px; background:#F7F3EC; padding:0 64px 150px;">
+    <div style="padding:64px 56px 48px; background:#FFFFFF; border:1px solid #DCD3C4; display:flex; flex-direction:column; align-items:center;">
+      <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:30px; color:#8B5A83;">Heali Nissi Complex™</span>
+      <h3 style="margin:14px 0 0; text-align:center; font-size:30px; line-height:1.45; letter-spacing:-0.04em; font-weight:700; color:#23211E;">5가지 새싹 추출물</h3>
+      <div style="margin-top:44px; width:100%; display:flex; flex-direction:column; border-top:1px solid #DCD3C4;">
+        <div style="display:grid; grid-template-columns:260px 1fr; gap:32px; padding:26px 0; border-bottom:1px solid #DCD3C4;"><span style="font-size:18px; font-weight:700; color:#23211E;">별꽃추출물</span><span style="font-size:16px; line-height:1.8; color:#4A4540;">피부 진정</span></div>
+        <div style="display:grid; grid-template-columns:260px 1fr; gap:32px; padding:26px 0; border-bottom:1px solid #DCD3C4;"><span style="font-size:18px; font-weight:700; color:#23211E;">브로콜리싹추출물</span><span style="font-size:16px; line-height:1.8; color:#4A4540;">항산화 케어</span></div>
+        <div style="display:grid; grid-template-columns:260px 1fr; gap:32px; padding:26px 0; border-bottom:1px solid #DCD3C4;"><span style="font-size:18px; font-weight:700; color:#23211E;">브루셀스프라우트추출물</span><span style="font-size:16px; line-height:1.8; color:#4A4540;">피부 컨디셔닝</span></div>
+        <div style="display:grid; grid-template-columns:260px 1fr; gap:32px; padding:26px 0; border-bottom:1px solid #DCD3C4;"><span style="font-size:18px; font-weight:700; color:#23211E;">유채싹추출물</span><span style="font-size:16px; line-height:1.8; color:#4A4540;">수분 공급 · 보습</span></div>
+        <div style="display:grid; grid-template-columns:260px 1fr; gap:32px; padding:26px 0; border-bottom:1px solid #DCD3C4;"><span style="font-size:18px; font-weight:700; color:#23211E;">해바라기싹추출물</span><span style="font-size:16px; line-height:1.8; color:#4A4540;">피부장벽 보호</span></div>
+      </div>
+      <p style="margin:22px 0 0; align-self:flex-start; font-size:12px; line-height:1.8; color:#8A837B;">※ 상기 내용은 원료적 특성에 한함</p>
+    </div>
+  </section>
+
+  <section data-screen-label="05 활용법" style="width:1000px; background:#F1EADD; padding:150px 64px 140px;">
+    <h2 style="margin:0 0 76px; text-align:center; font-size:42px; line-height:1.42; letter-spacing:-0.04em; font-weight:700;">이제, 다시 바를 시간도<br><span style="font-family:'Gowun Batang', serif;">스스로.</span></h2>
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <img src="images/img21.jpg" alt="현관에서 케이스를 집어드는 순간" style="display:block; width:100%; height:380px; object-fit:cover; object-position:62% 50%;">
+        <span style="font-size:18px; font-weight:700;">등원 전 준비물로</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <img src="images/img22.jpg" alt="스트랩을 메고 배드민턴을 치는 아이" style="display:block; width:100%; height:380px; object-fit:cover; object-position:center 30%;">
+        <span style="font-size:18px; font-weight:700;">신나게 놀다가</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <img src="images/img23.jpg" alt="수영장 옆에서 바르는 컷" style="display:block; width:100%; height:380px; object-fit:cover; object-position:center 40%;">
+        <span style="font-size:18px; font-weight:700;">물놀이 전/후</span>
+      </div>
+    </div>
+    <p style="margin:72px auto 0; max-width:600px; text-align:center; font-family:'Gowun Batang', serif; font-size:22px; line-height:1.8; font-weight:700; color:#3A3630;">스트랩을 메고 있으면, 생각난 순간<br>아이가 직접 꺼내 다시 발라요.</p>
+  </section>
+
+  <section data-screen-label="02-3 스트랩" style="position:relative; width:1000px; height:1160px; background:#F7F3EC;">
+    <img src="images/img24.jpg" alt="스트랩에 매달린 민트·옐로우 써니팡 팩트" style="position:absolute; top:0; left:0; display:block; width:1000px; height:1000px; object-fit:cover;">
+    <div style="position:absolute; left:0; right:0; top:760px; height:240px; background:linear-gradient(0deg, #F7F3EC 0%, rgba(247,243,236,0) 100%); pointer-events:none;"></div>
+    <div style="position:absolute; left:0; right:0; bottom:40px; display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;">
+      <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:22px; color:#8B5A83;">Wear it, reach it</span>
+      <h2 style="margin:0; font-size:40px; line-height:1.4; letter-spacing:-0.04em; font-weight:700; color:#23211E; white-space:nowrap;">크로스백처럼 메고, <span style="font-family:'Gowun Batang', serif;">생각나면 바로.</span></h2>
+    </div>
+  </section>
+
+  <section data-screen-label="02-4 스트랩 착용" style="width:1000px; background:#F7F3EC; padding:80px 24px 150px; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+    <img src="images/img25.jpg" alt="크로스백처럼 스트랩을 멘 아이" style="display:block; width:100%; height:auto;">
+    <img src="images/img26.jpg" alt="현관 신발장 위 팩트를 집어드는 아이" style="display:block; width:100%; height:auto;">
+    <div style="grid-column:1 / span 2; margin-top:48px; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center;">
+      <span style="font-size:24px; line-height:1.5; letter-spacing:-0.03em; font-weight:700; color:#23211E;">세계 최초 <span style="color:#8B5A83;">끈달린 팩트</span> 특허</span>
+      <span style="font-size:14px; line-height:1.6; color:#6E6862;">(리본 달린팩트용기_제 30-2021-0013295호)</span>
+    </div>
+  </section>
+
+  <section data-screen-label="02-6 어디서나" style="width:1000px; background:#F7F3EC; padding:130px 0 0;">
+    <h2 style="margin:0 0 80px; text-align:center; font-size:40px; line-height:1.45; letter-spacing:-0.04em; font-weight:700;"><span style="display:block; white-space:nowrap;">세상에 하나뿐인</span><span style="display:block; white-space:nowrap; font-family:'Gowun Batang', serif;">나만의 팩트로 어디서든 <span style="font-size:54px; color:#8B5A83;">톡톡!</span></span></h2>
+    <img src="images/img27.jpg" alt="꾸민 팩트를 메고 해변을 걷는 아이" style="display:block; width:1000px; height:auto;">
+  </section>
+
+  <section data-screen-label="02-5 케이스 완성하기" style="position:relative; width:1000px; height:1250px; background:#F7F3EC;">
+    <img src="images/img28.jpg" alt="바다와 모래로 꾸민 써니팡 팩트 케이스" style="position:absolute; top:0; left:0; display:block; width:1000px; height:1250px; object-fit:cover;">
+    <div style="position:absolute; left:0; right:0; top:0; height:460px; background:linear-gradient(180deg, #F7F3EC 0%, rgba(247,243,236,0.9) 45%, rgba(247,243,236,0.6) 70%, rgba(247,243,236,0) 100%); pointer-events:none;"></div>
+    <div style="position:absolute; left:0; right:0; bottom:0; height:200px; background:linear-gradient(0deg, #F7F3EC 0%, rgba(247,243,236,0) 100%); pointer-events:none;"></div>
+    <div style="position:absolute; left:0; right:0; top:44px; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center;">
+      <p style="margin:0; font-size:20px; line-height:1.7; letter-spacing:-0.03em; color:#4A4540;">내가 멜거니까 나만의 팩꾸 -</p>
+      <h2 style="margin:0; font-size:44px; line-height:1.35; letter-spacing:-0.04em; font-weight:400; color:#23211E; white-space:nowrap;">나만의 <span style="font-family:'Gowun Batang', serif; font-weight:700; color:#8B5A83;">애착팩트</span> 완성하기</h2>
+      <span style="margin-top:6px; font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600; font-size:28px; color:#8B5A83;">Make it Yours</span>
+    </div>
+  </section>
+
+  <section data-screen-label="02-5b 큐브네일" style="position:relative; z-index:1; width:1000px; padding:0 64px; margin-top:-250px;">
+    <div style="background:rgba(255,255,255,0.42); backdrop-filter:blur(3px); border:1px solid rgba(255,255,255,0.8); padding:56px 48px 44px; display:flex; flex-direction:column; align-items:center; gap:30px; box-shadow:0 14px 40px rgba(60,45,30,0.08);">
+      <p style="margin:0; text-align:center; font-size:22px; line-height:1.7; letter-spacing:-0.03em; font-weight:700; color:#23211E;"><span style="color:#8B5A83;">9가지 다양한 색상</span>의 큐브네일로<br>나만의 팩트 케이스를 완성해보세요</p>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; width:100%;">
+        <img src="images/img29.png" alt="큐브네일 드림" style="display:block; width:100%; height:auto; mix-blend-mode:multiply;">
+        <img src="images/img30.png" alt="큐브네일 러브" style="display:block; width:100%; height:auto; mix-blend-mode:multiply;">
+        <img src="images/img31.png" alt="큐브네일 샤인" style="display:block; width:100%; height:auto; mix-blend-mode:multiply;">
+      </div>
+      <span style="font-size:13px; color:#6E6862;">※ 큐브네일(드림캔디/러브캔디/샤인팝) 별도 구매</span>
+    </div>
+  </section>
+
+  <section data-screen-label="02-5c 리필 호환" style="width:1000px; margin-top:150px; background:#F1EADD; padding:140px 64px 140px; display:flex; flex-direction:column; align-items:center;">
+    <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:22px; color:#8B5A83;">Refill</span>
+    <h2 style="margin:18px 0 0; text-align:center; font-size:40px; line-height:1.42; letter-spacing:-0.04em; font-weight:700;">크림팡 · 써니팡,<br><span style="font-family:'Gowun Batang', serif;">리필은 서로 호환돼요</span></h2>
+    <div style="margin-top:80px; display:flex; align-items:flex-start; justify-content:center; gap:4px;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:22px; width:220px;"><div style="width:200px; height:200px;"><img src="images/img32.gif" alt="크림팡 핑크 케이스 리필 교체" style="display:block; width:200px; height:200px;"></div><span style="font-size:18px; font-weight:700; letter-spacing:-0.03em; color:#23211E; white-space:nowrap;">크림팡 팩트</span></div>
+      <svg viewBox="0 0 70 16" width="70" height="16" style="flex:none; margin-top:92px;" fill="none" aria-hidden="true"><path d="M3 8 L67 8 M59 2 L67 8 L59 14 M11 2 L3 8 L11 14" stroke="#8B5A83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <div style="display:flex; flex-direction:column; align-items:center; width:180px; padding-top:20px;"><div style="width:160px; height:160px; border-radius:50%; background:#F7F3EC; border:1.5px solid #8B5A83; display:flex; align-items:center; justify-content:center; overflow:hidden; font-size:22px; font-weight:700; letter-spacing:-0.03em; color:#8B5A83;">리필</div></div>
+      <svg viewBox="0 0 70 16" width="70" height="16" style="flex:none; margin-top:92px;" fill="none" aria-hidden="true"><path d="M3 8 L67 8 M59 2 L67 8 L59 14 M11 2 L3 8 L11 14" stroke="#8B5A83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:22px; width:220px;"><div style="width:200px; height:200px;"><img src="images/img33.gif" alt="써니팡 옐로우 케이스 리필 교체" style="display:block; width:200px; height:200px;"></div><span style="font-size:18px; font-weight:700; letter-spacing:-0.03em; color:#23211E; white-space:nowrap;">써니팡 팩트</span></div>
+    </div>
+    <p style="margin:64px 0 0; width:100%; text-align:center; font-family:'Gowun Batang', serif; font-size:22px; line-height:1.8; font-weight:700; color:#3A3630;">익숙해진 케이스는 그대로,<br>다 쓰면 리필만 교체하세요.</p>
+  </section>
+
+  <section data-screen-label="06 리뷰" style="width:1000px; background:#F7F3EC; padding:150px 64px 126px;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:18px; margin-bottom:64px;">
+      <span style="font-family:'Cormorant Garamond', serif; font-style:italic; font-size:22px; color:#8B5A83;">Real Reviews</span>
+      <h2 style="margin:0; text-align:center; font-size:42px; line-height:1.42; letter-spacing:-0.04em; font-weight:700;">먼저 써본 엄마들의<br><span style="font-family:'Gowun Batang', serif; font-weight:400;">솔직한 후기</span></h2>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:24px; min-width:0;">
+        <div style="background:#FFFFFF; padding:30px 30px 32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; gap:10px;"><span style="font-size:15px; letter-spacing:2px; color:#8B5A83;">★★★★★</span><span style="margin-left:auto; font-size:13px; color:#9A938B;">hyes****** · 26.05.05.</span></div>
+          <img src="images/img35.jpg" alt="고객 리뷰 사진" style="display:block; width:100%; aspect-ratio:6 / 5; object-fit:cover;">
+          <p style="margin:0; font-size:16px; line-height:1.8; color:#23211E;">선크림 브랜드별로 특히 아토피 민감피부용 영유아용 다 사용해봤는데 하루도 못가 피부뒤집어지는 아이예요.<br>이 제품은 발진이 없어 계속 재구매중입니다.</p>
+          <div style="background:#F7F3EC; padding:12px 14px; font-size:13px; line-height:1.6; color:#6E6862;"><b style="font-weight:700; color:#23211E;">아이</b> 9세 · <b style="font-weight:700; color:#23211E;">피부관심사</b> 아토피</div>
+          <span style="font-size:12px; color:#9A938B;">상품을 선택해주세요: 코코힐리 써니팡 팩트 옐로우(본품)</span>
+        </div>
+        <div style="background:#FFFFFF; padding:30px 30px 32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; gap:10px;"><span style="font-size:15px; letter-spacing:2px; color:#8B5A83;">★★★★★</span><span style="margin-left:auto; font-size:13px; color:#9A938B;">prac*** · 26.07.19.</span></div>
+          <p style="margin:0; font-size:16px; line-height:1.8; color:#23211E;">발림성이좋고 아이가쓰기좋아요<br>무엇보다 목걸이가잇어서 외부에서도 잘쓸수잇어요</p>
+          <div style="background:#F7F3EC; padding:12px 14px; font-size:13px; line-height:1.6; color:#6E6862;"><b style="font-weight:700; color:#23211E;">아이</b> 16개월 · <b style="font-weight:700; color:#23211E;">피부관심사</b> 발진 · 민감성 · <b style="font-weight:700; color:#23211E;">발색정도</b> 잘 나와요</div>
+          <span style="font-size:12px; color:#9A938B;">상품을 선택해주세요: 써니팡 팩트 옐로우(본품)</span>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:24px; min-width:0;">
+        <div style="background:#FFFFFF; padding:30px 30px 32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; gap:10px;"><span style="font-size:15px; letter-spacing:2px; color:#8B5A83;">★★★★★</span><span style="font-size:11px; font-weight:700; color:#8B5A83; border:1px solid #C4A9BE; padding:2px 7px; border-radius:3px;">한달사용</span><span style="margin-left:auto; font-size:13px; color:#9A938B;">ps**** · 25.07.22.</span></div>
+          <img src="images/img36.jpg" alt="고객 리뷰 사진" style="display:block; width:100%; aspect-ratio:6 / 5; object-fit:cover;">
+          <p style="margin:0; font-size:16px; line-height:1.8; color:#23211E;">어짜피 사야할 선크림이라면 성분도 좋고 이쁘기까지하니 얼마나 좋아요<br>애들이 직접 바를수 잇어 더 좋네여</p>
+          <div style="background:#F7F3EC; padding:12px 14px; font-size:13px; line-height:1.6; color:#6E6862;"><b style="font-weight:700; color:#23211E;">아이 피부관심사</b> 건조</div>
+          <span style="font-size:12px; color:#9A938B;">썬팩트 컬러 선택: 01. 레몬 + 리필 2개입</span>
+        </div>
+        <div style="background:#FFFFFF; padding:30px 30px 32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; gap:10px;"><span style="font-size:15px; letter-spacing:2px; color:#8B5A83;">★★★★★</span><span style="margin-left:auto; font-size:13px; color:#9A938B;">rkda********* · 26.05.03.</span></div>
+          <img src="images/img37.jpg" alt="고객 리뷰 사진" style="display:block; width:100%; aspect-ratio:6 / 5; object-fit:cover;">
+          <p style="margin:0; font-size:16px; line-height:1.8; color:#23211E;">아기자기 한게 여름에 아이들에게 들고 나갈수 있는 끈이 있어서 매고 다니기 좋네요</p>
+          <span style="font-size:12px; color:#9A938B;">상품을 선택해주세요: 코코힐리 써니팡 팩트 옐로우(본품)</span>
+        </div>
+        <div style="background:#FFFFFF; padding:30px 30px 32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; gap:10px;"><span style="font-size:15px; letter-spacing:2px; color:#8B5A83;">★★★★★</span><span style="font-size:11px; font-weight:700; color:#8B5A83; border:1px solid #C4A9BE; padding:2px 7px; border-radius:3px;">한달사용</span><span style="margin-left:auto; font-size:13px; color:#9A938B;">swat**** · 26.07.07.</span></div>
+          <p style="margin:0; font-size:16px; line-height:1.8; color:#23211E;">발림성이 너무좋아요<br>선물로 강추</p>
+          <span style="font-size:12px; color:#9A938B;">상품을 선택해주세요: 코코힐리 써니팡 팩트 옐로우(본품)</span>
+        </div>
+        <div style="background:#FFFFFF; padding:30px 30px 32px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; gap:10px;"><span style="font-size:15px; letter-spacing:2px; color:#8B5A83;">★★★★★</span><span style="font-size:11px; font-weight:700; color:#8B5A83; border:1px solid #C4A9BE; padding:2px 7px; border-radius:3px;">한달사용</span><span style="margin-left:auto; font-size:13px; color:#9A938B;">ar**** · 26.06.25.</span></div>
+          <p style="margin:0; font-size:16px; line-height:1.8; color:#23211E;">아이가 매일 단장합니다<br>물세안해도 잔여물없고 좋아요</p>
+          <span style="font-size:12px; color:#9A938B;">상품을 선택해주세요: 코코힐리 써니팡 팩트 옐로우(본품)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="07 FAQ" style="width:1000px; background:#F1EADD; padding:150px 64px 150px;">
+    <h2 style="margin:0 0 64px; text-align:center; font-family:'Cormorant Garamond', serif; font-style:italic; font-size:44px; font-weight:400; color:#8B5A83;">Q &amp; A</h2>
+    <div style="display:flex; flex-direction:column; border-top:1px solid #DCD3C4;">
+      <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:40px; padding:32px 0; border-bottom:1px solid #DCD3C4;">
+        <span style="font-size:18px; font-weight:700; line-height:1.6;">몇 살부터 사용하면 좋을까요?</span>
+        <span style="font-size:16px; line-height:1.85; color:#4A4540;">만 3세 이상부터 권장합니다.</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:40px; padding:32px 0; border-bottom:1px solid #DCD3C4;">
+        <span style="font-size:18px; font-weight:700; line-height:1.6;">얼마나 자주 발라야 하나요?</span>
+        <span style="font-size:16px; line-height:1.85; color:#4A4540;">야외활동 중, 땀을 흘렸을 때, 물놀이 후 수시로 덧발라 주세요.</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:40px; padding:32px 0; border-bottom:1px solid #DCD3C4;">
+        <span style="font-size:18px; font-weight:700; line-height:1.6;">향이 있나요?</span>
+        <span style="font-size:16px; line-height:1.85; color:#4A4540;">네, 알레르기 유발 의심 성분을 배제한 향료를 사용했어요.</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:40px; padding:32px 0; border-bottom:1px solid #DCD3C4;">
+        <span style="font-size:18px; font-weight:700; line-height:1.6;">어른이 써도 괜찮을까요?</span>
+        <span style="font-size:16px; line-height:1.85; color:#4A4540;">네, 가족 모두 함께 쓸 수 있어요.</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:40px; padding:32px 0; border-bottom:1px solid #DCD3C4;">
+        <span style="font-size:18px; font-weight:700; line-height:1.6;">리필도 가능한가요?</span>
+        <span style="font-size:16px; line-height:1.85; color:#4A4540;">네, 리필만 교체하면 돼요. 크림팡 팩트 케이스와도 호환됩니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="08 CTA" style="width:1000px; background:#EFE7DC; padding:150px 64px 140px; display:flex; flex-direction:column; align-items:center;">
+    <div style="font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:300; font-size:84px; line-height:1.1; color:#8B5A83; white-space:nowrap;">Me do it</div>
+    <h2 style="margin:18px 0 0; text-align:center; font-size:40px; line-height:1.3; letter-spacing:-0.04em; font-weight:700;">나도 해볼래</h2>
+    <p style="margin:28px 0 0; max-width:560px; text-align:center; font-family:'Gowun Batang', serif; font-size:21px; line-height:1.8; font-weight:700; color:#3A3630;">작은 손으로 시작한 오늘의 습관이<br>평생 자신을 돌보는 태도가 된다.</p>
+    <div style="margin-top:72px; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:14px; padding:36px 24px; background:#F7F3EC;">
+        <img src="images/img38.jpg" alt="써니팡 팩트 옐로우" style="display:block; width:100%; max-width:300px; height:auto;">
+        <span style="font-size:17px; font-weight:700;">옐로우</span>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:14px; padding:36px 24px; background:#F7F3EC;">
+        <img src="images/img39.jpg" alt="써니팡 팩트 민트" style="display:block; width:100%; max-width:300px; height:auto;">
+        <span style="font-size:17px; font-weight:700;">민트</span>
+      </div>
+    </div>
+    <span style="margin-top:56px; font-size:16px; color:#4A4540;">38,000원 · 22g · 옐로우 / 민트</span>
+    <a href="#" style="margin-top:32px; padding:24px 64px; border-radius:999px; background:#8B5A83; color:#FFFFFF; font-size:18px; font-weight:700; letter-spacing:-0.02em; white-space:nowrap;" style-hover="background:#6E3F94;">지금, 써니팡 시작하기</a>
+  </section>
+
+  
+    <section data-screen-label="제품 정보" style="width:1000px; background:#F7F3EC; padding:120px 64px 96px;">
+      <h3 style="margin:0 0 40px; font-size:26px; font-weight:700; letter-spacing:-0.03em;">상품정보 제공고시</h3>
+      <div style="display:flex; flex-direction:column; border-top:1px solid #DCD3C4; font-size:14px; line-height:1.85; color:#3A3630;">
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:28px; padding:18px 4px; border-bottom:1px solid #E5DDD0;"><span style="font-weight:700; color:#8B5A83;">제품명</span><span>코코힐리 써니팡 팩트</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr 150px 1fr; column-gap:28px; row-gap:18px; padding:18px 4px; border-bottom:1px solid #E5DDD0;">
+          <span style="font-weight:700; color:#8B5A83;">용량 및 중량</span><span>22g Net Wt 0.77 oz.</span>
+          <span style="font-weight:700; color:#8B5A83;">제품 주요 사양</span><span>모든 피부용</span>
+          <span style="font-weight:700; color:#8B5A83;">사용기간<br>(개봉 후 사용기간)</span><span>2028년 7월 24일<br>(개봉 후 12개월)</span>
+          <span style="font-weight:700; color:#8B5A83;">효능·효과</span><span>자외선으로부터 피부 보호<br>(SPF50+ / PA++++)</span>
+          <span style="font-weight:700; color:#8B5A83;">식품의약품안전처<br>심사필 유무</span><span>자외선 차단 기능성</span>
+          <span style="font-weight:700; color:#8B5A83;">용법·용량</span><span>본 품 적당량을 취하여 피부에 골고루 펴 바른다</span>
+          <span style="font-weight:700; color:#8B5A83;">제조업자 및<br>책임판매업자</span><span>제품내 별도 표기 / ㈜퍼플러스</span>
+          <span style="font-weight:700; color:#8B5A83;">제조국</span><span>한국</span>
+        </div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:28px; padding:18px 4px; border-bottom:1px solid #E5DDD0;"><span style="font-weight:700; color:#8B5A83;">전성분</span><span style="font-size:13px; color:#6E6862;">정제수, 징크옥사이드, 페닐트라이메티콘, 카프릴릴메티콘, 트라이헵타노인, 메틸트라이메티콘, 부틸옥틸살리실레이트, 글리세린, 프로판다이올, 폴리글리세릴-4다이아이소스테아레이트/폴리하이드록시스테아레이트/세바케이트, 메틸메타크릴레이트크로스폴리머, 다이아이소스테아릴말레이트, 별꽃추출물, 브로콜리싹추출물, 브루셀스프라우트추출물, 유채싹추출물, 해바라기싹추출물, 쌀겨오일, 마그네슘설페이트, 트라이에톡시카프릴릴실레인, 부틸렌글라이콜, 다이스테아다이모늄헥토라이트, 폴리글리세릴-6폴리리시놀리에이트, 폴리글리세릴-5폴리리시놀리에이트, 1,2-헥산다이올, 솔비탄카프릴레이트, 글리세릴카프릴레이트, 에틸헥실글리세린, 다이카프릴릴카보네이트, 카프릴릴글라이콜, 토코페롤, 락토바실러스발효물, 레티닐팔미테이트, 바이오플라보노이드, 아스코빅애씨드, 헤스페리딘, 향료, 황색산화철</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:28px; padding:18px 4px; border-bottom:1px solid #E5DDD0;"><span style="font-weight:700; color:#8B5A83;">사용방법</span><span>퍼프에 적당량을 취해 얼굴과 몸에 톡톡 두드리며 발라줍니다. 야외활동 시 수시로 덧발라 줍니다.</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:28px; padding:18px 4px; border-bottom:1px solid #E5DDD0;"><span style="font-weight:700; color:#8B5A83;">사용시 주의사항</span><span style="display:flex; flex-direction:column;"><span>1. 화장품 사용 시 또는 사용 후 직사광선에 의하여 사용부위가 붉은 반점, 부어오름 또는 가려움증 등의 이상 증상이나 부작용이 있는 경우 전문의 등과 상담할 것</span><span>2. 상처가 있는 부위 등에는 사용을 자제할 것</span><span>3. 보관 및 취급 시의 주의사항</span><span style="padding-left:16px;">1) 어린이의 손이 닿지 않는 곳에 보관할 것</span><span style="padding-left:16px;">2) 직사광선을 피해서 보관할 것</span></span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:28px; padding:18px 4px; border-bottom:1px solid #E5DDD0;"><span style="font-weight:700; color:#8B5A83;">품질보증기준</span><span>본 상품에 이상이 있을 경우 공정거래위원회 고시 ‘소비자 분쟁해결기준’에 의하여 보상해 드립니다. 소비자 취급 부주의 또는 품질보증기간이 경과된 제품은 피해 보상의 책임을 지지 않습니다.</span></div>
+        <div style="display:grid; grid-template-columns:180px 1fr; gap:28px; padding:18px 4px; border-bottom:1px solid #DCD3C4;"><span style="font-weight:700; color:#8B5A83;">소비자상담 전화번호</span><span>02-3662-1318</span></div>
+      </div>
+    </section>
+  
+
+</div>
 </body>
 </html>
